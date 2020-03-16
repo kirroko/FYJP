@@ -34,7 +34,6 @@ public class WeaponManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            dir = GetComponent<SimpleMovement>().dir;
             WeaponData currentWeapon = weaponList[weaponIndex];
 
             if (currentWeapon.isAOE)
@@ -82,6 +81,7 @@ public class WeaponManager : MonoBehaviour
 
 
         }
+        dir = GetComponent<SimpleMovement>().dir;
         Debug.Log("Current Weapon Index: " + weaponIndex);
         Debug.DrawLine(transform.position, transform.position + new Vector3(dir, 0f, 0f) * weaponList[weaponIndex].reach);
     }

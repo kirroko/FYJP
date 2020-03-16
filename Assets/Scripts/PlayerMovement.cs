@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rigi2d = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<CircleCollider2D>();
+        playerCollider = GetComponent<Collider2D>();
         dashCooldownActual = dashCooldown;
     }
 

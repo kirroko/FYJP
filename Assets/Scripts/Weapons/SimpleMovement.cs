@@ -7,13 +7,13 @@ public class SimpleMovement : MonoBehaviour
 
     private void Update()
     {
-        Vector3 tempPos = transform.position;
+        //Vector3 tempPos = transform.position;
 
         if (Input.GetAxisRaw("Horizontal") != 0)
             dir = Input.GetAxisRaw("Horizontal");
 
-        tempPos.x += Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime;
+        //tempPos.x += Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime;
 
-        transform.position = tempPos;
+        //transform.position = tempPos;
     }
 }

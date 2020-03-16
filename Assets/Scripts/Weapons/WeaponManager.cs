@@ -43,12 +43,19 @@ public class WeaponManager : MonoBehaviour
 
                 foreach (Collider2D hit in results)
                 {
-                    //Enemy enemy = hit.collider.GetComponent<Enemy>();
+                    Ai enemyAI = hit.GetComponent<Ai>();
 
-                    //if(enemy != null)
-                    //{
-                    //    enemey.takedamage();
-                    //}
+                    if (enemyAI != null)
+                    {
+                        enemyAI.TakeDamage(currentWeapon.damage);
+                    }
+
+                    AiPatrol enemyPatrol = hit.GetComponent<AiPatrol>();
+
+                    if (enemyPatrol != null)
+                    {
+                        enemyPatrol.TakeDamage(currentWeapon.damage);
+                    }
                 }
             }
             else
@@ -57,19 +64,24 @@ public class WeaponManager : MonoBehaviour
 
                 foreach (RaycastHit2D hit in results)
                 {
-                    //Enemy enemy = hit.collider.GetComponent<Enemy>();
+                    Ai enemyAI = hit.collider.GetComponent<Ai>();
 
-                    //if(enemy != null)
-                    //{
-                    //    enemey.takedamage();
-                    //}
+                    if (enemyAI != null)
+                    {
+                        enemyAI.TakeDamage(currentWeapon.damage);
+                    }
+
+                    AiPatrol enemyPatrol = hit.collider.GetComponent<AiPatrol>();
+
+                    if (enemyPatrol != null)
+                    {
+                        enemyPatrol.TakeDamage(currentWeapon.damage);
+                    }
                 }
             }
 
 
         }
-        dir = GetComponent<SimpleMovement>().dir;
-
         Debug.Log("Current Weapon Index: " + weaponIndex);
         Debug.DrawLine(transform.position, transform.position + new Vector3(dir, 0f, 0f) * weaponList[weaponIndex].reach);
     }

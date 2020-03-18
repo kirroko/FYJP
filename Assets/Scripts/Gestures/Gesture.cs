@@ -17,4 +17,10 @@ public class Gesture : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     { 
     }
+
+    public void OnPressed()
+    {
+        // Do parry
+        Debug.Log("Parry");
+    }
 }

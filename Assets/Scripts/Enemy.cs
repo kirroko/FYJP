@@ -25,6 +25,12 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        // Rotate towards target
+        Vector2 dir = target.transform.position - transform.position;
+        Vector3 rotateVectorToTarget = Quaternion.Euler(0, 0, 90) * dir;
+        Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, rotateVectorToTarget);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 500);
+
         if (actualShootCooldown > shootCooldown && target != null)
         {
             actualShootCooldown = 0;

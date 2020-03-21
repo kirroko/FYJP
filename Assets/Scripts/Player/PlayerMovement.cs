@@ -16,18 +16,16 @@ public class PlayerMovement : MonoBehaviour
     [Header("General")]
     [SerializeField] private float minJumpDrag = 10f;
 
-    private Rigidbody2D rb = null;
-    private Rigidbody rb3D = null;
+    private Rigidbody rb = null;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb3D = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        //Vector3 targetPos = transform.position;
+        Vector3 targetPos = transform.position;
 
         //targetPos.x += input.Horizontal * moveSpeed * Time.deltaTime;
         ////For 3D
@@ -35,27 +33,28 @@ public class PlayerMovement : MonoBehaviour
 
         //if (Gesture.lastSwipe.y > minJumpDrag)
         //{
-        //    rb3D.velocity = new Vector2(rb3D.velocity.x, jumpForce);
+        //    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         //}
 
         //if (input.Horizontal < 0f)
         //    transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        //else if( input.Horizontal > 0f)
+        //else if (input.Horizontal > 0f)
         //    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
-        //transform.position = targetPos;
-        if (Gesture.lastSwipe.y > minJumpDrag)
+        targetPos.x += Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime;
+        targetPos.z += Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime;
+
+        if(Input.GetButtonDown("Jump"))
         {
-            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
-    }
 
-    private void FixedUpdate()
-    {
-        Vector3 targetVelocity = new Vector2(input.Horizontal * moveSpeed, rb.velocity.y);
-        Vector3 temp = Vector3.zero;
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref temp, dampForce);
+        if(Input.GetAxisRaw("Horizontal") < 0f)
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        else if (Input.GetAxisRaw("Horizontal") > 0f)
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
 
+        transform.position = targetPos;
     }
 }

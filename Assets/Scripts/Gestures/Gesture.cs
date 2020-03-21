@@ -9,6 +9,7 @@ public class Gesture : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public static Vector2 lastSwipe = Vector2.zero;
     public static bool pressed = false;
     public static bool tap = false;
+    public static Vector2 tapPos = Vector2.zero;
 
     private float cooldown = 0.03f;
 
@@ -39,5 +40,6 @@ public class Gesture : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
         pressed = true;
         tap = true;
+        tapPos = eventData.pressPosition;
     }
 }

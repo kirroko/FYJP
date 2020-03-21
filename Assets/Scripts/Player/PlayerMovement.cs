@@ -27,32 +27,33 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 targetPos = transform.position;
 
-        //targetPos.x += input.Horizontal * moveSpeed * Time.deltaTime;
-        ////For 3D
-        //targetPos.z += input.Vertical * moveSpeed * Time.deltaTime;
+        targetPos.x += input.Horizontal * moveSpeed * Time.deltaTime;
+        //For 3D
+        targetPos.z += input.Vertical * moveSpeed * Time.deltaTime;
 
-        //if (Gesture.lastSwipe.y > minJumpDrag)
-        //{
-        //    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        //}
-
-        //if (input.Horizontal < 0f)
-        //    transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        //else if (input.Horizontal > 0f)
-        //    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-
-        targetPos.x += Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime;
-        targetPos.z += Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime;
-
-        if(Input.GetButtonDown("Jump"))
+        if (Gesture.lastSwipe.y > minJumpDrag)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
-        if(Input.GetAxisRaw("Horizontal") < 0f)
+        if (input.Horizontal < 0f)
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        else if (Input.GetAxisRaw("Horizontal") > 0f)
+        else if (input.Horizontal > 0f)
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+        //For PC
+        //targetPos.x += Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime;
+        //targetPos.z += Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime;
+
+        //if(Input.GetButtonDown("Jump"))
+        //{
+        //    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        //}
+
+        //if(Input.GetAxisRaw("Horizontal") < 0f)
+        //    transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        //else if (Input.GetAxisRaw("Horizontal") > 0f)
+        //    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
 
         transform.position = targetPos;

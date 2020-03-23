@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 2524107201753342307}
   - component: {fileID: 2524107201753342304}
   - component: {fileID: 2524107201753342305}
-  - component: {fileID: 2524107201753342310}
+  - component: {fileID: 1630330445430724708}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -184,7 +184,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
---- !u!114 &2524107201753342310
+--- !u!114 &1630330445430724708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,5 +198,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 0}
   rigi2d: {fileID: 0}
-  rollVelocity: 50
-  turnSpeed: 700
+  rollVelocity: 100
+  turnSpeed: 50

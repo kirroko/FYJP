@@ -17,6 +17,7 @@ public class PatrolAI : AI
 
     private void Update()
     {
+        if (stun) return;
         if (!Physics2D.Raycast(transform.position + new Vector3(collider.bounds.extents.x * dir.x, 0f, 0f), Vector2.down, collider.bounds.extents.y + 0.1f, groundMask))
         {
             dir.x = -dir.x;

@@ -5,6 +5,7 @@ public class AI : MonoBehaviour
 {
     [SerializeField] private float health = 100f;
     [SerializeField] private TextMeshProUGUI healthText = null;
+    public bool stun = false;
 
     public void TakeDamage(float damage)
     {

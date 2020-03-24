@@ -57,57 +57,53 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        //xInput = input.Horizontal;
+        xInput = input.Horizontal;
         //xInput = Input.GetAxisRaw("Horizontal");
-        test = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (test.x != 0f)
-            direction.x = test.x;
-        //if (!isGrounded)
-        //    xInput *= 0.5f;
+        //test = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        //if (xInput != 0f)
-        //    direction.x = xInput;
+        if (!isGrounded)
+            xInput *= 0.5f;
 
-        ////Jumping
-        //if(jumpButton.tap && isGrounded)
-        //{
-        //    rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-        //}
-        //if (jumpButton.pressed && !isGrounded && rb.velocity.y < 0f && !smash)
-        //    rb.drag = glideDrag;
-        //else if (!jumpButton.pressed)
-        //    rb.drag = 0f;
+        //Jumping
+        if (jumpButton.tap && isGrounded)
+        {
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        }
+        if (jumpButton.pressed && !isGrounded && rb.velocity.y < 0f && !smash)
+            rb.drag = glideDrag;
+        else if (!jumpButton.pressed)
+            rb.drag = 0f;
 
-        ////Dash
-        //if (dashButton.tap)
-        //    Dash();
+        //Dash
+        if (dashButton.tap)
+            Dash();
 
-        //if(smashButton.tap)
-        //{
-        //    ++tapNum;
-        //}
-        //if (tapNum > 0)
-        //    doubleTapCount -= Time.deltaTime;
+        if (smashButton.tap)
+        {
+            ++tapNum;
+        }
+        if (tapNum > 0)
+            doubleTapCount -= Time.deltaTime;
 
-        //if(doubleTapCount <= 0f)
-        //{
-        //    ResetSmash();
-        //}
-        //else if(tapNum >= 2)
-        //{
-        //    smash = true;
-        //    rb.drag = 0f;
-        //    rb.gravityScale = 10f;
-        //    ResetSmash();
-        //}
+        if (doubleTapCount <= 0f)
+        {
+            ResetSmash();
+        }
+        else if (tapNum >= 2)
+        {
+            smash = true;
+            rb.drag = 0f;
+            rb.gravityScale = 10f;
+            ResetSmash();
+        }
 
         //PC
         //if (Input.GetButtonDown("Jump"))
         //    Jump();
         //if (Input.GetButtonUp("Jump"))
         //    rb.drag = 0f;
-        if (Input.GetKeyDown(KeyCode.E))
-            Dash();
+        //if (Input.GetKeyDown(KeyCode.E))
+        //    Dash();
 
         //if(Input.GetKeyDown(KeyCode.P))
         //{
@@ -134,9 +130,15 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + 0.1f, groundLayer);
 
-        Vector2 targetVelocity = rb.velocity + new Vector2(test.x * moveSpeed, rb.velocity.y);
-        Vector2 temp = Vector2.zero;
-        rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref temp, dampForce);
+        Vector2 targetVel = rb.velocity;
+
+        targetVel.x += xInput * moveSpeed;
+        //targetVel.x += test.x * moveSpeed;
+        targetVel.x *= 1f - dampForce;
+        if (targetVel.y > 0f)
+            targetVel.y *= 1f - dampForce;
+        rb.velocity = targetVel;
+
     }
 
     public void Jump()
@@ -151,31 +153,30 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 direction = Vector3.zero;
 
-        ////Move Right
-        //if (input.Direction.x > 0.5f)
-        //    direction.x = 1f;
-        //else if (input.Direction.x < -0.5f)
-        //    direction.x = -1f;
-
-        //if (input.Direction.y > 0.5f)
-        //    direction.y = 1f;
-        //else if (input.Direction.y < -0.5f)
-        //    direction.y = -1f;
         //Move Right
-        if (test.x > 0.5f)
+        if (input.Direction.x > 0.5f)
             direction.x = 1f;
-        else if (test.x < -0.5f)
+        else if (input.Direction.x < -0.5f)
             direction.x = -1f;
 
-        if (test.y > 0.5f)
+        if (input.Direction.y > 0.5f)
             direction.y = 1f;
-        else if (test.y < -0.5f)
+        else if (input.Direction.y < -0.5f)
             direction.y = -1f;
 
-        rb.AddForce(direction * dashSpeed, ForceMode2D.Impulse);
-
         //PC
-        //rb.AddForce(new Vector2(dashSpeed * direction.x, 0f), ForceMode2D.Impulse);
+        //Move Right
+        //if (test.x > 0.5f)
+        //    direction.x = 1f;
+        //else if (test.x < -0.5f)
+        //    direction.x = -1f;
+
+        //if (test.y > 0.5f)
+        //    direction.y = 1f;
+        //else if (test.y < -0.5f)
+        //    direction.y = -1f;
+
+        rb.velocity = direction * dashSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

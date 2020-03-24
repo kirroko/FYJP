@@ -845,10 +845,10 @@ MonoBehaviour:
   enemiesLayer:
     serializedVersion: 2
     m_Bits: 512
-  moveSpeed: 5
-  dashSpeed: 10
-  dragForce: 0.3
-  jumpForce: 8
+  moveSpeed: 2
+  dashSpeed: 30
+  dampForce: 0.2
+  jumpForce: 7.5
   maxBounce: 5
   addBounce: 0.5
   glideDrag: 10
@@ -1687,7 +1687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1692827640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1809,7 +1809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1723068138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150cc53df9343cf4c96cf62c03495861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 7.5
+  bounceForce: 20
 --- !u!61 &1723068139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2035,7 +2035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1918587639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2048,7 +2048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150cc53df9343cf4c96cf62c03495861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 7.5
+  bounceForce: 20
 --- !u!61 &1918587640
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     private Camera followCamera;
     [SerializeField]
-    public Rigidbody2D target;
+    public Rigidbody target;
 
     public float startDistance;
     public float endDistance;
@@ -93,7 +93,7 @@ public class CameraFollow : MonoBehaviour
         switch (style)
         {
             case FollowStyle.SNAP_FOLLOW:
-                followCamera.transform.position = new Vector3(target.position.x,target.position.y,0) + offset + Quaternion.Euler(rotation) * Vector3.back * distance;
+                followCamera.transform.position = target.position + offset + Quaternion.Euler(rotation) * Vector3.back * distance;
                 break;
             case FollowStyle.SMOOTH_FOLLOW:
                 if (target.velocity.magnitude > 0)
@@ -105,7 +105,7 @@ public class CameraFollow : MonoBehaviour
                 {
                     followTimer = Mathf.Clamp01(followTimer + Time.deltaTime * followMultipler);
                 }
-                followCamera.transform.position = Vector3.Lerp(startPos, new Vector3(target.position.x,target.position.y,0) + offset + Quaternion.Euler(rotation) * Vector3.back * distance, followTimer);
+                followCamera.transform.position = Vector3.Lerp(startPos, target.position + offset + Quaternion.Euler(rotation) * Vector3.back * distance, followTimer);
                 break;
         }
     }

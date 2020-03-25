@@ -3,6 +3,17 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Joystick GetInput
+    {
+        get { return input; }
+    }
+
+    public HoldButton GetJumpButton
+    {
+        get { return jumpButton; }
+    }
+
+
     [Header("References")]
     [SerializeField] private Joystick input = null;
     [SerializeField] private HoldButton jumpButton = null;
@@ -180,7 +191,7 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing /*&& targetVel.magnitude <= 5f*/)
         {
             isSlowedDown = true;
-            if(Time.timeScale != 0.5f)
+            if (Time.timeScale != 0.5f)
                 Time.fixedDeltaTime *= 0.5f;
             Time.timeScale = 0.5f;
         }
@@ -194,7 +205,7 @@ public class PlayerMovement : MonoBehaviour
 
         Bounce bounce = collision.gameObject.GetComponent<Bounce>();
 
-        if(bounce != null)
+        if (bounce != null)
         {
             //Bounce Boost still continues after chain them and they jump on same object 
             //Check if collided object is below you && not bouncing on the same object twice
@@ -211,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
             bounceBoost = 0f;
         }
 
-        if(contact.normal.y > 0f)
+        if (contact.normal.y > 0f)
         {
             smash = false;
             rb.gravityScale = 2f;

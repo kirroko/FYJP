@@ -5,6 +5,7 @@ public class VerticalPlatform : MonoBehaviour
 {
     [SerializeField] private Joystick input = null;
     [SerializeField] private HoldButton jump = null;
+    [SerializeField] private HoldButton dash = null;
 
     private PlatformEffector2D effector;
     public float waitTime;
@@ -16,6 +17,7 @@ public class VerticalPlatform : MonoBehaviour
         effector = GetComponent<PlatformEffector2D>();
         input = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().GetInput;
         jump = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().GetJumpButton;
+        dash = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().GetDashButton;
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class VerticalPlatform : MonoBehaviour
             }
         }
 
-        if (jump.tap) // when jumping rest the effector
+        if (jump.tap || dash.tap) // when jumping rest the effector
             effector.rotationalOffset = 0;
     }
 }

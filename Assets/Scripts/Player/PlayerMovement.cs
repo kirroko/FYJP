@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
         get { return jumpButton; }
     }
 
+    public HoldButton GetDashButton
+    {
+        get { return dashButton; }
+    }
 
     [Header("References")]
     [SerializeField] private Joystick input = null;
@@ -55,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     //Dashing
     private bool isDashing = false;
     private float dashCD = 0f;
+    private bool hasChain = false;
     private bool isSlowedDown = false;
     private float slowDownCD = 0.5f;
     private float timeAfterDash = 0f;
@@ -64,8 +69,8 @@ public class PlayerMovement : MonoBehaviour
     private float bounceBoost = 1f;
 
     //Gliding
-    private bool isGliding = false;
-    private float glideMultiplier = 1f;
+    //private bool isGliding = false;
+    //private float glideMultiplier = 1f;
 
     //Smash
     private HoldButton smashButton = null;
@@ -101,15 +106,15 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
-        if (jumpButton.pressed && !isGrounded && rb.velocity.y < 0f && !smash)
-        {
-            glideMultiplier = glideDrag;
-            isGliding = true;
-        }
-        else if (!jumpButton.pressed)
-        {
-            ResetGlide();
-        }
+        //if (jumpButton.pressed && !isGrounded && rb.velocity.y < 0f && !smash)
+        //{
+        //    glideMultiplier = glideDrag;
+        //    isGliding = true;
+        //}
+        //else if (!jumpButton.pressed)
+        //{
+        //    ResetGlide();
+        //}
 
         //Dash
         if (dashButton.tap)
@@ -129,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         else if (tapNum >= 2)
         {
             smash = true;
-            ResetGlide();
+            //ResetGlide();
             rb.gravityScale = 10f;
             ResetSmash();
         }
@@ -170,14 +175,13 @@ public class PlayerMovement : MonoBehaviour
             Time.fixedDeltaTime *= 2f;
             slowDownCD = slowCDDuration;
             isSlowedDown = false;
-            ResetDash();
+            ResetDash(false, false);
         }
     }
 
     private void FixedUpdate()
     {
-        if(rb.velocity.y < 0f)
-            isGrounded = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + 0.1f, groundLayer);
+        isGrounded = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + 0.1f, groundLayer);
 
         Vector2 targetVel = rb.velocity;
 
@@ -186,10 +190,10 @@ public class PlayerMovement : MonoBehaviour
         targetVel.x *= 1f - dampForce;
         if (targetVel.y > 0f)
             targetVel.y *= 1f - dampForce;
-        if (targetVel.y < 0f && isGliding)
-            targetVel.y *= 1f - glideDrag;
+        //if (targetVel.y < 0f && isGliding)//For Gliding
+        //    targetVel.y *= 1f - glideDrag;
 
-        if (isDashing /*&& targetVel.magnitude <= 5f*/)
+        if (isDashing && hasChain)
         {
             isSlowedDown = true;
             if (Time.timeScale != 0.5f)
@@ -286,14 +290,15 @@ public class PlayerMovement : MonoBehaviour
         tapNum = 0;
     }
 
-    private void ResetGlide()
-    {
-        isGliding = false;
-    }
+    //private void ResetGlide()
+    //{
+    //    isGliding = false;
+    //}
 
-    public void ResetDash()
+    public void ResetDash(bool chaining, bool dashing)
     {
-        isDashing = false;
+        hasChain = chaining;
+        isDashing = dashing;
         dashCD = 0f;
     }
 

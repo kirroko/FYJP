@@ -12,7 +12,7 @@ public class ChainDash : MonoBehaviour
             {
                 Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
                 player.GetComponent<Rigidbody2D>().velocity = collision.relativeVelocity;
-                player.ResetDash();
+                player.ResetDash(true, true);
                 Destroy(gameObject);
             }
         }

@@ -176,7 +176,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + 0.1f, groundLayer);
+        if(rb.velocity.y < 0f)
+            isGrounded = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + 0.1f, groundLayer);
 
         Vector2 targetVel = rb.velocity;
 

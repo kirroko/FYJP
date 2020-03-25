@@ -8,11 +8,12 @@ public class ChainDash : MonoBehaviour
 
         if(player != null)
         {
-            if(player.IsDashing() && player.GetComponent<Rigidbody2D>().velocity.magnitude > 1f)
+            if(player.IsDashing() && collision.relativeVelocity.magnitude > 10f)
             {
-                Debug.Log("go thru");
                 Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+                player.GetComponent<Rigidbody2D>().velocity = collision.relativeVelocity;
                 player.ResetDash();
+                Destroy(gameObject);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Dashing")]
     [SerializeField] private float dashCDDuration = 1f;
+    [SerializeField] private float slowCDDuration = 1f;
 
     [Header("Bouncing")]
     [SerializeField] private float maxBounce = 4f;
@@ -42,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
     //Dashing
     private bool isDashing = false;
     private float dashCD = 0f;
+    private bool isSlowedDown = false;
+    private float slowDownCD = 0.5f;
+    private float timeAfterDash = 0f;
 
     //Bouncing
     private GameObject bounceObject = null;
@@ -57,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
     private float doubleTapCount = 0.2f;
     private int tapNum = 0;
 
+    [Header("TBR")]
+    public TextMeshProUGUI cooldown = null;
     private Vector2 test;
 
     private void Start()
@@ -64,11 +71,14 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
         smashButton = jumpButton;
+        cooldown.text = "0";
+        slowDownCD = slowCDDuration;
     }
 
     private void Update()
     {
         dashCD -= Time.deltaTime;
+        cooldown.text = dashCD.ToString("F2");
 
         //Get Input
         xInput = input.Horizontal;
@@ -126,20 +136,31 @@ public class PlayerMovement : MonoBehaviour
         //    smash = true;
         //}
 
-        //if (smash)
-        //{
-        //    Vector2 center = collider.bounds.center - new Vector3(0f, collider.bounds.extents.y, 0f);
-        //    Collider2D[] results =  Physics2D.OverlapBoxAll(center, smashBox, 0f, enemiesLayer);
-        //    foreach (Collider2D result in results)
-        //        Destroy(result.gameObject);
+        if (smash)
+        {
+            Vector2 center = collider.bounds.center - new Vector3(0f, collider.bounds.extents.y, 0f);
+            Collider2D[] results = Physics2D.OverlapBoxAll(center, smashBox, 0f, enemiesLayer);
+            foreach (Collider2D result in results)
+                Destroy(result.gameObject);
 
-        //    results =  Physics2D.OverlapBoxAll(center, stunBox, 0f, enemiesLayer);
-        //    foreach (Collider2D result in results)
-        //    {
-        //        if (result.GetComponent<AI>() != null)
-        //            result.GetComponent<AI>().stun = true;
-        //    }
-        //}
+            results = Physics2D.OverlapBoxAll(center, stunBox, 0f, enemiesLayer);
+            foreach (Collider2D result in results)
+            {
+                if (result.GetComponent<AI>() != null)
+                    result.GetComponent<AI>().stun = true;
+            }
+        }
+
+        if (isSlowedDown)
+            slowDownCD -= Time.unscaledDeltaTime;
+        if (slowDownCD <= 0f)
+        {
+            Time.timeScale = 1f;
+            Time.fixedDeltaTime *= 2f;
+            slowDownCD = slowCDDuration;
+            isSlowedDown = false;
+            ResetDash();
+        }
     }
 
     private void FixedUpdate()
@@ -155,8 +176,16 @@ public class PlayerMovement : MonoBehaviour
             targetVel.y *= 1f - dampForce;
         if (targetVel.y < 0f && isGliding)
             targetVel.y *= 1f - glideDrag;
-        rb.velocity = targetVel;
 
+        if (isDashing /*&& targetVel.magnitude <= 5f*/)
+        {
+            isSlowedDown = true;
+            if(Time.timeScale != 0.5f)
+                Time.fixedDeltaTime *= 0.5f;
+            Time.timeScale = 0.5f;
+        }
+
+        rb.velocity = targetVel;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

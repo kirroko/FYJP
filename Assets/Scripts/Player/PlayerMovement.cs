@@ -15,12 +15,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dampForce = 0.05f;
     [SerializeField] private float jumpForce = 5f;
 
+    [Header("Dashing")]
+    [SerializeField] private float dashCDDuration = 1f;
+
     [Header("Bouncing")]
     [SerializeField] private float maxBounce = 4f;
     [SerializeField] private float addBounce = 0.5f;
 
     [Header("Gliding")]
-    [SerializeField] private float glideDrag = 3f;
+    [SerializeField] private float glideDrag = 1f;
 
     [Header("Smash")]
     [SerializeField] private Vector2 smashBox = Vector2.zero;
@@ -36,9 +39,17 @@ public class PlayerMovement : MonoBehaviour
     //Jumping
     private bool isGrounded = false;
 
+    //Dashing
+    private bool isDashing = false;
+    private float dashCD = 0f;
+
     //Bouncing
     private GameObject bounceObject = null;
     private float bounceBoost = 1f;
+
+    //Gliding
+    private bool isGliding = false;
+    private float glideMultiplier = 1f;
 
     //Smash
     private HoldButton smashButton = null;
@@ -57,12 +68,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        dashCD -= Time.deltaTime;
+
+        //Get Input
         xInput = input.Horizontal;
         //xInput = Input.GetAxisRaw("Horizontal");
         //test = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-        if (!isGrounded)
-            xInput *= 0.5f;
 
         //Jumping
         if (jumpButton.tap && isGrounded)
@@ -70,9 +81,14 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
         if (jumpButton.pressed && !isGrounded && rb.velocity.y < 0f && !smash)
-            rb.drag = glideDrag;
+        {
+            glideMultiplier = glideDrag;
+            isGliding = true;
+        }
         else if (!jumpButton.pressed)
-            rb.drag = 0f;
+        {
+            ResetGlide();
+        }
 
         //Dash
         if (dashButton.tap)
@@ -92,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         else if (tapNum >= 2)
         {
             smash = true;
-            rb.drag = 0f;
+            ResetGlide();
             rb.gravityScale = 10f;
             ResetSmash();
         }
@@ -137,46 +153,10 @@ public class PlayerMovement : MonoBehaviour
         targetVel.x *= 1f - dampForce;
         if (targetVel.y > 0f)
             targetVel.y *= 1f - dampForce;
+        if (targetVel.y < 0f && isGliding)
+            targetVel.y *= 1f - glideDrag;
         rb.velocity = targetVel;
 
-    }
-
-    public void Jump()
-    {
-        if(isGrounded)
-        {
-            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-        }
-    }
-
-    public void Dash()
-    {
-        Vector2 direction = Vector3.zero;
-
-        //Move Right
-        if (input.Direction.x > 0.5f)
-            direction.x = 1f;
-        else if (input.Direction.x < -0.5f)
-            direction.x = -1f;
-
-        if (input.Direction.y > 0.5f)
-            direction.y = 1f;
-        else if (input.Direction.y < -0.5f)
-            direction.y = -1f;
-
-        //PC
-        //Move Right
-        //if (test.x > 0.5f)
-        //    direction.x = 1f;
-        //else if (test.x < -0.5f)
-        //    direction.x = -1f;
-
-        //if (test.y > 0.5f)
-        //    direction.y = 1f;
-        //else if (test.y < -0.5f)
-        //    direction.y = -1f;
-
-        rb.velocity = direction * dashSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -187,20 +167,6 @@ public class PlayerMovement : MonoBehaviour
 
         if(bounce != null)
         {
-            //Once Player Jump on same object the bounce boost chain is broken
-            //Check if collided object is below you && not bouncing on the same object twice
-            //if (contact.normal.y > 0f && bounceObject != collision.gameObject)
-            //{
-            //    bounceObject = collision.gameObject;
-            //    bounceBoost = Mathf.Min(bounceBoost + addBounce, maxBounce);
-
-            //    rb.AddForce(Vector2.up * bounceBoost, ForceMode2D.Impulse);
-            //}
-            //else
-            //{
-            //  bounceBoost = 0f;
-            //}
-
             //Bounce Boost still continues after chain them and they jump on same object 
             //Check if collided object is below you && not bouncing on the same object twice
             if (contact.normal.y > 0f && bounceObject != collision.gameObject)
@@ -229,10 +195,69 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(center, stunBox);
     }
-    
+
+    public void Jump()
+    {
+        if (isGrounded)
+        {
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        }
+    }
+
+    public void Dash()
+    {
+        if (dashCD > 0f) return;
+
+        isDashing = true;
+        dashCD = dashCDDuration;
+
+        Vector2 direction = Vector3.zero;
+
+        //Move Right
+        if (input.Direction.x > 0.5f)
+            direction.x = 1f;
+        else if (input.Direction.x < -0.5f)
+            direction.x = -1f;
+
+        if (input.Direction.y > 0.5f)
+            direction.y = 1f;
+        else if (input.Direction.y < -0.5f)
+            direction.y = -1f;
+
+        //PC
+        //Move Right
+        //if (test.x > 0.5f)
+        //    direction.x = 1f;
+        //else if (test.x < -0.5f)
+        //    direction.x = -1f;
+
+        //if (test.y > 0.5f)
+        //    direction.y = 1f;
+        //else if (test.y < -0.5f)
+        //    direction.y = -1f;
+
+        rb.velocity = direction * dashSpeed;
+    }
+
     private void ResetSmash()
     {
         doubleTapCount = 0.2f;
         tapNum = 0;
+    }
+
+    private void ResetGlide()
+    {
+        isGliding = false;
+    }
+
+    public void ResetDash()
+    {
+        isDashing = false;
+        dashCD = 0f;
+    }
+
+    public bool IsDashing()
+    {
+        return isDashing;
     }
 }

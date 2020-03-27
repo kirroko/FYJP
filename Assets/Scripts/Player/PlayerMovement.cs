@@ -36,27 +36,15 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dashing")]
     [SerializeField] private float dashCDDuration = 1f;
 
-    [Header("Bouncing")]
-    [SerializeField] private float maxBounce = 4f;
-    [SerializeField] private float addBounce = 0.5f;
-
-    [Header("Gliding")]
-    [SerializeField] private float glideDrag = 1f;
-
-    [Header("Smash")]
-    [SerializeField] private Vector2 smashBox = Vector2.zero;
-    [SerializeField] private Vector2 stunBox = Vector2.zero;
-
     [Header("Wall Jump")]
     [SerializeField] private float distanceToWall = 0.5f;
     [SerializeField] private float controlCDDuration = 0.1f;
-
-    [Header("DEBUG")]
-    [SerializeField] private bool COLORJUMPERSTYLE = false;
     
 
+    //Component References
     private Rigidbody2D rb = null;
     private Collider2D collider = null;
+    private PlayerColor playerColor = null;
 
     //Movement
     private float xInput = 0f;
@@ -80,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
+        playerColor = GetComponent<PlayerColor>();
         cooldown.text = "0";
     }
 
@@ -104,7 +93,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Dash
-        if (dashButton.tap)
+        //Use this Dash when player is not blue
+        if (dashButton.tap && playerColor.GetCurrentColor.GetMain != COLORS.BLUE)
             Dash();
 
         Debug.DrawRay(transform.position, new Vector2(direction, 0) * distanceToWall, Color.red);
@@ -168,7 +158,8 @@ public class PlayerMovement : MonoBehaviour
         else if (input.Direction.y < -0.5f)
             direction.y = -1f;
 
-        rb.velocity = direction * dashSpeed;
+        rb.AddForce(direction * dashSpeed, ForceMode2D.Impulse);
+        //rb.velocity = direction * dashSpeed;
     }
 
     private bool CastRayInDirection(int direction)
@@ -188,13 +179,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Vector2 center = collider.bounds.center - new Vector3(0f, collider.bounds.extents.y, 0f);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(center, stunBox);
     }
 
     public void ResetDash()

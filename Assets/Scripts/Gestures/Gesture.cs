@@ -13,7 +13,6 @@ public class Gesture : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public static bool heldDown = false;
     public static bool tap = false;
 
-    private float tapCooldown = 0.03f;
     private float holdCooldown = 0.1f;
     private bool startPress = false;
 
@@ -21,14 +20,12 @@ public class Gesture : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     private void Update()
     {
-        if(tap)
+        if (tap)
         {
-            tapCooldown -= Time.unscaledDeltaTime;
-            if (tapCooldown <= 0f)
-                tap = false;
+            tap = false;
         }
 
-        if(startPress)
+        if (startPress)
         {
             holdCooldown -= Time.unscaledDeltaTime;
             if (holdCooldown <= 0f)
@@ -55,7 +52,6 @@ public class Gesture : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         startPress = false;
         tap = false;
         heldDown = false;
-        tapCooldown = 0.03f;
         holdCooldown = 0.1f;
         deltaPos = Vector2.zero;
         touchIndex = -1;

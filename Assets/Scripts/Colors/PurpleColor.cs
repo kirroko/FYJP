@@ -5,5 +5,4 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PurpleColor", menuName = "Colors/Purple", order = 6)]
 public class PurpleColor : WhiteColor
 {
-
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BlueColor", menuName = "Colors/Blue", order = 5)]
 public class BlueColor : WhiteColor
 {
+    [Header("Ability Related")]
     [SerializeField] private float dashSpeed = 15f;
     [SerializeField] private int maxDash = 3;
     [SerializeField] private float waitTimeDuration = 1f;
@@ -16,7 +17,6 @@ public class BlueColor : WhiteColor
     private int dashCount = 0;
     private bool hasDashed = false;
 
-    private bool once = false;
     private HoldButton dashButton = null;
     private Joystick input = null;
     private Rigidbody2D playerRB = null;
@@ -48,7 +48,7 @@ public class BlueColor : WhiteColor
     {
         once = true;
         dashButton = player.GetComponent<PlayerMovement>().GetDashButton;
-        input = player.GetComponent<PlayerMovement>().GetInput  ;
+        input = player.GetComponent<PlayerMovement>().GetInput;
         playerRB = player.GetComponent<Rigidbody2D>();
     }
 

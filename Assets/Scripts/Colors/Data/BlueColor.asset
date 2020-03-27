@@ -16,3 +16,7 @@ MonoBehaviour:
   parentColor1: 7
   parentColor2: 7
   locked: 0
+  dashSpeed: 15
+  maxDash: 3
+  waitTimeDuration: 1
+  dashCDDuration: 1

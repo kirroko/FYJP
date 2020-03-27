@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class PlayerColor : MonoBehaviour
 {
     public WhiteColor GetCurrentColor { get { return currentColor; } }
+    public GameObject GetCollidedPlatform { get { return collidedPlatform; } }
 
     [SerializeField] private ColorManager colorManager = null;
     [SerializeField] private Image colorSelection = null;
+    [SerializeField] private Image currentImage = null;
     [SerializeField] private float minX = 1f;
 
     private WhiteColor currentColor = null;
@@ -16,6 +18,8 @@ public class PlayerColor : MonoBehaviour
     private bool colorChanged = false;
 
     private COLORS index = 0;
+
+    private GameObject collidedPlatform = null;
 
     private void Start()
     {
@@ -32,7 +36,10 @@ public class PlayerColor : MonoBehaviour
         else
         {
             if(colorChanged)
+            {
                 UpdateColor(index);
+                UpdateImage();
+            }
 
             colorChanged = false;
             canChoose = false;
@@ -68,21 +75,53 @@ public class PlayerColor : MonoBehaviour
         currentColor.UpdateAbility(gameObject);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ContactPoint2D contact = collision.GetContact(0);
+
+        //Check if collided object is below 
+        if(contact.normal.y > 0f)
+        {
+            collidedPlatform = collision.gameObject;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collidedPlatform == null) return;
+
+        if (collidedPlatform.GetComponent<DamagingPlatform>() != null)
+            collidedPlatform.GetComponent<DamagingPlatform>().IsDamaging = false;
+
+        if (collidedPlatform.GetComponent<MovingPlatform>() != null)
+            collidedPlatform.GetComponent<MovingPlatform>().Charging = false;
+
+        collidedPlatform = null;
+    }
+
     private void UpdateColor(COLORS index)
     {
         foreach(WhiteColor color in colorManager.colorList.Values)
         {
-            //Player is white before choosing color
-            if (index == color.GetMain && currentColor.GetMain == COLORS.WHITE)
+            if ((index == color.GetMain && currentColor.GetMain == COLORS.WHITE)//Player is white before choosing color
+                || (IsCombination(color, currentColor.GetMain, index)))//Player has a primary color alrd
             {
                 currentColor = color;
-                Debug.Log(currentColor.name);
                 return;
             }
-            else if (IsCombination(color, currentColor.GetMain, index))
+            else if (index == color.GetMain && color.GetMain == currentColor.GetMain)//Player is primary color and chooses the same color
             {
-                currentColor = color;
-                Debug.Log(currentColor.name);
+                currentColor = colorManager.colorList[COLORS.WHITE];
+                return;
+            }
+            else if(index == currentColor.GetParent1)//Player select one of the parentcolor of player's current color
+            {
+                currentColor = colorManager.colorList[currentColor.GetParent2];
+                return;
+            }
+            else if(index == currentColor.GetParent2)//Player select the other color of the parentcolor of player's current color
+            {
+                currentColor = colorManager.colorList[currentColor.GetParent1];
                 return;
             }
         }
@@ -98,5 +137,33 @@ public class PlayerColor : MonoBehaviour
         if (currentColor == index) return false;
 
         return IsChildColor(color, currentColor) && IsChildColor(color, index);
+    }
+
+    private void UpdateImage()
+    {
+        switch(currentColor.GetMain)
+        {
+            case COLORS.BLUE:
+                currentImage.color = new Color(0f, 0f, 1f);
+                break;
+            case COLORS.GREEN:
+                currentImage.color = new Color(0f, 1f, 0f);
+                break;
+            case COLORS.ORANGE:
+                currentImage.color = new Color(1f, 0.4f, 0f);
+                break;
+            case COLORS.PURPLE:
+                currentImage.color = new Color(1f, 0f, 1f);
+                break;
+            case COLORS.RED:
+                currentImage.color = new Color(1f, 0f, 0f);
+                break;
+            case COLORS.WHITE:
+                currentImage.color = new Color(1f, 1f, 1f);
+                break;
+            case COLORS.YELLOW:
+                currentImage.color = new Color(1f, 1f, 0f);
+                break;
+        }
     }
 }

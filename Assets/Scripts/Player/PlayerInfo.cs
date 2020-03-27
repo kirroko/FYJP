@@ -11,11 +11,11 @@ public class PlayerInfo : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        //health -= damage;
 
-        healthText.text = health.ToString();
+        //healthText.text = health.ToString();
 
-        if (health <= 0f)
-            SceneManager.LoadScene(0);
+        //if (health <= 0f)
+        //    SceneManager.LoadScene(0);
     }
 }

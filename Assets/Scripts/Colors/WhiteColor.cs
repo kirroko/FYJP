@@ -29,6 +29,13 @@ public class WhiteColor : ScriptableObject
 
     [SerializeField] protected bool locked = false;
 
+    protected bool once = false;
+
+    protected virtual void OnEnable()
+    {
+        once = false;
+    }
+
     public virtual void UpdateAbility(GameObject player)
     {
     }

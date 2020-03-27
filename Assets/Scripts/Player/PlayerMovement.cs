@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
     {
         dashCD -= Time.deltaTime;
         cooldown.text = dashCD.ToString("F2");
-
+        
         controlCD -= Time.deltaTime;
         //Get Input
         xInput = input.Horizontal;

@@ -12,6 +12,9 @@ public class Projectile : MonoBehaviour
     public void Init(Vector2 dir)
     {
         this.dir = new Vector3(dir.x, dir.y, 0f);
+
+        if (dir == Vector2.zero)
+            Destroy(gameObject);
     }
 
     private void Update()

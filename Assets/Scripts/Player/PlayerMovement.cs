@@ -24,12 +24,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private HoldButton dashButton = null;
     [SerializeField] private LayerMask groundLayer = 0;
     [SerializeField] private LayerMask enemiesLayer = 0;
+    [SerializeField] private LayerMask wallLayer = 0;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dampForce = 0.05f;
     [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float wallJumpForce = 2.5f;
 
     [Header("Dashing")]
     [SerializeField] private float dashCDDuration = 1f;
@@ -45,15 +47,25 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector2 smashBox = Vector2.zero;
     [SerializeField] private Vector2 stunBox = Vector2.zero;
 
+    [Header("Wall Jump")]
+    [SerializeField] private float distanceToWall = 0.5f;
+    [SerializeField] private float controlCDDuration = 0.1f;
+
+    [Header("DEBUG")]
+    [SerializeField] private bool COLORJUMPERSTYLE = false;
+    
+
     private Rigidbody2D rb = null;
     private Collider2D collider = null;
 
     //Movement
     private float xInput = 0f;
-    private Vector2 direction = Vector2.zero;
+    private int direction = 0;
 
     //Jumping
     private bool isGrounded = false;
+    private bool isWallRiding = false;
+    private float controlCD = 0f;
 
     //Dashing
     private bool isDashing = false;
@@ -76,24 +88,38 @@ public class PlayerMovement : MonoBehaviour
         dashCD -= Time.deltaTime;
         cooldown.text = dashCD.ToString("F2");
 
+        controlCD -= Time.deltaTime;
         //Get Input
         xInput = input.Horizontal;
 
-        //Jumping
+        //Jumping && Wall jumping
         if (jumpButton.tap && isGrounded)
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        }
+        else if(jumpButton.tap && isWallRiding)
+        {
+            rb.AddForce(new Vector2(-direction * wallJumpForce, wallJumpForce), ForceMode2D.Impulse);
+            controlCD = controlCDDuration;
         }
 
         //Dash
         if (dashButton.tap)
             Dash();
+
+        Debug.DrawRay(transform.position, new Vector2(direction, 0) * distanceToWall, Color.red);
     }
 
     private void FixedUpdate()
     {
         isGrounded = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + 0.1f, groundLayer);
 
+        Move();
+        if (!isGrounded)
+            isWallRiding = CastRayInDirection(direction);
+    }
+    private void Move()
+    {
         Vector2 targetVel = rb.velocity;
 
         targetVel.x += xInput * moveSpeed;
@@ -102,22 +128,19 @@ public class PlayerMovement : MonoBehaviour
         if (targetVel.y > 0f)
             targetVel.y *= 1f - dampForce;
 
-        rb.velocity = targetVel;
+        if(controlCD < 0)
+            rb.velocity = targetVel;
+
+        // Direction
+        if (xInput > 0)
+            direction = 1;
+        else if (xInput < 0)
+            direction = -1;
+        else
+            direction = 0;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Vector2 center = collider.bounds.center - new Vector3(0f, collider.bounds.extents.y, 0f);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(center, stunBox);
-    }
-
-    public void Jump()
+    private void Jump()
     {
         if (isGrounded)
         {
@@ -125,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void Dash()
+    private void Dash()
     {
         if (dashCD > 0f) return;
 
@@ -146,6 +169,32 @@ public class PlayerMovement : MonoBehaviour
             direction.y = -1f;
 
         rb.velocity = direction * dashSpeed;
+    }
+
+    private bool CastRayInDirection(int direction)
+    {
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(direction, 0), distanceToWall, wallLayer);
+
+
+        if(hit.collider != null)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Vector2 center = collider.bounds.center - new Vector3(0f, collider.bounds.extents.y, 0f);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(center, stunBox);
     }
 
     public void ResetDash()

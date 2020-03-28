@@ -3,20 +3,13 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Joystick GetInput
-    {
-        get { return input; }
-    }
+    public Joystick GetInput { get { return input; } }
 
-    public HoldButton GetJumpButton
-    {
-        get { return jumpButton; }
-    }
+    public HoldButton GetJumpButton { get { return jumpButton; } }
 
-    public HoldButton GetDashButton
-    {
-        get { return dashButton; }
-    }
+    public HoldButton GetDashButton { get { return dashButton; } }
+
+    public float GetLastXDir { get { return lastXDir; } }
 
     [Header("References")]
     [SerializeField] private Joystick input = null;
@@ -48,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Movement
     private float xInput = 0f;
+    private float lastXDir = 0;
     private int direction = 0;
 
     //Jumping
@@ -80,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         controlCD -= Time.deltaTime;
         //Get Input
         xInput = input.Horizontal;
+        if (xInput != 0) lastXDir = xInput;
 
         //Jumping && Wall jumping
         if (jumpButton.tap && isGrounded)

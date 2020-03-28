@@ -11,11 +11,15 @@ public class GreenColor : WhiteColor
     private PlayerMovement movement = null;
     private Joystick input = null;
 
+    public override void InitAbility(GameObject player)
+    {
+        playerColor = player.GetComponent<PlayerColor>();
+        movement = player.GetComponent<PlayerMovement>();
+        input = movement.GetInput;
+    }
+
     public override void UpdateAbility(GameObject player)
     {
-        if (!once)
-            DoOnce(player);
-
         if (Gesture.tap)
         {
             movement.enabled = !movement.enabled;
@@ -31,11 +35,8 @@ public class GreenColor : WhiteColor
         collidedPlatform.transform.position += new Vector3(input.Direction.x, input.Direction.y, 0f) * moveSpeed * Time.deltaTime;
     }
 
-    private void DoOnce(GameObject player)
+    public override void ExitAbility(GameObject player)
     {
-        once = true;
-        playerColor = player.GetComponent<PlayerColor>();
-        movement = player.GetComponent<PlayerMovement>();
-        input = movement.GetInput;
+        player.GetComponent<PlayerMovement>().enabled = true;
     }
 }

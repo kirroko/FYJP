@@ -15,12 +15,14 @@ public class RedColor : WhiteColor
 
     private Joystick input = null;
 
+    public override void InitAbility(GameObject player)
+    {
+        input = player.GetComponent<PlayerMovement>().GetInput;
+    }
+
     public override void UpdateAbility(GameObject player)
     {
         shootCD -= Time.deltaTime;
-
-        if (!once)
-            DoOnce(player);
         
         if (Gesture.tap && shootCD <= 0f)
         {
@@ -38,6 +40,9 @@ public class RedColor : WhiteColor
             else if (input.Direction.y < -0.5f)
                 direction.y = -1f;
 
+            if (direction == Vector3.zero)
+                direction.x = player.GetComponent<PlayerMovement>().GetLastXDir;
+
             Bounds playerColliderBounds = player.GetComponent<Collider2D>().bounds;
             Vector3 firePoint = playerColliderBounds.center + new Vector3(playerColliderBounds.extents.x, 0f, 0f) + direction * offsetPos;
 
@@ -46,9 +51,4 @@ public class RedColor : WhiteColor
         }
     }
 
-    private void DoOnce(GameObject player)
-    {
-        once = true;
-        input = player.GetComponent<PlayerMovement>().GetInput;
-    }
 }

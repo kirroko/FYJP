@@ -7,11 +7,13 @@ public class OrangeColor : WhiteColor
 {
     private PlayerColor playerColor = null;
 
+    public override void InitAbility(GameObject player)
+    {
+        playerColor = player.GetComponent<PlayerColor>();
+    }
+
     public override void UpdateAbility(GameObject player)
     {
-        if (!once)
-            DoOnce(player);
-
         //Player Collided with a Damaging platform
         GameObject collidedPlatform = playerColor.GetCollidedPlatform;
 
@@ -21,9 +23,13 @@ public class OrangeColor : WhiteColor
         }
     }
 
-    private void DoOnce(GameObject player)
+    public override void ExitAbility(GameObject player)
     {
-        once = true;
-        playerColor = player.GetComponent<PlayerColor>();
+        GameObject collidedPlatform = playerColor.GetCollidedPlatform;
+
+        if (collidedPlatform != null && collidedPlatform.GetComponent<DamagingPlatform>() != null)
+        {
+            collidedPlatform.GetComponent<DamagingPlatform>().IsDamaging = false;
+        }
     }
 }

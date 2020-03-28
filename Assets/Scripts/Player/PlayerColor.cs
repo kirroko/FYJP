@@ -14,6 +14,7 @@ public class PlayerColor : MonoBehaviour
     [SerializeField] private float minX = 1f;
 
     private WhiteColor currentColor = null;
+    private WhiteColor prevColor = null;
     private bool canChoose = false;
     private bool colorChanged = false;
 
@@ -24,6 +25,7 @@ public class PlayerColor : MonoBehaviour
     private void Start()
     {
         currentColor = colorManager.colorList[COLORS.WHITE];
+        prevColor = currentColor;
     }
 
     private void Update()
@@ -39,6 +41,9 @@ public class PlayerColor : MonoBehaviour
             {
                 UpdateColor(index);
                 UpdateImage();
+                prevColor.ExitAbility(gameObject);
+                currentColor.InitAbility(gameObject);
+                prevColor = currentColor;
             }
 
             colorChanged = false;

@@ -21,16 +21,20 @@ public class BlueColor : WhiteColor
     private Joystick input = null;
     private Rigidbody2D playerRB = null;
 
+    public override void InitAbility(GameObject player)
+    {
+        dashButton = player.GetComponent<PlayerMovement>().GetDashButton;
+        input = player.GetComponent<PlayerMovement>().GetInput;
+        playerRB = player.GetComponent<Rigidbody2D>();
+    }
+
     public override void UpdateAbility(GameObject player)
     {
         waitTime -= Time.deltaTime;
         dashCD -= Time.deltaTime;
 
-        if (!once)
-            DoOnce(player);
-        
         //Activate Dash
-        if(dashButton.tap)
+        if (dashButton.tap)
         {
             Dash();
         }
@@ -42,14 +46,6 @@ public class BlueColor : WhiteColor
             ResetDash();
         }
 
-    }
-
-    private void DoOnce(GameObject player)
-    {
-        once = true;
-        dashButton = player.GetComponent<PlayerMovement>().GetDashButton;
-        input = player.GetComponent<PlayerMovement>().GetInput;
-        playerRB = player.GetComponent<Rigidbody2D>();
     }
 
     private void Dash()

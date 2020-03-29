@@ -15,8 +15,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Joystick input = null;
     [SerializeField] private HoldButton jumpButton = null;
     [SerializeField] private HoldButton dashButton = null;
-    [SerializeField] private LayerMask groundLayer = 0;
-    [SerializeField] private LayerMask enemiesLayer = 0;
     [SerializeField] private LayerMask wallLayer = 0;
 
     [Header("Movement")]
@@ -97,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + 0.1f, groundLayer);
+        isGrounded = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + 0.1f);
 
         Move();
         if (!isGrounded)

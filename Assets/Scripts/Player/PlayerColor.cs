@@ -22,6 +22,7 @@ public class PlayerColor : MonoBehaviour
     private WhiteColor prevColor = null;
     private bool canChoose = false;
     private bool colorChanged = false;
+    private bool slowDown = false;
 
     private COLORS index = 0;
 
@@ -31,6 +32,7 @@ public class PlayerColor : MonoBehaviour
     {
         currentColor = colorManager.colorList[COLORS.WHITE];
         prevColor = currentColor;
+        currentColor.InitAbility(gameObject);
     }
 
     private void Update()
@@ -150,7 +152,7 @@ public class PlayerColor : MonoBehaviour
                 colorChanged = true;
             }
         }
-
+        ToggleSlowDown();
         currentColor.UpdateAbility(gameObject);
     }
 
@@ -243,6 +245,22 @@ public class PlayerColor : MonoBehaviour
             case COLORS.YELLOW:
                 currentImage.color = new Color(1f, 1f, 0f);
                 break;
+        }
+    }
+
+    private void ToggleSlowDown()
+    {
+        if(slowDown && !Gesture.heldDown)
+        {
+            slowDown = false;
+            Time.timeScale = 1f;
+            Time.fixedDeltaTime *= 2f;
+        }
+        else if(!slowDown && Gesture.heldDown)
+        {
+            slowDown = true;
+            Time.timeScale = 0.5f;
+            Time.fixedDeltaTime *= 0.5f;
         }
     }
 }

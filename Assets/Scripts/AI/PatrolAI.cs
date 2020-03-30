@@ -5,10 +5,10 @@ using UnityEngine;
 public class PatrolAI : AI
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private LayerMask groundMask = 0;
 
     public Vector2 dir = new Vector2(1f, 0f);
-    private Collider2D collider = null;
+    private new Collider2D collider = null;
 
     private void Start()
     {

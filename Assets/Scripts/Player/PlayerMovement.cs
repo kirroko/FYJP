@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Component References
     private Rigidbody2D rb = null;
-    private Collider2D collider = null;
+    private new Collider2D collider = null;
     private PlayerColor playerColor = null;
 
     //Movement

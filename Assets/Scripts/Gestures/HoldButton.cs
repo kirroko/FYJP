@@ -8,8 +8,6 @@ public class HoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public bool tap = false;
     public bool pressed = false;
 
-    private bool once = false;
-
     private void LateUpdate()
     {
         if (tap)

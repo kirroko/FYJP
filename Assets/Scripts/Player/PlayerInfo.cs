@@ -7,8 +7,6 @@ public class PlayerInfo : MonoBehaviour
     public float health = 100f;
     public float damage = 50f;
 
-    [SerializeField] private TextMeshProUGUI healthText = null;
-
     public void TakeDamage(float damage)
     {
         //health -= damage;

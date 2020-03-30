@@ -10,7 +10,7 @@ public class AIAttack : MonoBehaviour
     private float damage = 10f;
     private float dir = 1f;
 
-    private Collider2D collider = null;
+    private new Collider2D collider = null;
 
     private void Start()
     {

@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float GetLastXDir { get { return lastXDir; } }
 
+    public bool OnGround { get { return isGrounded; } }
+
     [Header("References")]
     [SerializeField] private Joystick input = null;
     [SerializeField] private HoldButton jumpButton = null;
@@ -34,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Component References
     private Rigidbody2D rb = null;
-    private Collider2D collider = null;
+    private new Collider2D collider = null;
     private PlayerColor playerColor = null;
 
     //Movement

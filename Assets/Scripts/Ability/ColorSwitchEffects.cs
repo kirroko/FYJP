@@ -9,10 +9,10 @@ using UnityEngine.Rendering.Universal;
 public class ColorSwitchEffects : MonoBehaviour
 {
     [Header("Reference")]
-    [SerializeField] private ColorAdjustments colorAdjustments;
+    [SerializeField] private ColorAdjustments colorAdjustments = null;
 
     [Header("Colors")]
-    [SerializeField] private Color[] colors;
+    [SerializeField] private Color[] colors = null;
 
     // Private variables
 

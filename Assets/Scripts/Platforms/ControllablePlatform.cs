@@ -8,7 +8,6 @@ public class ControllablePlatform : MonoBehaviour
 
     private Vector2 halfBounds = Vector2.zero;
     private Vector3 startPos = Vector3.zero;
-    private Transform onPlatform = null;
 
     private void Start()
     {

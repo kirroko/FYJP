@@ -8,15 +8,21 @@ public class PlayerColor : MonoBehaviour
     public WhiteColor GetCurrentColor { get { return currentColor; } }
     public GameObject GetCollidedPlatform { get { return collidedPlatform; } }
 
+    [Header("Reference")]
     [SerializeField] private ColorManager colorManager = null;
     [SerializeField] private Image colorSelection = null;
     [SerializeField] private Image currentImage = null;
     [SerializeField] private float minX = 1f;
+    [SerializeField] private float angleThreshold = 120f;
+
+    [Header("DEBUG")]
+    [SerializeField] private bool CONTROL_TOGGLE = false;
 
     private WhiteColor currentColor = null;
     private WhiteColor prevColor = null;
     private bool canChoose = false;
     private bool colorChanged = false;
+    private bool slowDown = false;
 
     private COLORS index = 0;
 
@@ -26,57 +32,127 @@ public class PlayerColor : MonoBehaviour
     {
         currentColor = colorManager.colorList[COLORS.WHITE];
         prevColor = currentColor;
+        currentColor.InitAbility(gameObject);
     }
 
     private void Update()
     {
-        if (Gesture.heldDown)
+        // Swipping control
+        if(CONTROL_TOGGLE)
         {
-            canChoose = true;
-            colorSelection.gameObject.SetActive(canChoose);
+            if (Gesture.heldDown)
+            {
+                canChoose = true;
+                colorSelection.gameObject.SetActive(canChoose);
+            }
+            else
+            {
+                if (colorChanged)
+                {
+                    UpdateColor(index);
+                    UpdateImage();
+                    prevColor.ExitAbility(gameObject);
+                    currentColor.InitAbility(gameObject);
+                    prevColor = currentColor;
+                }
+
+                colorChanged = false;
+                canChoose = false;
+                colorSelection.gameObject.SetActive(canChoose);
+                index = 0;
+            }
+
+            if (canChoose)
+            {
+                if (Gesture.currentPos.x - Gesture.pressPos.x > minX)
+                    index = COLORS.BLUE;
+                else if (Gesture.currentPos.x - Gesture.pressPos.x < -minX)
+                    index = COLORS.YELLOW;
+                else
+                    index = COLORS.RED;
+
+                //TBR
+                if (index == COLORS.YELLOW)
+                {
+                    colorSelection.color = new Color(1f, 1f, 0f);
+                }
+                else if (index == COLORS.RED)
+                {
+                    colorSelection.color = new Color(1f, 0f, 0f);
+                }
+                else if (index == COLORS.BLUE)
+                {
+                    colorSelection.color = new Color(0f, 0f, 1f);
+                }
+                colorChanged = true;
+            }
         }
         else
         {
-            if(colorChanged)
+            // Joystick control
+            if (Gesture.heldDown)
             {
-                UpdateColor(index);
-                UpdateImage();
-                prevColor.ExitAbility(gameObject);
-                currentColor.InitAbility(gameObject);
-                prevColor = currentColor;
+                canChoose = true;
+                colorSelection.gameObject.SetActive(canChoose);
             }
-
-            colorChanged = false;
-            canChoose = false;
-            colorSelection.gameObject.SetActive(canChoose);
-            index = 0;
-        }
-
-        if (canChoose)
-        {
-            if (Gesture.currentPos.x - Gesture.pressPos.x > minX)
-                index = COLORS.BLUE;
-            else if (Gesture.currentPos.x - Gesture.pressPos.x < -minX)
-                index = COLORS.YELLOW;
             else
-                index = COLORS.RED;
+            {
+                if (colorChanged)
+                {
+                    UpdateColor(index);
+                    UpdateImage();
+                    prevColor.ExitAbility(gameObject);
+                    currentColor.InitAbility(gameObject);
+                    prevColor = currentColor;
+                }
 
-            //TBR
-            if(index == COLORS.YELLOW)
-            {
-                colorSelection.color = new Color(1f, 1f, 0f);
+                colorChanged = false;
+                canChoose = false;
+                colorSelection.gameObject.SetActive(canChoose);
+                index = 0;
             }
-            else if (index == COLORS.RED)
+
+            if (canChoose)
             {
-                colorSelection.color = new Color(1f, 0f, 0f);
+                Vector3 dir = (Gesture.currentPos - Gesture.pressPos).normalized;
+                Debug.Log(dir);
+
+                float angle = 0;
+                if (dir.x < 0)
+                {
+                    angle = 360 - (Mathf.Acos(Vector2.Dot(dir, Vector2.up)) * Mathf.Rad2Deg);
+                    Debug.Log("angle " + angle);
+                }
+                else if (dir.x > 0)
+                {
+                    angle = Mathf.Acos(Vector2.Dot(dir, Vector2.up)) * Mathf.Rad2Deg;
+                    Debug.Log("angle " + angle);
+                }
+                else
+                {
+                    angle = Mathf.Acos(Vector2.Dot(dir, Vector2.up)) * Mathf.Rad2Deg;
+                    Debug.Log("angle " + angle);
+                }
+
+
+                if (angle < angleThreshold)
+                    index = COLORS.BLUE;
+                else if (angle > angleThreshold && angle < angleThreshold * 2)
+                    index = COLORS.YELLOW;
+                else
+                    index = COLORS.RED;
+
+                // TBR
+                if (index == COLORS.YELLOW)
+                    colorSelection.color = new Color(1f, 1f, 0f);
+                else if (index == COLORS.RED)
+                    colorSelection.color = new Color(1f, 0f, 0f);
+                else if (index == COLORS.BLUE)
+                    colorSelection.color = new Color(0f, 0f, 1f);
+                colorChanged = true;
             }
-            else if (index == COLORS.BLUE)
-            {
-                colorSelection.color = new Color(0f, 0f, 1f);
-            }
-            colorChanged = true;
         }
-
+        ToggleSlowDown();
         currentColor.UpdateAbility(gameObject);
     }
 
@@ -169,6 +245,22 @@ public class PlayerColor : MonoBehaviour
             case COLORS.YELLOW:
                 currentImage.color = new Color(1f, 1f, 0f);
                 break;
+        }
+    }
+
+    private void ToggleSlowDown()
+    {
+        if(slowDown && !Gesture.heldDown)
+        {
+            slowDown = false;
+            Time.timeScale = 1f;
+            Time.fixedDeltaTime *= 2f;
+        }
+        else if(!slowDown && Gesture.heldDown)
+        {
+            slowDown = true;
+            Time.timeScale = 0.5f;
+            Time.fixedDeltaTime *= 0.5f;
         }
     }
 }

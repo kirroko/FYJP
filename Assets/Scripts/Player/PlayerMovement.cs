@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float GetLastXDir { get { return lastXDir; } }
 
+    public bool OnGround { get { return isGrounded; } }
+
     [Header("References")]
     [SerializeField] private Joystick input = null;
     [SerializeField] private HoldButton jumpButton = null;

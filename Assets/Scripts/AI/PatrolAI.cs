@@ -5,7 +5,6 @@ using UnityEngine;
 public class PatrolAI : AI
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private LayerMask groundMask = 0;
 
     public Vector2 dir = new Vector2(1f, 0f);
     private new Collider2D collider = null;
@@ -18,7 +17,7 @@ public class PatrolAI : AI
     private void Update()
     {
         if (stun) return;
-        if (!Physics2D.Raycast(transform.position + new Vector3(collider.bounds.extents.x * dir.x, 0f, 0f), Vector2.down, collider.bounds.extents.y + 0.1f, groundMask))
+        if (!Physics2D.Raycast(transform.position + new Vector3(collider.bounds.extents.x * dir.x, 0f, 0f), Vector2.down, collider.bounds.extents.y + 0.1f))
         {
             dir.x = -dir.x;
         }
@@ -28,5 +27,12 @@ public class PatrolAI : AI
         targetPos.x += dir.x * moveSpeed * Time.deltaTime;
 
         transform.position = targetPos;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ContactPoint2D contact = collision.GetContact(0);
+        if(contact.normal.x != 0f)
+            dir.x = -dir.x;
     }
 }

@@ -3787,9 +3787,6 @@ MonoBehaviour:
   healthText: {fileID: 988424831257840456}
   stun: 0
   moveSpeed: 2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
   dir: {x: 1, y: 0}
 --- !u!50 &988424830615077838
 Rigidbody2D:
@@ -3890,9 +3887,6 @@ MonoBehaviour:
   healthText: {fileID: 988424831350531116}
   stun: 0
   moveSpeed: 2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
   dir: {x: 1, y: 0}
 --- !u!50 &988424830655311018
 Rigidbody2D:
@@ -4074,9 +4068,6 @@ MonoBehaviour:
   healthText: {fileID: 988424831166036575}
   stun: 0
   moveSpeed: 2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
   dir: {x: 1, y: 0}
 --- !u!4 &988424830772835035
 Transform:
@@ -4532,9 +4523,6 @@ MonoBehaviour:
   healthText: {fileID: 988424830781795063}
   stun: 0
   moveSpeed: 2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
   dir: {x: 1, y: 0}
 --- !u!4 &988424831158248051
 Transform:
@@ -5984,9 +5972,6 @@ MonoBehaviour:
   healthText: {fileID: 988424832123334523}
   stun: 0
   moveSpeed: 2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
   dir: {x: 1, y: 0}
 --- !u!4 &988424832499755007
 Transform:
@@ -6185,9 +6170,6 @@ MonoBehaviour:
   healthText: {fileID: 988424831900495904}
   stun: 0
   moveSpeed: 2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
   dir: {x: 1, y: 0}
 --- !u!50 &988424832581040294
 Rigidbody2D:

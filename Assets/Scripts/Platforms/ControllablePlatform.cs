@@ -36,6 +36,6 @@ public class ControllablePlatform : MonoBehaviour
     {
         Gizmos.color = Color.green;
 
-        Gizmos.DrawWireCube(startPos, new Vector3(bounds.x, bounds.y));
+        Gizmos.DrawWireCube(transform.position, new Vector3(bounds.x, bounds.y));
     }
 }

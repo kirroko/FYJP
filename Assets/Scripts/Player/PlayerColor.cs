@@ -12,6 +12,7 @@ public class PlayerColor : MonoBehaviour
     [SerializeField] private ColorManager colorManager = null;
     [SerializeField] private Image colorSelection = null;
     [SerializeField] private Image currentImage = null;
+    [SerializeField] private RectTransform helperImage = null;
     [SerializeField] private float minX = 1f;
     [SerializeField] private float angleThreshold = 120f;
 
@@ -37,13 +38,15 @@ public class PlayerColor : MonoBehaviour
 
     private void Update()
     {
-        // Swipping control
+        // Swiping control
         if(CONTROL_TOGGLE)
         {
             if (Gesture.heldDown)
             {
                 canChoose = true;
                 colorSelection.gameObject.SetActive(canChoose);
+                helperImage.position = Gesture.pressPos;
+                helperImage.gameObject.SetActive(true);
             }
             else
             {
@@ -59,6 +62,7 @@ public class PlayerColor : MonoBehaviour
                 colorChanged = false;
                 canChoose = false;
                 colorSelection.gameObject.SetActive(canChoose);
+                helperImage.gameObject.SetActive(false);
                 index = 0;
             }
 

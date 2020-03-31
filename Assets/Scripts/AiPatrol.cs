@@ -44,7 +44,6 @@ public class AiPatrol : MonoBehaviour
         {
             GameObject temp = Instantiate(bullet, gunPlaceHolder.transform.position , transform.rotation);
             Destroy(temp, 3);
-            Debug.Log(shootingInterval);
             shootingInterval = 1.5f;
         }
     }

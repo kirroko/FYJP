@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashDamage : MonoBehaviour
+public class DashBreak : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -10,13 +10,13 @@ public class DashDamage : MonoBehaviour
 
         if (player != null)
         {
-            if (player.IsDashing() && collision.relativeVelocity.magnitude > 10f && 
-                player.GetComponent<PlayerColor>().GetCurrentColor.GetMain == COLORS.PURPLE)
+            if (player.IsDashing() && collision.relativeVelocity.magnitude > 10f)
             {
                 Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());//Ignores collision so player can go thru
                 player.GetComponent<Rigidbody2D>().velocity = collision.relativeVelocity;//Gives player vel before they collide
-                player.ResetDash();
                 Destroy(gameObject);
+                if(player.GetComponent<PlayerColor>().GetCurrentColor.GetMain == COLORS.PURPLE)
+                    player.ResetDash();
             }
         }
     }

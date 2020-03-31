@@ -19,14 +19,18 @@ public class PlayerGhost : MonoBehaviour
 
     private void Update()
     {
-        float dist = (pos[index] - transform.position).magnitude;
+        if (index >= pos.Count)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Vector3 targetPos = pos[index];
+        float dist = (targetPos - transform.position).magnitude;
 
         if (dist <= 0.1f)
             ++index;
 
-        if (index >= pos.Count)
-            Destroy(gameObject);
-
-        transform.position = Vector3.MoveTowards(transform.position, pos[index], moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
     }
 }

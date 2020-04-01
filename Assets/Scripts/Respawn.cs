@@ -5,11 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class Respawn : MonoBehaviour
 {
-    [SerializeField] private Vector3 startPos = Vector3.zero;
+    private static GameObject player = null;
+    private static Vector3 startPos = Vector3.zero;
+
+    private void Start()
+    {
+        player = ObjectReferences.instance.player;
+        startPos = player.transform.position;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.GetComponent<PlayerInfo>() != null)
             collision.transform.position = startPos;
+    }
+
+    public static void SendToSpawn()
+    {
+        player.transform.position = startPos;
     }
 }

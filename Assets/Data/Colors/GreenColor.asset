@@ -16,3 +16,4 @@ MonoBehaviour:
   parentColor1: 2
   parentColor2: 3
   locked: 0
+  moveSpeed: 5

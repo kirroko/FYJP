@@ -5,13 +5,14 @@ using UnityEngine;
 public class PatrolAI : AI
 {
     [SerializeField] private float moveSpeed = 5f;
-     public float nextShot;
-    public float shootingInterval;
-    public Projectile bullet;
-    public float bulletSpeed;
-    public bool shootable;
+    [SerializeField] private Projectile bullet = null;
+    [SerializeField] private float bulletSpeed = 2f;
+    [SerializeField] private bool shootable = false;
+    [SerializeField] private float nextShot = 2f;
 
-    public Vector2 dir = new Vector2(1f, 0f);
+    private float shootingInterval = 0f;
+
+    private Vector2 dir = new Vector2(1f, 0f);
     private new Collider2D collider = null;
 
     private void Start()

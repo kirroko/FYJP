@@ -1,4 +1,6 @@
-﻿[System.Serializable]
+﻿using UnityEngine;
+
+[System.Serializable]
 public class Vec3Serializable
 {
     public float x;
@@ -10,5 +12,10 @@ public class Vec3Serializable
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    public Vector3 ToVector3()
+    {
+        return new Vector3(x, y, z);
     }
 }

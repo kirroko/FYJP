@@ -1428,15 +1428,13 @@ MonoBehaviour:
     m_Bits: 2048
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   moveSpeed: 2
   dampForce: 0.2
-  airSpeed: 2
-  xVelocityMax: 15
-  jumpForce: 25
-  checkRadius: 0.5
-  dashSpeed: 25
-  dashDistance: 3
+  airSpeed: 1
+  xVelocityMax: 8
+  jumpForce: 8
+  dashSpeed: 15
   dashCDDuration: 2
   wallJumpForce: 25
   distanceToWall: 0.5
@@ -3919,7 +3917,6 @@ MonoBehaviour:
   stun: 0
   moveSpeed: 2
   bullet: {fileID: 0}
-  bulletSpeed: 0
   shootable: 0
   nextShot: 0
 --- !u!50 &988424830615077838
@@ -4021,7 +4018,6 @@ MonoBehaviour:
   stun: 0
   moveSpeed: 2
   bullet: {fileID: 0}
-  bulletSpeed: 0
   shootable: 0
   nextShot: 0
 --- !u!50 &988424830655311018
@@ -4205,7 +4201,6 @@ MonoBehaviour:
   stun: 0
   moveSpeed: 2
   bullet: {fileID: 0}
-  bulletSpeed: 0
   shootable: 0
   nextShot: 0
 --- !u!4 &988424830772835035
@@ -4591,7 +4586,6 @@ MonoBehaviour:
   stun: 0
   moveSpeed: 2
   bullet: {fileID: 0}
-  bulletSpeed: 0
   shootable: 0
   nextShot: 0
 --- !u!4 &988424831158248051
@@ -5687,7 +5681,6 @@ MonoBehaviour:
   stun: 0
   moveSpeed: 2
   bullet: {fileID: 0}
-  bulletSpeed: 0
   shootable: 0
   nextShot: 0
 --- !u!4 &988424832499755007
@@ -5886,7 +5879,6 @@ MonoBehaviour:
   stun: 0
   moveSpeed: 2
   bullet: {fileID: 0}
-  bulletSpeed: 0
   shootable: 0
   nextShot: 0
 --- !u!50 &988424832581040294

@@ -6,7 +6,6 @@ public class PatrolAI : AI
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Projectile bullet = null;
-    [SerializeField] private float bulletSpeed = 2f;
     [SerializeField] private bool shootable = false;
     [SerializeField] private float nextShot = 2f;
 

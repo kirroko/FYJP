@@ -32,11 +32,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jumping")]
     [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private float checkRadius = 0.5f;
 
     [Header("Dashing")]
     [SerializeField] private float dashSpeed = 10f;
-    [SerializeField] private float dashDistance = 3f;
     [SerializeField] private float dashCDDuration = 1f;
 
     [Header("Wall Jump")]
@@ -57,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
 
     //Jumping
     private bool isGrounded = false;
-    private bool isJumping = false;
     private bool isWallRiding = false;
     private float controlCD = 0f;
 
@@ -67,10 +64,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 dashDirection = Vector2.zero;
     private Vector2 startPos = Vector2.zero;
     private Vector2 targetPos = Vector2.zero;
-
-    // Interpolate
-    private float lerpTime = 1f; // change to dashCDDuration
-    private float currentLerpTime;
 
     [Header("TBR")]
     public TextMeshProUGUI cooldown = null;
@@ -137,8 +130,6 @@ public class PlayerMovement : MonoBehaviour
 
             rb.velocity = Vector2.zero;
             rb.AddForce(dashDirection * dashSpeed, ForceMode2D.Impulse);
-
-            currentLerpTime = 0f;
         }
 
         // DEBUG CODE

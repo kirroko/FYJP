@@ -47,6 +47,7 @@ public class PlayerColor : MonoBehaviour
                 colorSelection.gameObject.SetActive(canChoose);
                 helperImage.position = Gesture.pressPos;
                 helperImage.gameObject.SetActive(true);
+                Debug.Log(helperImage.gameObject.activeSelf);
             }
             else
             {
@@ -63,6 +64,7 @@ public class PlayerColor : MonoBehaviour
                 canChoose = false;
                 colorSelection.gameObject.SetActive(canChoose);
                 helperImage.gameObject.SetActive(false);
+                Debug.Log(helperImage.gameObject.activeSelf);
                 index = 0;
             }
 
@@ -98,6 +100,8 @@ public class PlayerColor : MonoBehaviour
             {
                 canChoose = true;
                 colorSelection.gameObject.SetActive(canChoose);
+                helperImage.position = Gesture.pressPos;
+                helperImage.gameObject.SetActive(true);
             }
             else
             {
@@ -113,29 +117,26 @@ public class PlayerColor : MonoBehaviour
                 colorChanged = false;
                 canChoose = false;
                 colorSelection.gameObject.SetActive(canChoose);
+                helperImage.gameObject.SetActive(false);
                 index = 0;
             }
 
             if (canChoose)
             {
                 Vector3 dir = (Gesture.currentPos - Gesture.pressPos).normalized;
-                Debug.Log(dir);
 
                 float angle = 0;
                 if (dir.x < 0)
                 {
                     angle = 360 - (Mathf.Acos(Vector2.Dot(dir, Vector2.up)) * Mathf.Rad2Deg);
-                    Debug.Log("angle " + angle);
                 }
                 else if (dir.x > 0)
                 {
                     angle = Mathf.Acos(Vector2.Dot(dir, Vector2.up)) * Mathf.Rad2Deg;
-                    Debug.Log("angle " + angle);
                 }
                 else
                 {
                     angle = Mathf.Acos(Vector2.Dot(dir, Vector2.up)) * Mathf.Rad2Deg;
-                    Debug.Log("angle " + angle);
                 }
 
 

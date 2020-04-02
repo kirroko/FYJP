@@ -52,7 +52,7 @@ public class Gesture : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         startPress = false;
         tap = false;
         heldDown = false;
-        holdCooldown = 0.1f;
+        holdCooldown = 0.2f;
         deltaPos = Vector2.zero;
         touchIndex = -1;
     }

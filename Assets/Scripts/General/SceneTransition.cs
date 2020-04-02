@@ -4,7 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
+    public string PrevSceneName { get { return prevSceneName; } }
     public static SceneTransition instance = null;
+
+    private string prevSceneName = "";
 
     private void Awake()
     {
@@ -26,11 +29,15 @@ public class SceneTransition : MonoBehaviour
 
     private IEnumerator LoadSceneAsync(string sceneName)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+        prevSceneName = SceneManager.GetActiveScene().name;
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 
         while(!operation.isDone)
         {
              yield return null;
         }
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(prevSceneName));
     }
 }

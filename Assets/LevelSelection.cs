@@ -1,33 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class LevelSelection : MonoBehaviour
 {
-    private float placeHolder;
-    public int LevelIndex;
+    [SerializeField] private int LevelIndex = 0;
+    private bool once = false;
+
     private void OnTriggerStay2D(Collider2D collider)
     {
-        
         if(collider.gameObject.tag == "Player")
         {
             Debug.Log("Player in range");
-            if (Input.GetKey(KeyCode.E))
+            if (Gesture.heldDown && !once)
             {
-                placeHolder += Time.deltaTime * 0.5f;  
-                Debug.Log(placeHolder);
-                Debug.Log(LevelIndex);
-                if (placeHolder >= 1.0)
-                    Debug.Log("nextLevel");
-               //   SceneManager.LoadScene(Level1);
+                StartCoroutine(LevelManager.instance.LoadLevel(LevelIndex));
+                once = true;
             }
         }
     }
-
-    void Update()
-    {
-
-    }
-
 }

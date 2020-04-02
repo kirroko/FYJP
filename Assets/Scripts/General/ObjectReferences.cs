@@ -10,7 +10,9 @@ public class ObjectReferences : MonoBehaviour
     private void Awake()
     {
         if (!instance)
+        {
             instance = this;
-        DontDestroyOnLoad(this);
+            Debug.Log("New");
+        }
     }
 }

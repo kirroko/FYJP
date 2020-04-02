@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance = null;
 
-    private List<Level> levels = null;
+    private List<Level> levels = new List<Level>();
     private int numLevel = 0;
 
     private void Awake()
@@ -34,7 +35,10 @@ public class LevelManager : MonoBehaviour
                 SaveSystem.SaveLevel(temp);
             }
             else
+            {
                 UpdateLevelData(temp, levelData);
+            }
+            levels.Add(temp);
         }
     }
 
@@ -46,5 +50,17 @@ public class LevelManager : MonoBehaviour
         {
             level.ghostPos.Add(new Vector3(pos.x, pos.y, pos.z));
         }
+    }
+
+    public IEnumerator LoadLevel(int index)
+    {
+        SceneTransition.instance.LoadSceneInBG("Level");
+
+        while (!SceneManager.GetSceneByName("Level").isLoaded)
+        {
+            yield return null;
+        }
+
+        GameObject layout = Instantiate(levels[index - 1].layout);
     }
 }

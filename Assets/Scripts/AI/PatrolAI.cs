@@ -7,9 +7,9 @@ public class PatrolAI : AI
     [SerializeField] private float moveSpeed = 5f;
      public float nextShot;
     public float shootingInterval;
-  //  public Transform gunPlaceHolder;
     public Projectile bullet;
     public float bulletSpeed;
+    public bool shootable;
 
     public Vector2 dir = new Vector2(1f, 0f);
     private new Collider2D collider = null;
@@ -34,14 +34,18 @@ public class PatrolAI : AI
 
         transform.position = targetPos;
 
-        if (nextShot >= shootingInterval)
+        if(shootable)
         {
-            Vector3 firePoint = collider.bounds.center + new Vector3(collider.bounds.extents.x, 0f, 0f) * dir.x * 1.25f;
+            if (nextShot >= shootingInterval)
+            {
+                Vector3 firePoint = collider.bounds.center + new Vector3(collider.bounds.extents.x, 0f, 0f) * dir.x * 1.25f;
 
-            Projectile temp = Instantiate(bullet, firePoint, Quaternion.identity);
-            temp.Init(new Vector2(dir.x, 0f));
-            shootingInterval = 1.5f;
+                Projectile temp = Instantiate(bullet, firePoint, Quaternion.identity);
+                temp.Init(new Vector2(dir.x, 0f));
+                shootingInterval = 1.5f;
+            }
         }
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

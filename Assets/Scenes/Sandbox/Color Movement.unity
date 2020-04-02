@@ -1122,7 +1122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861412033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.475, y: -16.83, z: -5}
+  m_LocalPosition: {x: -4.42, y: -17.05, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2189,7 +2189,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1237242128
 GameObject:
@@ -3136,7 +3136,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -3168,15 +3168,15 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550933624}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -3233,7 +3233,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -3243,7 +3243,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3296,7 +3296,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3412,7 +3412,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3787,7 +3787,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 5
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -3795,7 +3795,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 1.5, y: 0, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -3993,7 +3993,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4612,11 +4612,11 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4669,7 +4669,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -7825,12 +7825,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550933624}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.13, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.047, y: -0.424, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 924146068}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1574778498
 GameObject:
@@ -8581,11 +8581,9 @@ MonoBehaviour:
   healthText: {fileID: 988424831257840456}
   stun: 0
   moveSpeed: 2
-  nextShot: 0
-  shootingInterval: 0
   bullet: {fileID: 0}
-  bulletSpeed: 0
-  dir: {x: 1, y: 0}
+  shootable: 0
+  nextShot: 0
 --- !u!50 &988424830615077838
 Rigidbody2D:
   serializedVersion: 4
@@ -8685,11 +8683,9 @@ MonoBehaviour:
   healthText: {fileID: 988424831350531116}
   stun: 0
   moveSpeed: 2
-  nextShot: 0
-  shootingInterval: 0
   bullet: {fileID: 0}
-  bulletSpeed: 0
-  dir: {x: 1, y: 0}
+  shootable: 0
+  nextShot: 0
 --- !u!50 &988424830655311018
 Rigidbody2D:
   serializedVersion: 4
@@ -8870,11 +8866,9 @@ MonoBehaviour:
   healthText: {fileID: 988424831166036575}
   stun: 0
   moveSpeed: 2
-  nextShot: 0
-  shootingInterval: 0
   bullet: {fileID: 0}
-  bulletSpeed: 0
-  dir: {x: 1, y: 0}
+  shootable: 0
+  nextShot: 0
 --- !u!4 &988424830772835035
 Transform:
   m_ObjectHideFlags: 0
@@ -9239,7 +9233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59ad3beaeaf6ee4baec84d96339d2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 988424831158248050}
 --- !u!61 &988424830952394935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9329,11 +9322,9 @@ MonoBehaviour:
   healthText: {fileID: 988424830781795063}
   stun: 0
   moveSpeed: 2
-  nextShot: 0
-  shootingInterval: 0
   bullet: {fileID: 0}
-  bulletSpeed: 0
-  dir: {x: 1, y: 0}
+  shootable: 0
+  nextShot: 0
 --- !u!4 &988424831158248051
 Transform:
   m_ObjectHideFlags: 0
@@ -9929,7 +9920,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59ad3beaeaf6ee4baec84d96339d2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 988424830772835034}
 --- !u!61 &988424831372935199
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10026,7 +10016,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59ad3beaeaf6ee4baec84d96339d2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 988424830655311017}
 --- !u!61 &988424831617200392
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10065,7 +10054,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59ad3beaeaf6ee4baec84d96339d2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 988424830615077837}
 --- !u!1 &988424831617200398
 GameObject:
   m_ObjectHideFlags: 0
@@ -10136,7 +10124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59ad3beaeaf6ee4baec84d96339d2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 988424832581040293}
 --- !u!1 &988424831712217702
 GameObject:
   m_ObjectHideFlags: 0
@@ -10181,7 +10168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59ad3beaeaf6ee4baec84d96339d2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 988424832499755006}
 --- !u!61 &988424831757817147
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10782,11 +10768,9 @@ MonoBehaviour:
   healthText: {fileID: 988424832123334523}
   stun: 0
   moveSpeed: 2
-  nextShot: 0
-  shootingInterval: 0
   bullet: {fileID: 0}
-  bulletSpeed: 0
-  dir: {x: 1, y: 0}
+  shootable: 0
+  nextShot: 0
 --- !u!4 &988424832499755007
 Transform:
   m_ObjectHideFlags: 0
@@ -10984,11 +10968,9 @@ MonoBehaviour:
   healthText: {fileID: 988424831900495904}
   stun: 0
   moveSpeed: 2
-  nextShot: 0
-  shootingInterval: 0
   bullet: {fileID: 0}
-  bulletSpeed: 0
-  dir: {x: 1, y: 0}
+  shootable: 0
+  nextShot: 0
 --- !u!50 &988424832581040294
 Rigidbody2D:
   serializedVersion: 4
@@ -11470,17 +11452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c990a4bdf5ea70245ab0cc5e697f48be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  distance: 10
-  damage: 10
-  health: 50
-  nextShot: 0
-  shootingInterval: 1.5
-  movingRight: 1
-  groundDetection: {fileID: 3062836839781011484}
-  gunPlaceHolder: {fileID: 3062836840459497402}
-  bullet: {fileID: 1340626511415061283, guid: 395b79f4ad1504043be659c7598c45f4, type: 3}
-  healthText: {fileID: 5462509974984906010}
 --- !u!4 &3062836840459497402
 Transform:
   m_ObjectHideFlags: 0
@@ -26574,12 +26545,12 @@ PrefabInstance:
     - target: {fileID: 8070297629261575620, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.475
+      value: -4.42
       objectReference: {fileID: 0}
     - target: {fileID: 8070297629261575620, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.83
+      value: -17.05
       objectReference: {fileID: 0}
     - target: {fileID: 8070297629261575620, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}
@@ -26706,6 +26677,21 @@ PrefabInstance:
       propertyPath: dashSprites.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8070297629261575621, guid: 43014a7be23bd094a8e07698d35779a2,
+        type: 3}
+      propertyPath: jumpForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070297629261575621, guid: 43014a7be23bd094a8e07698d35779a2,
+        type: 3}
+      propertyPath: xVelocityMax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070297629261575621, guid: 43014a7be23bd094a8e07698d35779a2,
+        type: 3}
+      propertyPath: dust
+      value: 
+      objectReference: {fileID: 1550933626}
     - target: {fileID: 8070297629261575622, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}
       propertyPath: colorSelection

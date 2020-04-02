@@ -19,8 +19,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Joystick input = null;
     [SerializeField] private HoldButton jumpButton = null;
     [SerializeField] private HoldButton dashButton = null;
+    [SerializeField] private ParticleSystem dust = null;
     [SerializeField] private LayerMask wallLayer = 0;
-    [SerializeField] private LayerMask groundLayer = 0;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
@@ -62,13 +62,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing = false;
     private float dashCD = 0f;
     private Vector2 dashDirection = Vector2.zero;
-    private Vector2 startPos = Vector2.zero;
-    private Vector2 targetPos = Vector2.zero;
 
     [Header("TBR")]
     public TextMeshProUGUI cooldown = null;
-
-    private Vector2 test;
 
     private void Start()
     {
@@ -87,17 +83,21 @@ public class PlayerMovement : MonoBehaviour
 
         // INPUT
         xInput = input.Horizontal;
+        // FORCE xInput to normalize at 1 or -1
+        if (xInput > 0.25f) xInput = 1f;
+        else if (xInput < -0.25f) xInput = -1;
         if (xInput != 0) lastXDir = xInput;
-        if (xInput > 0.25f) // force xInput to normalize at 1 or -1
-        {
-            xInput = 1f;
-            sr.flipX = false;
-        }
-        else if (xInput < -0.25f)
-        {
-            xInput = -1f;
-            sr.flipX = true;
-        }
+
+        //if (xInput != 0) lastXDir = xInput;
+        //// Direction
+        //if (xInput > 0)
+        //    facingDirection = 1;
+        //else if (xInput < 0)
+        //    facingDirection = -1;
+        //if (xInput > 0.25f) // force xInput to normalize at 1 or -1
+        //    xInput = 1f;
+        //else if (xInput < -0.25f)
+        //    xInput = -1f;
 
         // BUTTON INPUT
         if (jumpButton.tap && isGrounded)
@@ -107,33 +107,11 @@ public class PlayerMovement : MonoBehaviour
 
         // DASH
         if (dashButton.tap && playerColor.GetCurrentColor.GetMain != COLORS.BLUE && dashCD < 0f)
-        {
-            Debug.Log("TAP DASH");
-            
             isDashing = true;
-            dashCD = dashCDDuration;
-
-            dashDirection = Vector2.zero;
-
-            if (input.Direction.x > 0.5f)
-                dashDirection.x = 1f;
-            else if (input.Direction.x < -0.5f)
-                dashDirection.x = -1f;
-
-            if (input.Direction.y > 0.5f)
-                dashDirection.y = 1f;
-            else if (input.Direction.y < -0.5f)
-                dashDirection.y = -1f;
-
-            if (dashDirection == Vector2.zero)
-                dashDirection.x = facingDirection;
-
-            rb.velocity = Vector2.zero;
-            rb.AddForce(dashDirection * dashSpeed, ForceMode2D.Impulse);
-        }
 
         // DEBUG CODE
         Debug.DrawRay(transform.position, new Vector2(facingDirection, 0) * (collider.bounds.extents.x + distanceToWall), Color.red);
+        Debug.DrawRay(transform.position - new Vector3(0, collider.bounds.extents.y, 0), new Vector2(facingDirection, 0) * (collider.bounds.extents.x + distanceToWall), Color.red);
     }
 
     private void FixedUpdate()
@@ -145,43 +123,64 @@ public class PlayerMovement : MonoBehaviour
         else
             AirMove();
 
+        if (isDashing)
+            Dash();
+
         if (!isGrounded)
             isWallRiding = CastRayInDirection(facingDirection);
     }
 
+    private static bool right = false;
     private void Move()
     {
-        if (controlCD > 0) return;
+        // UPDATE DIRECTION
+        if (xInput > 0) facingDirection = 1;
+        else if (xInput < 0) facingDirection = -1;
+        // UPDATE CHARACTER FLIP
+        if (xInput > 0 && !right)
+            Flip(true);
+        else if (xInput < 0 && right)
+            Flip(true);
+        // UPDATE LAST KNOWN DIRECTION
+        if (xInput > 0)
+            right = true;
+        else if (xInput < 0)
+            right = false;
 
         Vector2 targetVel = rb.velocity;
 
         targetVel.x += xInput * moveSpeed;
         targetVel.x *= 1f - dampForce;
 
-        if (controlCD < 0) // Stop all controls if controlCD is up
+        if (controlCD < 0) // Stop all update to rb is controlCD is up
             rb.velocity = targetVel;
-
-        // Direction
-        if (xInput > 0)
-            facingDirection = 1;
-        else if (xInput < 0)
-            facingDirection = -1;
     }
 
     private void AirMove()
     {
-        if (controlCD > 0) return;
+        // UPDATE DIRECTION
+        if (xInput > 0) facingDirection = 1;
+        else if (xInput < 0) facingDirection = -1;
+        // UPDATE CHARACTER FLIP
+        if (xInput > 0)
+            right = true;
+        else if (xInput < 0)
+            right = false;
 
         Vector2 targetVel = rb.velocity;
 
         targetVel.x += xInput * airSpeed; // with no damping
         targetVel.x = Mathf.Clamp(targetVel.x, -xVelocityMax, xVelocityMax); // now clamp velocity
 
-        rb.velocity = targetVel;
+        if(controlCD < 0) // Stop all update to rb is controlCD is up
+            rb.velocity = targetVel;
+
+        Flip(false);
     }
 
     private void Jump()
     {
+        CreateDust();
         rb.velocity += new Vector2(rb.velocity.x, jumpForce);
     }
 
@@ -191,14 +190,56 @@ public class PlayerMovement : MonoBehaviour
         controlCD = controlCDDuration;
     }
 
+    private void Dash()
+    {
+        Debug.Log("TAP DASH");
+
+        isDashing = false;
+        dashCD = dashCDDuration;
+
+        dashDirection = Vector2.zero;
+
+        if (input.Direction.x > 0.5f)
+            dashDirection.x = 1f;
+        else if (input.Direction.x < -0.5f)
+            dashDirection.x = -1f;
+
+        if (input.Direction.y > 0.5f)
+            dashDirection.y = 1f;
+        else if (input.Direction.y < -0.5f)
+            dashDirection.y = -1f;
+
+        if (dashDirection == Vector2.zero)
+            dashDirection.x = facingDirection;
+
+        rb.velocity = Vector2.zero;
+        rb.AddForce(dashDirection * dashSpeed, ForceMode2D.Impulse);
+    }
+
     private bool CastRayInDirection(int direction)
     {
         RaycastHit2D hit = Physics2D.Raycast(collider.bounds.center, new Vector2(direction, 0), collider.bounds.extents.x + distanceToWall, wallLayer);
-
-        if (hit.collider != null)
+        RaycastHit2D lowHit = Physics2D.Raycast(collider.bounds.center - new Vector3(0, collider.bounds.extents.y, 0), new Vector2(direction, 0), collider.bounds.extents.x + distanceToWall, wallLayer);
+        if (hit.collider != null || lowHit.collider != null)
             return true;
 
         return false;
+    }
+
+    private void CreateDust()
+    {
+        dust.Play();
+    }
+
+    private void Flip(bool playDust)
+    {
+        if (playDust)
+            CreateDust();
+
+        if (facingDirection > 0)
+            sr.flipX = false;
+        else if (facingDirection < 0)
+            sr.flipX = true;
     }
 
     public void ResetDash()

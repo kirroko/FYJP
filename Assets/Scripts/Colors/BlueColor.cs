@@ -70,7 +70,8 @@ public class BlueColor : WhiteColor
         else if (input.Direction.y < -0.5f)
             direction.y = -1f;
 
-        playerRB.AddForce(direction * dashSpeed, ForceMode2D.Impulse);
+        playerRB.velocity += direction * dashSpeed;
+        //playerRB.AddForce(direction * dashSpeed, ForceMode2D.Impulse);
     }
 
     private void ResetDash()

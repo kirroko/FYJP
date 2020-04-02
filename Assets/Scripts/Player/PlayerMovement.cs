@@ -44,8 +44,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float distanceToWall = 0.5f;
     [SerializeField] private float controlCDDuration = 0.1f;
 
-    public List<GameObject> dashSprites = new List<GameObject>();
-
     //Component References
     private Rigidbody2D rb = null;
     private new Collider2D collider = null;
@@ -142,10 +140,6 @@ public class PlayerMovement : MonoBehaviour
 
             rb.velocity = Vector2.zero;
             rb.AddForce(dashDirection * dashSpeed, ForceMode2D.Impulse);
-            foreach(GameObject child in dashSprites)
-            {
-                child.SetActive(true);
-            }
             // rb.velocity = dashDirection * dashSpeed;
 
             currentLerpTime = 0f;

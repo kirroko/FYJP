@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float detectionDistance = 5f;
 
-    public float detectionDistance;
-
-    private Transform target;
+    private Transform target = null;
     
-    void Start()
+    private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        //target = ObjectReference.object.player
+        target = ObjectReferences.instance.player.transform;
     }
-    void Update()
+    private void Update()
     {
         if(Vector2.Distance(transform.position,target.position) < detectionDistance)
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 }

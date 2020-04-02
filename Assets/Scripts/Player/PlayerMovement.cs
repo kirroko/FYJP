@@ -135,18 +135,11 @@ public class PlayerMovement : MonoBehaviour
             if (dashDirection == Vector2.zero)
                 dashDirection.x = facingDirection;
 
-            //startPos = rb.position;
-            //targetPos = rb.position + (dashDirection * dashDistance);
-
             rb.velocity = Vector2.zero;
             rb.AddForce(dashDirection * dashSpeed, ForceMode2D.Impulse);
-            // rb.velocity = dashDirection * dashSpeed;
 
             currentLerpTime = 0f;
         }
-        //// DO DASH
-        //if (isDashing)
-        //    Dash();
 
         // DEBUG CODE
         Debug.DrawRay(transform.position, new Vector2(facingDirection, 0) * (collider.bounds.extents.x + distanceToWall), Color.red);
@@ -161,12 +154,14 @@ public class PlayerMovement : MonoBehaviour
         else
             AirMove();
 
-        if (isGrounded)
+        if (!isGrounded)
             isWallRiding = CastRayInDirection(facingDirection);
     }
 
     private void Move()
     {
+        if (controlCD > 0) return;
+
         Vector2 targetVel = rb.velocity;
 
         targetVel.x += xInput * moveSpeed;
@@ -184,6 +179,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void AirMove()
     {
+        if (controlCD > 0) return;
+
         Vector2 targetVel = rb.velocity;
 
         targetVel.x += xInput * airSpeed; // with no damping
@@ -202,19 +199,6 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(new Vector2(-facingDirection * wallJumpForce, wallJumpForce), ForceMode2D.Impulse);
         controlCD = controlCDDuration;
     }
-
-    //private void Dash()
-    //{
-    //    currentLerpTime += Time.deltaTime;
-    //    if (currentLerpTime > dashCDDuration) // this part stop player from dashing
-    //        isDashing = false;
-    //    Debug.Log("Is dashing! " + currentLerpTime);
-
-    //    // Lerp!
-    //    float t = currentLerpTime / dashCDDuration;
-    //    t = Mathf.Sin(t * Mathf.PI * 0.5f);
-    //    rb.position = Vector2.Lerp(startPos, targetPos, t);
-    //}
 
     private bool CastRayInDirection(int direction)
     {

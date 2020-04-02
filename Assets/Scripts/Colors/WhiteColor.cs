@@ -14,7 +14,6 @@ public enum COLORS
 }
 
 [CreateAssetMenu(fileName = "WhiteColor", menuName = "Colors/White", order = 2)]
-[System.Serializable]
 public class WhiteColor : ScriptableObject
 {
     public bool IsLocked { get { return locked; } }

@@ -88,17 +88,6 @@ public class PlayerMovement : MonoBehaviour
         else ani.SetBool("IsRunning", false);
         if (xInput != 0) lastXDir = xInput;
 
-        //if (xInput != 0) lastXDir = xInput;
-        //// Direction
-        //if (xInput > 0)
-        //    facingDirection = 1;
-        //else if (xInput < 0)
-        //    facingDirection = -1;
-        //if (xInput > 0.25f) // force xInput to normalize at 1 or -1
-        //    xInput = 1f;
-        //else if (xInput < -0.25f)
-        //    xInput = -1f;
-
         // BUTTON INPUT
         if (jumpButton.tap && isGrounded)
             Jump();
@@ -134,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
             isWallRiding = CastRayInDirection(facingDirection);
     }
 
-    private static bool right = false;
+    private static bool right = true;
     private void Move()
     {
         // UPDATE DIRECTION
@@ -222,7 +211,8 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.AddForce(dashDirection * dashSpeed, ForceMode2D.Impulse);
 
-        CreateAfterImage();
+        ani.SetTrigger("Dash");
+        // CreateAfterImage();
     }
 
     private bool CastRayInDirection(int direction)

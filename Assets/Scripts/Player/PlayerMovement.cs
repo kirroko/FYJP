@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private HoldButton jumpButton = null;
     [SerializeField] private HoldButton dashButton = null;
     [SerializeField] private ParticleSystem dust = null;
+    [SerializeField] private ParticleSystem afterImage = null;
     [SerializeField] private LayerMask wallLayer = 0;
 
     [Header("Movement")]
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     private new Collider2D collider = null;
     private PlayerColor playerColor = null;
     private SpriteRenderer sr = null;
+    private Animator ani = null;
 
     //Movement
     private float xInput = 0f;
@@ -72,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         collider = GetComponent<Collider2D>();
         playerColor = GetComponent<PlayerColor>();
         sr = GetComponent<SpriteRenderer>();
+        ani = GetComponent<Animator>();
         cooldown.text = "0";
     }
 
@@ -86,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
         // FORCE xInput to normalize at 1 or -1
         if (xInput > 0.25f) xInput = 1f;
         else if (xInput < -0.25f) xInput = -1;
+        else ani.SetBool("IsRunning", false);
         if (xInput != 0) lastXDir = xInput;
 
         //if (xInput != 0) lastXDir = xInput;
@@ -116,7 +120,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + 0.1f); // THIS HAVE PROBLEMS MIGHT NEED FIXING SOMEDAY
+        bool temp = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + 0.1f); // THIS HAVE PROBLEMS MIGHT NEED FIXING SOMEDAY
+        // VISUAL EFFECTS (DUST)
+        if (!isGrounded && temp)
+            CreateDust();
+        isGrounded = temp;
 
         if (isGrounded)
             Move();
@@ -153,7 +161,10 @@ public class PlayerMovement : MonoBehaviour
         targetVel.x *= 1f - dampForce;
 
         if (controlCD < 0) // Stop all update to rb is controlCD is up
+        {
+            ani.SetBool("IsRunning", true);
             rb.velocity = targetVel;
+        }
     }
 
     private void AirMove()
@@ -214,6 +225,8 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = Vector2.zero;
         rb.AddForce(dashDirection * dashSpeed, ForceMode2D.Impulse);
+
+        CreateAfterImage();
     }
 
     private bool CastRayInDirection(int direction)
@@ -229,6 +242,11 @@ public class PlayerMovement : MonoBehaviour
     private void CreateDust()
     {
         dust.Play();
+    }
+
+    private void CreateAfterImage()
+    {
+        // afterImage.gameObject.GetComponent<ParticleSystemRenderer>().sharedMaterial.SetTexture("_MainTex", sr.sprite.texture);
     }
 
     private void Flip(bool playDust)

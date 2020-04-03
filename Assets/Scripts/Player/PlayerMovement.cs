@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask wallLayer = 0;
 
     [Header("Movement")]
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float maxSpeed = 5f;
+    [SerializeField] private float maxAccel = 2f;
     [SerializeField] private float dampForce = 0.05f;
 
     [Header("Air Control")]
@@ -141,9 +143,11 @@ public class PlayerMovement : MonoBehaviour
             right = false;
 
         Vector2 targetVel = rb.velocity;
-
-        targetVel.x += xInput * moveSpeed;
-        targetVel.x *= 1f - dampForce;
+        float maxSpeedChange = maxAccel * Time.deltaTime;
+        targetVel.x = Mathf.MoveTowards(targetVel.x, xInput * maxSpeed, maxSpeedChange);
+        
+        //targetVel.x += xInput * moveSpeed;
+        //targetVel.x *= 1f - dampForce;
 
         if (controlCD < 0) // Stop all update to rb is controlCD is up
         {
@@ -177,7 +181,8 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         CreateDust();
-        rb.velocity += new Vector2(rb.velocity.x, jumpForce);
+        rb.AddForce(new Vector2(0,jumpForce), ForceMode2D.Impulse);
+        // rb.velocity += new Vector2(rb.velocity.x, jumpForce);
     }
 
     private void WallJump()
@@ -192,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
 
         isDashing = false;
         dashCD = dashCDDuration;
-
+        controlCD = controlCDDuration;
         dashDirection = Vector2.zero;
 
         if (input.Direction.x > 0.5f)
@@ -208,11 +213,19 @@ public class PlayerMovement : MonoBehaviour
         if (dashDirection == Vector2.zero)
             dashDirection.x = facingDirection;
 
-        rb.velocity = Vector2.zero;
-        rb.AddForce(dashDirection * dashSpeed, ForceMode2D.Impulse);
-
+        //rb.velocity = Vector2.zero;
+        //rb.AddForce(dashDirection * dashSpeed, ForceMode2D.Impulse);
         ani.SetTrigger("Dash");
+        StartCoroutine(PerformDash(controlCD, dashDirection));
         // CreateAfterImage();
+    }
+
+    IEnumerator PerformDash(float time, Vector2 dir)
+    {
+        yield return new WaitForSeconds(time);
+        rb.velocity = Vector2.zero;
+        rb.AddForce(dir * dashSpeed, ForceMode2D.Impulse);
+        Debug.Log(dir * dashSpeed);
     }
 
     private bool CastRayInDirection(int direction)

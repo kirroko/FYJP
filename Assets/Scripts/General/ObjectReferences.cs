@@ -17,7 +17,7 @@ public class ObjectReferences : MonoBehaviour
         {
             instance = this;
         }
-        else
+        else if(instance != this)
         {
             Destroy(instance.gameObject);
             instance = this;
@@ -27,15 +27,7 @@ public class ObjectReferences : MonoBehaviour
 
     private void Update()
     {
-        if (instance == null)
-            instance = this;
-
         if(player == null)
             player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    private void OnDestroy()
-    {
-        instance = null;
     }
 }

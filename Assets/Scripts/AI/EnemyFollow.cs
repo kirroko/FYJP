@@ -13,13 +13,21 @@ public class EnemyFollow : MonoBehaviour
     {
         target = ObjectReferences.instance.player.transform;
     }
+
     private void Update()
     {
-        if(Vector2.Distance(transform.position,target.position) < detectionDistance)
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        else if (Vector2.Distance(transform.position, target.position) < 10)
+        if(target != null)
         {
-            transform.Translate(-Vector2.right * speed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, target.position) < detectionDistance)
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            else if (Vector2.Distance(transform.position, target.position) < 10)
+                transform.Translate(-Vector2.right * speed * Time.deltaTime);
         }
+        else
+        {
+            target = ObjectReferences.instance.player.transform;
+        }
+
+
     }
 }

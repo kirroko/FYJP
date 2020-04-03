@@ -24,30 +24,28 @@ public class LevelManager : MonoBehaviour
             instance = this;
         DontDestroyOnLoad(this);
 
-        //Get all the level layout from resources
-        object[] levelLayouts = Resources.LoadAll("Levels", typeof(GameObject));
-        
-        for(int i = 0; i < levelLayouts.Length; ++i)
-        {
-            Level temp = new Level();
+        //Get all the levels from resources
+        object[] levelList = Resources.LoadAll("Levels", typeof(Level));
 
-            temp.layout = levelLayouts[i] as GameObject;
-            temp.name = "Level" + (i + 1);
+        for(int i = 0; i < levelList.Length; ++i)
+        {
+            Level level = levelList[i] as Level;
+
+            Collectable[] collectables = level.layout.transform.GetComponentsInChildren<Collectable>();
+            level.numToCollect = collectables.Length;
 
             //Check if the file data has be created before if not create it else load it
-            LevelData levelData = SaveSystem.LoadLevel(temp.name);
+            LevelData levelData = SaveSystem.LoadLevel(level.name);
             if (levelData == null)
             {
-                temp.data = new LevelData();
-                if (i == 0)
-                    temp.data.unlocked = true;
-                SaveSystem.SaveLevel(temp);
+                level.data = new LevelData();
+                SaveSystem.SaveLevel(level);
             }
             else
             {
-                UpdateLevelData(temp, levelData);
+                UpdateLevelData(level, levelData);
             }
-            levels.Add(temp);
+            levels.Add(level);
         }
     }
 
@@ -77,7 +75,7 @@ public class LevelManager : MonoBehaviour
         {
             yield return null;
         }
-        currentLevel.Print();
+        //currentLevel.Print();
         GameObject layout = Instantiate(currentLevel.layout);
         //Spawn ghost if it exist
         if(currentLevel.ghostPos.Count > 0)
@@ -89,6 +87,8 @@ public class LevelManager : MonoBehaviour
 
     public void EndLevel()
     {
+        int stars = 0;
+
         //Updated Fastest Time & ghost
         if (elapsedTime < currentLevel.data.fastestTime)
         {
@@ -101,6 +101,21 @@ public class LevelManager : MonoBehaviour
                 currentLevel.data.ghostPosSerialized.Add(Vec3Serializable.ToVec3Serializable(pos));
             }
         }
+
+        //Collected all the collectables
+        if (currentLevel.collectablesCount == currentLevel.numToCollect)
+            ++stars;
+        //Finished level within time limit
+        if (elapsedTime <= currentLevel.starTime)
+            ++stars;
+        //Died less thn maxDeath
+        if (currentLevel.deathCount <= currentLevel.maxDeath)
+            ++stars;
+
+        //Update NumStars
+        currentLevel.data.numStars = stars;
+
+
         //Update current level data
         SaveSystem.SaveLevel(currentLevel);
 

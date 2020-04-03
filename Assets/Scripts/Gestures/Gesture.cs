@@ -24,8 +24,11 @@ public class Gesture : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
         if(heldDown)
         {
-            currentPos = Input.GetTouch(touchIndex).position;
-            deltaPos = Input.GetTouch(touchIndex).deltaPosition;
+            if(touchIndex < Input.touchCount && touchIndex >= 0)
+            {
+                currentPos = Input.GetTouch(touchIndex).position;
+                deltaPos = Input.GetTouch(touchIndex).deltaPosition;
+            }
         }
     }
 

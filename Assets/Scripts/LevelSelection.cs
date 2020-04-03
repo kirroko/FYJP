@@ -6,7 +6,7 @@ public class LevelSelection : MonoBehaviour
     [SerializeField] private float holdDuration = 1f;
 
     private float holdTime = 0f;
-    private bool once = false;
+    [SerializeField]private bool once = false;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class LevelSelection : MonoBehaviour
         if(collider.gameObject.tag == "Player")
         {
             Debug.Log("Player in range");
-            if ((Gesture.heldDown || Input.GetKeyDown(KeyCode.E)) && !once)
+            if ((Gesture.heldDown || Input.GetKey(KeyCode.E)) && !once)
             {
                 holdTime -= Time.deltaTime;
 

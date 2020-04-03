@@ -112,5 +112,7 @@ public class LevelManager : MonoBehaviour
             SaveSystem.SaveLevel(currentLevel);
         }
         elapsedTime = 0f;
+
+        SceneTransition.instance.LoadSceneInBG("LevelSelection");
     }
 }

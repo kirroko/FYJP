@@ -17,5 +17,9 @@ public class EnemyFollow : MonoBehaviour
     {
         if(Vector2.Distance(transform.position,target.position) < detectionDistance)
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        else if (Vector2.Distance(transform.position, target.position) < 10)
+        {
+            transform.Translate(-Vector2.right * speed * Time.deltaTime);
+        }
     }
 }

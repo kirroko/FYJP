@@ -11,15 +11,17 @@ public class GhostManager : MonoBehaviour
     private Vector2 prevVel = Vector2.zero;
 
     private PlayerMovement movement = null;
+    private HoldButton jumpButton = null;
 
     private void Start()
     {
         movement = GetComponent<PlayerMovement>();
+        jumpButton = ObjectReferences.instance.jumpButton;
     }
 
     private void Update()
     {
-        if (movement.GetJumpButton.tap && movement.OnGround ||//Player Press Jump and is on ground
+        if (jumpButton.tap && movement.OnGround ||//Player Press Jump and is on ground
                         !movement.OnGround)
         {
             recordedPos.Add(transform.position);

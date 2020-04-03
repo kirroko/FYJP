@@ -5,20 +5,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Joystick GetInput { get { return input; } }
-
-    public HoldButton GetJumpButton { get { return jumpButton; } }
-
-    public HoldButton GetDashButton { get { return dashButton; } }
-
     public float GetLastXDir { get { return lastXDir; } }
 
     public bool OnGround { get { return isGrounded; } }
 
     [Header("References")]
-    [SerializeField] private Joystick input = null;
-    [SerializeField] private HoldButton jumpButton = null;
-    [SerializeField] private HoldButton dashButton = null;
     [SerializeField] private ParticleSystem dust = null;
     [SerializeField] private ParticleSystem afterImage = null;
     [SerializeField] private LayerMask wallLayer = 0;
@@ -43,6 +34,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float distanceToWall = 0.5f;
     [SerializeField] private float controlCDDuration = 0.1f;
 
+    //Inputs
+    private Joystick input = null;
+    private HoldButton jumpButton = null;
+    private HoldButton dashButton = null;
+
     //Component References
     private Rigidbody2D rb = null;
     private new Collider2D collider = null;
@@ -65,9 +61,6 @@ public class PlayerMovement : MonoBehaviour
     private float dashCD = 0f;
     private Vector2 dashDirection = Vector2.zero;
 
-    [Header("TBR")]
-    public TextMeshProUGUI cooldown = null;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -75,7 +68,10 @@ public class PlayerMovement : MonoBehaviour
         playerColor = GetComponent<PlayerColor>();
         sr = GetComponent<SpriteRenderer>();
         ani = GetComponent<Animator>();
-        cooldown.text = "0";
+
+        input = ObjectReferences.instance.joystick;
+        jumpButton = ObjectReferences.instance.jumpButton;
+        dashButton = ObjectReferences.instance.dashButton;
     }
 
     private void Update()

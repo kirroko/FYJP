@@ -15,7 +15,7 @@ public class GreenColor : WhiteColor
     {
         playerColor = player.GetComponent<PlayerColor>();
         movement = player.GetComponent<PlayerMovement>();
-        input = movement.GetInput;
+        input = ObjectReferences.instance.joystick;
     }
 
     public override void UpdateAbility(GameObject player)

@@ -17,7 +17,7 @@ public class RedColor : WhiteColor
 
     public override void InitAbility(GameObject player)
     {
-        input = player.GetComponent<PlayerMovement>().GetInput;
+        input = ObjectReferences.instance.joystick;
     }
 
     public override void UpdateAbility(GameObject player)

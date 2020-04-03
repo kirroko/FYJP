@@ -15,9 +15,9 @@ public class VerticalPlatform : MonoBehaviour
     {
         GetComponent<Collider2D>().usedByEffector = true;
         effector = GetComponent<PlatformEffector2D>();
-        input = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().GetInput;
-        jump = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().GetJumpButton;
-        dash = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().GetDashButton;
+        input = ObjectReferences.instance.joystick;
+        jump = ObjectReferences.instance.jumpButton;
+        dash = ObjectReferences.instance.dashButton;
     }
 
     // Update is called once per frame

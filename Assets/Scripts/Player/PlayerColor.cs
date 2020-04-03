@@ -10,11 +10,11 @@ public class PlayerColor : MonoBehaviour
 
     [Header("Reference")]
     [SerializeField] private ColorManager colorManager = null;
-    [SerializeField] private Image colorSelection = null;
     [SerializeField] private Image currentImage = null;
     [SerializeField] private RectTransform helperImage = null;
     [SerializeField] private float minX = 1f;
     [SerializeField] private float angleThreshold = 120f;
+    [SerializeField] private float holdDuration = 0.5f;
 
     [Header("DEBUG")]
     [SerializeField] private bool CONTROL_TOGGLE = false;
@@ -29,133 +29,56 @@ public class PlayerColor : MonoBehaviour
 
     private GameObject collidedPlatform = null;
 
+    private float holdTime = 0f;
+
     private void Start()
     {
         currentColor = colorManager.colorList[COLORS.WHITE];
         prevColor = currentColor;
         currentColor.InitAbility(gameObject);
+
+        currentImage = ObjectReferences.instance.currentImage;
+        helperImage = ObjectReferences.instance.helperImage;
+
+        holdTime = holdDuration;
     }
 
     private void Update()
     {
-        // Swiping control
-        if(CONTROL_TOGGLE)
+        if (Gesture.heldDown)
         {
-            if (Gesture.heldDown)
+            holdTime -= Time.deltaTime;
+
+            if(holdTime <= 0f)
             {
                 canChoose = true;
-                colorSelection.gameObject.SetActive(canChoose);
                 helperImage.position = Gesture.pressPos;
                 helperImage.gameObject.SetActive(true);
-                Debug.Log(helperImage.gameObject.activeSelf);
-            }
-            else
-            {
-                if (colorChanged)
-                {
-                    UpdateColor(index);
-                    UpdateImage();
-                    prevColor.ExitAbility(gameObject);
-                    currentColor.InitAbility(gameObject);
-                    prevColor = currentColor;
-                }
-
-                colorChanged = false;
-                canChoose = false;
-                colorSelection.gameObject.SetActive(canChoose);
-                helperImage.gameObject.SetActive(false);
-                Debug.Log(helperImage.gameObject.activeSelf);
-                index = 0;
-            }
-
-            if (canChoose)
-            {
-                if (Gesture.currentPos.x - Gesture.pressPos.x > minX)
-                    index = COLORS.BLUE;
-                else if (Gesture.currentPos.x - Gesture.pressPos.x < -minX)
-                    index = COLORS.YELLOW;
-                else
-                    index = COLORS.RED;
-
-                //TBR
-                if (index == COLORS.YELLOW)
-                {
-                    colorSelection.color = new Color(1f, 1f, 0f);
-                }
-                else if (index == COLORS.RED)
-                {
-                    colorSelection.color = new Color(1f, 0f, 0f);
-                }
-                else if (index == COLORS.BLUE)
-                {
-                    colorSelection.color = new Color(0f, 0f, 1f);
-                }
-                colorChanged = true;
             }
         }
         else
         {
-            // Joystick control
-            if (Gesture.heldDown)
+            holdTime = holdDuration;
+            if (colorChanged)
             {
-                canChoose = true;
-                colorSelection.gameObject.SetActive(canChoose);
-                helperImage.position = Gesture.pressPos;
-                helperImage.gameObject.SetActive(true);
+                UpdateColor(index);
+                UpdateImage();
+                prevColor.ExitAbility(gameObject);
+                currentColor.InitAbility(gameObject);
+                prevColor = currentColor;
             }
+
+            colorChanged = false;
+            canChoose = false;
+            helperImage.gameObject.SetActive(false);
+            index = 0;
+        }
+        if (canChoose)
+        {
+            if (CONTROL_TOGGLE)
+                SwipeToChoose();
             else
-            {
-                if (colorChanged)
-                {
-                    UpdateColor(index);
-                    UpdateImage();
-                    prevColor.ExitAbility(gameObject);
-                    currentColor.InitAbility(gameObject);
-                    prevColor = currentColor;
-                }
-
-                colorChanged = false;
-                canChoose = false;
-                colorSelection.gameObject.SetActive(canChoose);
-                helperImage.gameObject.SetActive(false);
-                index = 0;
-            }
-
-            if (canChoose)
-            {
-                Vector3 dir = (Gesture.currentPos - Gesture.pressPos).normalized;
-
-                float angle = 0;
-                if (dir.x < 0)
-                {
-                    angle = 360 - (Mathf.Acos(Vector2.Dot(dir, Vector2.up)) * Mathf.Rad2Deg);
-                }
-                else if (dir.x > 0)
-                {
-                    angle = Mathf.Acos(Vector2.Dot(dir, Vector2.up)) * Mathf.Rad2Deg;
-                }
-                else
-                {
-                    angle = Mathf.Acos(Vector2.Dot(dir, Vector2.up)) * Mathf.Rad2Deg;
-                }
-
-
-                if (angle < angleThreshold)
-                    index = COLORS.BLUE;
-                else if (angle > angleThreshold && angle < angleThreshold * 2)
-                    index = COLORS.YELLOW;
-                else
-                    index = COLORS.RED;
-
-                // TBR
-                if (index == COLORS.YELLOW)
-                    colorSelection.color = new Color(1f, 1f, 0f);
-                else if (index == COLORS.RED)
-                    colorSelection.color = new Color(1f, 0f, 0f);
-                else if (index == COLORS.BLUE)
-                    colorSelection.color = new Color(0f, 0f, 1f);
-                colorChanged = true;
-            }
+                JoystickToChoose();
         }
         ToggleSlowDown();
         currentColor.UpdateAbility(gameObject);
@@ -255,17 +178,58 @@ public class PlayerColor : MonoBehaviour
 
     private void ToggleSlowDown()
     {
-        if(slowDown && !Gesture.heldDown)
+        if(slowDown && !canChoose)
         {
             slowDown = false;
             Time.timeScale = 1f;
             Time.fixedDeltaTime *= 2f;
         }
-        else if(!slowDown && Gesture.heldDown)
+        else if(!slowDown && canChoose)
         {
             slowDown = true;
             Time.timeScale = 0.5f;
             Time.fixedDeltaTime *= 0.5f;
         }
+    }
+
+    private void JoystickToChoose()
+    {
+        Vector3 dir = (Gesture.currentPos - Gesture.pressPos).normalized;
+
+        float angle = 0;
+        if (dir.x < 0)
+        {
+            angle = 360 - (Mathf.Acos(Vector2.Dot(dir, Vector2.up)) * Mathf.Rad2Deg);
+        }
+        else if (dir.x > 0)
+        {
+            angle = Mathf.Acos(Vector2.Dot(dir, Vector2.up)) * Mathf.Rad2Deg;
+        }
+        else
+        {
+            angle = Mathf.Acos(Vector2.Dot(dir, Vector2.up)) * Mathf.Rad2Deg;
+        }
+
+
+        if (angle < angleThreshold)
+            index = COLORS.BLUE;
+        else if (angle > angleThreshold && angle < angleThreshold * 2)
+            index = COLORS.YELLOW;
+        else
+            index = COLORS.RED;
+
+        colorChanged = true;
+    }
+
+    private void SwipeToChoose()
+    {
+        if (Gesture.currentPos.x - Gesture.pressPos.x > minX)
+            index = COLORS.BLUE;
+        else if (Gesture.currentPos.x - Gesture.pressPos.x < -minX)
+            index = COLORS.YELLOW;
+        else
+            index = COLORS.RED;
+
+        colorChanged = true;
     }
 }

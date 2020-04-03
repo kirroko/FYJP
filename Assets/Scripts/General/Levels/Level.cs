@@ -13,7 +13,7 @@ public class Level : ScriptableObject
     [HideInInspector] public int deathCount = 0;
 
     [Header("Criteria For Star")]
-    public int numToCollect = 0;
+    [HideInInspector] public int numToCollect = 0;
     public float starTime = 0f;
     public int maxDeath = 0;
 

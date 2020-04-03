@@ -17,7 +17,6 @@ public class LevelSelection : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
-            Debug.Log("Player in range");
             if ((Gesture.heldDown || Input.GetKey(KeyCode.E)) && !once)
             {
                 holdTime -= Time.deltaTime;

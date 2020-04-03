@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostManager : MonoBehaviour
-{
-    [SerializeField] private PlayerGhost ghost = null;
+{ 
+    public List<Vector3> RecordedPos { get { return recordedPos; } }
 
     private List<Vector3> recordedPos = new List<Vector3>();
 
@@ -28,12 +28,5 @@ public class GhostManager : MonoBehaviour
         }
 
         prevVel = GetComponent<Rigidbody2D>().velocity;
-    }
-
-    public void ShowGhost()
-    {
-        //spawn ghost
-        PlayerGhost tempGhost = Instantiate(ghost, recordedPos[0], Quaternion.identity);
-        tempGhost.Init(recordedPos);
     }
 }

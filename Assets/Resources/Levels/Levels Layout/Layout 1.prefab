@@ -16606,8 +16606,9 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 427174846280673303}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
+  bulletSpeed: 5
+  moveSpeed: 2
   shootable: 0
   nextShot: 0
 --- !u!1 &7749358927764504325
@@ -16757,8 +16758,9 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 427174846203623244}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
+  bulletSpeed: 5
+  moveSpeed: 2
   shootable: 0
   nextShot: 0
 --- !u!1 &7749358929106827913
@@ -16908,8 +16910,9 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 427174845398954688}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
+  bulletSpeed: 5
+  moveSpeed: 2
   shootable: 0
   nextShot: 0
 --- !u!1 &7749358929525008929
@@ -17059,8 +17062,9 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 3426222582773102559}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
+  bulletSpeed: 5
+  moveSpeed: 2
   shootable: 0
   nextShot: 0
 --- !u!1 &7749358929566096182
@@ -17210,8 +17214,9 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 427174844834812799}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
+  bulletSpeed: 5
+  moveSpeed: 2
   shootable: 0
   nextShot: 0
 --- !u!1 &7749358929608946770
@@ -17361,8 +17366,9 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 427174844891855899}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
+  bulletSpeed: 5
+  moveSpeed: 2
   shootable: 0
   nextShot: 0
 --- !u!1001 &2574398915338725194
@@ -17450,12 +17456,12 @@ PrefabInstance:
     - target: {fileID: 45948565271803689, guid: d180373f6c4c42d4bb29b20ffb0d2303,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -72.83
+      value: -4.82
       objectReference: {fileID: 0}
     - target: {fileID: 45948565271803689, guid: d180373f6c4c42d4bb29b20ffb0d2303,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.68
+      value: -3.11
       objectReference: {fileID: 0}
     - target: {fileID: 45948565271803689, guid: d180373f6c4c42d4bb29b20ffb0d2303,
         type: 3}

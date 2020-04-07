@@ -10,7 +10,7 @@ public class Respawn : MonoBehaviour
 
     private void Start()
     {
-        player = ObjectReferences.instance.player;
+        player = GameObject.FindGameObjectWithTag("Player");
         startPos = player.transform.position;
     }
 

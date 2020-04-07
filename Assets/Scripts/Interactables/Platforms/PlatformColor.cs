@@ -36,4 +36,9 @@ public class PlatformColor : MonoBehaviour
             spriteRenderer.color = temp;
         }
     }
+
+    private void OnDestroy()
+    {
+        EventManager.instance.PlatformColorEvent -= CheckColor;
+    }
 }

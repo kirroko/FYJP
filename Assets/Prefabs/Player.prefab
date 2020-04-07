@@ -9692,7 +9692,7 @@ MonoBehaviour:
   helperImage: {fileID: 0}
   minX: 30
   angleThreshold: 120
-  holdDuration: 0.5
+  holdDuration: 0.125
   CONTROL_TOGGLE: 0
 --- !u!114 &8070297629261575623
 MonoBehaviour:

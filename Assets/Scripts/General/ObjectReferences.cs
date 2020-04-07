@@ -5,7 +5,6 @@ public class ObjectReferences : MonoBehaviour
 {
     public static ObjectReferences instance = null;
     public static float fixedTimeScale = 0f;
-    public GameObject player = null;
     public Joystick joystick = null;
     public HoldButton jumpButton = null;
     public HoldButton dashButton = null;
@@ -14,22 +13,13 @@ public class ObjectReferences : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         fixedTimeScale = Time.fixedDeltaTime;
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if(instance != this)
-        {
-            Destroy(instance.gameObject);
-            instance = this;
-        }
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    private void Update()
-    {
-        if(player == null)
-            player = GameObject.FindGameObjectWithTag("Player");
+        instance = this;
+        DontDestroyOnLoad(this);
     }
 }

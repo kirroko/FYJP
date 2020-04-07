@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PatrolAI : AI
 {
-    [SerializeField] private float moveSpeed = 5f;
+    [Header("BUllets")]
     [SerializeField] private Projectile bullet = null;
+    [SerializeField] private float bulletSpeed = 5f;
+    [Header("Settings")]
+    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private bool shootable = false;
     [SerializeField] private float nextShot = 2f;
 
@@ -41,7 +44,7 @@ public class PatrolAI : AI
                 Vector3 firePoint = collider.bounds.center + new Vector3(collider.bounds.extents.x, 0f, 0f) * dir.x * 1.25f;
 
                 Projectile temp = Instantiate(bullet, firePoint, Quaternion.identity);
-                temp.Init(new Vector2(dir.x, 0f));
+                temp.Init(new Vector2(dir.x, 0f), bulletSpeed);
                 shootingInterval = 1.5f;
             }
         }

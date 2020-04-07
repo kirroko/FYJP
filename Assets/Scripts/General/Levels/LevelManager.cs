@@ -7,6 +7,7 @@ using System.IO;
 public class LevelManager : MonoBehaviour
 {
     public Level CurrentLevel { get { return currentLevel; } }
+    public int CurrentLevelIndex { get { return currentLevelIndex; } }
 
     [SerializeField] private PlayerGhost ghost = null;
 

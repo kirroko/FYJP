@@ -10,7 +10,7 @@ public class DashDamage : MonoBehaviour
 
         if (player != null)
         {
-            if (player.IsDashing() && collision.relativeVelocity.magnitude > 10f && 
+            if (collision.relativeVelocity.magnitude > 10f && 
                 player.GetComponent<PlayerColor>().GetCurrentColor.GetMain == COLORS.PURPLE)
             {
                 Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());//Ignores collision so player can go thru

@@ -16553,6 +16553,7 @@ GameObject:
   - component: {fileID: 7749358927575244882}
   - component: {fileID: 7749358927575244883}
   - component: {fileID: 7749358927575244880}
+  - component: {fileID: 4041556076189147907}
   m_Layer: 9
   m_Name: Patrol AI (1)
   m_TagString: Enemy
@@ -16692,6 +16693,18 @@ MonoBehaviour:
   moveSpeed: 2
   shootable: 0
   nextShot: 0
+--- !u!114 &4041556076189147907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7749358927575244894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f0851f6f6a9fe498efe958c6aa8bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7749358927764504325
 GameObject:
   m_ObjectHideFlags: 0
@@ -16705,6 +16718,7 @@ GameObject:
   - component: {fileID: 7749358927764504329}
   - component: {fileID: 7749358927764504328}
   - component: {fileID: 7749358927764504331}
+  - component: {fileID: 6233249227541331838}
   m_Layer: 9
   m_Name: Patrol AI (4)
   m_TagString: Enemy
@@ -16844,6 +16858,18 @@ MonoBehaviour:
   moveSpeed: 2
   shootable: 0
   nextShot: 0
+--- !u!114 &6233249227541331838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7749358927764504325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f0851f6f6a9fe498efe958c6aa8bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7749358929106827913
 GameObject:
   m_ObjectHideFlags: 0
@@ -16857,6 +16883,7 @@ GameObject:
   - component: {fileID: 7749358929106827909}
   - component: {fileID: 7749358929106827908}
   - component: {fileID: 7749358929106827911}
+  - component: {fileID: 4643019062565497216}
   m_Layer: 9
   m_Name: Patrol AI (2)
   m_TagString: Enemy
@@ -16996,6 +17023,18 @@ MonoBehaviour:
   moveSpeed: 2
   shootable: 0
   nextShot: 0
+--- !u!114 &4643019062565497216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7749358929106827913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f0851f6f6a9fe498efe958c6aa8bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7749358929525008929
 GameObject:
   m_ObjectHideFlags: 0
@@ -17009,6 +17048,7 @@ GameObject:
   - component: {fileID: 7749358929525008941}
   - component: {fileID: 7749358929525008940}
   - component: {fileID: 7749358929525008943}
+  - component: {fileID: 1420776025298559390}
   m_Layer: 9
   m_Name: Patrol AI (5)
   m_TagString: Enemy
@@ -17148,6 +17188,18 @@ MonoBehaviour:
   moveSpeed: 2
   shootable: 0
   nextShot: 0
+--- !u!114 &1420776025298559390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7749358929525008929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f0851f6f6a9fe498efe958c6aa8bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7749358929566096182
 GameObject:
   m_ObjectHideFlags: 0
@@ -17161,6 +17213,7 @@ GameObject:
   - component: {fileID: 7749358929566096186}
   - component: {fileID: 7749358929566096187}
   - component: {fileID: 7749358929566096184}
+  - component: {fileID: 2012757207189787126}
   m_Layer: 9
   m_Name: Patrol AI (3)
   m_TagString: Enemy
@@ -17300,6 +17353,18 @@ MonoBehaviour:
   moveSpeed: 2
   shootable: 0
   nextShot: 0
+--- !u!114 &2012757207189787126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7749358929566096182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f0851f6f6a9fe498efe958c6aa8bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7749358929608946770
 GameObject:
   m_ObjectHideFlags: 0
@@ -17313,6 +17378,7 @@ GameObject:
   - component: {fileID: 7749358929608946782}
   - component: {fileID: 7749358929608946783}
   - component: {fileID: 7749358929608946780}
+  - component: {fileID: 3408985414737367852}
   m_Layer: 9
   m_Name: Patrol AI
   m_TagString: Enemy
@@ -17452,6 +17518,18 @@ MonoBehaviour:
   moveSpeed: 2
   shootable: 0
   nextShot: 0
+--- !u!114 &3408985414737367852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7749358929608946770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f0851f6f6a9fe498efe958c6aa8bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2574398915338725194
 PrefabInstance:
   m_ObjectHideFlags: 0

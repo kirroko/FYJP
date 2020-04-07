@@ -6,6 +6,6 @@ public class RegularSpikes : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Respawn.SendToSpawn();
+        Respawn.Restart();
     }
 }

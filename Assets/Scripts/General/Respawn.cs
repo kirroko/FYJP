@@ -4,24 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Respawn : MonoBehaviour
-{
-    private static GameObject player = null;
-    private static Vector3 startPos = Vector3.zero;
-
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        startPos = player.transform.position;
-    }
-
+{ 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<PlayerInfo>() != null)
-            collision.transform.position = startPos;
+        Restart();
     }
 
-    public static void SendToSpawn()
+    public static void Restart()
     {
-        player.transform.position = startPos;
+        LevelManager.instance.LoadLevel(LevelManager.instance.CurrentLevelIndex);
+
     }
 }

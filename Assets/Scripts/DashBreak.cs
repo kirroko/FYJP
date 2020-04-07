@@ -10,7 +10,7 @@ public class DashBreak : MonoBehaviour
 
         if (player != null)
         {
-            if (player.IsDashing() && collision.relativeVelocity.magnitude > 10f)
+            if (collision.relativeVelocity.magnitude > 10f)
             {
                 Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());//Ignores collision so player can go thru
                 player.GetComponent<Rigidbody2D>().velocity = collision.relativeVelocity;//Gives player vel before they collide

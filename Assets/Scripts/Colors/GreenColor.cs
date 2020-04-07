@@ -21,17 +21,19 @@ public class GreenColor : WhiteColor
     public override void UpdateAbility(GameObject player)
     {
         //Check if the player is on a controllable platform
+        player.GetComponent<PlayerMovement>().enabled = true;
         GameObject collidedPlatform = playerColor.GetCollidedPlatform;
         if (collidedPlatform == null || collidedPlatform.GetComponent<ControllablePlatform>() == null) return;
+        player.GetComponent<PlayerMovement>().enabled = false;
 
         //Toggle between moving the platform or player
-        if (Gesture.tap)
-        {
-            movement.enabled = !movement.enabled;
-            player.transform.SetParent(null);
-        }
+        //if (Gesture.tap)
+        //{
+        //    movement.enabled = !movement.enabled;
+        //    player.transform.SetParent(null);
+        //}
 
-        if (movement.enabled) return;
+        //if (movement.enabled) return;
 
         player.transform.SetParent(collidedPlatform.transform);
         collidedPlatform.transform.position += new Vector3(input.Direction.x, input.Direction.y, 0f) * moveSpeed * Time.deltaTime;

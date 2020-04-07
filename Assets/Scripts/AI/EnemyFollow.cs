@@ -11,23 +11,14 @@ public class EnemyFollow : MonoBehaviour
     
     private void Start()
     {
-        target = ObjectReferences.instance.player.transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
     {
-        if(target != null)
-        {
-            if (Vector2.Distance(transform.position, target.position) < detectionDistance)
-                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            else if (Vector2.Distance(transform.position, target.position) < 10)
-                transform.Translate(-Vector2.right * speed * Time.deltaTime);
-        }
-        else
-        {
-            target = ObjectReferences.instance.player.transform;
-        }
-
-
+        if (Vector2.Distance(transform.position, target.position) < detectionDistance)
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        else if (Vector2.Distance(transform.position, target.position) < 10)
+            transform.Translate(-Vector2.right * speed * Time.deltaTime);
     }
 }

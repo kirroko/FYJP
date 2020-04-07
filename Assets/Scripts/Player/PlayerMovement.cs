@@ -16,13 +16,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask wallLayer = 0;
 
     [Header("Movement")]
-    [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] private float maxAccel = 2f;
-    [SerializeField] private float dampForce = 0.05f;
+    [SerializeField] private float maxSpeed = 6f; // The max velocity
+    [SerializeField] private float maxAccel = 20f; // The speed that reach its max velocity
 
     [Header("Air Control")]
-    [SerializeField] private float airSpeed = 2f;
-    [SerializeField] private float xVelocityMax = 15f;
+    [SerializeField] private float maxAirSpeed = 4f; // The max velocity
+    [SerializeField] private float maxAirAccel = 20f; // The speed that reach its max velocity
 
     [Header("Jumping")]
     [SerializeField] private float jumpForce = 5f;
@@ -82,6 +81,10 @@ public class PlayerMovement : MonoBehaviour
         dashCD -= Time.deltaTime;
         controlCD -= Time.deltaTime;
 
+        // ANIMATION CODE
+        ani.SetFloat("yVel", rb.velocity.y);
+        ani.SetBool("IsGrounded", isGrounded);
+
         // INPUT
         xInput = input.Horizontal;
         // FORCE xInput to normalize at 1 or -1
@@ -107,7 +110,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        bool temp = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + 0.1f); // THIS HAVE PROBLEMS MIGHT NEED FIXING SOMEDAY
+        bool temp = false; // THIS HAVE PROBLEMS MIGHT NEED FIXING SOMEDAY
+        Vector3 xExtent = new Vector3(collider.bounds.extents.x, 0f, 0f);
+        if (Physics2D.Raycast(collider.bounds.center + xExtent, Vector2.down, collider.bounds.extents.y + 0.1f) ||
+           Physics2D.Raycast(collider.bounds.center - xExtent, Vector2.down, collider.bounds.extents.y + 0.1f))
+            temp = true;
+
         // VISUAL EFFECTS (DUST)
         if (!isGrounded && temp)
             CreateDust();
@@ -133,9 +141,9 @@ public class PlayerMovement : MonoBehaviour
         else if (xInput < 0) facingDirection = -1;
         // UPDATE CHARACTER FLIP
         if (xInput > 0 && !right)
-            Flip(true);
+            Flip(true,false);
         else if (xInput < 0 && right)
-            Flip(true);
+            Flip(true,false);
         // UPDATE LAST KNOWN DIRECTION
         if (xInput > 0)
             right = true;
@@ -145,9 +153,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 targetVel = rb.velocity;
         float maxSpeedChange = maxAccel * Time.deltaTime;
         targetVel.x = Mathf.MoveTowards(targetVel.x, xInput * maxSpeed, maxSpeedChange);
-        
-        //targetVel.x += xInput * moveSpeed;
-        //targetVel.x *= 1f - dampForce;
 
         if (controlCD < 0) // Stop all update to rb is controlCD is up
         {
@@ -168,27 +173,28 @@ public class PlayerMovement : MonoBehaviour
             right = false;
 
         Vector2 targetVel = rb.velocity;
-
-        targetVel.x += xInput * airSpeed; // with no damping
-        targetVel.x = Mathf.Clamp(targetVel.x, -xVelocityMax, xVelocityMax); // now clamp velocity
+        float maxSpeedChange = maxAirAccel * Time.deltaTime;
+        targetVel.x = Mathf.MoveTowards(targetVel.x, xInput * maxAirSpeed, maxSpeedChange);
 
         if(controlCD < 0) // Stop all update to rb is controlCD is up
             rb.velocity = targetVel;
 
-        Flip(false);
+        Flip(false,false);
     }
 
     private void Jump()
     {
         CreateDust();
         rb.AddForce(new Vector2(0,jumpForce), ForceMode2D.Impulse);
-        // rb.velocity += new Vector2(rb.velocity.x, jumpForce);
+        ani.SetTrigger("Jump");
     }
 
     private void WallJump()
     {
-        rb.AddForce(new Vector2(-facingDirection * wallJumpForce, wallJumpForce), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(-facingDirection * wallJumpForce, wallJumpForce * 1.25f), ForceMode2D.Impulse);
         controlCD = controlCDDuration;
+        // should flip the character auto?
+        Flip(false,true);
     }
 
     private void Dash()
@@ -213,11 +219,8 @@ public class PlayerMovement : MonoBehaviour
         if (dashDirection == Vector2.zero)
             dashDirection.x = facingDirection;
 
-        //rb.velocity = Vector2.zero;
-        //rb.AddForce(dashDirection * dashSpeed, ForceMode2D.Impulse);
         ani.SetTrigger("Dash");
         StartCoroutine(PerformDash(controlCD, dashDirection));
-        // CreateAfterImage();
     }
 
     IEnumerator PerformDash(float time, Vector2 dir)
@@ -248,7 +251,7 @@ public class PlayerMovement : MonoBehaviour
         // afterImage.gameObject.GetComponent<ParticleSystemRenderer>().sharedMaterial.SetTexture("_MainTex", sr.sprite.texture);
     }
 
-    private void Flip(bool playDust)
+    private void Flip(bool playDust,bool forceFlip)
     {
         if (playDust)
             CreateDust();
@@ -257,6 +260,8 @@ public class PlayerMovement : MonoBehaviour
             sr.flipX = false;
         else if (facingDirection < 0)
             sr.flipX = true;
+        else if (forceFlip)
+            sr.flipX = !sr.flipX;
     }
 
     public void ResetDash()

@@ -7,6 +7,7 @@ using System.IO;
 public class LevelManager : MonoBehaviour
 {
     public Level CurrentLevel { get { return currentLevel; } }
+    public int CurrentLevelIndex { get { return currentLevelIndex; } }
 
     [SerializeField] private PlayerGhost ghost = null;
 
@@ -17,11 +18,16 @@ public class LevelManager : MonoBehaviour
     private int currentLevelIndex = 0;
 
     private float elapsedTime = 0f;
+    private GameObject player = null;
 
     private void Awake()
-    { 
-        if (!instance)
-            instance = this;
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
         DontDestroyOnLoad(this);
 
         //Get all the levels from resources
@@ -94,7 +100,8 @@ public class LevelManager : MonoBehaviour
         {
             currentLevel.data.fastestTime = elapsedTime;
             //Update GhostPos
-            currentLevel.ghostPos = ObjectReferences.instance.player.GetComponent<GhostManager>().RecordedPos;
+            player = GameObject.FindGameObjectWithTag("Player");
+            currentLevel.ghostPos = player.GetComponent<GhostManager>().RecordedPos;
             //Updated ghost data to be serialized
             foreach (Vector3 pos in currentLevel.ghostPos)
             {

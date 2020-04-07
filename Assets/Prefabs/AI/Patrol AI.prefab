@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 3906710304717599025}
   - component: {fileID: 3906710304717599024}
   - component: {fileID: 3906710304717599027}
+  - component: {fileID: 3695273672716207387}
   m_Layer: 9
   m_Name: Patrol AI
   m_TagString: Enemy
@@ -246,11 +247,23 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 3906710305383430582}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
   bulletSpeed: 2
+  moveSpeed: 2
   shootable: 0
   nextShot: 2
+--- !u!114 &3695273672716207387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906710304717599037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f0851f6f6a9fe498efe958c6aa8bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3906710305383430576
 GameObject:
   m_ObjectHideFlags: 0

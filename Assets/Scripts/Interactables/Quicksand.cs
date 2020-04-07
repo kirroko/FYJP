@@ -17,7 +17,7 @@ public class Quicksand : MonoBehaviour
     {
         defaultSize = boxCollider.size;
         defaultOffset = boxCollider.offset;
-        player = ObjectReferences.instance.player.GetComponent<PlayerColor>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerColor>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)

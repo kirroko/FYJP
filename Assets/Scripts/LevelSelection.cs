@@ -17,13 +17,14 @@ public class LevelSelection : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
-            Debug.Log("Player in range");
             if ((Gesture.heldDown || Input.GetKey(KeyCode.E)) && !once)
             {
                 holdTime -= Time.deltaTime;
 
                 if(holdTime<= 0f)
                 {
+                    Time.timeScale = 1f;
+                    Time.fixedDeltaTime = ObjectReferences.fixedTimeScale;
                     StartCoroutine(LevelManager.instance.LoadLevel(LevelIndex - 1));
                     once = true;
                 }

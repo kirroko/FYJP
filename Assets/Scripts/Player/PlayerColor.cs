@@ -66,6 +66,7 @@ public class PlayerColor : MonoBehaviour
                 prevColor.ExitAbility(gameObject);
                 currentColor.InitAbility(gameObject);
                 prevColor = currentColor;
+                EventManager.instance.TriggerPlatformColorEvent(currentColor.GetMain);
             }
 
             colorChanged = false;

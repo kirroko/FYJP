@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class ObjectReferences : MonoBehaviour
 {
     public static ObjectReferences instance = null;
-    public GameObject player = null;
+    public static float fixedTimeScale = 0f;
     public Joystick joystick = null;
     public HoldButton jumpButton = null;
     public HoldButton dashButton = null;
@@ -13,21 +13,13 @@ public class ObjectReferences : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (instance != null)
         {
-            instance = this;
+            Destroy(gameObject);
+            return;
         }
-        else if(instance != this)
-        {
-            Destroy(instance.gameObject);
-            instance = this;
-        }
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    private void Update()
-    {
-        if(player == null)
-            player = GameObject.FindGameObjectWithTag("Player");
+        fixedTimeScale = Time.fixedDeltaTime;
+        instance = this;
+        DontDestroyOnLoad(this);
     }
 }

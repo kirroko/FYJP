@@ -7,6 +7,7 @@ public class RedColor : WhiteColor
 {
     [Header("Ability Related")]
     [SerializeField] private Projectile projectile = null;
+    [SerializeField] private float projectileSpeed = 5f;
     [SerializeField] private float damage = 20f;
     [SerializeField] private float shootInterval = 2f;
     [SerializeField] private float offsetPos = 2f;
@@ -23,7 +24,7 @@ public class RedColor : WhiteColor
     public override void UpdateAbility(GameObject player)
     {
         shootCD -= Time.deltaTime;
-        
+
         if (Gesture.tap && shootCD <= 0f)
         {
             shootCD = shootInterval;
@@ -41,13 +42,17 @@ public class RedColor : WhiteColor
                 direction.y = -1f;
 
             if (direction == Vector3.zero)
+            {
                 direction.x = player.GetComponent<PlayerMovement>().GetLastXDir;
+                if (direction.x == 0)
+                    direction.x = 1f;
+            }
 
             Bounds playerColliderBounds = player.GetComponent<Collider2D>().bounds;
-            Vector3 firePoint = playerColliderBounds.center + new Vector3(playerColliderBounds.extents.x, 0f, 0f) + direction * offsetPos;
+            Vector3 firePoint = playerColliderBounds.center + new Vector3(playerColliderBounds.extents.x * direction.x, playerColliderBounds.extents.y * direction.y, 0f) * offsetPos;
 
             Projectile temp = Instantiate(projectile, firePoint, Quaternion.identity);
-            temp.Init(direction);
+            temp.Init(direction, projectileSpeed);
         }
     }
 

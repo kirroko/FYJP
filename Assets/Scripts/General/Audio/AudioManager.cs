@@ -15,8 +15,12 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if(!instance)
-            instance = this;
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
         DontDestroyOnLoad(this);
 
         foreach (Audio audio in audios)
@@ -28,6 +32,43 @@ public class AudioManager : MonoBehaviour
                 BGM.Add(audio.audioName, temp);
             else if (audio.type == AudioType.SFX)
                 SFX.Add(audio.audioName, temp);
+        }
+
+        int bgmVol = 1;
+        int sfxVol = 1;
+        if (!PlayerPrefs.HasKey("SFX"))
+        {
+            PlayerPrefs.SetInt("SFX", 1);
+        }
+        else
+        {
+            sfxVol = PlayerPrefs.GetInt("SFX");
+            if (sfxVol == 1)
+                hasSFX = true;
+            else if (sfxVol == 0)
+                hasSFX = false;
+        }
+
+        if(!PlayerPrefs.HasKey("BGM"))
+        {
+            PlayerPrefs.SetInt("BGM", 1);
+        }
+        else
+        {
+            bgmVol = PlayerPrefs.GetInt("BGM");
+            if (bgmVol == 1)
+                hasBGM = true;
+            else if (bgmVol == 0)
+                hasBGM = false;
+        }
+
+        foreach (AudioSource source in SFX.Values)
+        {
+            source.volume = sfxVol;
+        }
+        foreach (AudioSource source in BGM.Values)
+        {
+            source.volume = bgmVol;
         }
     }
 
@@ -49,9 +90,15 @@ public class AudioManager : MonoBehaviour
         foreach (AudioSource source in SFX.Values)
         {
             if (hasSFX)
+            {
                 source.volume = 1f;
+                PlayerPrefs.SetInt("SFX", 1);
+            }
             else
+            {
+                PlayerPrefs.SetInt("SFX", 0);
                 source.volume = 0f;
+            }
         }
     }
 
@@ -61,9 +108,15 @@ public class AudioManager : MonoBehaviour
         foreach (AudioSource source in BGM.Values)
         {
             if (hasBGM)
+            {
                 source.volume = 1f;
+                PlayerPrefs.SetInt("BGM", 1);
+            }
             else
+            {
+                PlayerPrefs.SetInt("BGM", 0);
                 source.volume = 0f;
+            }
         }
     }
 

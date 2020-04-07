@@ -17,11 +17,6 @@ public class Gesture : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     private void Update()
     {
-        if (tap)
-        {
-            tap = false;
-        }
-
         if(heldDown)
         {
             if(touchIndex < Input.touchCount && touchIndex >= 0)
@@ -34,6 +29,11 @@ public class Gesture : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     private void LateUpdate()
     {
+        if (tap)
+        {
+            tap = false;
+        }
+
         lastSwipe = Vector2.zero;
     }
 

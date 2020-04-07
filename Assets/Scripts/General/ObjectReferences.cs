@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class ObjectReferences : MonoBehaviour
 {
     public static ObjectReferences instance = null;
+    public static float fixedTimeScale = 0f;
     public GameObject player = null;
     public Joystick joystick = null;
     public HoldButton jumpButton = null;
@@ -13,6 +14,7 @@ public class ObjectReferences : MonoBehaviour
 
     private void Awake()
     {
+        fixedTimeScale = Time.fixedDeltaTime;
         if (instance == null)
         {
             instance = this;

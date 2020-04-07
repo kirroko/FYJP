@@ -23,7 +23,7 @@ public class RedColor : WhiteColor
     public override void UpdateAbility(GameObject player)
     {
         shootCD -= Time.deltaTime;
-        
+
         if (Gesture.tap && shootCD <= 0f)
         {
             shootCD = shootInterval;

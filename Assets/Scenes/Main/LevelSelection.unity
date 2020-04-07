@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5451,7 +5451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593138213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.38, y: -1.89, z: 0}
+  m_LocalPosition: {x: 6.59, y: -1.89, z: 0}
   m_LocalScale: {x: 0.17127576, y: 0.17127576, z: 0.17127576}
   m_Children: []
   m_Father: {fileID: 0}
@@ -16841,7 +16841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8070297628078971032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.33, y: -2.83, z: 0}
+  m_LocalPosition: {x: 0.53, y: -2.83, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 452096803}
@@ -16866,10 +16866,10 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 2048
-  moveSpeed: 2
-  dampForce: 0.25
-  airSpeed: 1
-  xVelocityMax: 6
+  maxSpeed: 6
+  maxAccel: 20
+  maxAirSpeed: 4
+  maxAirAccel: 20
   jumpForce: 10
   dashSpeed: 15
   dashCDDuration: 1

@@ -9589,7 +9589,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3272607148570120404, guid: 6e1112ffbe7c84b4396e00cec02b18a1,
+  m_Sprite: {fileID: -3758078833185951158, guid: aa9214e5938be8c47bc0e45c1f11f93e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9672,7 +9672,7 @@ MonoBehaviour:
   jumpForce: 14
   dashSpeed: 15
   dashCDDuration: 1
-  wallJumpForce: 10
+  wallJumpForce: 9
   distanceToWall: 0.3
   controlCDDuration: 0.1
 --- !u!114 &8070297629261575622
@@ -9688,11 +9688,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorManager: {fileID: 11400000, guid: 1b1ff834e4343594dbbf192f5eec68e8, type: 2}
-  currentImage: {fileID: 0}
-  helperImage: {fileID: 0}
-  minX: 30
-  angleThreshold: 120
-  holdDuration: 0.125
+  defaultSize: 100
+  growSize: 150
   CONTROL_TOGGLE: 0
 --- !u!114 &8070297629261575623
 MonoBehaviour:

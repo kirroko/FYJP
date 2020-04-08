@@ -83,7 +83,9 @@ public class PlayerMovement : MonoBehaviour
 
         // ANIMATION CODE
         ani.SetFloat("yVel", rb.velocity.y);
+        ani.SetFloat("xVel", rb.velocity.x);
         ani.SetBool("IsGrounded", isGrounded);
+        ani.SetBool("IsWall", isWallRiding);
 
         // INPUT
         xInput = input.Horizontal;
@@ -131,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isGrounded)
             isWallRiding = CastRayInDirection(facingDirection);
+           
     }
 
     private static bool right = true;
@@ -163,14 +166,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void AirMove()
     {
-        // UPDATE DIRECTION
-        if (xInput > 0) facingDirection = 1;
-        else if (xInput < 0) facingDirection = -1;
-        // UPDATE CHARACTER FLIP
-        if (xInput > 0)
-            right = true;
-        else if (xInput < 0)
-            right = false;
+        // DON'T UPDATE DIRECTION WHEN WALLRIDING
+        if(!isWallRiding)
+        {
+            // UPDATE DIRECTION
+            if (xInput > 0) facingDirection = 1;
+            else if (xInput < 0) facingDirection = -1;
+            // UPDATE CHARACTER FLIP
+            if (xInput > 0 && !right)
+                Flip(true, false);
+            else if (xInput < 0 && right)
+                Flip(true, false);
+            // UPDATE LAST KNOWN DIRECTION
+            if (xInput > 0)
+                right = true;
+            else if (xInput < 0)
+                right = false;
+        }
+        else
+        {
+            if (facingDirection > 0)
+                right = false;
+            else if (facingDirection < 0)
+                right = true;
+            Flip();
+        }
 
         Vector2 targetVel = rb.velocity;
         float maxSpeedChange = maxAirAccel * Time.deltaTime;
@@ -179,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
         if(controlCD < 0) // Stop all update to rb is controlCD is up
             rb.velocity = targetVel;
 
-        Flip(false,false);
+        // Flip(false,false);
     }
 
     private void Jump()
@@ -193,8 +213,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.AddForce(new Vector2(-facingDirection * wallJumpForce, wallJumpForce * 1.25f), ForceMode2D.Impulse);
         controlCD = controlCDDuration;
-        // should flip the character auto?
-        Flip(false,true);
+        ani.SetTrigger("WallJump");
     }
 
     private void Dash()
@@ -253,15 +272,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip(bool playDust,bool forceFlip)
     {
+        Debug.Log("flip flip");
         if (playDust)
             CreateDust();
 
-        if (facingDirection > 0)
-            sr.flipX = false;
-        else if (facingDirection < 0)
-            sr.flipX = true;
-        else if (forceFlip)
+        if (forceFlip)
             sr.flipX = !sr.flipX;
+        else
+        {
+            if (facingDirection > 0)
+                sr.flipX = false;
+            else if (facingDirection < 0)
+                sr.flipX = true;
+        }
+    }
+
+    private void Flip()
+    {
+        if (right)
+            sr.flipX = false;
+        else
+            sr.flipX = true;
+
     }
 
     public void ResetDash()

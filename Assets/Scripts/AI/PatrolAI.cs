@@ -58,5 +58,7 @@ public class PatrolAI : AI
         ContactPoint2D contact = collision.GetContact(0);
         if(contact.normal.x != 0f)
             dir.x = -dir.x;
+        if(collision.gameObject.tag == "Player")
+            Destroy(collision.collider.gameObject);
     }
 }

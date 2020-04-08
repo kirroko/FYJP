@@ -21,4 +21,10 @@ public class EnemyFollow : MonoBehaviour
         else if (Vector2.Distance(transform.position, target.position) < 10)
             transform.Translate(-Vector2.right * speed * Time.deltaTime);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+            Destroy(collision.collider.gameObject);
+    }
 }
+

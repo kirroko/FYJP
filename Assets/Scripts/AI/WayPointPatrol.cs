@@ -35,4 +35,9 @@ public class WayPointPatrol : MonoBehaviour
                 waitTime -= Time.deltaTime;
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+            Destroy(collision.collider.gameObject);
+    }
 }

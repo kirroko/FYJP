@@ -8,7 +8,6 @@ public class PatrolAI : AI
     [SerializeField] private Projectile bullet = null;
     [SerializeField] private float bulletSpeed = 5f;
     [Header("Settings")]
-    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private bool shootable = false;
     [SerializeField] private float nextShot = 2f;
 
@@ -17,15 +16,19 @@ public class PatrolAI : AI
     private Vector2 dir = new Vector2(1f, 0f);
     private new Collider2D collider = null;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         collider = GetComponent<Collider2D>();
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         shootingInterval -= Time.deltaTime;
+
         if (stun) return;
+
         if (!Physics2D.Raycast(transform.position + new Vector3(collider.bounds.extents.x * dir.x, 0f, 0f), Vector2.down, collider.bounds.extents.y + 0.1f))
         {
             dir.x = -dir.x;
@@ -33,7 +36,7 @@ public class PatrolAI : AI
 
         Vector3 targetPos = transform.position;
 
-        targetPos.x += dir.x * moveSpeed * Time.deltaTime;
+        targetPos.x += dir.x * speed * Time.deltaTime;
 
         transform.position = targetPos;
 
@@ -51,14 +54,14 @@ public class PatrolAI : AI
        
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
+        base.OnCollisionEnter2D(collision);
+
         if (collision.gameObject.GetComponent<Projectile>() != null) return;
 
         ContactPoint2D contact = collision.GetContact(0);
         if(contact.normal.x != 0f)
             dir.x = -dir.x;
-        if(collision.gameObject.tag == "Player")
-            Destroy(collision.collider.gameObject);
     }
 }

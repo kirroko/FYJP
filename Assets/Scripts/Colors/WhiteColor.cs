@@ -34,16 +34,66 @@ public class WhiteColor : ScriptableObject
 
     [SerializeField] protected bool locked = false;
 
+    [Header("Ability Related")]
+    [SerializeField] protected float abilityInterval = 1f;
+
+
+    protected Joystick abilityInput = null;
+    protected Vector2 dir = Vector2.zero;
+    protected float abilityCD = 0f;
+    protected bool hasColorPressed = false;
+
+    private float offsetPos = 1.5f;
+
     public virtual void InitAbility(GameObject player)
     {
+        abilityInput = ObjectReferences.instance.abilityInput;
     }
 
     public virtual void UpdateAbility(GameObject player)
     {
+        abilityCD -= Time.deltaTime;
+
+        if(abilityInput.IsPressed && abilityCD <= 0f)
+        {
+            dir = abilityInput.Direction;
+
+            Vector2 direction = Vector2.zero;
+
+            if (dir.x > 0.5f)
+                direction.x = 1f;
+            else if (dir.x < -0.5f)
+                direction.x = -1f;
+
+            if (dir.y > 0.5f)
+                direction.y = 1f;
+            else if (dir.y < -0.5f)
+                direction.y = -1f;
+
+            dir = direction;
+            hasColorPressed = true;
+        }
+
     }
 
     public virtual void ExitAbility(GameObject player)
     {
     }
 
+    public virtual void OnPlayerDestroyed()
+    {
+
+    }
+
+    protected void Shoot(Projectile projectile, float projectileSpeed, GameObject player)
+    {
+        Bounds playerColliderBounds = player.GetComponent<Collider2D>().bounds;
+        Vector3 firePoint = playerColliderBounds.center + new Vector3(playerColliderBounds.extents.x * dir.x, playerColliderBounds.extents.y * dir.y, 0f) * offsetPos;
+
+        Projectile temp = Instantiate(projectile, firePoint, Quaternion.identity);
+        temp.Init(dir, projectileSpeed);
+
+        dir = Vector2.zero;
+        abilityCD = abilityInterval;
+    }
 }

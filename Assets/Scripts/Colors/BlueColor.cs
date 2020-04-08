@@ -24,7 +24,7 @@ public class BlueColor : WhiteColor
     public override void InitAbility(GameObject player)
     {
         dashButton = ObjectReferences.instance.dashButton;
-        input = ObjectReferences.instance.joystick;
+        input = ObjectReferences.instance.movementInput;
         playerRB = player.GetComponent<Rigidbody2D>();
     }
 

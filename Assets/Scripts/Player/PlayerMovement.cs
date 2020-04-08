@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         ani = GetComponent<Animator>();
 
-        input = ObjectReferences.instance.joystick;
+        input = ObjectReferences.instance.movementInput;
         jumpButton = ObjectReferences.instance.jumpButton;
         dashButton = ObjectReferences.instance.dashButton;
     }

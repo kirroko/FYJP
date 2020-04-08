@@ -18,17 +18,15 @@ public class RedColor : WhiteColor
 
     public override void InitAbility(GameObject player)
     {
-        input = ObjectReferences.instance.joystick;
+        input = ObjectReferences.instance.abilityInput;
     }
 
     public override void UpdateAbility(GameObject player)
     {
         shootCD -= Time.deltaTime;
 
-        if (Gesture.tap && shootCD <= 0f)
+        if (input.IsPressed && shootCD <= 0f)
         {
-            shootCD = shootInterval;
-
             Vector3 direction = Vector3.zero;
 
             if (input.Direction.x > 0.5f)
@@ -41,12 +39,9 @@ public class RedColor : WhiteColor
             else if (input.Direction.y < -0.5f)
                 direction.y = -1f;
 
-            if (direction == Vector3.zero)
-            {
-                direction.x = player.GetComponent<PlayerMovement>().GetLastXDir;
-                if (direction.x == 0)
-                    direction.x = 1f;
-            }
+            if (direction.Equals(Vector3.zero)) return;
+
+            shootCD = shootInterval;
 
             Bounds playerColliderBounds = player.GetComponent<Collider2D>().bounds;
             Vector3 firePoint = playerColliderBounds.center + new Vector3(playerColliderBounds.extents.x * direction.x, playerColliderBounds.extents.y * direction.y, 0f) * offsetPos;

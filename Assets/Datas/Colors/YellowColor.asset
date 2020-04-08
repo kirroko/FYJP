@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ef59460fc5ca94d853f2ea60f941b3, type: 3}
   m_Name: YellowColor
   m_EditorClassIdentifier: 
+  color: {r: 1, g: 1, b: 0, a: 1}
   mainColor: 2
   parentColor1: 7
   parentColor2: 7
+  parentOf1: 6
+  parentOf2: 4
   locked: 0

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2ea2d003cce8e4bb1fa9272d2cf1a9, type: 3}
   m_Name: OrangeColor
   m_EditorClassIdentifier: 
+  color: {r: 1, g: 0.5304576, b: 0, a: 1}
   mainColor: 4
   parentColor1: 1
   parentColor2: 2

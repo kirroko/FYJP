@@ -15,7 +15,7 @@ public class VerticalPlatform : MonoBehaviour
     {
         GetComponent<Collider2D>().usedByEffector = true;
         effector = GetComponent<PlatformEffector2D>();
-        input = ObjectReferences.instance.joystick;
+        input = ObjectReferences.instance.movementInput;
         jump = ObjectReferences.instance.jumpButton;
         dash = ObjectReferences.instance.dashButton;
     }

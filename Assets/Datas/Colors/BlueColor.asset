@@ -19,6 +19,10 @@ MonoBehaviour:
   parentOf1: 6
   parentOf2: 5
   locked: 0
+  abilityInterval: 1
+  projectile: {fileID: 3955894298613811479, guid: 239179b6eee092048bd235a3110fc21a,
+    type: 3}
+  projectileSpeed: 5
   dashSpeed: 8
   maxDash: 3
   waitTimeDuration: 1

@@ -19,3 +19,7 @@ MonoBehaviour:
   parentOf1: 6
   parentOf2: 4
   locked: 0
+  abilityInterval: 1
+  projectile: {fileID: 5980035947580797210, guid: 3273671d383ee11429d8e74d779ab923,
+    type: 3}
+  projectileSpeed: 5

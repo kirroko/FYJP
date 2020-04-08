@@ -139,6 +139,10 @@ public class PlayerColor : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        EventManager.instance.TriggerEnemyCollisionEvent(collision, gameObject);
+
+        if (collision.gameObject == null || collision.contactCount == 0) return;
+
         ContactPoint2D contact = collision.GetContact(0);
 
         //Check if collided object is below 
@@ -159,6 +163,14 @@ public class PlayerColor : MonoBehaviour
             collidedPlatform.GetComponent<MovingPlatform>().Charging = false;
 
         collidedPlatform = null;
+    }
+
+    private void OnDestroy()
+    {
+        foreach(WhiteColor color in colorManager.colorList.Values)
+        {
+            color.OnPlayerDestroyed();
+        }
     }
 
     private bool IsChildColor(WhiteColor color, COLORS currentColor)

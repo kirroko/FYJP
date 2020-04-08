@@ -2,27 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WayPointPatrol : MonoBehaviour
+public class WayPointPatrol : AI
 {
-    public float speed;
-    private float waitTime;
-    public float startWaitTime;
+    [SerializeField] private Transform[] moveSpots = null;
+    [SerializeField] private float startWaitTime = 1f;
 
-    public Transform[] moveSpots;
-    private int randomSpots;
-    //public float minX;
-    //public float minY;
-    //public float maxX;
-    //public float maxY;
+    private int randomSpots = 0;
+    private float waitTime = 0f;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         waitTime = startWaitTime;
         randomSpots = Random.Range(0, moveSpots.Length);
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+
+        if (stun) return;
+
         transform.position = Vector2.MoveTowards(transform.position, moveSpots[randomSpots].position, speed * Time.deltaTime);
         if (Vector2.Distance(transform.position, moveSpots[randomSpots].position) < 0.2f)
         {
@@ -34,10 +34,5 @@ public class WayPointPatrol : MonoBehaviour
             else
                 waitTime -= Time.deltaTime;
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-            Destroy(collision.collider.gameObject);
     }
 }

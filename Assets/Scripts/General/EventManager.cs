@@ -8,6 +8,7 @@ public class EventManager : MonoBehaviour
     public static EventManager instance = null;
 
     public event Action<COLORS> PlatformColorEvent = null;
+    public event Action<Collision2D, GameObject> EnemyCollisionEvent = null;
 
     private void Awake()
     {
@@ -24,6 +25,12 @@ public class EventManager : MonoBehaviour
     {
         if (PlatformColorEvent != null)
             PlatformColorEvent(playerColor);
+    }
+
+    public void TriggerEnemyCollisionEvent(Collision2D collision, GameObject player)
+    {
+        if (EnemyCollisionEvent != null)
+            EnemyCollisionEvent(collision, player);
     }
 
 }

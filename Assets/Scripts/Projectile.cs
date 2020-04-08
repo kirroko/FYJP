@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
         this.speed = speed;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         lifeTime -= Time.deltaTime;
 
@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
         transform.position += dir * speed * Time.deltaTime;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         
     }

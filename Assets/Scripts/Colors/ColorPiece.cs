@@ -11,8 +11,7 @@ public class ColorPiece : MonoBehaviour
     [SerializeField] private COLORS mainColor = COLORS.WHITE;
 
     private Image image = null;
-
-    private void Start()
+    private void Awake()
     {
         image = GetComponent<Image>();
     }

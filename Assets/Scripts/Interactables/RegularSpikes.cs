@@ -6,6 +6,7 @@ public class RegularSpikes : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Respawn.Restart();
+        if (collision.gameObject.GetComponent<PlayerInfo>() != null)
+            LevelManager.instance.RestartLevel();
     }
 }

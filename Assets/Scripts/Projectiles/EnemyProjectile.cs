@@ -10,7 +10,7 @@ public class EnemyProjectile : Projectile
 
         if (player != null)
         {
-            Destroy(player.gameObject);
+            LevelManager.instance.RestartLevel();
         }
         Destroy(gameObject);
     }

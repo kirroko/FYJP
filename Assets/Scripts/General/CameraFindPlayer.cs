@@ -13,6 +13,10 @@ public class CameraFindPlayer : MonoBehaviour
     private void Update()
     {
         if (machine.Follow == null)
-            machine.Follow = GameObject.FindGameObjectWithTag("Player").transform;
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if(player != null)
+                machine.Follow = player.transform;
+        }
     }
 }

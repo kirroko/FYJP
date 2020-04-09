@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7b0df48f066f54aa4ee5eccdd65937, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  layout: {fileID: 5606574054784022427, guid: 952f306feeb4d394ba4fc85836e3a122, type: 3}
+  layout: {fileID: 5606574054784022427, guid: 05e1fd3683180a64a9526f1e6ce1dcb4, type: 3}
   name: Level 1
   data:
     unlocked: 0
@@ -20,4 +20,8 @@ MonoBehaviour:
     fastestTime: Infinity
     ghostPosSerialized: []
   ghostPos: []
-  numCollected: 0
+  collectablesCount: 0
+  deathCount: 0
+  numToCollect: 0
+  starTime: 0
+  maxDeath: 0

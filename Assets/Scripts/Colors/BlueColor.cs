@@ -39,9 +39,9 @@ public class BlueColor : WhiteColor
         dashCD -= Time.deltaTime;
 
         //Shoot projectiles
-        if (!abilityInput.IsPressed && hasColorPressed)
+        if (!abilityInput.IsPressed && abilityActivated)
         {
-            hasColorPressed = false;
+            abilityActivated = false;
 
             if (dir.Equals(Vector2.zero)) return;
 

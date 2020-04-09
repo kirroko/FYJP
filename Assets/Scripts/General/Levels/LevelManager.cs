@@ -84,11 +84,11 @@ public class LevelManager : MonoBehaviour
         //currentLevel.Print();
         GameObject layout = Instantiate(currentLevel.layout);
         //Spawn ghost if it exist
-        if(currentLevel.ghostPos.Count > 0)
-        {
-            PlayerGhost tempGhost = Instantiate(ghost, currentLevel.ghostPos[0], Quaternion.identity);
-            tempGhost.Init(currentLevel.ghostPos);
-        }
+        //if(currentLevel.ghostPos.Count > 0)
+        //{
+        //    PlayerGhost tempGhost = Instantiate(ghost, currentLevel.ghostPos[0], Quaternion.identity);
+        //    tempGhost.Init(currentLevel.ghostPos);
+        //}
     }
 
     public void EndLevel()

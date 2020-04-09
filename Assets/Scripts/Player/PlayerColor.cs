@@ -15,9 +15,6 @@ public class PlayerColor : MonoBehaviour
     [SerializeField] private float defaultSize = 100f;
     [SerializeField] private float growSize = 150f;
 
-    [Header("DEBUG")]
-    [SerializeField] private bool CONTROL_TOGGLE = false;
-
     //Image & Input References
     private ColorPiece[] colorPieces = new ColorPiece[3];
     private Joystick colorInput = null;

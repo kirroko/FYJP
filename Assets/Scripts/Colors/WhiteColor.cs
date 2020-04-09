@@ -41,7 +41,7 @@ public class WhiteColor : ScriptableObject
     protected Joystick abilityInput = null;
     protected Vector2 dir = Vector2.zero;
     protected float abilityCD = 0f;
-    protected bool hasColorPressed = false;
+    protected bool abilityActivated = false;
 
     private float offsetPos = 1.5f;
 
@@ -71,13 +71,16 @@ public class WhiteColor : ScriptableObject
                 direction.y = -1f;
 
             dir = direction;
-            hasColorPressed = true;
+            abilityActivated = true;
         }
 
     }
 
     public virtual void ExitAbility(GameObject player)
     {
+        abilityCD = 0f;
+        abilityActivated = false;
+        dir = Vector2.zero;
     }
 
     public virtual void OnPlayerDestroyed()

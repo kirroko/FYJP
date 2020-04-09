@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool OnGround { get { return isGrounded; } }
 
+    public bool StillDashing { get { return stillDashing; } }
+
     [Header("References")]
     [SerializeField] private ParticleSystem dust = null;
     [SerializeField] private ParticleSystem afterImage = null;
@@ -51,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     private float xInput = 0f;
     private float lastXDir = 0;
     private int facingDirection = 0;
+    private float speedModifier = 0f;
 
     //Jumping
     private bool isGrounded = false;
@@ -61,6 +64,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing = false;
     private float dashCD = 0f;
     private Vector2 dashDirection = Vector2.zero;
+    private bool stillDashing = false;
+    private float dashDuration = 0.7f;
 
     private void Start()
     {
@@ -80,6 +85,17 @@ public class PlayerMovement : MonoBehaviour
         // COOLDOWN CODE
         dashCD -= Time.deltaTime;
         controlCD -= Time.deltaTime;
+
+        //For Dash To kill and break objects
+        if(stillDashing)
+        {
+            dashDuration -= Time.deltaTime;
+            if(dashDuration <= 0f)
+            {
+                stillDashing = false;
+                dashDuration = 0.7f;
+            }
+        }
 
         // ANIMATION CODE
         ani.SetFloat("yVel", rb.velocity.y);
@@ -102,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
             WallJump();
 
         // DASH
-        if (dashButton.tap && playerColor.GetCurrentColor.GetMain != COLORS.BLUE && dashCD < 0f)
+        if ((dashButton.tap || Input.GetKeyDown(KeyCode.E))&& playerColor.GetCurrentColor.GetMain != COLORS.BLUE && dashCD < 0f)
             isDashing = true;
 
         // DEBUG CODE
@@ -221,6 +237,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("TAP DASH");
 
         isDashing = false;
+        stillDashing = true;
         dashCD = dashCDDuration;
         controlCD = controlCDDuration;
         dashDirection = Vector2.zero;
@@ -298,6 +315,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetDash()
     {
+        stillDashing = false;
+        dashDuration = 0.7f;
         isDashing = false;
         dashCD = 0f;
     }
@@ -305,5 +324,27 @@ public class PlayerMovement : MonoBehaviour
     public bool IsDashing()
     {
         return isDashing;
+    }
+
+    public void IncreaseSpeed(float modifier)
+    {
+        speedModifier = modifier;
+
+        maxAccel *= modifier;
+        maxSpeed *= modifier;
+        maxAirAccel *= modifier;
+        maxAirSpeed *= modifier;
+        dashSpeed *= modifier;
+    }
+
+    public void NormalSpeed()
+    {
+        maxAccel /= speedModifier;
+        maxSpeed /= speedModifier;
+        maxAirAccel /= speedModifier;
+        maxAirSpeed /= speedModifier;
+        dashSpeed /= speedModifier;
+
+        speedModifier = 1f;
     }
 }

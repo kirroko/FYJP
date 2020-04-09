@@ -437,6 +437,7 @@ GameObject:
   - component: {fileID: 820663921633185079}
   - component: {fileID: 820663921633185080}
   - component: {fileID: 2579884345840042672}
+  - component: {fileID: 5089424444836092247}
   m_Layer: 0
   m_Name: spikes (1)
   m_TagString: Untagged
@@ -520,6 +521,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &5089424444836092247
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820663921633185078}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.49078226, y: 0.31402}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.125, y: 3.125}
+    newSize: {x: 3.125, y: 3.125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0463953, y: 0.3457443}
+  m_EdgeRadius: 0
 --- !u!1 &820663921650640795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1868,7 @@ GameObject:
   - component: {fileID: 820663922824904341}
   - component: {fileID: 820663922824904342}
   - component: {fileID: 355368376876405359}
+  - component: {fileID: 8836980348506220565}
   m_Layer: 0
   m_Name: spikes
   m_TagString: Untagged
@@ -1924,6 +1952,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &8836980348506220565
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820663922824904340}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.5083742, y: 0.3360374}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.125, y: 3.125}
+    newSize: {x: 3.125, y: 3.125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0119343, y: 0.33058393}
+  m_EdgeRadius: 0
 --- !u!1 &820663923008727412
 GameObject:
   m_ObjectHideFlags: 0

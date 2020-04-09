@@ -16,5 +16,10 @@ MonoBehaviour:
   mainColor: 6
   parentColor1: 2
   parentColor2: 3
+  parentOf1: 7
+  parentOf2: 7
   locked: 0
+  abilityInterval: 1
   moveSpeed: 5
+  zoomBounds: {x: 3, y: 7}
+  zoomSpeed: 5

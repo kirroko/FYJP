@@ -20,9 +20,9 @@ public class YellowColor : WhiteColor
     {
         base.UpdateAbility(player);
 
-        if (!abilityInput.IsPressed && hasColorPressed)
+        if (!abilityInput.IsPressed && abilityActivated)
         {
-            hasColorPressed = false;
+            abilityActivated = false;
 
             if (dir.Equals(Vector2.zero)) return;
 

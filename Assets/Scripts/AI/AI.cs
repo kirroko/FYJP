@@ -94,6 +94,26 @@ public class AI : MonoBehaviour
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
-            Respawn.Restart();
+        {
+            if (collision.gameObject.GetComponent<PlayerInfo>().isInvincible) return;
+
+            PlayerMovement movement = collision.gameObject.GetComponent<PlayerMovement>();
+            PlayerColor color = collision.gameObject.GetComponent<PlayerColor>();
+
+            if(!tagged)
+            {
+                if (color.GetCurrentColor.GetMain != COLORS.PURPLE)//Not purple
+                    Respawn.Restart();
+                else if (!movement.StillDashing)//Purple but not dashing
+                    Respawn.Restart();
+            }
+            else
+            {
+                if (color.GetCurrentColor.GetMain != COLORS.RED)//Not red
+                    Respawn.Restart();
+                else if (!movement.StillDashing)//Red but not dashing
+                    Respawn.Restart();
+            }
+        }
     }
 }

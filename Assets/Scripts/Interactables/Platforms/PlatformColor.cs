@@ -15,6 +15,7 @@ public class PlatformColor : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<Collider2D>();
         collider.isTrigger = true;
+        EventManager.instance.PlatformColorEvent -= CheckColor;
         EventManager.instance.PlatformColorEvent += CheckColor;
         CheckColor(COLORS.WHITE);
     }

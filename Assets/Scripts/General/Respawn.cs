@@ -13,6 +13,5 @@ public class Respawn : MonoBehaviour
     public static void Restart()
     {
         LevelManager.instance.LoadLevel(LevelManager.instance.CurrentLevelIndex);
-
     }
 }

@@ -11,16 +11,19 @@ public class RedColor : WhiteColor
     public override void InitAbility(GameObject player)
     {
         base.InitAbility(player);
+
+        EventManager.instance.EnemyCollisionEvent -= EnemyCollisionEvent;
         EventManager.instance.EnemyCollisionEvent += EnemyCollisionEvent;
+
     }
 
     public override void UpdateAbility(GameObject player)
     {
         base.UpdateAbility(player);
 
-        if (!abilityInput.IsPressed && hasColorPressed)
+        if (!abilityInput.IsPressed && abilityActivated)
         {
-            hasColorPressed = false;
+            abilityActivated = false;
 
             if (dir.Equals(Vector2.zero)) return;
 
@@ -41,10 +44,12 @@ public class RedColor : WhiteColor
 
         if (enemy == null) return;
 
-        if (collision.relativeVelocity.magnitude > 5f && enemy.IsTagged)
+        if (player.GetComponent<PlayerMovement>().StillDashing && enemy.IsTagged)
         {
             Physics2D.IgnoreCollision(collision.collider, player.GetComponent<Collider2D>());//Ignores collision so player can go thru
-            player.GetComponent<Rigidbody2D>().velocity = collision.relativeVelocity;//Gives player vel before they collide
+            player.GetComponent<Rigidbody2D>().velocity = -collision.relativeVelocity;//Gives player vel before they collide
+            player.GetComponent<PlayerMovement>().ResetDash();
+
             Destroy(collision.gameObject);
         }
     }

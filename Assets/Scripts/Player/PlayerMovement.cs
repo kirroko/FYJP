@@ -121,6 +121,13 @@ public class PlayerMovement : MonoBehaviour
         if ((dashButton.tap || Input.GetKeyDown(KeyCode.E))&& playerColor.GetCurrentColor.GetMain != COLORS.BLUE && dashCD < 0f)
             isDashing = true;
 
+        // MISC
+        if (isGrounded)
+        {
+            isWallRiding = false;
+            ani.SetBool("IsWall", isWallRiding);
+        }
+
         // DEBUG CODE
         Debug.DrawRay(transform.position, new Vector2(facingDirection, 0) * (collider.bounds.extents.x + distanceToWall), Color.red);
         Debug.DrawRay(transform.position - new Vector3(0, collider.bounds.extents.y, 0), new Vector2(facingDirection, 0) * (collider.bounds.extents.x + distanceToWall), Color.red);
@@ -217,7 +224,6 @@ public class PlayerMovement : MonoBehaviour
         if(controlCD < 0) // Stop all update to rb is controlCD is up
             rb.velocity = targetVel;
 
-        // Flip(false,false);
     }
 
     private void Jump()
@@ -236,8 +242,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Dash()
     {
-        Debug.Log("TAP DASH");
-
         isDashing = false;
         stillDashing = true;
         dashCD = dashCDDuration;
@@ -266,7 +270,6 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(time);
         rb.velocity = Vector2.zero;
         rb.AddForce(dir * dashSpeed, ForceMode2D.Impulse);
-        Debug.Log(dir * dashSpeed);
     }
 
     private bool CastRayInDirection(int direction)
@@ -291,7 +294,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip(bool playDust,bool forceFlip)
     {
-        Debug.Log("flip flip");
         if (playDust)
             CreateDust();
 
@@ -312,7 +314,6 @@ public class PlayerMovement : MonoBehaviour
             sr.flipX = false;
         else
             sr.flipX = true;
-
     }
 
     public void ResetDash()

@@ -10,10 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c77964aab1939974f86f087e2ff2b91a, type: 3}
-  m_Name: PurpleColor
+  m_Name: Purple Color
   m_EditorClassIdentifier: 
   color: {r: 0.6117647, g: 0, b: 1, a: 1}
   mainColor: 5
   parentColor1: 1
   parentColor2: 3
+  parentOf1: 7
+  parentOf2: 7
   locked: 0
+  abilityInterval: 1
+  abilityDuration: 3
+  speedModifier: 2

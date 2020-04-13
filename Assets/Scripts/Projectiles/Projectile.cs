@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float lifeTime = 5f;
+    [SerializeField] protected float lifeTime = 5f;
 
-    private Vector3 dir = Vector3.zero;
-    private float speed = 0f;
+    protected Vector3 dir = Vector3.zero;
+    protected float speed = 0f;
 
     public void Init(Vector2 dir, float speed)
     {

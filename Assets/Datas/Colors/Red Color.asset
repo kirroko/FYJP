@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ef59460fc5ca94d853f2ea60f941b3, type: 3}
-  m_Name: YellowColor
+  m_Script: {fileID: 11500000, guid: c5197bca93ef7f64d8395f20a2b629c9, type: 3}
+  m_Name: Red Color
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 1, b: 0, a: 1}
-  mainColor: 2
+  color: {r: 1, g: 0, b: 0, a: 1}
+  mainColor: 1
   parentColor1: 7
   parentColor2: 7
-  parentOf1: 6
-  parentOf2: 4
+  parentOf1: 4
+  parentOf2: 5
   locked: 0
-  abilityInterval: 1
-  projectile: {fileID: 5980035947580797210, guid: 3273671d383ee11429d8e74d779ab923,
+  abilityInterval: 0.2
+  projectile: {fileID: 4643684760695463833, guid: e0a19edb5a2fcde4d834c2a735391fc1,
     type: 3}
   projectileSpeed: 5

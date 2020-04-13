@@ -9667,7 +9667,7 @@ MonoBehaviour:
   maxAccel: 20
   maxAirSpeed: 6
   maxAirAccel: 12
-  jumpForce: 14
+  jumpForce: 8.5
   dashSpeed: 15
   dashCDDuration: 1
   wallJumpForce: 9
@@ -9688,7 +9688,6 @@ MonoBehaviour:
   colorManager: {fileID: 11400000, guid: 1b1ff834e4343594dbbf192f5eec68e8, type: 2}
   defaultSize: 100
   growSize: 150
-  CONTROL_TOGGLE: 0
 --- !u!114 &8070297629261575623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9701,8 +9700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1324ef9b57917449f8a53f5217f48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  damage: 50
+  isInvincible: 0
 --- !u!114 &8070297629261575624
 MonoBehaviour:
   m_ObjectHideFlags: 0

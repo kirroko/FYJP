@@ -22,8 +22,8 @@ MonoBehaviour:
   abilityInterval: 1
   projectile: {fileID: 3955894298613811479, guid: 239179b6eee092048bd235a3110fc21a,
     type: 3}
-  projectileSpeed: 5
-  dashSpeed: 8
+  projectileSpeed: 10
+  dashSpeed: 10
   maxDash: 3
   waitTimeDuration: 1
   dashCDDuration: 1

@@ -144,9 +144,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  stunDuration: 2
-  taggedDuration: 2
-  frozenDuration: 2
+  stunDuration: 3
+  taggedDuration: 5
+  frozenDuration: 3
   slowAmt: 0.5
   bullet: {fileID: 298073369593096528, guid: b12ab49e659299442ba06c0b3791b72e, type: 3}
   bulletSpeed: 2

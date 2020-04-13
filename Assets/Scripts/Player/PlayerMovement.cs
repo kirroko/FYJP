@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dashing")]
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCDDuration = 1f;
+    [SerializeField] private float cappedSpeed = 20f;
 
     [Header("Wall Jump")]
     [SerializeField] private float wallJumpForce = 2.5f;
@@ -95,6 +96,10 @@ public class PlayerMovement : MonoBehaviour
                 stillDashing = false;
                 dashDuration = 0.7f;
             }
+            if(rb.velocity.magnitude > cappedSpeed)
+            {
+                rb.velocity = Vector2.ClampMagnitude(rb.velocity, cappedSpeed);
+            }
         }
 
         // ANIMATION CODE
@@ -156,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isGrounded)
             isWallRiding = CastRayInDirection(facingDirection);
-           
+
     }
 
     private static bool right = true;

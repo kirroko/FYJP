@@ -184,6 +184,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 targetVel = rb.velocity;
         float maxSpeedChange = maxAccel * Time.deltaTime;
         targetVel.x = Mathf.MoveTowards(targetVel.x, xInput * maxSpeed, maxSpeedChange);
+        Debug.Log("input * speed: " + xInput * maxSpeed);
+        Debug.Log("targetVel.x: " + targetVel.x);
 
         if (controlCD < 0) // Stop all update to rb is controlCD is up
         {
@@ -321,8 +323,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetDash()
     {
-        stillDashing = false;
-        dashDuration = 0.7f;
         isDashing = false;
         dashCD = 0f;
     }

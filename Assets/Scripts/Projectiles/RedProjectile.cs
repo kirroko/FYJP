@@ -8,10 +8,7 @@ public class RedProjectile : Projectile
 
         if (enemy != null)
         {
-            if (enemy.IsTagged)//Enemy alrd tagged so kill it
-                Destroy(enemy.gameObject);
-            else
-                enemy.IsTagged = true;
+            enemy.IsTagged = true;
         }
         Destroy(gameObject);
     }

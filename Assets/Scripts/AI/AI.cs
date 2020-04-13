@@ -103,16 +103,24 @@ public class AI : MonoBehaviour
             if(!tagged)
             {
                 if (color.GetCurrentColor.GetMain != COLORS.PURPLE)//Not purple
+                {
                     LevelManager.instance.RestartLevel();
+                }
                 else if (!movement.StillDashing)//Purple but not dashing
+                {
                     LevelManager.instance.RestartLevel();
+                }
             }
             else
             {
                 if (color.GetCurrentColor.GetMain != COLORS.RED)//Not red
+                {
                     LevelManager.instance.RestartLevel();
+                }
                 else if (!movement.StillDashing)//Red but not dashing
+                {
                     LevelManager.instance.RestartLevel();
+                }
             }
         }
     }

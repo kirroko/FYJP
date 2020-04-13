@@ -91,45 +91,6 @@ public class PlayerColor : MonoBehaviour
             }
         }
 
-        #region OLD_CONTROLS
-        //if (Gesture.heldDown)
-        //{
-        //    holdTime -= Time.deltaTime;
-
-        //    if(holdTime <= 0f)
-        //    {
-        //        canChoose = true;
-        //        //helperImage.position = Gesture.pressPos;
-        //        //helperImage.gameObject.SetActive(true);
-        //    }
-        //}
-        //else
-        //{
-        //    holdTime = holdDuration;
-        //    if (colorChanged)
-        //    {
-        //        UpdateColor(index);
-        //        UpdateImage();
-        //        prevColor.ExitAbility(gameObject);
-        //        currentColor.InitAbility(gameObject);
-        //        prevColor = currentColor;
-        //        EventManager.instance.TriggerPlatformColorEvent(currentColor.GetMain);
-        //    }
-
-        //    colorChanged = false;
-        //    canChoose = false;
-        //    //helperImage.gameObject.SetActive(false);
-        //    index = 0;
-        //}
-        //if (canChoose)
-        //{
-        //    if (CONTROL_TOGGLE)
-        //        SwipeToChoose();
-        //    else
-        //        JoystickToChoose();
-        //}
-        #endregion
-
         ToggleSlowDown();
         currentColor.UpdateAbility(gameObject);
     }

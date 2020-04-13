@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6451908035802416888}
   - component: {fileID: 6451908035802416884}
   m_Layer: 0
-  m_Name: EnemyFollowAi
+  m_Name: Enemy Follow AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc26d5d68c011e046879c022d87555ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  moveSpeed: 5
+  stunDuration: 3
+  taggedDuration: 5
+  frozenDuration: 3
+  slowAmt: 0.5
   detectionDistance: 10
 --- !u!61 &6451908035802416884
 BoxCollider2D:

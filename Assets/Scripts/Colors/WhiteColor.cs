@@ -3,8 +3,8 @@
 public enum COLORS
 {
     WHITE,
-    RED,
     YELLOW,
+    RED,
     BLUE,
     ORANGE,
     PURPLE,

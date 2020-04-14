@@ -9670,6 +9670,7 @@ MonoBehaviour:
   jumpForce: 10
   dashSpeed: 15
   dashCDDuration: 1
+  cappedSpeed: 20
   wallJumpForce: 9
   distanceToWall: 0.3
   controlCDDuration: 0.1
@@ -9686,8 +9687,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorManager: {fileID: 11400000, guid: 1b1ff834e4343594dbbf192f5eec68e8, type: 2}
+  colorAdjust: {fileID: 0}
   defaultSize: 100
   growSize: 150
+  colorsEffects:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.69411767, b: 0.69411767, a: 1}
+  - {r: 0.9490197, g: 1, b: 0.69411767, a: 1}
+  - {r: 0.69411767, g: 0.69411767, b: 1, a: 1}
+  - {r: 1, g: 0.7843138, b: 0.69411767, a: 1}
+  - {r: 0.90377, g: 0.69411767, b: 1, a: 1}
+  - {r: 0.78039217, g: 1, b: 0.69411767, a: 1}
 --- !u!114 &8070297629261575623
 MonoBehaviour:
   m_ObjectHideFlags: 0

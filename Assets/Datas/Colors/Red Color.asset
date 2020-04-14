@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Red Color
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
-  mainColor: 1
+  mainColor: 2
   parentColor1: 7
   parentColor2: 7
   parentOf1: 4

@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dashing")]
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCDDuration = 1f;
-    [SerializeField] private float cappedSpeed = 20f;
 
     [Header("Wall Jump")]
     [SerializeField] private float wallJumpForce = 2.5f;
@@ -95,10 +94,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 stillDashing = false;
                 dashDuration = 0.7f;
-            }
-            if(rb.velocity.magnitude > cappedSpeed)
-            {
-                rb.velocity = Vector2.ClampMagnitude(rb.velocity, cappedSpeed);
             }
         }
 
@@ -272,7 +267,9 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         rb.velocity = Vector2.zero;
-        rb.AddForce(dir * dashSpeed, ForceMode2D.Impulse);
+        Vector3 force = dir * dashSpeed;
+        force = Vector3.ClampMagnitude(force, dashSpeed);
+        rb.AddForce(force, ForceMode2D.Impulse);
     }
 
     private bool CastRayInDirection(int direction)

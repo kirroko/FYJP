@@ -7,12 +7,7 @@ public class Respawn : MonoBehaviour
 { 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Restart();
-    }
-
-    public static void Restart()
-    {
-        LevelManager.instance.LoadLevel(LevelManager.instance.CurrentLevelIndex);
-
+        if(collision.gameObject.GetComponent<PlayerInfo>() != null)
+            LevelManager.instance.RestartLevel();
     }
 }

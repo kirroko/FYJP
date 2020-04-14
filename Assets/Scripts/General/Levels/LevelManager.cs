@@ -79,16 +79,19 @@ public class LevelManager : MonoBehaviour
 
         while (!SceneManager.GetSceneByName("Level").isLoaded)
         {
+            Debug.Log("Loading");
             yield return null;
         }
+
+        Debug.Log("Lvl Loaded");
         //currentLevel.Print();
         GameObject layout = Instantiate(currentLevel.layout);
         //Spawn ghost if it exist
-        if(currentLevel.ghostPos.Count > 0)
-        {
-            PlayerGhost tempGhost = Instantiate(ghost, currentLevel.ghostPos[0], Quaternion.identity);
-            tempGhost.Init(currentLevel.ghostPos);
-        }
+        //if(currentLevel.ghostPos.Count > 0)
+        //{
+        //    PlayerGhost tempGhost = Instantiate(ghost, currentLevel.ghostPos[0], Quaternion.identity);
+        //    tempGhost.Init(currentLevel.ghostPos);
+        //}
     }
 
     public void EndLevel()
@@ -136,5 +139,27 @@ public class LevelManager : MonoBehaviour
         elapsedTime = 0f;
 
         SceneTransition.instance.LoadSceneInBG("LevelSelection");
+    }
+
+    private IEnumerator ReloadLevel()
+    {
+        elapsedTime = 0f;
+        SceneTransition.instance.LoadScene("Level");
+
+        yield return new WaitForSeconds(0.5f);
+
+        //currentLevel.Print();
+        GameObject layout = Instantiate(currentLevel.layout);
+        //Spawn ghost if it exist
+        //if(currentLevel.ghostPos.Count > 0)
+        //{
+        //    PlayerGhost tempGhost = Instantiate(ghost, currentLevel.ghostPos[0], Quaternion.identity);
+        //    tempGhost.Init(currentLevel.ghostPos);
+        //}
+    }
+
+    public void RestartLevel()
+    {
+        StartCoroutine(ReloadLevel());
     }
 }

@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ObjectReferences : MonoBehaviour
 {
     public static ObjectReferences instance = null;
     public static float fixedTimeScale = 0f;
+
+    public TextMeshProUGUI debug = null;
 
     [Header("Inputs")]
     public Joystick movementInput = null;

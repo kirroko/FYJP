@@ -12,16 +12,6 @@ public class SaveSystem : MonoBehaviour
             instance = this;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-        }
-    }
-
     public static void SaveLevel(Level level)
     {
         BinaryFormatter formatter = new BinaryFormatter();

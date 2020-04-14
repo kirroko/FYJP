@@ -15,9 +15,6 @@ public class PlayerColor : MonoBehaviour
     [SerializeField] private float defaultSize = 100f;
     [SerializeField] private float growSize = 150f;
 
-    [Header("DEBUG")]
-    [SerializeField] private bool CONTROL_TOGGLE = false;
-
     //Image & Input References
     private ColorPiece[] colorPieces = new ColorPiece[3];
     private Joystick colorInput = null;
@@ -94,51 +91,16 @@ public class PlayerColor : MonoBehaviour
             }
         }
 
-        #region OLD_CONTROLS
-        //if (Gesture.heldDown)
-        //{
-        //    holdTime -= Time.deltaTime;
-
-        //    if(holdTime <= 0f)
-        //    {
-        //        canChoose = true;
-        //        //helperImage.position = Gesture.pressPos;
-        //        //helperImage.gameObject.SetActive(true);
-        //    }
-        //}
-        //else
-        //{
-        //    holdTime = holdDuration;
-        //    if (colorChanged)
-        //    {
-        //        UpdateColor(index);
-        //        UpdateImage();
-        //        prevColor.ExitAbility(gameObject);
-        //        currentColor.InitAbility(gameObject);
-        //        prevColor = currentColor;
-        //        EventManager.instance.TriggerPlatformColorEvent(currentColor.GetMain);
-        //    }
-
-        //    colorChanged = false;
-        //    canChoose = false;
-        //    //helperImage.gameObject.SetActive(false);
-        //    index = 0;
-        //}
-        //if (canChoose)
-        //{
-        //    if (CONTROL_TOGGLE)
-        //        SwipeToChoose();
-        //    else
-        //        JoystickToChoose();
-        //}
-        #endregion
-
         ToggleSlowDown();
         currentColor.UpdateAbility(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        EventManager.instance.TriggerEnemyCollisionEvent(collision, gameObject);
+
+        if (collision.gameObject == null || collision.contactCount == 0) return;
+
         ContactPoint2D contact = collision.GetContact(0);
 
         //Check if collided object is below 
@@ -159,6 +121,14 @@ public class PlayerColor : MonoBehaviour
             collidedPlatform.GetComponent<MovingPlatform>().Charging = false;
 
         collidedPlatform = null;
+    }
+
+    private void OnDestroy()
+    {
+        foreach(WhiteColor color in colorManager.colorList.Values)
+        {
+            color.OnPlayerDestroyed();
+        }
     }
 
     private bool IsChildColor(WhiteColor color, COLORS currentColor)

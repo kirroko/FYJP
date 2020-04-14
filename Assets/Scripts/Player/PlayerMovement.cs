@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool OnGround { get { return isGrounded; } }
 
+    public bool StillDashing { get { return stillDashing; } }
+
     [Header("References")]
     [SerializeField] private ParticleSystem dust = null;
     [SerializeField] private ParticleSystem afterImage = null;
@@ -29,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dashing")]
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCDDuration = 1f;
+    [SerializeField] private float cappedSpeed = 20f;
 
     [Header("Wall Jump")]
     [SerializeField] private float wallJumpForce = 2.5f;
@@ -51,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     private float xInput = 0f;
     private float lastXDir = 0;
     private int facingDirection = 0;
+    private float speedModifier = 0f;
 
     //Jumping
     private bool isGrounded = false;
@@ -61,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing = false;
     private float dashCD = 0f;
     private Vector2 dashDirection = Vector2.zero;
+    private bool stillDashing = false;
+    private float dashDuration = 0.7f;
 
     private void Start()
     {
@@ -81,9 +87,26 @@ public class PlayerMovement : MonoBehaviour
         dashCD -= Time.deltaTime;
         controlCD -= Time.deltaTime;
 
+        //For Dash To kill and break objects
+        if(stillDashing)
+        {
+            dashDuration -= Time.deltaTime;
+            if(dashDuration <= 0f)
+            {
+                stillDashing = false;
+                dashDuration = 0.7f;
+            }
+            if(rb.velocity.magnitude > cappedSpeed)
+            {
+                rb.velocity = Vector2.ClampMagnitude(rb.velocity, cappedSpeed);
+            }
+        }
+
         // ANIMATION CODE
         ani.SetFloat("yVel", rb.velocity.y);
+        ani.SetFloat("xVel", rb.velocity.x);
         ani.SetBool("IsGrounded", isGrounded);
+        ani.SetBool("IsWall", isWallRiding);
 
         // INPUT
         xInput = input.Horizontal;
@@ -100,8 +123,15 @@ public class PlayerMovement : MonoBehaviour
             WallJump();
 
         // DASH
-        if (dashButton.tap && playerColor.GetCurrentColor.GetMain != COLORS.BLUE && dashCD < 0f)
+        if ((dashButton.tap || Input.GetKeyDown(KeyCode.E))&& playerColor.GetCurrentColor.GetMain != COLORS.BLUE && dashCD < 0f)
             isDashing = true;
+
+        // MISC
+        if (isGrounded)
+        {
+            isWallRiding = false;
+            ani.SetBool("IsWall", isWallRiding);
+        }
 
         // DEBUG CODE
         Debug.DrawRay(transform.position, new Vector2(facingDirection, 0) * (collider.bounds.extents.x + distanceToWall), Color.red);
@@ -131,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isGrounded)
             isWallRiding = CastRayInDirection(facingDirection);
+
     }
 
     private static bool right = true;
@@ -153,6 +184,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 targetVel = rb.velocity;
         float maxSpeedChange = maxAccel * Time.deltaTime;
         targetVel.x = Mathf.MoveTowards(targetVel.x, xInput * maxSpeed, maxSpeedChange);
+        Debug.Log("input * speed: " + xInput * maxSpeed);
+        Debug.Log("targetVel.x: " + targetVel.x);
 
         if (controlCD < 0) // Stop all update to rb is controlCD is up
         {
@@ -163,14 +196,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void AirMove()
     {
-        // UPDATE DIRECTION
-        if (xInput > 0) facingDirection = 1;
-        else if (xInput < 0) facingDirection = -1;
-        // UPDATE CHARACTER FLIP
-        if (xInput > 0)
-            right = true;
-        else if (xInput < 0)
-            right = false;
+        // DON'T UPDATE DIRECTION WHEN WALLRIDING
+        if(!isWallRiding)
+        {
+            // UPDATE DIRECTION
+            if (xInput > 0) facingDirection = 1;
+            else if (xInput < 0) facingDirection = -1;
+            // UPDATE CHARACTER FLIP
+            if (xInput > 0 && !right)
+                Flip(true, false);
+            else if (xInput < 0 && right)
+                Flip(true, false);
+            // UPDATE LAST KNOWN DIRECTION
+            if (xInput > 0)
+                right = true;
+            else if (xInput < 0)
+                right = false;
+        }
+        else
+        {
+            if (facingDirection > 0)
+                right = false;
+            else if (facingDirection < 0)
+                right = true;
+            Flip();
+        }
 
         Vector2 targetVel = rb.velocity;
         float maxSpeedChange = maxAirAccel * Time.deltaTime;
@@ -179,7 +229,6 @@ public class PlayerMovement : MonoBehaviour
         if(controlCD < 0) // Stop all update to rb is controlCD is up
             rb.velocity = targetVel;
 
-        Flip(false,false);
     }
 
     private void Jump()
@@ -193,15 +242,13 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.AddForce(new Vector2(-facingDirection * wallJumpForce, wallJumpForce * 1.25f), ForceMode2D.Impulse);
         controlCD = controlCDDuration;
-        // should flip the character auto?
-        Flip(false,true);
+        ani.SetTrigger("WallJump");
     }
 
     private void Dash()
     {
-        Debug.Log("TAP DASH");
-
         isDashing = false;
+        stillDashing = true;
         dashCD = dashCDDuration;
         controlCD = controlCDDuration;
         dashDirection = Vector2.zero;
@@ -228,7 +275,6 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(time);
         rb.velocity = Vector2.zero;
         rb.AddForce(dir * dashSpeed, ForceMode2D.Impulse);
-        Debug.Log(dir * dashSpeed);
     }
 
     private bool CastRayInDirection(int direction)
@@ -256,12 +302,23 @@ public class PlayerMovement : MonoBehaviour
         if (playDust)
             CreateDust();
 
-        if (facingDirection > 0)
-            sr.flipX = false;
-        else if (facingDirection < 0)
-            sr.flipX = true;
-        else if (forceFlip)
+        if (forceFlip)
             sr.flipX = !sr.flipX;
+        else
+        {
+            if (facingDirection > 0)
+                sr.flipX = false;
+            else if (facingDirection < 0)
+                sr.flipX = true;
+        }
+    }
+
+    private void Flip()
+    {
+        if (right)
+            sr.flipX = false;
+        else
+            sr.flipX = true;
     }
 
     public void ResetDash()
@@ -273,5 +330,27 @@ public class PlayerMovement : MonoBehaviour
     public bool IsDashing()
     {
         return isDashing;
+    }
+
+    public void IncreaseSpeed(float modifier)
+    {
+        speedModifier = modifier;
+
+        maxAccel *= modifier;
+        maxSpeed *= modifier;
+        maxAirAccel *= modifier;
+        maxAirSpeed *= modifier;
+        dashSpeed *= modifier;
+    }
+
+    public void NormalSpeed()
+    {
+        maxAccel /= speedModifier;
+        maxSpeed /= speedModifier;
+        maxAirAccel /= speedModifier;
+        maxAirSpeed /= speedModifier;
+        dashSpeed /= speedModifier;
+
+        speedModifier = 1f;
     }
 }

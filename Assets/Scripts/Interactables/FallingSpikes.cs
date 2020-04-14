@@ -42,6 +42,9 @@ public class FallingSpikes : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.GetComponent<PlayerInfo>() != null)
+            LevelManager.instance.RestartLevel();
+
         ContactPoint2D contact = collision.GetContact(0);
         if(contact.normal.y > 0f && rb.gravityScale > 0f)
             Destroy(gameObject);

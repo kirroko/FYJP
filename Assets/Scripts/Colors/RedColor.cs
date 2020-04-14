@@ -5,50 +5,52 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RedColor", menuName = "Colors/Red", order = 4)]
 public class RedColor : WhiteColor
 {
-    [Header("Ability Related")]
-    [SerializeField] private Projectile projectile = null;
+    [SerializeField] private RedProjectile projectile = null;
     [SerializeField] private float projectileSpeed = 5f;
-    [SerializeField] private float damage = 20f;
-    [SerializeField] private float shootInterval = 2f;
-    [SerializeField] private float offsetPos = 2f;
-
-    private float shootCD = 0f;
-
-    private Joystick input = null;
 
     public override void InitAbility(GameObject player)
     {
-        input = ObjectReferences.instance.abilityInput;
+        base.InitAbility(player);
+
+        EventManager.instance.EnemyCollisionEvent -= EnemyCollisionEvent;
+        EventManager.instance.EnemyCollisionEvent += EnemyCollisionEvent;
+
     }
 
     public override void UpdateAbility(GameObject player)
     {
-        shootCD -= Time.deltaTime;
+        base.UpdateAbility(player);
 
-        if (input.IsPressed && shootCD <= 0f)
+        if (!abilityInput.IsPressed && abilityActivated)
         {
-            Vector3 direction = Vector3.zero;
+            abilityActivated = false;
 
-            if (input.Direction.x > 0.5f)
-                direction.x = 1f;
-            else if (input.Direction.x < -0.5f)
-                direction.x = -1f;
+            if (dir.Equals(Vector2.zero)) return;
 
-            if (input.Direction.y > 0.5f)
-                direction.y = 1f;
-            else if (input.Direction.y < -0.5f)
-                direction.y = -1f;
-
-            if (direction.Equals(Vector3.zero)) return;
-
-            shootCD = shootInterval;
-
-            Bounds playerColliderBounds = player.GetComponent<Collider2D>().bounds;
-            Vector3 firePoint = playerColliderBounds.center + new Vector3(playerColliderBounds.extents.x * direction.x, playerColliderBounds.extents.y * direction.y, 0f) * offsetPos;
-
-            Projectile temp = Instantiate(projectile, firePoint, Quaternion.identity);
-            temp.Init(direction, projectileSpeed);
+            Shoot(projectile, projectileSpeed, player);
         }
     }
 
+    public override void OnPlayerDestroyed()
+    {
+        EventManager.instance.EnemyCollisionEvent -= EnemyCollisionEvent;
+    }
+
+    private void EnemyCollisionEvent(Collision2D collision, GameObject player)
+    {
+        if (player.GetComponent<PlayerColor>().GetCurrentColor.GetMain != mainColor) return;
+
+        AI enemy = collision.gameObject.GetComponent<AI>();
+
+        if (enemy == null) return;
+
+        if (player.GetComponent<PlayerMovement>().StillDashing && enemy.IsTagged)
+        {
+            Physics2D.IgnoreCollision(collision.collider, player.GetComponent<Collider2D>());//Ignores collision so player can go thru
+            player.GetComponent<Rigidbody2D>().velocity = -collision.relativeVelocity;//Gives player vel before they collide
+            player.GetComponent<PlayerMovement>().ResetDash();
+
+            Destroy(collision.gameObject);
+        }
+    }
 }

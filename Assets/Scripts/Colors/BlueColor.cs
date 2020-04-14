@@ -5,7 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BlueColor", menuName = "Colors/Blue", order = 5)]
 public class BlueColor : WhiteColor
 {
-    [Header("Ability Related")]
+    [SerializeField] private BlueProjectile projectile = null;
+    [SerializeField] private float projectileSpeed = 5f;
+
     [SerializeField] private float dashSpeed = 15f;
     [SerializeField] private int maxDash = 3;
     [SerializeField] private float waitTimeDuration = 1f;
@@ -18,20 +20,33 @@ public class BlueColor : WhiteColor
     private bool hasDashed = false;
 
     private HoldButton dashButton = null;
-    private Joystick input = null;
+    private Joystick movementInput = null;
     private Rigidbody2D playerRB = null;
 
     public override void InitAbility(GameObject player)
     {
+        base.InitAbility(player);
         dashButton = ObjectReferences.instance.dashButton;
-        input = ObjectReferences.instance.movementInput;
+        movementInput = ObjectReferences.instance.movementInput;
         playerRB = player.GetComponent<Rigidbody2D>();
     }
 
     public override void UpdateAbility(GameObject player)
     {
+        base.UpdateAbility(player);
+
         waitTime -= Time.deltaTime;
         dashCD -= Time.deltaTime;
+
+        //Shoot projectiles
+        if (!abilityInput.IsPressed && abilityActivated)
+        {
+            abilityActivated = false;
+
+            if (dir.Equals(Vector2.zero)) return;
+
+            Shoot(projectile, projectileSpeed, player);
+        }
 
         //Activate Dash
         if (dashButton.tap)
@@ -60,14 +75,14 @@ public class BlueColor : WhiteColor
         Vector2 direction = Vector3.zero;
 
         //Move Right
-        if (input.Direction.x > 0.5f)
+        if (movementInput.Direction.x > 0.5f)
             direction.x = 1f;
-        else if (input.Direction.x < -0.5f)
+        else if (movementInput.Direction.x < -0.5f)
             direction.x = -1f;
 
-        if (input.Direction.y > 0.5f)
+        if (movementInput.Direction.y > 0.5f)
             direction.y = 1f;
-        else if (input.Direction.y < -0.5f)
+        else if (movementInput.Direction.y < -0.5f)
             direction.y = -1f;
 
         playerRB.velocity += direction * dashSpeed;

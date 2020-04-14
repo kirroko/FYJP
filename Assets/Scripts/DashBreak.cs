@@ -10,13 +10,11 @@ public class DashBreak : MonoBehaviour
 
         if (player != null)
         {
-            if (collision.relativeVelocity.magnitude > 10f)
+            if (player.StillDashing)
             {
                 Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());//Ignores collision so player can go thru
                 player.GetComponent<Rigidbody2D>().velocity = collision.relativeVelocity;//Gives player vel before they collide
                 Destroy(gameObject);
-                if(player.GetComponent<PlayerColor>().GetCurrentColor.GetMain == COLORS.PURPLE)
-                    player.ResetDash();
             }
         }
     }

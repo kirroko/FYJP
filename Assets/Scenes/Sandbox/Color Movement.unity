@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1258,12 +1258,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a988d44a934474d498552a3480714e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 924146064}
-  joystick: {fileID: 1178484181}
+  movementInput: {fileID: 0}
+  colorInput: {fileID: 0}
+  abilityInput: {fileID: 0}
   jumpButton: {fileID: 412389331}
   dashButton: {fileID: 384015282}
-  helperImage: {fileID: 785785741}
-  currentImage: {fileID: 2042740152}
+  leftPiece: {fileID: 0}
+  centerPiece: {fileID: 0}
+  rightPiece: {fileID: 0}
 --- !u!4 &708436778
 Transform:
   m_ObjectHideFlags: 0
@@ -1835,12 +1837,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869060327}
   m_CullTransparentMesh: 0
---- !u!1 &924146064 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8070297629261575616, guid: 43014a7be23bd094a8e07698d35779a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 8070297628338121808}
-  m_PrefabAsset: {fileID: 0}
 --- !u!50 &924146066 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 8070297629261575618, guid: 43014a7be23bd094a8e07698d35779a2,
@@ -1859,7 +1855,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8070297628338121808}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924146064}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90f2e78f948f21f4abc99d73dafba9d3, type: 3}
@@ -2525,18 +2521,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111784172}
   m_CullTransparentMesh: 0
---- !u!114 &1178484181 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18,
-    type: 3}
-  m_PrefabInstance: {fileID: 1311532297}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1215866189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3726,7 +3710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532961363}
   m_LocalRotation: {x: -0, y: -0, z: 0.71025294, w: 0.70394653}
-  m_LocalPosition: {x: 5.08, y: -22.34, z: 0}
+  m_LocalPosition: {x: 3.53, y: -21.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4796,8 +4780,9 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 988424831257840456}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
+  bulletSpeed: 5
+  moveSpeed: 2
   shootable: 0
   nextShot: 0
 --- !u!50 &988424830615077838
@@ -4898,8 +4883,9 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 988424831350531116}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
+  bulletSpeed: 5
+  moveSpeed: 2
   shootable: 0
   nextShot: 0
 --- !u!50 &988424830655311018
@@ -5081,8 +5067,9 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 988424831166036575}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
+  bulletSpeed: 5
+  moveSpeed: 2
   shootable: 0
   nextShot: 0
 --- !u!4 &988424830772835035
@@ -5537,8 +5524,9 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 988424830781795063}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
+  bulletSpeed: 5
+  moveSpeed: 2
   shootable: 0
   nextShot: 0
 --- !u!4 &988424831158248051
@@ -6983,8 +6971,9 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 988424832123334523}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
+  bulletSpeed: 5
+  moveSpeed: 2
   shootable: 0
   nextShot: 0
 --- !u!4 &988424832499755007
@@ -7183,8 +7172,9 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 988424831900495904}
   stun: 0
-  moveSpeed: 2
   bullet: {fileID: 0}
+  bulletSpeed: 5
+  moveSpeed: 2
   shootable: 0
   nextShot: 0
 --- !u!50 &988424832581040294
@@ -22750,16 +22740,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8070297629261575622, guid: 43014a7be23bd094a8e07698d35779a2,
-        type: 3}
-      propertyPath: currentImage
-      value: 
-      objectReference: {fileID: 2042740152}
-    - target: {fileID: 8070297629261575622, guid: 43014a7be23bd094a8e07698d35779a2,
-        type: 3}
-      propertyPath: helperImage
-      value: 
-      objectReference: {fileID: 785785741}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43014a7be23bd094a8e07698d35779a2, type: 3}
 --- !u!222 &8438741504586839688

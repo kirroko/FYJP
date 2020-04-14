@@ -1,19 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class PlayerColor : MonoBehaviour
 {
     public WhiteColor GetCurrentColor { get { return currentColor; } }
     public GameObject GetCollidedPlatform { get { return collidedPlatform; } }
-
+    
     [Header("Reference")]
     [SerializeField] private ColorManager colorManager = null;
+    [SerializeField] private ColorAdjustments colorAdjust = null;
 
     [Header("Color Wheel")]
     [SerializeField] private float defaultSize = 100f;
     [SerializeField] private float growSize = 150f;
+
+    [Header("Color Reference")]
+    [SerializeField] private Color[] colorsEffects;
 
     //Image & Input References
     private ColorPiece[] colorPieces = new ColorPiece[3];
@@ -40,6 +46,9 @@ public class PlayerColor : MonoBehaviour
         colorPieces[1] = ObjectReferences.instance.centerPiece;
         colorPieces[2] = ObjectReferences.instance.rightPiece;
         UpdateImage();
+
+        // REFERENCE CODE
+        Camera.main.GetComponent<Volume>().profile.TryGet(out colorAdjust);
     }
 
     private void Update()
@@ -66,6 +75,7 @@ public class PlayerColor : MonoBehaviour
                 ResetColorPiecesSize();
             }
             canChoose = false;
+            ToggleVisualEffect();
         }
         if(canChoose)
         {
@@ -86,7 +96,7 @@ public class PlayerColor : MonoBehaviour
                     index = 0;
 
                 colorPieces[index].Image.rectTransform.sizeDelta = new Vector2(growSize, growSize);
-
+                ToggleVisualEffect(index + 1);
                 colorChanged = true;
             }
         }
@@ -162,15 +172,16 @@ public class PlayerColor : MonoBehaviour
         else
         {
             colorPieces[0].UpdateData(colorManager.colorList[COLORS.WHITE]);
-
             //Player is either orange green or purple
             if (currentColor.GetParent1 != COLORS.NONE)
             {
+                Debug.Log("Color Choice (!= None): " + currentColor.GetParent1 + " " + currentColor.GetParent2);
                 colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParent1]);
                 colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetParent2]);
             }
             else//Player is either red yellow or blue
             {
+                Debug.Log("Color Choice (== None): " + currentColor.GetParentOf1 + " " + currentColor.GetParentOf2);
                 colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParentOf1]);
                 colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetParentOf2]);
             }
@@ -198,6 +209,38 @@ public class PlayerColor : MonoBehaviour
         foreach(ColorPiece colorPiece in colorPieces)
         {
             colorPiece.Image.rectTransform.sizeDelta = new Vector2(defaultSize, defaultSize);
+        }
+    }
+
+    private void ToggleVisualEffect()
+    {
+        colorAdjust.colorFilter.value = colorsEffects[0];
+    }
+    
+    private void ToggleVisualEffect(int index)
+    {
+        if(currentColor.GetMain == COLORS.WHITE)
+            colorAdjust.colorFilter.value = colorsEffects[index];
+        else
+        {
+            if (index == 1)
+                colorAdjust.colorFilter.value = colorsEffects[index - 1];
+
+            if(currentColor.GetParent1 != COLORS.NONE) // Player is either orange green or purple
+            {
+                if (index == 2)
+                    colorAdjust.colorFilter.value = colorsEffects[(int)currentColor.GetParent1];
+                else if (index == 3)
+                    colorAdjust.colorFilter.value = colorsEffects[(int)currentColor.GetParent2];
+            }
+            else // Play is either red yellow or blue
+            {
+                Debug.Log("Color Choice (== None)(Toggle): " + currentColor.GetParentOf1 + " " + currentColor.GetParentOf2);
+                if (index == 2)
+                    colorAdjust.colorFilter.value = colorsEffects[(int)currentColor.GetParentOf1];
+                else if (index == 3)
+                    colorAdjust.colorFilter.value = colorsEffects[(int)currentColor.GetParentOf2];
+            }
         }
     }
 }

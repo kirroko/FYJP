@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77964aab1939974f86f087e2ff2b91a, type: 3}
+  m_Name: Purple Color Unlocked
+  m_EditorClassIdentifier: 
+  color: {r: 0.6117647, g: 0, b: 1, a: 1}
+  mainColor: 5
+  parentColor1: 1
+  parentColor2: 3
+  parentOf1: 7
+  parentOf2: 7
+  locked: 0
+  abilityInterval: 1
+  abilityDuration: 3
+  speedModifier: 2

@@ -259,13 +259,16 @@ public class PlayerMovement : MonoBehaviour
         if (dashDirection == Vector2.zero)
             dashDirection.x = facingDirection;
 
-        //if ((dashDirection.x == 1f && dashDirection.y == 1f) || (dashDirection.x == -1f && dashDirection.y ))
         if (dashDirection.y != 0 && dashDirection.x != 0)
             ani.SetTrigger("DiagonalDash");
         else
             ani.SetTrigger("Dash");
 
-        StartCoroutine(PerformDash(controlCD, dashDirection));
+        rb.velocity = Vector2.zero;
+        Vector3 force = dashDirection * dashSpeed;
+        force = Vector3.ClampMagnitude(force, dashSpeed);
+        rb.AddForce(force, ForceMode2D.Impulse);
+        //StartCoroutine(PerformDash(controlCD, dashDirection));
     }
 
     IEnumerator PerformDash(float time, Vector2 dir)

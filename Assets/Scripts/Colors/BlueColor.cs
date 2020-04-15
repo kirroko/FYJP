@@ -23,6 +23,7 @@ public class BlueColor : WhiteColor
     private Joystick movementInput = null;
     private Rigidbody2D playerRB = null;
     private PlayerMovement playerMovement = null;
+    private Animator playerAnimator = null;
 
     public override void InitAbility(GameObject player)
     {
@@ -31,6 +32,7 @@ public class BlueColor : WhiteColor
         movementInput = ObjectReferences.instance.movementInput;
         playerRB = player.GetComponent<Rigidbody2D>();
         playerMovement = player.GetComponent<PlayerMovement>();
+        playerAnimator = player.GetComponent<Animator>();
     }
 
     public override void UpdateAbility(GameObject player)
@@ -90,7 +92,12 @@ public class BlueColor : WhiteColor
         if (direction == Vector2.zero)
             direction.x = playerMovement.GetLastXDir;
 
-        //playerRB.velocity += direction * dashSpeed;
+        if (direction.y != 0 && direction.x != 0)
+            playerAnimator.SetTrigger("DiagonalDash");
+        else
+            playerAnimator.SetTrigger("Dash");
+
+        playerRB.velocity = Vector2.zero;
         Vector3 force = direction * dashSpeed;
         force = Vector3.ClampMagnitude(force, dashSpeed);
         playerRB.AddForce(force, ForceMode2D.Impulse);

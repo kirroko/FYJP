@@ -13,6 +13,7 @@ public class PlayerColor : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private ColorManager colorManager = null;
     [SerializeField] private ColorAdjustments colorAdjust = null;
+    public Volume vol = null;
 
     [Header("Color Wheel")]
     [SerializeField] private float defaultSize = 100f;
@@ -48,11 +49,18 @@ public class PlayerColor : MonoBehaviour
         UpdateImage();
 
         // REFERENCE CODE
-        Camera.main.GetComponent<Volume>().profile.TryGet(out colorAdjust);
+        vol = Camera.main.GetComponent<Volume>();
+        vol.profile.TryGet(out colorAdjust);
     }
 
     private void Update()
     {
+        if (vol == null)
+        {
+            vol = Camera.main.GetComponent<Volume>();
+            vol.profile.TryGet(out colorAdjust);
+        }
+
         //Input detected
         if(colorInput.Direction != Vector2.zero)
         {
@@ -235,7 +243,6 @@ public class PlayerColor : MonoBehaviour
             }
             else // Play is either red yellow or blue
             {
-                Debug.Log("Color Choice (== None)(Toggle): " + currentColor.GetParentOf1 + " " + currentColor.GetParentOf2);
                 if (index == 2)
                     colorAdjust.colorFilter.value = colorsEffects[(int)currentColor.GetParentOf1];
                 else if (index == 3)

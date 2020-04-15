@@ -169,14 +169,11 @@ public class PlayerColor : MonoBehaviour
             bool redLocked = colorManager.colorList[COLORS.RED].IsLocked;
             bool blueLocked = colorManager.colorList[COLORS.BLUE].IsLocked;
 
-            Debug.Log("redLocked: " + redLocked);
-
             if(!yellowLocked) colorPieces[0].UpdateData(colorManager.colorList[COLORS.YELLOW]);
 
             if (!redLocked) colorPieces[1].UpdateData(colorManager.colorList[COLORS.RED]);
 
             if (!blueLocked) colorPieces[2].UpdateData(colorManager.colorList[COLORS.BLUE]);
-
         }
         else
         {

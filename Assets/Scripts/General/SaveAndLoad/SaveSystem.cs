@@ -2,20 +2,31 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class SaveSystem : MonoBehaviour
+public class SaveSystem
 {
-    public static SaveSystem instance = null;
+    public static string mainDirectory = Application.persistentDataPath + "/Data/";
+    public static string levelDirectory = mainDirectory + "/Levels/";
+    public static string playerInfoDirectory = mainDirectory + "/PlayerInfo/";
 
-    private void Awake()
+    public static void Init()
     {
-        if (!instance)
-            instance = this;
+        //Check if Main directory is created, if not create it
+        DirectoryInfo directoryInfo = new DirectoryInfo(mainDirectory);
+        if(!directoryInfo.Exists) Directory.CreateDirectory(mainDirectory);
+
+        //Check if Level directory is created, if not create it
+        directoryInfo = new DirectoryInfo(levelDirectory);
+        if (!directoryInfo.Exists) Directory.CreateDirectory(levelDirectory);
+
+        //Check if PlayerInfo directory is created, if not create it
+        directoryInfo = new DirectoryInfo(playerInfoDirectory);
+        if (!directoryInfo.Exists) Directory.CreateDirectory(playerInfoDirectory);
     }
 
     public static void SaveLevel(Level level)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/" + level.name + ".data";
+        string path = levelDirectory + level.name + ".data";
 
         FileStream fs = new FileStream(path, FileMode.Create);
 
@@ -25,7 +36,7 @@ public class SaveSystem : MonoBehaviour
 
     public static LevelData LoadLevel(string fileName)
     {
-        string path = Application.persistentDataPath + "/" + fileName + ".data";
+        string path = levelDirectory + fileName + ".data";
 
         if (File.Exists(path))
         {
@@ -39,8 +50,65 @@ public class SaveSystem : MonoBehaviour
         }
         else
         {
-            Debug.LogError(path + " does not exists");
+            Debug.LogWarning(path + " does not exists");
             return null;
+        }
+    }
+
+    public static void SaveColor(WhiteColor color)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = playerInfoDirectory + color.GetMain.ToString() +".data";
+
+        FileStream fs = new FileStream(path, FileMode.Create);
+
+        ColorData temp = new ColorData();
+        temp.locked = color.IsLocked;
+
+        formatter.Serialize(fs, temp);
+        fs.Close();
+    }
+    
+    public static ColorData LoadColor(string fileName)
+    {
+        string path = playerInfoDirectory + fileName + ".data";
+
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream fs = new FileStream(path, FileMode.Open);
+
+            ColorData temp = formatter.Deserialize(fs) as ColorData;
+
+            fs.Close();
+            return temp;
+        }
+        else
+        {
+            Debug.LogWarning(path + " does not exists");
+            return null;
+        }
+    }
+
+    public static void DeleteAllSaveData()
+    {
+        DeleteFilesInDirectory(Application.persistentDataPath);
+    }
+
+    private static void DeleteFilesInDirectory(string directoryPath)
+    {
+        string[] directories = Directory.GetDirectories(directoryPath);
+        string[] files = Directory.GetFiles(directoryPath);
+
+        foreach (string directory in directories)
+        {
+            DeleteFilesInDirectory(directory);
+        }
+
+        foreach(string file in files)
+        {
+            File.SetAttributes(file, FileAttributes.Normal);
+            File.Delete(file);
         }
     }
 }

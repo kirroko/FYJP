@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2fe19694f0f95b4db3314f0892bbac5, type: 3}
-  m_Name: Color Manager
+  m_Name: All Color Unlocked
   m_EditorClassIdentifier: 
   colors:
   - {fileID: 11400000, guid: fa3646d5f714fc847a8ca4a3a142b8a5, type: 2}

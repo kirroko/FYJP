@@ -30,15 +30,28 @@ public class LevelManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this);
 
+
+        InitLevelData();
+    }
+
+    private void Update()
+    {
+        elapsedTime += Time.deltaTime;
+    }
+    
+    private void InitLevelData()
+    {
+        SaveSystem.Init();
         //Get all the levels from resources
         object[] levelList = Resources.LoadAll("Levels", typeof(Level));
 
-        for(int i = 0; i < levelList.Length; ++i)
+        for (int i = 0; i < levelList.Length; ++i)
         {
             Level level = levelList[i] as Level;
 
+            //Get number of item player has to collect each level to get a star
             Collectable[] collectables = level.layout.transform.GetComponentsInChildren<Collectable>();
-            level.numToCollect = collectables.Length;
+            level.numToCollect = Mathf.RoundToInt(collectables.Length * 0.8f);
 
             //Check if the file data has be created before if not create it else load it
             LevelData levelData = SaveSystem.LoadLevel(level.name);
@@ -53,11 +66,6 @@ public class LevelManager : MonoBehaviour
             }
             levels.Add(level);
         }
-    }
-
-    private void Update()
-    {
-        elapsedTime += Time.deltaTime;
     }
 
     private void UpdateLevelData(Level level, LevelData levelData)
@@ -79,13 +87,16 @@ public class LevelManager : MonoBehaviour
 
         while (!SceneManager.GetSceneByName("Level").isLoaded)
         {
-            Debug.Log("Loading");
             yield return null;
         }
 
-        Debug.Log("Lvl Loaded");
-        //currentLevel.Print();
         GameObject layout = Instantiate(currentLevel.layout);
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (currentLevel.colorList != null)
+            PlayerManager.instance.UpdateColorList(currentLevel.colorList);
+        else
+            Debug.LogError("Level" + index + " Color list not set");
         //Spawn ghost if it exist
         //if(currentLevel.ghostPos.Count > 0)
         //{
@@ -103,7 +114,6 @@ public class LevelManager : MonoBehaviour
         {
             currentLevel.data.fastestTime = elapsedTime;
             //Update GhostPos
-            player = GameObject.FindGameObjectWithTag("Player");
             currentLevel.ghostPos = player.GetComponent<GhostManager>().RecordedPos;
             //Updated ghost data to be serialized
             foreach (Vector3 pos in currentLevel.ghostPos)
@@ -161,5 +171,10 @@ public class LevelManager : MonoBehaviour
     public void RestartLevel()
     {
         StartCoroutine(ReloadLevel());
+    }
+
+    public void ClearSavedData()
+    {
+        SaveSystem.DeleteAllSaveData();
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6276c8c269b8b24469dd80e10f2c27ce, type: 3}
-  m_Name: Green Color
+  m_Name: Green Color Locked
   m_EditorClassIdentifier: 
   color: {r: 0, g: 1, b: 0, a: 1}
   mainColor: 6
@@ -18,7 +18,7 @@ MonoBehaviour:
   parentColor2: 3
   parentOf1: 7
   parentOf2: 7
-  locked: 0
+  locked: 1
   abilityInterval: 1
   moveSpeed: 5
   zoomBounds: {x: 3, y: 7}

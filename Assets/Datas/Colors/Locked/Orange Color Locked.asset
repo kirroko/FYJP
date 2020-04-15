@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa18a9ac1fd37e04ea14ed036ce9dd57, type: 3}
-  m_Name: White Color
+  m_Script: {fileID: 11500000, guid: 9e2ea2d003cce8e4bb1fa9272d2cf1a9, type: 3}
+  m_Name: Orange Color Locked
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 1, b: 1, a: 1}
-  mainColor: 0
-  parentColor1: 7
-  parentColor2: 7
+  color: {r: 1, g: 0.5304576, b: 0, a: 1}
+  mainColor: 4
+  parentColor1: 1
+  parentColor2: 2
   parentOf1: 7
   parentOf2: 7
-  locked: 0
+  locked: 1
   abilityInterval: 1
+  abilityDuration: 3

@@ -19,9 +19,10 @@ MonoBehaviour:
     numStars: 0
     fastestTime: Infinity
     ghostPosSerialized: []
+  colorList: {fileID: 0}
   ghostPos: []
   collectablesCount: 18
   deathCount: 0
-  numToCollect: 14
+  numToCollect: 18
   starTime: 0
   maxDeath: 0

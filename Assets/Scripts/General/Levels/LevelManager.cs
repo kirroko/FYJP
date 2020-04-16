@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     private int currentLevelIndex = 0;
 
     private float elapsedTime = 0f;
+    private bool start = false;
     private GameObject player = null;
 
     private void Awake()
@@ -36,7 +37,10 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        if (!start) return;
+
         elapsedTime += Time.deltaTime;
+        ObjectReferences.instance.time.text = elapsedTime.ToString("F2");
     }
     
     private void InitLevelData()
@@ -83,6 +87,9 @@ public class LevelManager : MonoBehaviour
         elapsedTime = 0f;
         currentLevelIndex = index;
         currentLevel = levels[index];
+        currentLevel.numCollected = 0;
+        ObjectReferences.instance.itemCount.text = "0/" + currentLevel.numToCollect;
+
         SceneTransition.instance.LoadSceneInBG("Level");
 
         while (!SceneManager.GetSceneByName("Level").isLoaded)
@@ -92,11 +99,12 @@ public class LevelManager : MonoBehaviour
 
         GameObject layout = Instantiate(currentLevel.layout);
 
-        player = GameObject.FindGameObjectWithTag("Player");
         if (currentLevel.colorList != null)
             PlayerManager.instance.UpdateColorList(currentLevel.colorList);
         else
             Debug.LogError("Level" + index + " Color list not set");
+
+        start = true;
         //Spawn ghost if it exist
         //if(currentLevel.ghostPos.Count > 0)
         //{
@@ -107,6 +115,7 @@ public class LevelManager : MonoBehaviour
 
     public void EndLevel()
     {
+        start = false;
         int stars = 0;
 
         //Updated Fastest Time & ghost
@@ -114,6 +123,7 @@ public class LevelManager : MonoBehaviour
         {
             currentLevel.data.fastestTime = elapsedTime;
             //Update GhostPos
+            player = GameObject.FindGameObjectWithTag("Player");
             currentLevel.ghostPos = player.GetComponent<GhostManager>().RecordedPos;
             //Updated ghost data to be serialized
             foreach (Vector3 pos in currentLevel.ghostPos)
@@ -123,7 +133,8 @@ public class LevelManager : MonoBehaviour
         }
 
         //Collected all the collectables
-        if (currentLevel.collectablesCount == currentLevel.numToCollect)
+        Debug.Log("Num collected: " + currentLevel.numCollected);
+        if (currentLevel.numCollected >= currentLevel.numToCollect)
             ++stars;
         //Finished level within time limit
         if (elapsedTime <= currentLevel.starTime)
@@ -147,6 +158,7 @@ public class LevelManager : MonoBehaviour
             SaveSystem.SaveLevel(currentLevel);
         }
         elapsedTime = 0f;
+        currentLevel.numCollected = 0;
 
         SceneTransition.instance.LoadSceneInBG("LevelSelection");
     }
@@ -154,12 +166,17 @@ public class LevelManager : MonoBehaviour
     private IEnumerator ReloadLevel()
     {
         elapsedTime = 0f;
+        currentLevel.numCollected = 0;
+        ObjectReferences.instance.itemCount.text = "0/" + currentLevel.numToCollect;
         SceneTransition.instance.LoadScene("Level");
 
         yield return new WaitForSeconds(0.5f);
 
         //currentLevel.Print();
         GameObject layout = Instantiate(currentLevel.layout);
+
+        start = true;
+        
         //Spawn ghost if it exist
         //if(currentLevel.ghostPos.Count > 0)
         //{

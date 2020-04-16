@@ -6,8 +6,10 @@ public class Collectable : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-           ++LevelManager.instance.CurrentLevel.collectablesCount;
-           Destroy(gameObject);
+            Level currentLevel = LevelManager.instance.CurrentLevel;
+            ++currentLevel.numCollected;
+            ObjectReferences.instance.itemCount.text = currentLevel.numCollected.ToString() + "/" + currentLevel.numToCollect.ToString();
+            Destroy(gameObject);
         }
     }
 }

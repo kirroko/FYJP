@@ -10,7 +10,7 @@ public class Level : ScriptableObject
     public LevelData data = null;//Updated in EndLevel() of lvlManager
     public ColorManager colorList = null;
     [HideInInspector] public List<Vector3> ghostPos = new List<Vector3>();//Updated when player finish the level faster than last time
-    [HideInInspector] public int collectablesCount = 0;
+    [HideInInspector] public int numCollected = 0;
     [HideInInspector] public int deathCount = 0;
 
     [Header("Criteria For Star")]

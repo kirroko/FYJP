@@ -21,6 +21,10 @@ public class ObjectReferences : MonoBehaviour
     public ColorPiece centerPiece = null;
     public ColorPiece rightPiece = null;
 
+    [Header("UI")]
+    public TextMeshProUGUI itemCount = null;
+    public TextMeshProUGUI time = null;
+
     private void Awake()
     {
         if (instance != null)

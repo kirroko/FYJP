@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dashing")]
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCDDuration = 1f;
-    [SerializeField] private float cappedSpeed = 20f;
 
     [Header("Wall Jump")]
     [SerializeField] private float wallJumpForce = 2.5f;
@@ -95,10 +94,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 stillDashing = false;
                 dashDuration = 0.7f;
-            }
-            if(rb.velocity.magnitude > cappedSpeed)
-            {
-                rb.velocity = Vector2.ClampMagnitude(rb.velocity, cappedSpeed);
             }
         }
 
@@ -264,15 +259,25 @@ public class PlayerMovement : MonoBehaviour
         if (dashDirection == Vector2.zero)
             dashDirection.x = facingDirection;
 
-        ani.SetTrigger("Dash");
-        StartCoroutine(PerformDash(controlCD, dashDirection));
+        if (dashDirection.y != 0 && dashDirection.x != 0)
+            ani.SetTrigger("DiagonalDash");
+        else
+            ani.SetTrigger("Dash");
+
+        rb.velocity = Vector2.zero;
+        Vector3 force = dashDirection * dashSpeed;
+        force = Vector3.ClampMagnitude(force, dashSpeed);
+        rb.AddForce(force, ForceMode2D.Impulse);
+        //StartCoroutine(PerformDash(controlCD, dashDirection));
     }
 
     IEnumerator PerformDash(float time, Vector2 dir)
     {
         yield return new WaitForSeconds(time);
         rb.velocity = Vector2.zero;
-        rb.AddForce(dir * dashSpeed, ForceMode2D.Impulse);
+        Vector3 force = dir * dashSpeed;
+        force = Vector3.ClampMagnitude(force, dashSpeed);
+        rb.AddForce(force, ForceMode2D.Impulse);
     }
 
     private bool CastRayInDirection(int direction)

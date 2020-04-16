@@ -22,6 +22,8 @@ public class BlueColor : WhiteColor
     private HoldButton dashButton = null;
     private Joystick movementInput = null;
     private Rigidbody2D playerRB = null;
+    private PlayerMovement playerMovement = null;
+    private Animator playerAnimator = null;
 
     public override void InitAbility(GameObject player)
     {
@@ -29,6 +31,8 @@ public class BlueColor : WhiteColor
         dashButton = ObjectReferences.instance.dashButton;
         movementInput = ObjectReferences.instance.movementInput;
         playerRB = player.GetComponent<Rigidbody2D>();
+        playerMovement = player.GetComponent<PlayerMovement>();
+        playerAnimator = player.GetComponent<Animator>();
     }
 
     public override void UpdateAbility(GameObject player)
@@ -49,7 +53,7 @@ public class BlueColor : WhiteColor
         }
 
         //Activate Dash
-        if (dashButton.tap)
+        if (dashButton.tap || Input.GetKeyDown(KeyCode.E))
         {
             Dash();
         }
@@ -85,8 +89,18 @@ public class BlueColor : WhiteColor
         else if (movementInput.Direction.y < -0.5f)
             direction.y = -1f;
 
-        playerRB.velocity += direction * dashSpeed;
-        //playerRB.AddForce(direction * dashSpeed, ForceMode2D.Impulse);
+        if (direction == Vector2.zero)
+            direction.x = playerMovement.GetLastXDir;
+
+        if (direction.y != 0 && direction.x != 0)
+            playerAnimator.SetTrigger("DiagonalDash");
+        else
+            playerAnimator.SetTrigger("Dash");
+
+        playerRB.velocity = Vector2.zero;
+        Vector3 force = direction * dashSpeed;
+        force = Vector3.ClampMagnitude(force, dashSpeed);
+        playerRB.AddForce(force, ForceMode2D.Impulse);
     }
 
     private void ResetDash()

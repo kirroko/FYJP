@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     private int currentLevelIndex = 0;
 
     private float elapsedTime = 0f;
+    private bool start = false;
     private GameObject player = null;
 
     private void Awake()
@@ -30,15 +31,31 @@ public class LevelManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this);
 
+
+        InitLevelData();
+    }
+
+    private void Update()
+    {
+        if (!start) return;
+
+        elapsedTime += Time.deltaTime;
+        ObjectReferences.instance.time.text = elapsedTime.ToString("F2");
+    }
+    
+    private void InitLevelData()
+    {
+        SaveSystem.Init();
         //Get all the levels from resources
         object[] levelList = Resources.LoadAll("Levels", typeof(Level));
 
-        for(int i = 0; i < levelList.Length; ++i)
+        for (int i = 0; i < levelList.Length; ++i)
         {
             Level level = levelList[i] as Level;
 
+            //Get number of item player has to collect each level to get a star
             Collectable[] collectables = level.layout.transform.GetComponentsInChildren<Collectable>();
-            level.numToCollect = collectables.Length;
+            level.numToCollect = Mathf.RoundToInt(collectables.Length * 0.8f);
 
             //Check if the file data has be created before if not create it else load it
             LevelData levelData = SaveSystem.LoadLevel(level.name);
@@ -53,11 +70,6 @@ public class LevelManager : MonoBehaviour
             }
             levels.Add(level);
         }
-    }
-
-    private void Update()
-    {
-        elapsedTime += Time.deltaTime;
     }
 
     private void UpdateLevelData(Level level, LevelData levelData)
@@ -75,17 +87,24 @@ public class LevelManager : MonoBehaviour
         elapsedTime = 0f;
         currentLevelIndex = index;
         currentLevel = levels[index];
+        currentLevel.numCollected = 0;
+        ObjectReferences.instance.itemCount.text = "0/" + currentLevel.numToCollect;
+
         SceneTransition.instance.LoadSceneInBG("Level");
 
         while (!SceneManager.GetSceneByName("Level").isLoaded)
         {
-            Debug.Log("Loading");
             yield return null;
         }
 
-        Debug.Log("Lvl Loaded");
-        //currentLevel.Print();
         GameObject layout = Instantiate(currentLevel.layout);
+
+        if (currentLevel.colorList != null)
+            PlayerManager.instance.UpdateColorList(currentLevel.colorList);
+        else
+            Debug.LogError("Level" + index + " Color list not set");
+
+        start = true;
         //Spawn ghost if it exist
         //if(currentLevel.ghostPos.Count > 0)
         //{
@@ -96,6 +115,7 @@ public class LevelManager : MonoBehaviour
 
     public void EndLevel()
     {
+        start = false;
         int stars = 0;
 
         //Updated Fastest Time & ghost
@@ -113,7 +133,8 @@ public class LevelManager : MonoBehaviour
         }
 
         //Collected all the collectables
-        if (currentLevel.collectablesCount == currentLevel.numToCollect)
+        Debug.Log("Num collected: " + currentLevel.numCollected);
+        if (currentLevel.numCollected >= currentLevel.numToCollect)
             ++stars;
         //Finished level within time limit
         if (elapsedTime <= currentLevel.starTime)
@@ -137,6 +158,7 @@ public class LevelManager : MonoBehaviour
             SaveSystem.SaveLevel(currentLevel);
         }
         elapsedTime = 0f;
+        currentLevel.numCollected = 0;
 
         SceneTransition.instance.LoadSceneInBG("LevelSelection");
     }
@@ -144,12 +166,17 @@ public class LevelManager : MonoBehaviour
     private IEnumerator ReloadLevel()
     {
         elapsedTime = 0f;
+        currentLevel.numCollected = 0;
+        ObjectReferences.instance.itemCount.text = "0/" + currentLevel.numToCollect;
         SceneTransition.instance.LoadScene("Level");
 
         yield return new WaitForSeconds(0.5f);
 
         //currentLevel.Print();
         GameObject layout = Instantiate(currentLevel.layout);
+
+        start = true;
+        
         //Spawn ghost if it exist
         //if(currentLevel.ghostPos.Count > 0)
         //{
@@ -161,5 +188,10 @@ public class LevelManager : MonoBehaviour
     public void RestartLevel()
     {
         StartCoroutine(ReloadLevel());
+    }
+
+    public void ClearSavedData()
+    {
+        SaveSystem.DeleteAllSaveData();
     }
 }

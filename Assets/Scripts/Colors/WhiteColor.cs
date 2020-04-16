@@ -16,7 +16,7 @@ public enum COLORS
 [CreateAssetMenu(fileName = "WhiteColor", menuName = "Colors/White", order = 2)]
 public class WhiteColor : ScriptableObject
 {
-    public bool IsLocked { get { return locked; } }
+    public bool IsLocked { get { return locked; } set { locked = value; } }
     public COLORS GetMain { get { return mainColor; } }
     public COLORS GetParent1 { get { return parentColor1; } }
     public COLORS GetParent2 { get { return parentColor2; } }

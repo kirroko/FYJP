@@ -13,6 +13,7 @@ public class PlayerColor : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private ColorManager colorManager = null;
     [SerializeField] private ColorAdjustments colorAdjust = null;
+    public Volume vol = null;
 
     [Header("Color Wheel")]
     [SerializeField] private float defaultSize = 100f;
@@ -30,13 +31,13 @@ public class PlayerColor : MonoBehaviour
     private bool canChoose = false;
     private bool colorChanged = false;
     private bool slowDown = false;
-
     private int index = 0;
 
     private GameObject collidedPlatform = null;
 
     private void Start()
     {
+        colorManager = PlayerManager.instance.GetColorManager;
         currentColor = colorManager.colorList[COLORS.WHITE];
         prevColor = currentColor;
         currentColor.InitAbility(gameObject);
@@ -48,11 +49,18 @@ public class PlayerColor : MonoBehaviour
         UpdateImage();
 
         // REFERENCE CODE
-        Camera.main.GetComponent<Volume>().profile.TryGet(out colorAdjust);
+        vol = Camera.main.GetComponent<Volume>();
+        vol.profile.TryGet(out colorAdjust);
     }
 
     private void Update()
     {
+        if (vol == null)
+        {
+            vol = Camera.main.GetComponent<Volume>();
+            vol.profile.TryGet(out colorAdjust);
+        }
+
         //Input detected
         if(colorInput.Direction != Vector2.zero)
         {
@@ -141,18 +149,6 @@ public class PlayerColor : MonoBehaviour
         }
     }
 
-    private bool IsChildColor(WhiteColor color, COLORS currentColor)
-    {
-        return currentColor == color.GetParent1 || currentColor == color.GetParent2;
-    }
-
-    private bool IsCombination(WhiteColor color, COLORS currentColor, COLORS index)
-    {
-        if (currentColor == index) return false;
-
-        return IsChildColor(color, currentColor) && IsChildColor(color, index);
-    }
-
     private void UpdateImage()
     {
         foreach (ColorPiece colorPiece in colorPieces)
@@ -165,9 +161,19 @@ public class PlayerColor : MonoBehaviour
     {
         if(currentColor.GetMain == COLORS.WHITE)
         {
-            colorPieces[0].UpdateData(colorManager.colorList[COLORS.YELLOW]);
-            colorPieces[1].UpdateData(colorManager.colorList[COLORS.RED]);
-            colorPieces[2].UpdateData(colorManager.colorList[COLORS.BLUE]);
+            colorPieces[0].UpdateData(colorManager.colorList[COLORS.WHITE]);
+            colorPieces[1].UpdateData(colorManager.colorList[COLORS.WHITE]);
+            colorPieces[2].UpdateData(colorManager.colorList[COLORS.WHITE]);
+
+            bool yellowLocked = colorManager.colorList[COLORS.YELLOW].IsLocked;
+            bool redLocked = colorManager.colorList[COLORS.RED].IsLocked;
+            bool blueLocked = colorManager.colorList[COLORS.BLUE].IsLocked;
+
+            if(!yellowLocked) colorPieces[0].UpdateData(colorManager.colorList[COLORS.YELLOW]);
+
+            if (!redLocked) colorPieces[1].UpdateData(colorManager.colorList[COLORS.RED]);
+
+            if (!blueLocked) colorPieces[2].UpdateData(colorManager.colorList[COLORS.BLUE]);
         }
         else
         {
@@ -176,14 +182,31 @@ public class PlayerColor : MonoBehaviour
             if (currentColor.GetParent1 != COLORS.NONE)
             {
                 Debug.Log("Color Choice (!= None): " + currentColor.GetParent1 + " " + currentColor.GetParent2);
-                colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParent1]);
-                colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetParent2]);
+                //Check if color is locked if yes set to current color
+                if(colorManager.colorList[currentColor.GetParent1].IsLocked)
+                    colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetMain]);
+                else
+                    colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParent1]);
+
+                //Check if color is locked if yes set to current color
+                if (colorManager.colorList[currentColor.GetParent2].IsLocked)
+                    colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetMain]);
+                else
+                    colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetParent2]);
             }
             else//Player is either red yellow or blue
             {
                 Debug.Log("Color Choice (== None): " + currentColor.GetParentOf1 + " " + currentColor.GetParentOf2);
-                colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParentOf1]);
-                colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetParentOf2]);
+                //Check if color is locked if yes set to current color
+                if (colorManager.colorList[currentColor.GetParentOf1].IsLocked)
+                    colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetMain]);
+                else
+                    colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParentOf1]);
+                //Check if color is locked if yes set to current color
+                if (colorManager.colorList[currentColor.GetParentOf2].IsLocked)
+                    colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetMain]);
+                else
+                    colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParentOf2]);
             }
         }
     }
@@ -235,7 +258,6 @@ public class PlayerColor : MonoBehaviour
             }
             else // Play is either red yellow or blue
             {
-                Debug.Log("Color Choice (== None)(Toggle): " + currentColor.GetParentOf1 + " " + currentColor.GetParentOf2);
                 if (index == 2)
                     colorAdjust.colorFilter.value = colorsEffects[(int)currentColor.GetParentOf1];
                 else if (index == 3)

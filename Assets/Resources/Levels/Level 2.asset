@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7b0df48f066f54aa4ee5eccdd65937, type: 3}
   m_Name: Level 2
   m_EditorClassIdentifier: 
-  layout: {fileID: 6400547369406676725, guid: 749f89ca8d54fab45b8b3bbe0c14f183, type: 3}
+  layout: {fileID: 6634453737136895806, guid: df29e8007404b7b42865e541daa6e6dc, type: 3}
   name: Level 2
   data:
     unlocked: 0
@@ -21,7 +21,7 @@ MonoBehaviour:
     ghostPosSerialized: []
   colorList: {fileID: 0}
   ghostPos: []
-  collectablesCount: 18
+  numCollected: 0
   deathCount: 0
   numToCollect: 18
   starTime: 0

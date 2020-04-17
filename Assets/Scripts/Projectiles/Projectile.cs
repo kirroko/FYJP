@@ -8,11 +8,15 @@ public class Projectile : MonoBehaviour
 
     protected Vector3 dir = Vector3.zero;
     protected float speed = 0f;
+    protected float degree = 0f;
 
     public void Init(Vector2 dir, float speed)
     {
         this.dir = new Vector3(dir.x, dir.y, 0f);
         this.speed = speed;
+
+        float dot = Vector2.Dot(dir, Vector2.right);
+        degree = Mathf.Acos(dot) * Mathf.Rad2Deg;
     }
 
     protected virtual void Update()

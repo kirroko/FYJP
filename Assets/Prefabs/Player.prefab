@@ -9463,7 +9463,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 15b0e1a6dca46c749afae3a4a568657e, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -9667,7 +9667,7 @@ MonoBehaviour:
   maxAccel: 20
   maxAirSpeed: 6
   maxAirAccel: 12
-  jumpForce: 10
+  jumpForce: 13
   dashSpeed: 15
   dashCDDuration: 1
   wallJumpForce: 9

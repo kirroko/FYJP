@@ -112,9 +112,9 @@ public class PlayerMovement : MonoBehaviour
         if (xInput != 0) lastXDir = xInput;
 
         // BUTTON INPUT
-        if (jumpButton.tap && isGrounded || Input.GetKeyDown(KeyCode.Space))
+        if ((jumpButton.tap || Input.GetKeyDown(KeyCode.Space)) && isGrounded )
             Jump();
-        else if (jumpButton.tap && isWallRiding) // WALL JUMP
+        else if ((jumpButton.tap || Input.GetKeyDown(KeyCode.Space)) && isWallRiding) // WALL JUMP
             WallJump();
 
         // DASH
@@ -190,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
     private void AirMove()
     {
         // DON'T UPDATE DIRECTION WHEN WALLRIDING
-        if(!isWallRiding)
+        if(!isWallRiding && controlCD < 0)
         {
             // UPDATE DIRECTION
             if (xInput > 0) facingDirection = 1;
@@ -213,6 +213,7 @@ public class PlayerMovement : MonoBehaviour
             else if (facingDirection < 0)
                 right = true;
             Flip();
+            
         }
 
         Vector2 targetVel = rb.velocity;
@@ -233,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void WallJump()
     {
-        rb.AddForce(new Vector2(-facingDirection * wallJumpForce, wallJumpForce * 1.25f), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(-facingDirection * wallJumpForce, wallJumpForce * 1.4f), ForceMode2D.Impulse);
         controlCD = controlCDDuration;
         ani.SetTrigger("WallJump");
     }

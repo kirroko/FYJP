@@ -20,6 +20,12 @@ public class EnemyFollow : AI
 
         if (stun) return;
 
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+            return;
+        }
+
         if (Vector2.Distance(transform.position, target.position) < detectionDistance)
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         else if (Vector2.Distance(transform.position, target.position) < 10)

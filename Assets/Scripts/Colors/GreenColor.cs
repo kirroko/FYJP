@@ -15,7 +15,8 @@ public class GreenColor : WhiteColor
     private PlayerColor playerColor = null;
     private PlayerMovement movement = null;
     private Joystick movementInput = null;
-    private CinemachineVirtualCamera camera = null;
+    //private CinemachineVirtualCamera camera = null;
+    private Camera cam = null;
 
     private float defaultZoom = 0f;
     private float zoom = 0f;
@@ -29,12 +30,15 @@ public class GreenColor : WhiteColor
         playerColor = player.GetComponent<PlayerColor>();
         movement = player.GetComponent<PlayerMovement>();
         movementInput = ObjectReferences.instance.movementInput;
-        camera = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
+        //camera = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
 
-        if (camera == null) Debug.Log("Not found");
-        else Debug.Log("Found Cinmachine");
+        //if (camera == null) Debug.Log("Not found");
+        //else Debug.Log("Found Cinmachine");
 
-        zoom = camera.m_Lens.OrthographicSize;
+        //zoom = camera.m_Lens.OrthographicSize;
+        //defaultZoom = zoom;
+        cam = Camera.main;
+        zoom = cam.orthographicSize;
         defaultZoom = zoom;
     }
 
@@ -46,8 +50,9 @@ public class GreenColor : WhiteColor
             zoom -= Time.deltaTime * zoomSpeed;
 
         zoom = Mathf.Clamp(zoom, zoomBounds.x, zoomBounds.y);
-        
-        camera.m_Lens.OrthographicSize = zoom;
+
+        //camera.m_Lens.OrthographicSize = zoom;
+        cam.orthographicSize = zoom;
 
         //Check if the player is on a controllable platform
         player.GetComponent<PlayerMovement>().enabled = true;
@@ -66,7 +71,8 @@ public class GreenColor : WhiteColor
         base.ExitAbility(player);
 
         abilityInput.AxisOptions = AxisOptions.Both;
-        camera.m_Lens.OrthographicSize = defaultZoom;
+        //camera.m_Lens.OrthographicSize = defaultZoom;
+        cam.orthographicSize = defaultZoom;
 
         player.GetComponent<PlayerMovement>().enabled = true;
     }

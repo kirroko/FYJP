@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         if (xInput != 0) lastXDir = xInput;
 
         // BUTTON INPUT
-        if (jumpButton.tap && isGrounded)
+        if (jumpButton.tap && isGrounded || Input.GetKeyDown(KeyCode.Space))
             Jump();
         else if (jumpButton.tap && isWallRiding) // WALL JUMP
             WallJump();
@@ -259,8 +259,14 @@ public class PlayerMovement : MonoBehaviour
         if (dashDirection == Vector2.zero)
             dashDirection.x = facingDirection;
 
-        if (dashDirection.y != 0 && dashDirection.x != 0)
+        if (dashDirection.x == 0 && dashDirection.y > 0) // JOYSTICK FACING UPWARDS
+            ani.SetTrigger("UpDash");
+        else if (dashDirection.x == 0 && dashDirection.y < 0) // JOYSTICK FACING DOWNWARDS
+            ani.SetTrigger("DownDash");
+        else if (dashDirection.x != 0 && dashDirection.y > 0) // JOYSTICK FACING UPWARDS EITHER LEFT OR RIGHT
             ani.SetTrigger("DiagonalDash");
+        else if (dashDirection.x != 0 && dashDirection.y < 0) // JOYSTICK FACING DOWNWARDS EITHER LEFT OF RIGHT
+            ani.SetTrigger("BRDiagonalDash");
         else
             ani.SetTrigger("Dash");
 

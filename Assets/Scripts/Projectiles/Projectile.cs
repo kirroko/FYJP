@@ -15,8 +15,20 @@ public class Projectile : MonoBehaviour
         this.dir = new Vector3(dir.x, dir.y, 0f);
         this.speed = speed;
 
-        float dot = Vector2.Dot(dir, Vector2.right);
-        degree = Mathf.Acos(dot) * Mathf.Rad2Deg;
+        if (this.dir.x == 0f && this.dir.y > 0f) // pointing upwards
+            degree = 90f;
+        else if (this.dir.x == 0f && this.dir.y < 0f) // pointing downwards  
+            degree = -90f;
+        else if (this.dir.x > 0f && this.dir.y > 0f) // pointing top-right
+            degree = 45f;
+        else if (this.dir.x < 0f && this.dir.y > 0f) // pointing top-left
+            degree = 125f;
+        else if (this.dir.x > 0f && this.dir.y < 0f) // pointing btm-right
+            degree = -45f;
+        else if (this.dir.x < 0f && this.dir.y < 0f) // pointing btm-left
+            degree = -125f;
+        else
+            degree = 180f;
     }
 
     protected virtual void Update()

@@ -29,7 +29,11 @@ public class AI : MonoBehaviour
         {
             tagged = value;
             if (tagged)
+            {
+                // tint here
+                sr.color = Color.red;
                 taggedCD = taggedDuration;
+            }
         }
     }
 
@@ -67,9 +71,13 @@ public class AI : MonoBehaviour
     private float taggedCD = 0f;
     private float frozenCD = 0f;
 
+    private SpriteRenderer sr;
+
     protected virtual void Start()
     {
         speed = moveSpeed;
+        sr = GetComponent<SpriteRenderer>();
+        Debug.Log(sr);
     }
 
     protected virtual void Update()
@@ -82,7 +90,11 @@ public class AI : MonoBehaviour
             stun = false;
 
         if (taggedCD <= 0f)
+        {
+            // reset tint
+            sr.color = Color.white;
             tagged = false;
+        }
 
         if (frozenCD <= 0f)
         {

@@ -98,5 +98,7 @@ public class WhiteColor : ScriptableObject
 
         dir = Vector2.zero;
         abilityCD = abilityInterval;
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Shoot");
     }
 }

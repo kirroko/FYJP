@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
             degree = -45f;
         else if (this.dir.x < 0f && this.dir.y < 0f) // pointing btm-left
             degree = -125f;
-        else
+        else if(this.dir.x < 0)
             degree = 180f;
     }
 

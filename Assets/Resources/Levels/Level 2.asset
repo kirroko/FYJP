@@ -382,7 +382,7 @@ MonoBehaviour:
     - x: 194.02463
       y: 1.6053951
       z: 0
-  colorList: {fileID: 11400000, guid: 491b711cab81c174bb0a0b8dc45f036e, type: 2}
+  colorList: {fileID: 0}
   ghostPos:
   - {x: -2.4753685, y: -1.5763075, z: 0}
   - {x: 0.12463379, y: 4.723693, z: 0}

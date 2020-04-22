@@ -42,6 +42,7 @@ public class PlayerManager : MonoBehaviour
     {
         Dictionary<COLORS, bool> colorToUpdate = new Dictionary<COLORS, bool>();
 
+        Debug.Log(newColorList.name);
         foreach(COLORS color in colorManager.colorList.Keys)
         {
             //current data is locked but new data say not locked

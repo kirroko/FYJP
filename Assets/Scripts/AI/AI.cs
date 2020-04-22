@@ -77,7 +77,6 @@ public class AI : MonoBehaviour
     {
         speed = moveSpeed;
         sr = GetComponent<SpriteRenderer>();
-        Debug.Log(sr);
     }
 
     protected virtual void Update()

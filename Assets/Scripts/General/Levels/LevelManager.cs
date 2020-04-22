@@ -8,6 +8,17 @@ public class LevelManager : MonoBehaviour
 {
     public Level CurrentLevel { get { return currentLevel; } }
     public int CurrentLevelIndex { get { return currentLevelIndex; } }
+    public Vector3 SpawnPoint
+    {
+        get { return spawnPoint; }
+        set
+        {
+            spawnPoint = value;
+            numCollectedAtCP = currentLevel.numCollected;
+            foreach (Collectable collectable in currentLevelCollectables)
+                collectable.WillRespawn = false;
+        }
+    }
 
     [SerializeField] private PlayerGhost ghost = null;
 
@@ -16,10 +27,14 @@ public class LevelManager : MonoBehaviour
     private List<Level> levels = new List<Level>();
     private Level currentLevel = null;
     private int currentLevelIndex = 0;
+    private Collectable[] currentLevelCollectables;
 
     private float elapsedTime = 0f;
     private bool start = false;
     private GameObject player = null;
+
+    private Vector3 spawnPoint = new Vector3(0f, 0f, Mathf.Infinity);
+    private int numCollectedAtCP = 0;
 
     private void Awake()
     {
@@ -30,7 +45,6 @@ public class LevelManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(this);
-
 
         InitLevelData();
     }
@@ -82,12 +96,14 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public IEnumerator LoadLevel(int index)
+    private IEnumerator LoadLevel(int index)
     {
+        //Reset some variables
         elapsedTime = 0f;
         currentLevelIndex = index;
         currentLevel = levels[index];
         currentLevel.numCollected = 0;
+        numCollectedAtCP = 0;
         ObjectReferences.instance.itemCount.text = "0/" + currentLevel.numToCollect;
 
         SceneTransition.instance.LoadSceneInBG("Level");
@@ -98,6 +114,12 @@ public class LevelManager : MonoBehaviour
         }
 
         GameObject layout = Instantiate(currentLevel.layout);
+
+        yield return null;
+
+        currentLevelCollectables = layout.transform.GetComponentsInChildren<Collectable>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        spawnPoint = player.transform.position;
 
         if (currentLevel.colorList != null)
             PlayerManager.instance.UpdateColorList(currentLevel.colorList);
@@ -123,7 +145,6 @@ public class LevelManager : MonoBehaviour
         {
             currentLevel.data.fastestTime = elapsedTime;
             //Update GhostPos
-            player = GameObject.FindGameObjectWithTag("Player");
             currentLevel.ghostPos = player.GetComponent<GhostManager>().RecordedPos;
             //Updated ghost data to be serialized
             foreach (Vector3 pos in currentLevel.ghostPos)
@@ -165,15 +186,28 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator ReloadLevel()
     {
+        //Reset some variables
         elapsedTime = 0f;
-        currentLevel.numCollected = 0;
-        ObjectReferences.instance.itemCount.text = "0/" + currentLevel.numToCollect;
-        SceneTransition.instance.LoadScene("Level");
+        currentLevel.numCollected = numCollectedAtCP;
+        ObjectReferences.instance.itemCount.text = currentLevel.numCollected + "/" + currentLevel.numToCollect;
 
-        yield return new WaitForSeconds(0.5f);
+        //Set player's pos to checkpoint 
+        player.transform.position = spawnPoint;
 
-        //currentLevel.Print();
-        GameObject layout = Instantiate(currentLevel.layout);
+        //Reset Collectables
+        foreach (Collectable collectable in currentLevelCollectables)
+        {
+            //Vector3 temp = collectable.transform.position;
+            //temp.y += 1f;
+            //collectable.transform.position = temp;
+            //Debug.Log("CALLED");
+            collectable.Respawn();
+        }
+
+        //Reset AIs
+
+
+        yield return null;
 
         start = true;
         
@@ -183,6 +217,11 @@ public class LevelManager : MonoBehaviour
         //    PlayerGhost tempGhost = Instantiate(ghost, currentLevel.ghostPos[0], Quaternion.identity);
         //    tempGhost.Init(currentLevel.ghostPos);
         //}
+    }
+
+    public void StartLevel(int index)
+    {
+        StartCoroutine(LoadLevel(index));
     }
 
     public void RestartLevel()

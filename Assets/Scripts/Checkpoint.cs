@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class Respawn : MonoBehaviour
+public class Checkpoint : MonoBehaviour
 {
     private void Start()
     {
@@ -13,7 +12,6 @@ public class Respawn : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.GetComponent<PlayerInfo>() != null)
-            LevelManager.instance.RestartLevel();
+        LevelManager.instance.SpawnPoint = transform.position;
     }
 }

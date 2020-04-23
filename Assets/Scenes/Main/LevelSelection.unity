@@ -155,11 +155,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1877581891}
   distance: -10
-  followSpeed: 4
-  deadZoneOffsetX: -2
-  deadZoneX: 6
-  snapZoneOffsetX: -2.5
-  snapZoneX: 13.5
+  followSpeed: {x: 2.5, y: 3}
+  deadZoneOffsetX: 0
+  deadZoneX: 2.5
+  lookaheadAmt: 7.5
   tempTop: 0.1
   tempBot: 0.15
 --- !u!20 &168354176
@@ -770,7 +769,7 @@ Transform:
   m_GameObject: {fileID: 878504777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.82145905, y: -4.31, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 1}
+  m_LocalScale: {x: 1000, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -2607,7 +2606,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 924146073, guid: 43014a7be23bd094a8e07698d35779a2, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8070297629261575616, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}

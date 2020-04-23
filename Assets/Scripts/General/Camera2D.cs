@@ -8,34 +8,28 @@ public class Camera2D: MonoBehaviour
 
     [SerializeField] private float distance = -10f;//z distance from player
 
-    [SerializeField] private float followSpeed = 3f;
+    [SerializeField] private Vector2 followSpeed = new Vector2(3f, 3f);
 
     [SerializeField] private float deadZoneOffsetX = 0f;
     [SerializeField] private float deadZoneX = 0f;
-    [SerializeField] private float snapZoneOffsetX = 0f;
-    [SerializeField] private float snapZoneX = 0f;
+
+    [SerializeField] private float lookaheadAmt = 20f;
 
     public float tempTop = 0.1f;
     public float tempBot = 0.15f;
 
-
     private float halfDeadZoneX = 0f;
-    private float halfSnapZoneX = 0f;
 
     private bool deadX = false;
-    private bool snapX = false;
 
     //Target
     private Vector2 prevPos = Vector2.zero;
 
-    //Player
-    private PlayerMovement player = null;
-    private bool wasGrounded = true;
-
     //Camera
     private Camera cam = null;
-    private float prevY = 0f;
     private float currentY = 0f;
+    private bool ignoreDead = false;
+    private float prevDir = 0f;
     
     private void Start()
     {
@@ -44,17 +38,16 @@ public class Camera2D: MonoBehaviour
         Vector3 tempPos = transform.position;
         tempPos.z = distance;
         tempPos.y = currentY;
-        transform.position = tempPos;
 
         halfDeadZoneX = deadZoneX * 0.5f;
-        halfSnapZoneX = snapZoneX * 0.5f;
         if(target != null)
         {
             prevPos = target.position;
-
-            if (target.GetComponent<PlayerMovement>() != null)
-                player = target.GetComponent<PlayerMovement>();
+            tempPos.x = target.position.x;
         }
+
+        transform.position = tempPos;
+
     }
 
     private void Update()
@@ -66,28 +59,8 @@ public class Camera2D: MonoBehaviour
             {
                 target = tempPlayer.transform;
                 prevPos = target.position;
-                player = target.GetComponent<PlayerMovement>();
             }
             return;
-        }
-
-        //Determine if camera should smoothly follow, snap or do nothing
-        if (target.position.x < transform.position.x + deadZoneOffsetX + halfDeadZoneX && 
-            target.position.x > transform.position.x + deadZoneOffsetX - halfDeadZoneX)
-        {
-            deadX = true;
-            snapX = false;
-        }
-        else if (target.position.x > transform.position.x + snapZoneOffsetX + halfSnapZoneX || 
-            target.position.x < transform.position.x + snapZoneOffsetX - halfSnapZoneX)
-        {
-            snapX = true;
-            deadX = false;
-        }
-        else
-        {
-            snapX = false;
-            deadX = false;
         }
 
     }
@@ -96,33 +69,48 @@ public class Camera2D: MonoBehaviour
     {
         if (target == null) return;
 
-        //Calc Dist covered and Update prevPos
+        //Calc Dist player covered and Update prevPos
         Vector2 temp = target.position;
         Vector2 distCovered = temp - prevPos;
         prevPos = temp;
+
+        //Determine if camera should smoothly follow, snap or do nothing
+        if (!ignoreDead && target.position.x < transform.position.x + deadZoneOffsetX + halfDeadZoneX &&
+            target.position.x > transform.position.x + deadZoneOffsetX - halfDeadZoneX)
+        {
+            deadX = true;
+        }
+        else
+        {
+            ignoreDead = true;
+            deadX = false;
+        }
+
+        if (ignoreDead)
+        {
+            if (prevDir != Sign(distCovered.x))
+            {
+                ignoreDead = false;
+            }
+        }
+
 
         Vector3 targetPos = target.position;
         targetPos.z = distance;
 
         #region UpdateXPos
-        if (!deadX && !snapX)//Smoothing in X
+
+        if (!deadX)//Smoothing in X
         {
-            targetPos.x = Mathf.MoveTowards(transform.position.x, targetPos.x, Time.deltaTime * followSpeed);
+            prevDir = Sign(distCovered.x);
+            targetPos.x += Sign(distCovered.x) * lookaheadAmt;//For lookahead
+            targetPos.x = Mathf.Lerp(transform.position.x, targetPos.x, Time.deltaTime * followSpeed.x);
         }
-        else if (deadX)//Dont move the camera in X
+        else//Dont move the camera in X
         {
             targetPos.x = transform.position.x;
         }
-        else if(snapX)//No more smoothing just snap to player in X
-        {
-            float dir = target.position.x - transform.position.x;
-            if (dir > 0f)
-                dir = 1f;
-            else
-                dir = -1f;
 
-            targetPos.x = transform.position.x + distCovered.x;
-        }
         #endregion
 
         #region UpdateYPos
@@ -140,10 +128,7 @@ public class Camera2D: MonoBehaviour
         {
             currentY += cam.orthographicSize * 0.75f;
         }
-        targetPos.y = Mathf.MoveTowards(transform.position.y, currentY, Time.deltaTime * followSpeed);
-
-
-
+        targetPos.y = Mathf.MoveTowards(transform.position.y, currentY, Time.deltaTime * followSpeed.y);
         #endregion
 
         transform.position = targetPos;
@@ -154,9 +139,6 @@ public class Camera2D: MonoBehaviour
         Camera temp = GetComponent<Camera>();
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position + new Vector3(deadZoneOffsetX, 0f, 0f), new Vector3(deadZoneX, temp.orthographicSize * 2f, 0f));
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(transform.position + new Vector3(snapZoneOffsetX, 0f, 0f), new Vector3(snapZoneX, temp.orthographicSize * 2f, 0f));
 
         //Border of camera
         Gizmos.color = Color.green;
@@ -176,5 +158,14 @@ public class Camera2D: MonoBehaviour
             new Vector3(temp.aspect * temp.orthographicSize * 2f, 0f, 0f));
 
 
+    }
+
+    private float Sign(float value)
+    {
+        if (value > 0f)
+            return 1f;
+        else if (value < 0f)
+            return -1f;
+        else return 0f;
     }
 }

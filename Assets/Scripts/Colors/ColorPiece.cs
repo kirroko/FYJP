@@ -16,7 +16,7 @@ public class ColorPiece : MonoBehaviour
         image = GetComponent<Image>();
     }
 
-    public void UpdateData(WhiteColor data)
+    public void UpdateData(BaseColor data)
     {
         mainColor = data.GetMain;
         image.color = data.Color;

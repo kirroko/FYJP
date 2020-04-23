@@ -55,7 +55,7 @@ public class SaveSystem
         }
     }
 
-    public static void SaveColor(WhiteColor color)
+    public static void SaveColor(BaseColor color)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = playerInfoDirectory + color.GetMain.ToString() +".data";

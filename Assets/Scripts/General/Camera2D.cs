@@ -15,8 +15,8 @@ public class Camera2D: MonoBehaviour
 
     [SerializeField] private float lookaheadAmt = 20f;
 
-    public float tempTop = 0.1f;
-    public float tempBot = 0.15f;
+    [SerializeField] private float tempTop = 0.2f;
+    [SerializeField] private float tempBot = 0.2f;
 
     private float halfDeadZoneX = 0f;
 
@@ -30,6 +30,8 @@ public class Camera2D: MonoBehaviour
     private float currentY = 0f;
     private bool ignoreDead = false;
     private float prevDir = 0f;
+
+    [HideInInspector] public bool isControlled = false;
     
     private void Start()
     {
@@ -67,7 +69,7 @@ public class Camera2D: MonoBehaviour
 
     private void LateUpdate()
     {
-        if (target == null) return;
+        if (target == null || isControlled) return;
 
         //Calc Dist player covered and Update prevPos
         Vector2 temp = target.position;

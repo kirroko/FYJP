@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa18a9ac1fd37e04ea14ed036ce9dd57, type: 3}
+  m_Script: {fileID: 11500000, guid: 8258f0cc89dc6f2408f050c822ff93ad, type: 3}
   m_Name: White Color Unlocked
   m_EditorClassIdentifier: 
   color: {r: 1, g: 1, b: 1, a: 1}
@@ -20,3 +20,5 @@ MonoBehaviour:
   parentOf2: 7
   locked: 0
   abilityInterval: 1
+  moveSpeed: 15
+  bounds: {x: 5, y: 5}

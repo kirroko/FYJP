@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(this);
-        InitData();
+        //InitData();
     }
 
     private void InitData()

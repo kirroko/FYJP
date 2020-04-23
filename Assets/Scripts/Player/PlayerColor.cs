@@ -204,9 +204,9 @@ public class PlayerColor : MonoBehaviour
                     colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParentOf1]);
                 //Check if color is locked if yes set to current color
                 if (colorManager.colorList[currentColor.GetParentOf2].IsLocked)
-                    colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetMain]);
+                    colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetMain]);
                 else
-                    colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParentOf2]);
+                    colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetParentOf2]);
             }
         }
     }

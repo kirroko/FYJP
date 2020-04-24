@@ -34,6 +34,7 @@ public class PlayerColor : MonoBehaviour
     private int index = 0;
 
     private GameObject collidedPlatform = null;
+    private SpriteRenderer sr;
 
     private void Start()
     {
@@ -51,6 +52,7 @@ public class PlayerColor : MonoBehaviour
         // REFERENCE CODE
         vol = Camera.main.GetComponent<Volume>();
         vol.profile.TryGet(out colorAdjust);
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -81,6 +83,9 @@ public class PlayerColor : MonoBehaviour
                 colorChanged = false;
                 index = -1;
                 ResetColorPiecesSize();
+
+                // Change character color hue
+                sr.color = currentColor.Color;
             }
             canChoose = false;
             ToggleVisualEffect();
@@ -104,6 +109,7 @@ public class PlayerColor : MonoBehaviour
                     index = 0;
 
                 colorPieces[index].Image.rectTransform.sizeDelta = new Vector2(growSize, growSize);
+                
                 ToggleVisualEffect(index + 1);
                 colorChanged = true;
             }
@@ -181,7 +187,6 @@ public class PlayerColor : MonoBehaviour
             //Player is either orange green or purple
             if (currentColor.GetParent1 != COLORS.NONE)
             {
-                Debug.Log("Color Choice (!= None): " + currentColor.GetParent1 + " " + currentColor.GetParent2);
                 //Check if color is locked if yes set to current color
                 if(colorManager.colorList[currentColor.GetParent1].IsLocked)
                     colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetMain]);
@@ -196,7 +201,6 @@ public class PlayerColor : MonoBehaviour
             }
             else//Player is either red yellow or blue
             {
-                Debug.Log("Color Choice (== None): " + currentColor.GetParentOf1 + " " + currentColor.GetParentOf2);
                 //Check if color is locked if yes set to current color
                 if (colorManager.colorList[currentColor.GetParentOf1].IsLocked)
                     colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetMain]);

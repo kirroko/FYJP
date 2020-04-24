@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 dashDirection = Vector2.zero;
     private bool stillDashing = false;
     private float dashDuration = 0.7f;
+    private float defaultGravity = 0f;
 
     private void Start()
     {
@@ -78,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
         input = ObjectReferences.instance.movementInput;
         jumpButton = ObjectReferences.instance.jumpButton;
         dashButton = ObjectReferences.instance.dashButton;
+
+        defaultGravity = rb.gravityScale;
     }
 
     private void Update()
@@ -85,6 +88,9 @@ public class PlayerMovement : MonoBehaviour
         // COOLDOWN CODE
         dashCD -= Time.deltaTime;
         controlCD -= Time.deltaTime;
+
+        if (dashCD < 0) // reset gravity
+            rb.gravityScale = defaultGravity;
 
         //For Dash To kill and break objects
         if(stillDashing)
@@ -112,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         if (xInput != 0) lastXDir = xInput;
 
         // BUTTON INPUT
-        if ((jumpButton.tap || Input.GetKeyDown(KeyCode.Space)) && isGrounded )
+        if ((jumpButton.tap || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
             Jump();
         else if ((jumpButton.tap || Input.GetKeyDown(KeyCode.Space)) && isWallRiding) // WALL JUMP
             WallJump();
@@ -244,7 +250,7 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         stillDashing = true;
         dashCD = dashCDDuration;
-        controlCD = controlCDDuration;
+        // controlCD = controlCDDuration;
         dashDirection = Vector2.zero;
 
         if (input.Direction.x > 0.5f)
@@ -272,6 +278,7 @@ public class PlayerMovement : MonoBehaviour
             ani.SetTrigger("Dash");
 
         rb.velocity = Vector2.zero;
+        rb.gravityScale = 0;
         Vector3 force = dashDirection * dashSpeed;
         force = Vector3.ClampMagnitude(force, dashSpeed);
         rb.AddForce(force, ForceMode2D.Impulse);

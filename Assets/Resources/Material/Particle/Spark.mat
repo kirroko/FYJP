@@ -10,7 +10,7 @@ Material:
   m_Name: Spark
   m_Shader: {fileID: -6465566751694194690, guid: 2dbac60714e56d54ea8a312063406c71,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

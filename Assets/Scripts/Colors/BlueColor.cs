@@ -92,8 +92,19 @@ public class BlueColor : BaseColor
         if (direction == Vector2.zero)
             direction.x = playerMovement.GetLastXDir;
 
-        if (direction.y != 0 && direction.x != 0)
+        //if (direction.y != 0 && direction.x != 0)
+        //    playerAnimator.SetTrigger("DiagonalDash");
+        //else
+        //    playerAnimator.SetTrigger("Dash");
+
+        if (direction.x == 0 && direction.y > 0) // JOYSTICK FACING UPWARDS
+            playerAnimator.SetTrigger("UpDash");
+        else if (direction.x == 0 && direction.y < 0) // JOYSTICK FACING DOWNWARDS
+            playerAnimator.SetTrigger("DownDash");
+        else if (direction.x != 0 && direction.y > 0) // JOYSTICK FACING UPWARDS EITHER LEFT OR RIGHT
             playerAnimator.SetTrigger("DiagonalDash");
+        else if (direction.x != 0 && direction.y < 0) // JOYSTICK FACING DOWNWARDS EITHER LEFT OF RIGHT
+            playerAnimator.SetTrigger("BRDiagonalDash");
         else
             playerAnimator.SetTrigger("Dash");
 

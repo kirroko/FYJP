@@ -98,6 +98,6 @@ public class BaseColor : ScriptableObject
         dir = Vector2.zero;
         abilityCD = abilityInterval;
 
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Shoot");
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Attack");
     }
 }

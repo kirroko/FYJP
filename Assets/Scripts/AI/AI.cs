@@ -14,7 +14,10 @@ public class AI : MonoBehaviour
         {
             stun = value;
             if (stun)
+            {
+                sr.color = Color.yellow;
                 stunCD = stunDuration;
+            }
         }
     }
 
@@ -49,6 +52,7 @@ public class AI : MonoBehaviour
             frozen = value;
             if (frozen)
             {
+                sr.color = Color.blue;
                 speed = moveSpeed * slowAmt;
                 frozenCD = frozenDuration;
             }
@@ -86,12 +90,12 @@ public class AI : MonoBehaviour
         frozenCD -= Time.deltaTime;
 
         if(stunCD <= 0f)
+        {
             stun = false;
+        }
 
         if (taggedCD <= 0f)
         {
-            // reset tint
-            sr.color = Color.white;
             tagged = false;
         }
 
@@ -100,6 +104,9 @@ public class AI : MonoBehaviour
             frozen = false;
             speed = moveSpeed;
         }
+
+        if (stunCD <= 0f && taggedCD <= 0f && frozenCD <= 0f)
+            sr.color = Color.white;
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)

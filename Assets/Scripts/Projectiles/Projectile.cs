@@ -31,6 +31,11 @@ public class Projectile : MonoBehaviour
             degree = 180f;
     }
 
+    protected virtual void Start()
+    {
+        transform.Rotate(new Vector3(0, 0, 1), degree); 
+    }
+
     protected virtual void Update()
     {
         lifeTime -= Time.deltaTime;
@@ -43,6 +48,12 @@ public class Projectile : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        
+
+    }
+
+    protected IEnumerator DelayDestroy(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 }

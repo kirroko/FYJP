@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class Camera2D: MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] private Transform target = null;
-
     [SerializeField] private float distance = -10f;//z distance from player
-
     [SerializeField] private Vector2 followSpeed = new Vector2(3f, 3f);
 
+    [Header("Dead Zone")]
     [SerializeField] private float deadZoneOffsetX = 0f;
     [SerializeField] private float deadZoneX = 0f;
 
+    [Header("Lookahead")]
     [SerializeField] private float lookaheadAmt = 20f;
 
-    [SerializeField] private float tempTop = 0.2f;
-    [SerializeField] private float tempBot = 0.2f;
+    [Header("Follow Y")]
+    [SerializeField] private float yMoveTop = 0.2f;//Percent from top
+    [SerializeField] private float yMoveBottom = 0.2f;
 
     private float halfDeadZoneX = 0f;
 
     private bool deadX = false;
 
     //Target
-    private Vector2 prevPos = Vector2.zero;
+    private Joystick moveJoysick = null;
 
     //Camera
     private Camera cam = null;
@@ -43,13 +45,10 @@ public class Camera2D: MonoBehaviour
 
         halfDeadZoneX = deadZoneX * 0.5f;
         if(target != null)
-        {
-            prevPos = target.position;
             tempPos.x = target.position.x;
-        }
 
         transform.position = tempPos;
-
+        moveJoysick = ObjectReferences.instance.movementInput;
     }
 
     private void Update()
@@ -58,10 +57,7 @@ public class Camera2D: MonoBehaviour
         {
             GameObject tempPlayer = GameObject.FindGameObjectWithTag("Player");
             if (tempPlayer != null)
-            {
                 target = tempPlayer.transform;
-                prevPos = target.position;
-            }
             return;
         }
 
@@ -71,12 +67,15 @@ public class Camera2D: MonoBehaviour
     {
         if (target == null || isControlled) return;
 
-        //Calc Dist player covered and Update prevPos
-        Vector2 temp = target.position;
-        Vector2 distCovered = temp - prevPos;
-        prevPos = temp;
-
         //Determine if camera should smoothly follow, snap or do nothing
+        if (ignoreDead)
+        {
+            if (prevDir != Sign(moveJoysick.Direction.x))
+            {
+                ignoreDead = false;
+            }
+        }
+
         if (!ignoreDead && target.position.x < transform.position.x + deadZoneOffsetX + halfDeadZoneX &&
             target.position.x > transform.position.x + deadZoneOffsetX - halfDeadZoneX)
         {
@@ -88,24 +87,16 @@ public class Camera2D: MonoBehaviour
             deadX = false;
         }
 
-        if (ignoreDead)
-        {
-            if (prevDir != Sign(distCovered.x))
-            {
-                ignoreDead = false;
-            }
-        }
-
 
         Vector3 targetPos = target.position;
         targetPos.z = distance;
 
         #region UpdateXPos
+        prevDir = Sign(moveJoysick.Direction.x);
 
-        if (!deadX)//Smoothing in X
+        if (!deadX)//Lookahead and have camera follow
         {
-            prevDir = Sign(distCovered.x);
-            targetPos.x += Sign(distCovered.x) * lookaheadAmt;//For lookahead
+            targetPos.x += Sign(moveJoysick.Direction.x) * lookaheadAmt;//For lookahead
             targetPos.x = Mathf.Lerp(transform.position.x, targetPos.x, Time.deltaTime * followSpeed.x);
         }
         else//Dont move the camera in X
@@ -116,8 +107,8 @@ public class Camera2D: MonoBehaviour
         #endregion
 
         #region UpdateYPos
-        float min = cam.orthographicSize * 2f * tempBot;
-        float max = cam.orthographicSize * 2f * tempTop;
+        float min = cam.orthographicSize * 2f * yMoveBottom;
+        float max = cam.orthographicSize * 2f * yMoveTop;
 
         float targetBot = target.position.y - target.GetComponent<SpriteRenderer>().bounds.extents.y;
         float targetTop = target.position.y + target.GetComponent<SpriteRenderer>().bounds.extents.y;
@@ -146,8 +137,8 @@ public class Camera2D: MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position, new Vector3(temp.aspect * temp.orthographicSize * 2f, temp.orthographicSize * 2f, 0f));
 
-        float min = temp.orthographicSize * 2f * tempBot;
-        float max = temp.orthographicSize * 2f * tempTop;
+        float min = temp.orthographicSize * 2f * yMoveBottom;
+        float max = temp.orthographicSize * 2f * yMoveTop;
         
         //Top y 
         Gizmos.color = Color.magenta;

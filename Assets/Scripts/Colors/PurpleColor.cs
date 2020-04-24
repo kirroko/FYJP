@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PurpleColor", menuName = "Colors/Purple", order = 6)]
-public class PurpleColor : WhiteColor
+public class PurpleColor : BaseColor
 {
     [SerializeField] private float abilityDuration = 3f;
     [SerializeField] private float speedModifier = 2f;

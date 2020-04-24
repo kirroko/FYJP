@@ -28,7 +28,7 @@ public class LevelSelection : MonoBehaviour
                 {
                     Time.timeScale = 1f;
                     Time.fixedDeltaTime = ObjectReferences.fixedTimeScale;
-                    StartCoroutine(LevelManager.instance.LoadLevel(LevelIndex - 1));
+                    LevelManager.instance.StartLevel(LevelIndex - 1);
                     once = true;
                 }
             }

@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Level", menuName = "Level", order = 5)]
 public class Level : ScriptableObject
 {
+    
     public GameObject layout = null;
     public new string name = "";
     public LevelData data = null;//Updated in EndLevel() of lvlManager

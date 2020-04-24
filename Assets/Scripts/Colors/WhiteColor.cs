@@ -1,104 +1,46 @@
 ﻿using UnityEngine;
 
-public enum COLORS
-{
-    WHITE,
-    YELLOW,
-    RED,
-    BLUE,
-    ORANGE,
-    PURPLE,
-    GREEN,
-
-    NONE,
-}
-
 [CreateAssetMenu(fileName = "WhiteColor", menuName = "Colors/White", order = 2)]
-public class WhiteColor : ScriptableObject
+public class WhiteColor : BaseColor
 {
-    public bool IsLocked { get { return locked; } set { locked = value; } }
-    public COLORS GetMain { get { return mainColor; } }
-    public COLORS GetParent1 { get { return parentColor1; } }
-    public COLORS GetParent2 { get { return parentColor2; } }
-    public COLORS GetParentOf1 { get { return parentOf1; } }
-    public COLORS GetParentOf2 { get { return parentOf2; } }
-    public Color Color { get { return color;} }
-
-    [Header("Color Related")]
-    [SerializeField] protected Color color = Color.white;
-    [SerializeField] protected COLORS mainColor = COLORS.NONE;
-    [SerializeField] protected COLORS parentColor1 = COLORS.NONE;
-    [SerializeField] protected COLORS parentColor2 = COLORS.NONE;
-    [SerializeField] protected COLORS parentOf1 = COLORS.NONE;
-    [SerializeField] protected COLORS parentOf2 = COLORS.NONE;
-
-    [SerializeField] protected bool locked = false;
-
-    [Header("Ability Related")]
-    [SerializeField] protected float abilityInterval = 1f;
+    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private Vector2 bounds = Vector2.zero;
 
 
-    protected Joystick abilityInput = null;
-    protected Vector2 dir = Vector2.zero;
-    protected float abilityCD = 0f;
-    protected bool abilityActivated = false;
+    private Camera2D cam = null;
+    private float startY = 0f;
 
-    private float offsetPos = 1.5f;
-
-    public virtual void InitAbility(GameObject player)
+    public override void InitAbility(GameObject player)
     {
-        abilityInput = ObjectReferences.instance.abilityInput;
+        base.InitAbility(player);
+        cam = Camera.main.gameObject.GetComponent<Camera2D>();
     }
 
-    public virtual void UpdateAbility(GameObject player)
+    public override void UpdateAbility(GameObject player)
     {
-        abilityCD -= Time.deltaTime;
-
-        if(abilityInput.IsPressed && abilityCD <= 0f)
+        if(abilityInput.IsPressed)
         {
+            if (!cam.isControlled)
+                startY = cam.transform.position.y;
+
+            cam.isControlled = true;
+
             dir = abilityInput.Direction;
 
-            Vector2 direction = Vector2.zero;
+            Vector3 targetPos = cam.transform.position;
+            targetPos.x = Mathf.Clamp(targetPos.x + dir.x, player.transform.position.x -bounds.x * 0.5f, player.transform.position.x + bounds.x * 0.5f);
+            targetPos.y = Mathf.Clamp(targetPos.y + dir.y, startY - bounds.y * 0.5f, startY + bounds.y * 0.5f);
 
-            if (dir.x > 0.5f)
-                direction.x = 1f;
-            else if (dir.x < -0.5f)
-                direction.x = -1f;
-
-            if (dir.y > 0.5f)
-                direction.y = 1f;
-            else if (dir.y < -0.5f)
-                direction.y = -1f;
-
-            dir = direction;
-            abilityActivated = true;
+            cam.transform.position = Vector3.Lerp(cam.transform.position, targetPos, Time.deltaTime * moveSpeed);
         }
-
+        else
+        {
+            cam.isControlled = false;
+        }
     }
 
-    public virtual void ExitAbility(GameObject player)
+    public override void ExitAbility(GameObject player)
     {
-        abilityCD = 0f;
-        abilityActivated = false;
-        dir = Vector2.zero;
-    }
-
-    public virtual void OnPlayerDestroyed()
-    {
-
-    }
-
-    protected void Shoot(Projectile projectile, float projectileSpeed, GameObject player)
-    {
-        Bounds playerColliderBounds = player.GetComponent<Collider2D>().bounds;
-        Vector3 firePoint = playerColliderBounds.center + new Vector3(playerColliderBounds.extents.x * dir.x, playerColliderBounds.extents.y * dir.y, 0f) * offsetPos;
-
-        Projectile temp = Instantiate(projectile, firePoint, Quaternion.identity);
-        temp.Init(dir, projectileSpeed);
-
-        dir = Vector2.zero;
-        abilityCD = abilityInterval;
-
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Attack");
+        base.ExitAbility(player);
     }
 }

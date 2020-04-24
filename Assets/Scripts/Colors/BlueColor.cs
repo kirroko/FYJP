@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BlueColor", menuName = "Colors/Blue", order = 5)]
-public class BlueColor : WhiteColor
+public class BlueColor : BaseColor
 {
     [SerializeField] private BlueProjectile projectile = null;
     [SerializeField] private float projectileSpeed = 5f;

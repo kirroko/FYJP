@@ -4,7 +4,7 @@ using UnityEngine;
 using Cinemachine;
 
 [CreateAssetMenu(fileName = "GreenColor", menuName = "Colors/Green", order = 8)]
-public class GreenColor : WhiteColor
+public class GreenColor : BaseColor
 {
     [SerializeField] private float moveSpeed = 5f;
 

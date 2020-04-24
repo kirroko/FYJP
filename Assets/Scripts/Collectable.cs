@@ -2,6 +2,18 @@
 
 public class Collectable : MonoBehaviour
 {
+    public bool WillRespawn { get { return willRespawn; } set { if (collected) { willRespawn = false; } } }
+
+    [SerializeField] private bool willRespawn = true;
+    [SerializeField] private bool collected = false;
+
+    private Vector3 scale = Vector3.zero;
+
+    private void Start()
+    {
+        scale = transform.localScale;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -9,7 +21,15 @@ public class Collectable : MonoBehaviour
             Level currentLevel = LevelManager.instance.CurrentLevel;
             ++currentLevel.numCollected;
             ObjectReferences.instance.itemCount.text = currentLevel.numCollected.ToString() + "/" + currentLevel.numToCollect.ToString();
-            Destroy(gameObject);
+            collected = true;
+            transform.localScale = Vector3.zero;
         }
+    }
+
+    public void Respawn()
+    {
+        if (!willRespawn) return;
+
+        transform.localScale = scale;
     }
 }

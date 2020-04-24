@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0, g: 1, b: 0, a: 1}
   mainColor: 6
-  parentColor1: 2
+  parentColor1: 1
   parentColor2: 3
   parentOf1: 7
   parentOf2: 7

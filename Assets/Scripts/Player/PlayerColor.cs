@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerColor : MonoBehaviour
 {
-    public WhiteColor GetCurrentColor { get { return currentColor; } }
+    public BaseColor GetCurrentColor { get { return currentColor; } }
     public GameObject GetCollidedPlatform { get { return collidedPlatform; } }
     
     [Header("Reference")]
@@ -26,8 +26,8 @@ public class PlayerColor : MonoBehaviour
     private ColorPiece[] colorPieces = new ColorPiece[3];
     private Joystick colorInput = null;
 
-    private WhiteColor currentColor = null;
-    private WhiteColor prevColor = null;
+    private BaseColor currentColor = null;
+    private BaseColor prevColor = null;
     private bool canChoose = false;
     private bool colorChanged = false;
     private bool slowDown = false;
@@ -149,7 +149,7 @@ public class PlayerColor : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach(WhiteColor color in colorManager.colorList.Values)
+        foreach(BaseColor color in colorManager.colorList.Values)
         {
             color.OnPlayerDestroyed();
         }
@@ -208,9 +208,9 @@ public class PlayerColor : MonoBehaviour
                     colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParentOf1]);
                 //Check if color is locked if yes set to current color
                 if (colorManager.colorList[currentColor.GetParentOf2].IsLocked)
-                    colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetMain]);
+                    colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetMain]);
                 else
-                    colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParentOf2]);
+                    colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetParentOf2]);
             }
         }
     }

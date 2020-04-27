@@ -36,10 +36,6 @@ public class ColorPiece : MonoBehaviour
     {
         mainColor = data.GetMain;
 
-        if (choices.ContainsKey(data.GetMain))
-            image.sprite = choices[data.GetMain];
-        else
-            Debug.Log(name + ": " + data.GetMain);
-        //image.color = data.Color;
+        image.sprite = choices[data.GetMain];
     }
 }

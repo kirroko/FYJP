@@ -22,6 +22,7 @@ public class ObjectReferences : MonoBehaviour
     public ColorPiece rightPiece = null;
 
     [Header("UI")]
+    public Image colorIndicator = null;
     public TextMeshProUGUI itemCount = null;
     public TextMeshProUGUI time = null;
 

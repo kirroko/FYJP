@@ -36,6 +36,8 @@ public class PlayerColor : MonoBehaviour
     private GameObject collidedPlatform = null;
     private SpriteRenderer sr;
 
+    private Image colorIndicator = null;
+
     private void Start()
     {
         colorManager = PlayerManager.instance.GetColorManager;
@@ -53,6 +55,8 @@ public class PlayerColor : MonoBehaviour
         vol = Camera.main.GetComponent<Volume>();
         vol.profile.TryGet(out colorAdjust);
         sr = GetComponent<SpriteRenderer>();
+
+        colorIndicator = ObjectReferences.instance.colorIndicator;
     }
 
     private void Update()
@@ -73,11 +77,12 @@ public class PlayerColor : MonoBehaviour
             if(colorChanged)
             {
                 currentColor = colorManager.colorList[colorPieces[index].GetMain];
-                UpdateImage();
+                UpdateColorWheel();
                 prevColor.ExitAbility(gameObject);
                 currentColor.InitAbility(gameObject);
                 prevColor = currentColor;
                 EventManager.instance.TriggerPlatformColorEvent(currentColor.GetMain);
+                UpdateColorUI();
 
                 //Reset variables to default
                 colorChanged = false;
@@ -268,5 +273,15 @@ public class PlayerColor : MonoBehaviour
                     colorAdjust.colorFilter.value = colorsEffects[(int)currentColor.GetParentOf2];
             }
         }
+    }
+
+    private void UpdateColorUI()
+    {
+        if (currentColor.GetMain == COLORS.WHITE)
+            colorIndicator.enabled = false;
+        else
+            colorIndicator.enabled = true;
+
+        colorIndicator.color = currentColor.Color;
     }
 }

@@ -153,6 +153,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         }
         return Vector2.zero;
     }
+
+    public void UpdateHandleImage(Sprite sprite)
+    {
+        handle.GetComponent<UnityEngine.UI.Image>().sprite = sprite;
+    }
 }
 
 public enum AxisOptions { Both, Horizontal, Vertical }

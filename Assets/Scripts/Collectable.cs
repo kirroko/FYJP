@@ -4,8 +4,8 @@ public class Collectable : MonoBehaviour
 {
     public bool WillRespawn { get { return willRespawn; } set { if (collected) { willRespawn = false; } } }
 
-    [SerializeField] private bool willRespawn = true;
-    [SerializeField] private bool collected = false;
+    private bool willRespawn = true;
+    private bool collected = false;
 
     private Vector3 scale = Vector3.zero;
 

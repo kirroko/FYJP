@@ -8,6 +8,7 @@ public class Camera2D: MonoBehaviour
     [SerializeField] private Transform target = null;
     [SerializeField] private float distance = -10f;//z distance from player
     [SerializeField] private Vector2 followSpeed = new Vector2(3f, 3f);
+    [SerializeField] private Vector2 startOffset = Vector2.zero;
 
     [Header("Dead Zone")]
     [SerializeField] private float deadZoneOffsetX = 0f;
@@ -41,14 +42,19 @@ public class Camera2D: MonoBehaviour
 
         Vector3 tempPos = transform.position;
         tempPos.z = distance;
-        tempPos.y = currentY;
 
         halfDeadZoneX = deadZoneX * 0.5f;
         if(target != null)
+        {
             tempPos.x = target.position.x;
+            tempPos.y = target.position.y;
+        }
 
+        tempPos.x += startOffset.x;
+        tempPos.y += startOffset.y;
         transform.position = tempPos;
         moveJoysick = ObjectReferences.instance.movementInput;
+        currentY = transform.position.y;
     }
 
     private void Update()

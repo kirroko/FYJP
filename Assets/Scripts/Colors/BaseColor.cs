@@ -34,6 +34,7 @@ public class BaseColor : ScriptableObject
     [SerializeField] protected bool locked = false;
 
     [Header("Ability Related")]
+    [SerializeField] protected Sprite abilitySprite = null;
     [SerializeField] protected float abilityInterval = 1f;
 
 
@@ -47,6 +48,7 @@ public class BaseColor : ScriptableObject
     public virtual void InitAbility(GameObject player)
     {
         abilityInput = ObjectReferences.instance.abilityInput;
+        abilityInput.UpdateHandleImage(abilitySprite);
     }
 
     public virtual void UpdateAbility(GameObject player)

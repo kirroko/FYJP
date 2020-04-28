@@ -16,8 +16,8 @@ MonoBehaviour:
   mainColor: 3
   parentColor1: 7
   parentColor2: 7
-  parentOf1: 6
-  parentOf2: 5
+  parentOf1: 5
+  parentOf2: 6
   locked: 1
   abilityInterval: 1
   projectile: {fileID: 3955894298613811479, guid: 239179b6eee092048bd235a3110fc21a,

@@ -16,9 +16,10 @@ MonoBehaviour:
   mainColor: 1
   parentColor1: 7
   parentColor2: 7
-  parentOf1: 6
-  parentOf2: 4
+  parentOf1: 4
+  parentOf2: 6
   locked: 0
+  abilitySprite: {fileID: 21300000, guid: 5798ddac9a1f5b944b988a99bcdbfa70, type: 3}
   abilityInterval: 1
   projectile: {fileID: 5980035947580797210, guid: 3273671d383ee11429d8e74d779ab923,
     type: 3}

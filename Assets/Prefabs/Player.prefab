@@ -9642,8 +9642,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -335099543
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -3758078833185951158, guid: aa9214e5938be8c47bc0e45c1f11f93e,
     type: 3}
@@ -9717,7 +9717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dust: {fileID: 1550933626}
-  afterImage: {fileID: 0}
   wallLayer:
     serializedVersion: 2
     m_Bits: 2048
@@ -9727,7 +9726,8 @@ MonoBehaviour:
   maxAirAccel: 12
   jumpForce: 19
   dashSpeed: 15
-  dashCDDuration: 1
+  dashCDDuration: 0.3
+  distanceBetweenImages: 0.3
   wallJumpForce: 9
   distanceToWall: 0.3
   controlCDDuration: 0.1

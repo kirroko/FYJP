@@ -1,0 +1,721 @@
+fileFormatVersion: 2
+guid: ade47eb4f340e2748b381e5d9ce4e136
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3222317315525919679
+    second: blue_attack_final_sprite_0
+  - first:
+      213: 6907879014505460170
+    second: blue_attack_final_sprite_1
+  - first:
+      213: 7430503040012443972
+    second: blue_attack_final_sprite_2
+  - first:
+      213: -6160151475843804716
+    second: blue_attack_final_sprite_3
+  - first:
+      213: 734982968254875835
+    second: blue_attack_final_sprite_4
+  - first:
+      213: 786939953902154532
+    second: blue_attack_final_sprite_5
+  - first:
+      213: 5708235182215088095
+    second: blue_attack_final_sprite_6
+  - first:
+      213: -5146825518175278895
+    second: blue_attack_final_sprite_7
+  - first:
+      213: -8385450447730238799
+    second: blue_attack_final_sprite_8
+  - first:
+      213: -5685431777200391012
+    second: blue_attack_final_sprite_9
+  - first:
+      213: 6523166705047841589
+    second: blue_attack_final_sprite_10
+  - first:
+      213: -2413528453260357128
+    second: blue_attack_final_sprite_11
+  - first:
+      213: -1155919002055468525
+    second: blue_attack_final_sprite_12
+  - first:
+      213: 7425161382407536807
+    second: blue_attack_final_sprite_13
+  - first:
+      213: 2993975571132279259
+    second: blue_attack_final_sprite_14
+  - first:
+      213: 8878768536958411185
+    second: blue_attack_final_sprite_15
+  - first:
+      213: 4915980194563715602
+    second: blue_attack_final_sprite_16
+  - first:
+      213: 768479484165331342
+    second: blue_attack_final_sprite_17
+  - first:
+      213: -7994112388340412430
+    second: blue_attack_final_sprite_18
+  - first:
+      213: -9070903117407917880
+    second: blue_attack_final_sprite_19
+  - first:
+      213: -6183342163431473296
+    second: blue_attack_final_sprite_20
+  - first:
+      213: 1324917935548573949
+    second: blue_attack_final_sprite_21
+  - first:
+      213: -2517724091627809400
+    second: blue_attack_final_sprite_22
+  - first:
+      213: -7820281275822026695
+    second: blue_attack_final_sprite_23
+  - first:
+      213: -8648727907753037248
+    second: blue_attack_final_sprite_24
+  - first:
+      213: 1285251336496709869
+    second: blue_attack_final_sprite_25
+  - first:
+      213: -505361773294530268
+    second: blue_attack_final_sprite_26
+  - first:
+      213: -4335717664720469019
+    second: blue_attack_final_sprite_27
+  - first:
+      213: -1813187306549322713
+    second: blue_attack_final_sprite_28
+  - first:
+      213: -6799748637554481335
+    second: blue_attack_final_sprite_29
+  - first:
+      213: -3362162854563187376
+    second: blue_attack_final_sprite_30
+  - first:
+      213: -3138749931164613792
+    second: blue_attack_final_sprite_31
+  - first:
+      213: 5017718910492741496
+    second: blue_attack_final_sprite_32
+  - first:
+      213: -2412671478919539169
+    second: blue_attack_final_sprite_33
+  - first:
+      213: 6101311286227515181
+    second: blue_attack_final_sprite_34
+  - first:
+      213: -7055882264220407143
+    second: blue_attack_final_sprite_35
+  - first:
+      213: 8364936262222727782
+    second: blue_attack_final_sprite_36
+  - first:
+      213: 2640849487906985565
+    second: blue_attack_final_sprite_37
+  - first:
+      213: 436124677585913933
+    second: blue_attack_final_sprite_38
+  - first:
+      213: 4243423043003597501
+    second: blue_attack_final_sprite_39
+  - first:
+      213: -2827966691814906850
+    second: blue_attack_final_sprite_40
+  - first:
+      213: 1319676765275000065
+    second: blue_attack_final_sprite_41
+  - first:
+      213: 8940734616559189696
+    second: blue_attack_final_sprite_42
+  - first:
+      213: 7869370784296308754
+    second: blue_attack_final_sprite_43
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 321
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb34381a688f7bc20800000000000000
+      internalID: 3222317315525919679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 321
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac139fa3d57bddf50800000000000000
+      internalID: 6907879014505460170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 321
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 441e66a75237e1760800000000000000
+      internalID: 7430503040012443972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 321
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d15bbfdedeb28aa0800000000000000
+      internalID: -6160151475843804716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 257
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb84bc29d1f233a00800000000000000
+      internalID: 734982968254875835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 257
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42376ebf7b5cbea00800000000000000
+      internalID: 786939953902154532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 257
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd7415a97a9b73f40800000000000000
+      internalID: 5708235182215088095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 257
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d82f34d57dc298b0800000000000000
+      internalID: -5146825518175278895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 193
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ba166dee35e0ab80800000000000000
+      internalID: -8385450447730238799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 193
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9cb04ddbe94911b0800000000000000
+      internalID: -5685431777200391012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 193
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53b28099e81f68a50800000000000000
+      internalID: 6523166705047841589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 193
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f15e10c8ac618ed0800000000000000
+      internalID: -2413528453260357128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 129
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a1c5dbac955ffe0800000000000000
+      internalID: -1155919002055468525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 129
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a08956efe87b0760800000000000000
+      internalID: 7425161382407536807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 129
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd9698f4becbc8920800000000000000
+      internalID: 2993975571132279259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 129
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1225051f8b73b70800000000000000
+      internalID: 8878768536958411185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 65
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21273d3e0f1193440800000000000000
+      internalID: 4915980194563715602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 65
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8999dee4003aaa00800000000000000
+      internalID: 768479484165331342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 65
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ff8b6e23253f0190800000000000000
+      internalID: -7994112388340412430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_19
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 65
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8eae6acadad1280800000000000000
+      internalID: -9070903117407917880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07fb8f7201b503aa0800000000000000
+      internalID: -6183342163431473296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_attack_final_sprite_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df8aae8b7dd036210800000000000000
+      internalID: 1324917935548573949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

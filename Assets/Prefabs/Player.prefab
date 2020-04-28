@@ -9726,7 +9726,7 @@ MonoBehaviour:
   maxAirAccel: 12
   jumpForce: 19
   dashSpeed: 15
-  dashCDDuration: 0.5
+  dashCDDuration: 0.3
   distanceBetweenImages: 0.3
   wallJumpForce: 9
   distanceToWall: 0.3

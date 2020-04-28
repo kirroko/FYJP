@@ -23,6 +23,12 @@ public class PlayerAfterImageSprite : MonoBehaviour
 
     private void OnEnable()
     {
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+            Init();
+    }
+
+    private void Init()
+    {
         sr = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerSr = player.GetComponent<SpriteRenderer>();
@@ -33,7 +39,6 @@ public class PlayerAfterImageSprite : MonoBehaviour
         transform.position = player.position;
         transform.rotation = player.rotation;
         duration = 0;
-        // timeActivated = Time.time;
     }
 
     private void Update()

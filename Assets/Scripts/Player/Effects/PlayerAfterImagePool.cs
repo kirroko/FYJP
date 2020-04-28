@@ -27,6 +27,7 @@ public class PlayerAfterImagePool : MonoBehaviour
         {
             GameObject instanceToAdd = Instantiate(afterImagePrefab);
             instanceToAdd.transform.SetParent(transform);
+            instanceToAdd.SetActive(false);
             AddToPool(instanceToAdd);
         }
     }

@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private ParticleSystem dust = null;
-    [SerializeField] private ParticleSystem afterImage = null;
     [SerializeField] private LayerMask wallLayer = 0;
 
     [Header("Movement")]
@@ -31,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dashing")]
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCDDuration = 1f;
+    [SerializeField] private float distanceBetweenImages;
 
     [Header("Wall Jump")]
     [SerializeField] private float wallJumpForce = 2.5f;
@@ -67,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
     private bool stillDashing = false;
     private float dashDuration = 0.7f;
     private float defaultGravity = 0f;
+    private float lastImageXPos;
+
 
     private void Start()
     {
@@ -100,6 +102,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 stillDashing = false;
                 dashDuration = 0.7f;
+            }
+
+            if(Mathf.Abs(transform.position.x - lastImageXPos) > distanceBetweenImages)
+            {
+                PlayerAfterImagePool.Instance.GetFromPool();
+                lastImageXPos = transform.position.x;
             }
         }
 
@@ -277,12 +285,14 @@ public class PlayerMovement : MonoBehaviour
         else
             ani.SetTrigger("Dash");
 
+        PlayerAfterImagePool.Instance.GetFromPool();
+        lastImageXPos = transform.position.x;
+
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0;
         Vector3 force = dashDirection * dashSpeed;
         force = Vector3.ClampMagnitude(force, dashSpeed);
         rb.AddForce(force, ForceMode2D.Impulse);
-        //StartCoroutine(PerformDash(controlCD, dashDirection));
     }
 
     IEnumerator PerformDash(float time, Vector2 dir)
@@ -307,11 +317,6 @@ public class PlayerMovement : MonoBehaviour
     private void CreateDust()
     {
         dust.Play();
-    }
-
-    private void CreateAfterImage()
-    {
-        // afterImage.gameObject.GetComponent<ParticleSystemRenderer>().sharedMaterial.SetTexture("_MainTex", sr.sprite.texture);
     }
 
     private void Flip(bool playDust,bool forceFlip)

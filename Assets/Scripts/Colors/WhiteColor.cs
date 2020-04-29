@@ -18,7 +18,13 @@ public class WhiteColor : BaseColor
 
     public override void UpdateAbility(GameObject player)
     {
-        if(abilityInput.IsPressed)
+        if (cam == null)
+        {
+            cam = Camera.main.gameObject.GetComponent<Camera2D>();
+            return;
+        }
+
+        if (abilityInput.IsPressed)
         {
             if (!cam.isControlled)
                 startY = cam.transform.position.y;

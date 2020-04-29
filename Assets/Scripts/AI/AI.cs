@@ -61,6 +61,8 @@ public class AI : MonoBehaviour
 
 
     [SerializeField] protected float moveSpeed = 5f;
+    [SerializeField] protected int damage = 1;
+    [SerializeField] protected float playerKnockbackAmt = 5f;
     [SerializeField] protected float stunDuration = 2f;
     [SerializeField] protected float taggedDuration = 2f;
     [SerializeField] protected float frozenDuration = 2f;
@@ -111,37 +113,32 @@ public class AI : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        PlayerInfo player = collision.gameObject.GetComponent<PlayerInfo>();
+        if (player != null)
         {
-            if (collision.gameObject.GetComponent<PlayerInfo>().isInvincible) return;
-
-            PlayerMovement movement = collision.gameObject.GetComponent<PlayerMovement>();
-            PlayerColor color = collision.gameObject.GetComponent<PlayerColor>();
+            PlayerMovement movement = player.GetComponent<PlayerMovement>();
+            PlayerColor color = player.GetComponent<PlayerColor>();
 
             if(!tagged)
             {
                 if (color.GetCurrentColor.GetMain != COLORS.PURPLE)//Not purple
                 {
-                    LevelManager.instance.RestartLevel();
-                    ObjectReferences.instance.debug.text = "Not tagged, not purple " + color.GetCurrentColor.GetMain;
+                    player.TakeDamage(damage, playerKnockbackAmt);
                 }
                 else if (!movement.StillDashing)//Purple but not dashing
                 {
-                    LevelManager.instance.RestartLevel();
-                    ObjectReferences.instance.debug.text = "Not tagged, purple but not dashing";
+                    player.TakeDamage(damage, playerKnockbackAmt);
                 }
             }
             else
             {
                 if (color.GetCurrentColor.GetMain != COLORS.RED)//Not red
                 {
-                    LevelManager.instance.RestartLevel();
-                    ObjectReferences.instance.debug.text = "Tagged, not red " + color.GetCurrentColor.GetMain;
+                    player.TakeDamage(damage, playerKnockbackAmt);
                 }
                 else if (!movement.StillDashing)//Red but not dashing
                 {
-                    LevelManager.instance.RestartLevel();
-                    ObjectReferences.instance.debug.text = "Tagged, red but not dashing";
+                    player.TakeDamage(damage, playerKnockbackAmt);
                 }
             }
         }

@@ -44,11 +44,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 293394683
+    locked: 0
   - name: Platform
     uniqueID: 1513073181
     locked: 0
   - name: Dialogue
     uniqueID: 2953998531
+    locked: 0
+  - name: Items
+    uniqueID: 334853943
     locked: 0
   - name: Player
     uniqueID: 3959867753

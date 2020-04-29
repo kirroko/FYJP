@@ -39,22 +39,11 @@ public class Camera2D: MonoBehaviour
     private void Start()
     {
         cam = GetComponent<Camera>();
-
-        Vector3 tempPos = transform.position;
-        tempPos.z = distance;
+        moveJoysick = ObjectReferences.instance.movementInput;
 
         halfDeadZoneX = deadZoneX * 0.5f;
-        if(target != null)
-        {
-            tempPos.x = target.position.x;
-            tempPos.y = target.position.y;
-        }
 
-        tempPos.x += startOffset.x;
-        tempPos.y += startOffset.y;
-        transform.position = tempPos;
-        moveJoysick = ObjectReferences.instance.movementInput;
-        currentY = transform.position.y;
+        Init();
     }
 
     private void Update()
@@ -63,8 +52,11 @@ public class Camera2D: MonoBehaviour
         {
             GameObject tempPlayer = GameObject.FindGameObjectWithTag("Player");
             if (tempPlayer != null)
+            {
                 target = tempPlayer.transform;
-            return;
+                Init();
+                return;
+            }
         }
 
     }
@@ -166,5 +158,22 @@ public class Camera2D: MonoBehaviour
         else if (value < 0f)
             return -1f;
         else return 0f;
+    }
+
+    private void Init()
+    {
+        Vector3 tempPos = transform.position;
+        tempPos.z = distance;
+
+        if (target != null)
+        {
+            tempPos.x = target.position.x;
+            tempPos.y = target.position.y;
+        }
+
+        tempPos.x += startOffset.x;
+        tempPos.y += startOffset.y;
+        transform.position = tempPos;
+        currentY = transform.position.y;
     }
 }

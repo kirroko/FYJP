@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public bool HasBGM { get { return hasBGM; } }
+    public bool HasSFX { get { return hasSFX; } }
+
     public static AudioManager instance = null;
 
     [SerializeField] Audio[] audios = null;
@@ -36,31 +39,19 @@ public class AudioManager : MonoBehaviour
 
         int bgmVol = 1;
         int sfxVol = 1;
-        if (!PlayerPrefs.HasKey("SFX"))
-        {
-            PlayerPrefs.SetInt("SFX", 1);
-        }
-        else
-        {
-            sfxVol = PlayerPrefs.GetInt("SFX");
-            if (sfxVol == 1)
-                hasSFX = true;
-            else if (sfxVol == 0)
-                hasSFX = false;
-        }
 
-        if(!PlayerPrefs.HasKey("BGM"))
-        {
-            PlayerPrefs.SetInt("BGM", 1);
-        }
+        if (!PlayerPrefs.HasKey("SFX"))
+            PlayerPrefs.SetInt("SFX", 1);
         else
-        {
+            sfxVol = PlayerPrefs.GetInt("SFX");
+
+        if (!PlayerPrefs.HasKey("BGM"))
+            PlayerPrefs.SetInt("BGM", 1);
+        else
             bgmVol = PlayerPrefs.GetInt("BGM");
-            if (bgmVol == 1)
-                hasBGM = true;
-            else if (bgmVol == 0)
-                hasBGM = false;
-        }
+        
+        hasSFX = System.Convert.ToBoolean(sfxVol);
+        hasBGM = System.Convert.ToBoolean(bgmVol);
 
         foreach (AudioSource source in SFX.Values)
         {
@@ -87,36 +78,26 @@ public class AudioManager : MonoBehaviour
     public void ToggleMuteSFX()
     {
         hasSFX = !hasSFX;
+
+        int value = System.Convert.ToInt32(hasSFX);
+        PlayerPrefs.SetInt("SFX", value);
+
         foreach (AudioSource source in SFX.Values)
         {
-            if (hasSFX)
-            {
-                source.volume = 1f;
-                PlayerPrefs.SetInt("SFX", 1);
-            }
-            else
-            {
-                PlayerPrefs.SetInt("SFX", 0);
-                source.volume = 0f;
-            }
+            source.volume = value;
         }
     }
 
     public void ToggleMuteBGM()
     {
         hasBGM = !hasBGM;
+
+        int value = System.Convert.ToInt32(hasBGM);
+        PlayerPrefs.SetInt("BGM", value);
+
         foreach (AudioSource source in BGM.Values)
         {
-            if (hasBGM)
-            {
-                source.volume = 1f;
-                PlayerPrefs.SetInt("BGM", 1);
-            }
-            else
-            {
-                PlayerPrefs.SetInt("BGM", 0);
-                source.volume = 0f;
-            }
+            source.volume = value;
         }
     }
 

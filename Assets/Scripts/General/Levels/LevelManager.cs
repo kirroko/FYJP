@@ -135,9 +135,17 @@ public class LevelManager : MonoBehaviour
         //}
     }
 
-    public void EndLevel()
+    public void EndLevel(bool completed)
     {
         start = false;
+
+        if(!completed)
+        {
+            elapsedTime = 0f;
+            SceneTransition.instance.LoadSceneInBG("LevelSelection");
+            return;
+        }
+
         int stars = 0;
 
         //Updated Fastest Time & ghost

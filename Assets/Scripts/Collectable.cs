@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class Collectable : MonoBehaviour
 {
     public bool WillRespawn { get { return willRespawn; } set { if (collected) { willRespawn = false; } } }
@@ -12,6 +13,7 @@ public class Collectable : MonoBehaviour
     private void Start()
     {
         scale = transform.localScale;
+        GetComponent<Collider2D>().isTrigger = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

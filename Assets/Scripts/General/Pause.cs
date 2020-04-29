@@ -37,6 +37,12 @@ public class Pause : MonoBehaviour
         exitBtn.onClick.AddListener(Pausing);
     }
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape) && isPaused)
+            Pausing();
+    }
+
     public void Pausing()
     {
         isPaused = !isPaused;

@@ -9643,7 +9643,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -335099543
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -3758078833185951158, guid: aa9214e5938be8c47bc0e45c1f11f93e,
     type: 3}
@@ -9720,9 +9720,9 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 2048
-  maxSpeed: 6
-  maxAccel: 20
-  maxAirSpeed: 6
+  maxSpeed: 9
+  maxAccel: 25
+  maxAirSpeed: 9
   maxAirAccel: 12
   jumpForce: 19
   dashSpeed: 15
@@ -9768,7 +9768,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1324ef9b57917449f8a53f5217f48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInvincible: 0
+  heart: 1
+  invincibleDuration: 3
 --- !u!114 &8070297629261575624
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  damage: 1
+  playerKnockbackAmt: 5
   stunDuration: 2
   taggedDuration: 2
   frozenDuration: 2

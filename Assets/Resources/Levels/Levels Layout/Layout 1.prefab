@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!1 &148129179441107287
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!1 &151653330387103032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,6 +2389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!1 &802136654650397679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2682,6 +2685,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  damage: 1
+  playerKnockbackAmt: 5
   stunDuration: 2
   taggedDuration: 2
   frozenDuration: 2
@@ -17564,6 +17569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!1 &4449403964103287125
 GameObject:
   m_ObjectHideFlags: 0
@@ -23838,6 +23844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!1 &5841944192556697941
 GameObject:
   m_ObjectHideFlags: 0
@@ -34349,6 +34356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!1 &8165947386957297358
 GameObject:
   m_ObjectHideFlags: 0
@@ -35479,6 +35487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!1 &8388341340570880354
 GameObject:
   m_ObjectHideFlags: 0
@@ -37637,6 +37646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!1 &8794226146538642448
 GameObject:
   m_ObjectHideFlags: 0

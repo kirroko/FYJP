@@ -156,6 +156,7 @@ MonoBehaviour:
   target: {fileID: 1877581891}
   distance: -10
   followSpeed: {x: 2.5, y: 3}
+  startOffset: {x: 0, y: 0}
   deadZoneOffsetX: 0
   deadZoneX: 2.5
   lookaheadAmt: 7.5
@@ -1454,7 +1455,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50.799988, y: -42.49994}
+  m_AnchoredPosition: {x: 50.80005, y: -42.49994}
   m_SizeDelta: {x: 57.99, y: 26.72}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1346498290
@@ -1609,7 +1610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 11.299988, y: -9.099976}
+  m_AnchoredPosition: {x: 11.300049, y: -9.099976}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1417041982
@@ -2041,7 +2042,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15.700012, y: -44}
+  m_AnchoredPosition: {x: 15.699951, y: -44}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1638939333
@@ -2389,12 +2390,12 @@ PrefabInstance:
     - target: {fileID: 8070297629261575620, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.63
+      value: -18.71
       objectReference: {fileID: 0}
     - target: {fileID: 8070297629261575620, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.67
+      value: -0.63
       objectReference: {fileID: 0}
     - target: {fileID: 8070297629261575620, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}
@@ -2440,6 +2441,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070297629261575623, guid: 43014a7be23bd094a8e07698d35779a2,
+        type: 3}
+      propertyPath: heart
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43014a7be23bd094a8e07698d35779a2, type: 3}
@@ -4652,7 +4658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8324628555287811830
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using UnityEngine;
 public class FallingSpikes : MonoBehaviour
 {
     [SerializeField] private float waitTime = 3f;
+    [SerializeField] private float playerKnockbackAmt = 1f;
 
     private bool start = false;
     private float time = 0f;
@@ -42,8 +43,9 @@ public class FallingSpikes : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.GetComponent<PlayerInfo>() != null)
-            LevelManager.instance.RestartLevel();
+        PlayerInfo player = collision.gameObject.GetComponent<PlayerInfo>();
+        if (player != null)
+            player.TakeDamage(1, playerKnockbackAmt);
 
         ContactPoint2D contact = collision.GetContact(0);
         if(contact.normal.y > 0f && rb.gravityScale > 0f)

@@ -10,8 +10,6 @@ public class OrangeColor : BaseColor
     private PlayerColor playerColor = null;
     private PlayerInfo playerInfo = null;
 
-    private float abilityLeft = 0f;
-
     public override void InitAbility(GameObject player)
     {
         base.InitAbility(player);
@@ -24,21 +22,18 @@ public class OrangeColor : BaseColor
     public override void UpdateAbility(GameObject player)
     {
         abilityCD -= Time.deltaTime;
-        abilityLeft -= Time.deltaTime;
 
         if(abilityInput.IsPressed && abilityCD <= 0f)
         {
             abilityCD = abilityInterval;
-            abilityLeft = abilityDuration;
 
             abilityActivated = true;
-            playerInfo.isInvincible = true;
+            playerInfo.IsInvincible = true;
         }
 
-        if(abilityActivated && abilityLeft <= 0f)
+        if(abilityActivated && !playerInfo.IsInvincible)
         {
             abilityActivated = false;
-            playerInfo.isInvincible = false;
         }
 
 
@@ -57,8 +52,6 @@ public class OrangeColor : BaseColor
         base.ExitAbility(player);
 
         abilityInput.HandleRange = 1f;
-        abilityLeft = 0f;
-        playerInfo.isInvincible = false;
 
         GameObject collidedPlatform = playerColor.GetCollidedPlatform;
 

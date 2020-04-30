@@ -10,8 +10,17 @@ public class EnemyProjectile : Projectile
 
         if (player != null)
         {
-            LevelManager.instance.RestartLevel();
+            player.TakeDamage(1, 5f);
         }
+
+        AI aI= collision.gameObject.GetComponent<AI>();
+
+        if (aI != null)
+        {
+            Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+            return;
+        }
+
         Destroy(gameObject);
     }
 }

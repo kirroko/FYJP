@@ -9,11 +9,11 @@ public class PatrolAI : AI
     [SerializeField] private float bulletSpeed = 5f;
     [Header("Settings")]
     [SerializeField] private bool shootable = false;
-    [SerializeField] private float nextShot = 2f;
+    [SerializeField] private float shootInterval = 2f;
 
     private float shootingInterval = 0f;
 
-    private Vector2 dir = new Vector2(1f, 0f);
+    [SerializeField] private Vector2 dir = new Vector2(1f, 0f);
     private new Collider2D collider = null;
 
     protected override void Start()
@@ -42,13 +42,13 @@ public class PatrolAI : AI
 
         if(shootable)
         {
-            if (nextShot >= shootingInterval)
+            if (shootingInterval <= 0f)
             {
                 Vector3 firePoint = collider.bounds.center + new Vector3(collider.bounds.extents.x, 0f, 0f) * dir.x * 1.25f;
 
                 Projectile temp = Instantiate(bullet, firePoint, Quaternion.identity);
                 temp.Init(new Vector2(dir.x, 0f), bulletSpeed);
-                shootingInterval = 1.5f;
+                shootingInterval = shootInterval;
             }
         }
        

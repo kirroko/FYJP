@@ -22,7 +22,7 @@ public class ParallaxScrolling : MonoBehaviour
         //Init Variables
         startPos = transform.position;
         boundX = GetComponent<SpriteRenderer>().bounds.size.x;
-        cam = Camera.main.transform;
+        //cam = Camera.main.transform;
 
         //Spawn Duplicate
         if (!spawnDup) return;

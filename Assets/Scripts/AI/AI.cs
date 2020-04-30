@@ -142,5 +142,9 @@ public class AI : MonoBehaviour
                 }
             }
         }
+
+        AI enemy = collision.gameObject.GetComponent<AI>();
+        if(enemy != null)
+            Physics2D.IgnoreCollision(collision.otherCollider, collision.collider);
     }
 }

@@ -8,7 +8,7 @@ public class Camera2D: MonoBehaviour
     [SerializeField] private Transform target = null;
     [SerializeField] private float distance = -10f;//z distance from player
     [SerializeField] private Vector2 followSpeed = new Vector2(3f, 3f);
-    [SerializeField] private Vector2 startOffset = Vector2.zero;
+    //[SerializeField] private Vector2 startOffset = Vector2.zero;
 
     [Header("Dead Zone")]
     [SerializeField] private float deadZoneOffsetX = 0f;
@@ -20,6 +20,7 @@ public class Camera2D: MonoBehaviour
     [Header("Follow Y")]
     [SerializeField] private float yMoveTop = 0.2f;//Percent from top
     [SerializeField] private float yMoveBottom = 0.2f;
+    [SerializeField] private float moveAmt = 0.5f;//Percentage of the screen height
 
     private float halfDeadZoneX = 0f;
 
@@ -108,16 +109,16 @@ public class Camera2D: MonoBehaviour
         float min = cam.orthographicSize * 2f * yMoveBottom;
         float max = cam.orthographicSize * 2f * yMoveTop;
 
-        float targetBot = target.position.y - target.GetComponent<SpriteRenderer>().bounds.extents.y;
-        float targetTop = target.position.y + target.GetComponent<SpriteRenderer>().bounds.extents.y;
+        float targetBot = target.position.y /*- target.GetComponent<SpriteRenderer>().bounds.extents.y*/;
+        float targetTop = target.position.y /*+ target.GetComponent<SpriteRenderer>().bounds.extents.y*/;
 
         if(targetBot <= currentY - cam.orthographicSize + min)//target is now below the min height
         {
-            currentY -= cam.orthographicSize * 0.75f;
+            currentY -= cam.orthographicSize * moveAmt;
         }
         else if(targetTop >= currentY + cam.orthographicSize - max)//target is now above the max height
         {
-            currentY += cam.orthographicSize * 0.75f;
+            currentY += cam.orthographicSize * moveAmt;
         }
         targetPos.y = Mathf.MoveTowards(transform.position.y, currentY, Time.deltaTime * followSpeed.y);
         #endregion
@@ -165,14 +166,14 @@ public class Camera2D: MonoBehaviour
         Vector3 tempPos = transform.position;
         tempPos.z = distance;
 
-        if (target != null)
-        {
-            tempPos.x = target.position.x;
-            tempPos.y = target.position.y;
-        }
+        //if (target != null)
+        //{
+        //    tempPos.x = target.position.x;
+        //    tempPos.y = target.position.y;
+        //}
 
-        tempPos.x += startOffset.x;
-        tempPos.y += startOffset.y;
+        //tempPos.x += startOffset.x;
+        //tempPos.y += startOffset.y;
         transform.position = tempPos;
         currentY = transform.position.y;
     }

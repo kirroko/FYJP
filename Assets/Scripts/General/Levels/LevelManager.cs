@@ -195,6 +195,8 @@ public class LevelManager : MonoBehaviour
     private IEnumerator ReloadLevel()
     {
         //Reset some variables
+        yield return new WaitForSeconds(1f);
+
         elapsedTime = 0f;
         currentLevel.numCollected = numCollectedAtCP;
         ObjectReferences.instance.itemCount.text = currentLevel.numCollected + "/" + currentLevel.numToCollect;

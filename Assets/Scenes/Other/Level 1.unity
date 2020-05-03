@@ -1142,6 +1142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 1.5
+  playerKnockbackAmt: 1
 --- !u!50 &245553821
 Rigidbody2D:
   serializedVersion: 4
@@ -1175,6 +1176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!61 &245553823
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2291,6 +2293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 1.5
+  playerKnockbackAmt: 1
 --- !u!50 &375042227
 Rigidbody2D:
   serializedVersion: 4
@@ -2324,6 +2327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!61 &375042229
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2742,6 +2746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 1.5
+  playerKnockbackAmt: 1
 --- !u!50 &545099228
 Rigidbody2D:
   serializedVersion: 4
@@ -2775,6 +2780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!61 &545099230
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6171,6 +6177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 1.5
+  playerKnockbackAmt: 1
 --- !u!50 &1141294350
 Rigidbody2D:
   serializedVersion: 4
@@ -6204,6 +6211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!61 &1141294352
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8658,6 +8666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 1.5
+  playerKnockbackAmt: 1
 --- !u!50 &1894870602
 Rigidbody2D:
   serializedVersion: 4
@@ -8691,6 +8700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!61 &1894870604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8962,6 +8972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 1.5
+  playerKnockbackAmt: 1
 --- !u!50 &1960233174
 Rigidbody2D:
   serializedVersion: 4
@@ -8995,6 +9006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!61 &1960233176
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9560,6 +9572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 1.5
+  playerKnockbackAmt: 1
 --- !u!50 &2010328907
 Rigidbody2D:
   serializedVersion: 4
@@ -9593,6 +9606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f529b340d17fc45aa9c6d896aae753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerKnockbackAmt: 1
 --- !u!61 &2010328909
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10249,6 +10263,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1353775196497807029, guid: df29e8007404b7b42865e541daa6e6dc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1427170387662181749, guid: df29e8007404b7b42865e541daa6e6dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10349,6 +10368,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2615664382428040559, guid: df29e8007404b7b42865e541daa6e6dc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2782525864385236342, guid: df29e8007404b7b42865e541daa6e6dc,
         type: 3}
       propertyPath: m_Enabled
@@ -10385,6 +10409,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3437467089695066061, guid: df29e8007404b7b42865e541daa6e6dc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484770063780628703, guid: df29e8007404b7b42865e541daa6e6dc,
         type: 3}
       propertyPath: m_Enabled
       value: 0

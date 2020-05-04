@@ -9577,6 +9577,7 @@ GameObject:
   - component: {fileID: 6766755420514012958}
   - component: {fileID: 7559127448788093592}
   - component: {fileID: 1684879449223095483}
+  - component: {fileID: 880383860}
   m_Layer: 10
   m_Name: Companion
   m_TagString: Untagged
@@ -9616,7 +9617,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f84911f1dd2fa6e4fbe9240168c313f9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9637,7 +9638,7 @@ SpriteRenderer:
   m_SortingLayerID: -335099543
   m_SortingLayer: 6
   m_SortingOrder: -1
-  m_Sprite: {fileID: 6062081915961787613, guid: 2767b76446da269439eb8bf3e4cfa582,
+  m_Sprite: {fileID: -5603973909160001810, guid: 02ed8efdeb9ab3c4d982c22adda5aef6,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9664,6 +9665,25 @@ MonoBehaviour:
   offset: {x: -2, y: 1.5}
   bobIntensity: 0.005
   bobSpeed: 5
+--- !u!95 &880383860
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6450866548144240076}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4fed0f15c78972d428a1ea53a9fad619, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8070297629261575616
 GameObject:
   m_ObjectHideFlags: 0
@@ -9842,6 +9862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae84378f77422974ba455536682c7673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  companionSR: {fileID: 7559127448788093592}
   colorManager: {fileID: 11400000, guid: 1b1ff834e4343594dbbf192f5eec68e8, type: 2}
   colorAdjust: {fileID: 0}
   vol: {fileID: 0}
@@ -9867,7 +9888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1324ef9b57917449f8a53f5217f48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heart: 1
+  heart: 100
   invincibleDuration: 3
 --- !u!114 &8070297629261575624
 MonoBehaviour:

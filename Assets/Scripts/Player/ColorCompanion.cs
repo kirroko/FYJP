@@ -13,12 +13,18 @@ public class ColorCompanion : MonoBehaviour
     private float sinValue = 0f;
     private float prevX = 0f;
     private bool stopMove = false;
+    private SpriteRenderer sr = null;
+
+    private bool offsetBool = false;
 
     private void Start()
     {
         moveInput = ObjectReferences.instance.movementInput;
 
         transform.position = transform.parent.position + new Vector3(offset.x, offset.y);
+
+        // REFERENCE
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void LateUpdate()
@@ -44,7 +50,15 @@ public class ColorCompanion : MonoBehaviour
             transform.position = tempPos;
 
             float dist = transform.position.x - transform.parent.position.x;
-            if (Mathf.Abs(dist) >= Mathf.Abs(offset.x)) stopMove = false;
+            if (Mathf.Abs(dist) <= 0.1f)
+                offsetBool = true;
+
+            if (Mathf.Abs(dist) >= Mathf.Abs(offset.x) && offsetBool == true)
+            {
+                stopMove = false;
+                offsetBool = false;
+                sr.flipX = transform.parent.GetComponent<SpriteRenderer>().flipX;
+            }
         }
 
 

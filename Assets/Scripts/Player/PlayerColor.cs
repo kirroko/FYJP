@@ -9,11 +9,13 @@ public class PlayerColor : MonoBehaviour
 {
     public BaseColor GetCurrentColor { get { return currentColor; } }
     public GameObject GetCollidedPlatform { get { return collidedPlatform; } }
-    
+
     [Header("Reference")]
+    [SerializeField] private SpriteRenderer companionSR = null;
     [SerializeField] private ColorManager colorManager = null;
     [SerializeField] private ColorAdjustments colorAdjust = null;
     public Volume vol = null;
+
 
     [Header("Color Wheel")]
     [SerializeField] private float defaultSize = 100f;
@@ -34,7 +36,7 @@ public class PlayerColor : MonoBehaviour
     private int index = 0;
 
     private GameObject collidedPlatform = null;
-    private SpriteRenderer sr;
+    private SpriteRenderer sr = null;
 
     private Image colorIndicator = null;
 
@@ -90,7 +92,12 @@ public class PlayerColor : MonoBehaviour
                 ResetColorPiecesSize();
 
                 // Change character color hue
-                sr.color = currentColor.Color;
+                // sr.color = currentColor.Color; // now change color of companion to current color hue
+                companionSR.color = currentColor.Color;
+                if (!companionSR.gameObject.GetComponent<Animator>().GetBool("Hue") && currentColor.Color != Color.white)  // hasn't change to hue yet and the next color is not white shall you change to hue
+                    companionSR.gameObject.GetComponent<Animator>().SetBool("Hue", true);
+                else if (currentColor.Color == Color.white)                                                                // switch out of hue if the next color is white instead
+                    companionSR.gameObject.GetComponent<Animator>().SetBool("Hue", false);
             }
             canChoose = false;
             ToggleVisualEffect();

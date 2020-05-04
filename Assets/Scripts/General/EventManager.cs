@@ -9,6 +9,7 @@ public class EventManager : MonoBehaviour
 
     public event Action<COLORS> PlatformColorEvent = null;
     public event Action<Collision2D, GameObject> EnemyCollisionEvent = null;
+    public event Action checkpointEvent = null;
 
     private void Awake()
     {
@@ -31,6 +32,12 @@ public class EventManager : MonoBehaviour
     {
         if (EnemyCollisionEvent != null)
             EnemyCollisionEvent(collision, player);
+    }
+
+    public void TriggerCheckpointEvent()
+    {
+        if (checkpointEvent != null)
+            checkpointEvent();
     }
 
 }

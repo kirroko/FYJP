@@ -46,7 +46,7 @@ public class ParallaxScrolling : MonoBehaviour
     private void Update()
     {
         Vector3 targetPos = startPos;
-        targetPos.y = cam.position.y;
+        //targetPos.y = cam.position.y;
 
         float distToMove = cam.position.x * scrollSpeed;
         targetPos.x += distToMove;

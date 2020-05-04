@@ -51,8 +51,14 @@ public class PlayerInfo : MonoBehaviour
 
         rb.AddForce(new Vector2(-movement.GetLastXDir, 1f) * knockbackForce, ForceMode2D.Impulse);
 
+
         if (heart <= 0)
-            LevelManager.instance.RestartLevel();
+        {
+            GetComponent<Animator>().SetTrigger("Death");
+            // LevelManager.instance.RestartLevel();
+        }
+        else
+            GetComponent<Animator>().SetTrigger("Hurt");
     }
 
     public void GainHeart(int amt)

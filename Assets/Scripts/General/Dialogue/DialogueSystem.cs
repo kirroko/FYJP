@@ -15,10 +15,12 @@ public class DialogueSystem : MonoBehaviour
 
     private Coroutine ongoingCoroutine = null;
     private float waitTime = 0f;
+    private string originalText = "";
 
     private void Awake()
     {
         waitTime = typeSpeed;
+        originalText = textBox.text;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,7 +34,7 @@ public class DialogueSystem : MonoBehaviour
     {
         StopCoroutine(ongoingCoroutine);
         ongoingCoroutine = null;
-        textBox.text = "Stopped";
+        textBox.text = originalText;
     }
 
     private IEnumerator StartDialogue()

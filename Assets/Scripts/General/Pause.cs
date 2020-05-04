@@ -33,7 +33,8 @@ public class Pause : MonoBehaviour
         toggleSFXBtn.onClick.AddListener(AudioManager.instance.ToggleMuteSFX);
         toggleSFXBtn.onClick.AddListener(delegate () { swapSpritesSFX.Swap(AudioManager.instance.HasSFX); });
 
-        exitBtn.onClick.AddListener(delegate() { LevelManager.instance.EndLevel(false); });
+        exitBtn.onClick.AddListener(delegate() { SceneTransition.instance.LoadSceneInBG("LevelSelection"); });
+        exitBtn.onClick.AddListener(delegate() { LevelManager.instance.ResetLevelVariables(); });
         exitBtn.onClick.AddListener(Pausing);
     }
 

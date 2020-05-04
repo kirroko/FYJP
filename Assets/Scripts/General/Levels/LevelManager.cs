@@ -187,9 +187,8 @@ public class LevelManager : MonoBehaviour
             SaveSystem.SaveLevel(currentLevel);
         }
         elapsedTime = 0f;
-        currentLevel.numCollected = 0;
 
-        SceneTransition.instance.LoadSceneInBG("LevelSelection");
+        SceneTransition.instance.LoadSceneInBG("ResultScreen");
     }
 
     private IEnumerator ReloadLevel()
@@ -242,5 +241,11 @@ public class LevelManager : MonoBehaviour
     public void ClearSavedData()
     {
         SaveSystem.DeleteAllSaveData();
+    }
+
+    public void ResetLevelVariables()
+    {
+        currentLevel.numCollected = 0;
+        elapsedTime = 0f;
     }
 }

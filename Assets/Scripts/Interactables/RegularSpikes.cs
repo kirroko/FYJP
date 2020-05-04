@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RegularSpikes : MonoBehaviour
 {
-    [SerializeField] private float playerKnockbackAmt = 1f;
+    [SerializeField] private float playerKnockbackAmt = 5f;
 
     private void OnCollisionStay2D(Collision2D collision)
     {

@@ -51,6 +51,9 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+            EndLevel(true);
+
         if (!start) return;
 
         elapsedTime += Time.deltaTime;

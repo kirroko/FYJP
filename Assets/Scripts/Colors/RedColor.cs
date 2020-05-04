@@ -14,6 +14,7 @@ public class RedColor : BaseColor
 
         EventManager.instance.EnemyCollisionEvent -= EnemyCollisionEvent;
         EventManager.instance.EnemyCollisionEvent += EnemyCollisionEvent;
+        AddEvent();
 
     }
 

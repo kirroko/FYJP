@@ -91,6 +91,16 @@ public class BaseColor : ScriptableObject
 
     protected void Shoot(Projectile projectile, float projectileSpeed, GameObject player)
     {
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Attack");
+
+        EventManager.instance.TriggerShootProjectileEvent(this, projectile, projectileSpeed, player);
+    }
+
+    private void ShootProjectileEvent(BaseColor me, Projectile projectile, float projectileSpeed, GameObject player)
+    {
+        if (me != this) return;
+
         Bounds playerColliderBounds = player.GetComponent<Collider2D>().bounds;
         Vector3 firePoint = playerColliderBounds.center + new Vector3(playerColliderBounds.extents.x * dir.x, playerColliderBounds.extents.y * dir.y, 0f) * offsetPos;
 
@@ -99,7 +109,11 @@ public class BaseColor : ScriptableObject
 
         dir = Vector2.zero;
         abilityCD = abilityInterval;
+    }
 
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Attack");
+    protected virtual void AddEvent()
+    {
+        EventManager.instance.shootProjectileEvent -= ShootProjectileEvent;
+        EventManager.instance.shootProjectileEvent += ShootProjectileEvent;
     }
 }

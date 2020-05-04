@@ -28,6 +28,8 @@ public class BlueColor : BaseColor
     public override void InitAbility(GameObject player)
     {
         base.InitAbility(player);
+        AddEvent();
+
         dashButton = ObjectReferences.instance.dashButton;
         movementInput = ObjectReferences.instance.movementInput;
         playerRB = player.GetComponent<Rigidbody2D>();

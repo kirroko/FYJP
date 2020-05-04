@@ -10,6 +10,7 @@ public class EventManager : MonoBehaviour
     public event Action<COLORS> PlatformColorEvent = null;
     public event Action<Collision2D, GameObject> EnemyCollisionEvent = null;
     public event Action checkpointEvent = null;
+    public event Action<BaseColor, Projectile, float, GameObject> shootProjectileEvent = null;
 
     private void Awake()
     {
@@ -40,4 +41,17 @@ public class EventManager : MonoBehaviour
             checkpointEvent();
     }
 
+    public void TriggerShootProjectileEvent(BaseColor me, Projectile projectile, float projectileSpeed, GameObject player)
+    {
+        StartCoroutine(ITriggerShootProjectileEvent(me, projectile, projectileSpeed, player));
+    }
+
+    private IEnumerator ITriggerShootProjectileEvent(BaseColor me, Projectile projectile, float projectileSpeed, GameObject player)
+    {
+        yield return new WaitForSeconds(0.4f);
+        if (shootProjectileEvent != null)
+        {
+            shootProjectileEvent(me, projectile, projectileSpeed, player);
+        }
+    }
 }

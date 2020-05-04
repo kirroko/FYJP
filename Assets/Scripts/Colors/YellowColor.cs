@@ -13,6 +13,7 @@ public class YellowColor : BaseColor
     public override void InitAbility(GameObject player)
     {
         base.InitAbility(player);
+        AddEvent();
         playerColor = player.GetComponent<PlayerColor>();
     }
 

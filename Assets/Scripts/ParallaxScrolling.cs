@@ -15,6 +15,7 @@ public class ParallaxScrolling : MonoBehaviour
 
     private Vector3 startPos = Vector3.zero;
     private float boundX = 0f;
+    private float startY = 0f;
 
 
     private void Start()
@@ -22,6 +23,7 @@ public class ParallaxScrolling : MonoBehaviour
         //Init Variables
         startPos = transform.position;
         boundX = GetComponent<SpriteRenderer>().bounds.size.x;
+        startY = transform.position.y;
         //cam = Camera.main.transform;
 
         //Spawn Duplicate
@@ -46,7 +48,10 @@ public class ParallaxScrolling : MonoBehaviour
     private void Update()
     {
         Vector3 targetPos = startPos;
-        //targetPos.y = cam.position.y;
+        if (cam.position.y < startY)
+            targetPos.y = cam.position.y;
+        else
+            targetPos.y = startY;
 
         float distToMove = cam.position.x * scrollSpeed;
         targetPos.x += distToMove;

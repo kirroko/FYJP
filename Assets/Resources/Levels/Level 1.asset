@@ -26,3 +26,7 @@ MonoBehaviour:
   numToCollect: 21
   starTime: 0
   maxDeath: 0
+  missions:
+  - Collect 5 items
+  - Finish in 30 sec
+  - Kill 300 enemies

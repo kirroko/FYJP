@@ -583,6 +583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250798e728f5a894981ef6e73491cd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  confirmationRef: {fileID: 2930129633839776580, guid: 7ea2a1f0dabc3f144bcd1240a7b57a95,
+    type: 3}
   main: {fileID: 1627369388}
   toggleMusicBtn: {fileID: 1146027141}
   toggleSFXBtn: {fileID: 738542814}
@@ -811,8 +813,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1672733649}
-        m_MethodName: ClearSavedData
+      - m_Target: {fileID: 643289707}
+        m_MethodName: ClearData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

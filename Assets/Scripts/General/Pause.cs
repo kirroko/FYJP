@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
+    [SerializeField] private ConfirmationScreen confirmationRef = null;
     [SerializeField] private GameObject pauseScreen = null;
     [SerializeField] private Button restartBtn = null;
     [SerializeField] private Button toggleMusicBtn = null;
@@ -20,9 +21,6 @@ public class Pause : MonoBehaviour
     {
         if (pauseScreen != null) pauseScreen.SetActive(false);
 
-        restartBtn.onClick.AddListener(LevelManager.instance.RestartLevel);
-        restartBtn.onClick.AddListener(Pausing);
-
         SwapSprites swapSpritesBGM = toggleMusicBtn.GetComponent<SwapSprites>();
         swapSpritesBGM.Swap(AudioManager.instance.HasBGM);
         toggleMusicBtn.onClick.AddListener(AudioManager.instance.ToggleMuteBGM);
@@ -32,10 +30,6 @@ public class Pause : MonoBehaviour
         swapSpritesSFX.Swap(AudioManager.instance.HasSFX);
         toggleSFXBtn.onClick.AddListener(AudioManager.instance.ToggleMuteSFX);
         toggleSFXBtn.onClick.AddListener(delegate () { swapSpritesSFX.Swap(AudioManager.instance.HasSFX); });
-
-        exitBtn.onClick.AddListener(delegate() { SceneTransition.instance.LoadSceneInBG("LevelSelection"); });
-        exitBtn.onClick.AddListener(delegate() { LevelManager.instance.ResetLevelVariables(); });
-        exitBtn.onClick.AddListener(Pausing);
     }
 
     private void Update()
@@ -63,5 +57,26 @@ public class Pause : MonoBehaviour
             Time.fixedDeltaTime = prevFixedDelta;
             pauseScreen.SetActive(false);
         }
+    }
+
+    public void Restart()
+    {
+        List<System.Action> yesFunctions = new List<System.Action>();
+        yesFunctions.Add(LevelManager.instance.RestartLevel);
+        yesFunctions.Add(Pausing);
+
+        ConfirmationScreen temp = Instantiate(confirmationRef);
+        temp.Init("Are you sure you want to Restart?", yesFunctions);
+    }
+
+    public void Home()
+    {
+        List<System.Action> yesFunctions = new List<System.Action>();
+        yesFunctions.Add(delegate () { SceneTransition.instance.LoadSceneInBG("LevelSelection"); });
+        yesFunctions.Add(delegate () { LevelManager.instance.ResetLevelVariables(); });
+        yesFunctions.Add(Pausing);
+
+        ConfirmationScreen temp = Instantiate(confirmationRef);
+        temp.Init("Are you sure you want to go Home?", yesFunctions);
     }
 }

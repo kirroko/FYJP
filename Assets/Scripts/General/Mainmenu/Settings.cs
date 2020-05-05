@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Settings : MonoBehaviour
 {
     [Header("References")]
+    [SerializeField] private ConfirmationScreen confirmationRef = null;
     [SerializeField] private GameObject main = null;
     [SerializeField] private Button toggleMusicBtn = null;
     [SerializeField] private Button toggleSFXBtn = null;
@@ -25,5 +26,14 @@ public class Settings : MonoBehaviour
     {
         main.SetActive(true);
         gameObject.SetActive(false);
+    }
+
+    public void ClearData()
+    {
+        List<System.Action> yesFunctions = new List<System.Action>();
+        yesFunctions.Add(LevelManager.instance.ClearSavedData);
+
+        ConfirmationScreen temp = Instantiate(confirmationRef);
+        temp.Init("Are you sure you want to clear all Data?", yesFunctions);
     }
 }

@@ -129,7 +129,6 @@ public class LevelManager : MonoBehaviour
         else
             Debug.LogError("Level" + index + " Color list not set");
 
-        start = true;
         //Spawn ghost if it exist
         //if(currentLevel.ghostPos.Count > 0)
         //{
@@ -250,5 +249,10 @@ public class LevelManager : MonoBehaviour
     {
         currentLevel.numCollected = 0;
         elapsedTime = 0f;
+    }
+
+    public void StartLevel()
+    {
+        start = true;
     }
 }

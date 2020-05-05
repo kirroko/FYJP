@@ -19,6 +19,8 @@ public class Level : ScriptableObject
     public float starTime = 0f;
     public int maxDeath = 0;
 
+    public string[] missions = new string[3];
+
     public void Print()
     {
         Debug.Log(name);

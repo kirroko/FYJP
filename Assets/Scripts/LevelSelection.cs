@@ -2,8 +2,13 @@
 
 public class LevelSelection : MonoBehaviour
 {
-    [SerializeField] private int LevelIndex = 0;
+    [SerializeField] private Level level = null;
     [SerializeField] private float holdDuration = 1f;
+
+    [SerializeField] private GameObject lockRef = null;
+    [SerializeField] private GameObject frame = null;
+
+    [SerializeField] private Sprite[] frameSprites = new Sprite[4];
 
     private float holdTime = 0f;
     private bool once = false;
@@ -14,21 +19,30 @@ public class LevelSelection : MonoBehaviour
     {
         holdTime = holdDuration;
         abilityInput = ObjectReferences.instance.abilityInput;
+
+        Debug.Log("selection" + level.levelNum + " " + level.data.numStars);
+        Debug.Log("selection" + level.levelNum + " " + level.data.unlocked);
+        frame.GetComponent<SpriteRenderer>().sprite = frameSprites[Mathf.Clamp(level.data.numStars - 1, 0, 2)];
+
+        if (level.data.unlocked)
+            lockRef.SetActive(false);
+        else
+            frame.GetComponent<SpriteRenderer>().sprite = frameSprites[3];
     }
 
     private void OnTriggerStay2D(Collider2D collider)
     {
         if(collider.gameObject.tag == "Player")
         {
-            if ((abilityInput.IsPressed || Input.GetKey(KeyCode.E)) && !once)
+            if (abilityInput.IsPressed && !once && level.data.unlocked)
             {
                 holdTime -= Time.deltaTime;
 
-                if(holdTime<= 0f)
+                if(holdTime <= 0f)
                 {
                     Time.timeScale = 1f;
                     Time.fixedDeltaTime = ObjectReferences.fixedTimeScale;
-                    LevelManager.instance.StartLevel(LevelIndex - 1);
+                    LevelManager.instance.StartLevel(level.levelNum - 1);
                     once = true;
                 }
             }

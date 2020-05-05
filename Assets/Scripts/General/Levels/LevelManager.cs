@@ -75,10 +75,11 @@ public class LevelManager : MonoBehaviour
             level.numToCollect = Mathf.RoundToInt(collectables.Length * 0.8f);
 
             //Check if the file data has be created before if not create it else load it
-            LevelData levelData = SaveSystem.LoadLevel(level.name);
+            LevelData levelData = SaveSystem.LoadLevel("Level " + level.levelNum);
             if (levelData == null)
             {
                 level.data = new LevelData();
+                if (level.levelNum == 1) level.data.unlocked = true;
                 SaveSystem.SaveLevel(level);
             }
             else

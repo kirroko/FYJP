@@ -7,7 +7,7 @@ public class Level : ScriptableObject
 {
     
     public GameObject layout = null;
-    public new string name = "";
+    public int levelNum = 0;
     public LevelData data = null;//Updated in EndLevel() of lvlManager
     public ColorManager colorList = null;
     [HideInInspector] public List<Vector3> ghostPos = new List<Vector3>();//Updated when player finish the level faster than last time

@@ -15,12 +15,13 @@ public class Checkpoint : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         LevelManager.instance.SpawnPoint = transform.position;
-        EventManager.instance.TriggerCheckpointEvent();
+        EventManager.instance.TriggerCheckpointEvent(gameObject);
         GetComponent<SwapSprites>().Swap(1);
     }
 
-    private void CheckpointEvent()
+    private void CheckpointEvent(GameObject me)
     {
+        if (me == gameObject) return;
         GetComponent<SwapSprites>().Swap(0);
     }
 

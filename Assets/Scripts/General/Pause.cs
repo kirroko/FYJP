@@ -21,12 +21,12 @@ public class Pause : MonoBehaviour
     {
         if (pauseScreen != null) pauseScreen.SetActive(false);
 
-        SwapSprites swapSpritesBGM = toggleMusicBtn.GetComponent<SwapSprites>();
+        SwapImages swapSpritesBGM = toggleMusicBtn.GetComponent<SwapImages>();
         swapSpritesBGM.Swap(AudioManager.instance.HasBGM);
         toggleMusicBtn.onClick.AddListener(AudioManager.instance.ToggleMuteBGM);
         toggleMusicBtn.onClick.AddListener(delegate() { swapSpritesBGM.Swap(AudioManager.instance.HasBGM); });
 
-        SwapSprites swapSpritesSFX = toggleSFXBtn.GetComponent<SwapSprites>();
+        SwapImages swapSpritesSFX = toggleSFXBtn.GetComponent<SwapImages>();
         swapSpritesSFX.Swap(AudioManager.instance.HasSFX);
         toggleSFXBtn.onClick.AddListener(AudioManager.instance.ToggleMuteSFX);
         toggleSFXBtn.onClick.AddListener(delegate () { swapSpritesSFX.Swap(AudioManager.instance.HasSFX); });

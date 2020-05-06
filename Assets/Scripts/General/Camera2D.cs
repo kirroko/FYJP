@@ -22,6 +22,13 @@ public class Camera2D: MonoBehaviour
     [SerializeField] private float yMoveBottom = 0.2f;
     [SerializeField] private float moveAmt = 0.5f;//Percentage of the screen height
 
+    [Header("Bounderies")]
+    [SerializeField] private float padding = 3f;
+    [SerializeField] private Transform boundsLeft = null;
+    [SerializeField] private Transform boundsRight = null;
+    [SerializeField] private Transform boundsTop= null;
+    [SerializeField] private Transform boundsBot = null;
+
     private float halfDeadZoneX = 0f;
 
     private bool deadX = false;
@@ -34,6 +41,7 @@ public class Camera2D: MonoBehaviour
     private float currentY = 0f;
     private bool ignoreDead = false;
     private float prevDir = 0f;
+    private Vector2 camHalfSize = Vector2.zero;
 
     [HideInInspector] public bool isControlled = false;
     
@@ -43,6 +51,7 @@ public class Camera2D: MonoBehaviour
         moveJoysick = ObjectReferences.instance.movementInput;
 
         halfDeadZoneX = deadZoneX * 0.5f;
+        camHalfSize = new Vector2(cam.orthographicSize * cam.aspect, cam.orthographicSize);
 
         Init();
     }
@@ -122,6 +131,19 @@ public class Camera2D: MonoBehaviour
         }
         targetPos.y = Mathf.MoveTowards(transform.position.y, currentY, Time.deltaTime * followSpeed.y);
         #endregion
+
+
+
+        if (targetPos.x - camHalfSize.x <= boundsLeft.position.x)
+            targetPos.x = boundsLeft.position.x + camHalfSize.x;
+        if (targetPos.x + camHalfSize.x >= boundsRight.position.x)
+            targetPos.x = boundsRight.position.x - camHalfSize.x;
+
+        //if (targetPos.y <= boundsBot.position.y)
+        //    targetPos.y = boundsBot.position.y + padding;
+        //if (targetPos.y >= boundsTop.position.y)
+        //    targetPos.y = boundsTop.position.y - padding;
+
 
         transform.position = targetPos;
     }

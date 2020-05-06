@@ -9,7 +9,7 @@ public class EventManager : MonoBehaviour
 
     public event Action<COLORS> PlatformColorEvent = null;
     public event Action<Collision2D, GameObject> EnemyCollisionEvent = null;
-    public event Action checkpointEvent = null;
+    public event Action<GameObject> checkpointEvent = null;
     public event Action<BaseColor, Projectile, float, GameObject> shootProjectileEvent = null;
 
     private void Awake()
@@ -35,10 +35,10 @@ public class EventManager : MonoBehaviour
             EnemyCollisionEvent(collision, player);
     }
 
-    public void TriggerCheckpointEvent()
+    public void TriggerCheckpointEvent(GameObject me)
     {
         if (checkpointEvent != null)
-            checkpointEvent();
+            checkpointEvent(me);
     }
 
     public void TriggerShootProjectileEvent(BaseColor me, Projectile projectile, float projectileSpeed, GameObject player)

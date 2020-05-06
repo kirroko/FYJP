@@ -13,11 +13,11 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
-        SwapSprites swapSpritesBGM = toggleMusicBtn.GetComponent<SwapSprites>();
+        SwapImages swapSpritesBGM = toggleMusicBtn.GetComponent<SwapImages>();
         swapSpritesBGM.Swap(AudioManager.instance.HasBGM);
         toggleMusicBtn.onClick.AddListener(delegate () { swapSpritesBGM.Swap(AudioManager.instance.HasBGM); });
 
-        SwapSprites swapSpritesSFX = toggleSFXBtn.GetComponent<SwapSprites>();
+        SwapImages swapSpritesSFX = toggleSFXBtn.GetComponent<SwapImages>();
         swapSpritesSFX.Swap(AudioManager.instance.HasSFX);
         toggleSFXBtn.onClick.AddListener(delegate () { swapSpritesSFX.Swap(AudioManager.instance.HasSFX); });
     }

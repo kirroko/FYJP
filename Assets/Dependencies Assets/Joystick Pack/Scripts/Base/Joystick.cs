@@ -57,6 +57,14 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         handle.anchorMax = center;
         handle.pivot = center;
         handle.anchoredPosition = Vector2.zero;
+
+        EventManager.instance.sceneChangeEvent -= TriggerSceneChangeEvent;
+        EventManager.instance.sceneChangeEvent += TriggerSceneChangeEvent;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.instance.sceneChangeEvent -= TriggerSceneChangeEvent;
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
@@ -77,10 +85,6 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         FormatInput();
         HandleInput(input.magnitude, input.normalized, radius, cam);
         handle.anchoredPosition = input * radius * handleRange;
-    }
-
-    private void Update()
-    {
     }
 
     protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
@@ -157,6 +161,13 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public void UpdateHandleImage(Sprite sprite)
     {
         handle.GetComponent<UnityEngine.UI.Image>().sprite = sprite;
+    }
+
+    private void TriggerSceneChangeEvent()
+    {
+        input = Vector2.zero;
+        handle.anchoredPosition = Vector2.zero;
+        pressed = false;
     }
 }
 

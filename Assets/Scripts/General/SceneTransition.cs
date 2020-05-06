@@ -4,10 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
-    public string PrevSceneName { get { return prevSceneName; } }
+    public Scene PrevScene { get { return prevScene; } }
+    public Scene CurrentScene { get { return currentScene; } }
+    public bool ChangedScene { get { return changedScene; } }
+
     public static SceneTransition instance = null;
 
-    private string prevSceneName = "";
+    private Scene prevScene;
+    private Scene currentScene;
+    private bool changedScene = false;
 
     private void Awake()
     {
@@ -28,12 +33,21 @@ public class SceneTransition : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        StartCoroutine(ILoadScene(sceneName));
+    }
+
+    private IEnumerator ILoadScene(string sceneName)
+    {
         SceneManager.LoadScene(sceneName);
+        changedScene = true;
+        EventManager.instance.TriggerSceneChangeEvent();
+        yield return null;
+        changedScene = false;
     }
 
     private IEnumerator LoadSceneAsync(string sceneName)
     {
-        prevSceneName = SceneManager.GetActiveScene().name;
+        prevScene = SceneManager.GetActiveScene();
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 
         while(!operation.isDone)
@@ -41,7 +55,13 @@ public class SceneTransition : MonoBehaviour
              yield return null;
         }
 
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
-        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(prevSceneName));
+        currentScene = SceneManager.GetSceneByName(sceneName);
+        SceneManager.SetActiveScene(currentScene);
+        SceneManager.UnloadSceneAsync(prevScene);
+
+        changedScene = true;
+        EventManager.instance.TriggerSceneChangeEvent();
+        yield return null;
+        changedScene = false;
     }
 }

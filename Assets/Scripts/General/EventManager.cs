@@ -11,6 +11,7 @@ public class EventManager : MonoBehaviour
     public event Action<Collision2D, GameObject> EnemyCollisionEvent = null;
     public event Action<GameObject> checkpointEvent = null;
     public event Action<BaseColor, Projectile, float, GameObject> shootProjectileEvent = null;
+    public event Action sceneChangeEvent = null;
 
     private void Awake()
     {
@@ -53,5 +54,11 @@ public class EventManager : MonoBehaviour
         {
             shootProjectileEvent(me, projectile, projectileSpeed, player);
         }
+    }
+
+    public void TriggerSceneChangeEvent()
+    {
+        if (sceneChangeEvent != null)
+            sceneChangeEvent();
     }
 }

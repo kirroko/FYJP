@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class LevelSelection : MonoBehaviour
 {
     [SerializeField] private Level level = null;
@@ -17,11 +18,10 @@ public class LevelSelection : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<Collider2D>().isTrigger = true;
+
         holdTime = holdDuration;
         abilityInput = ObjectReferences.instance.abilityInput;
-
-        Debug.Log("selection" + level.levelNum + " " + level.data.numStars);
-        Debug.Log("selection" + level.levelNum + " " + level.data.unlocked);
         frame.GetComponent<SpriteRenderer>().sprite = frameSprites[Mathf.Clamp(level.data.numStars - 1, 0, 2)];
 
         if (level.data.unlocked)

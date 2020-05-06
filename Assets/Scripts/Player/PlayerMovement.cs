@@ -118,7 +118,20 @@ public class PlayerMovement : MonoBehaviour
         ani.SetBool("IsWall", isWallRiding);
 
         // INPUT
-        xInput = input.Horizontal;
+        if(Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            if (Input.GetKey(KeyCode.A))
+                xInput = -1f;
+            else if (Input.GetKey(KeyCode.D))
+                xInput = 1f;
+            else
+                xInput = 0f;
+        }
+        else if(Application.platform == RuntimePlatform.Android)
+        {
+            xInput = input.Horizontal;
+        }
+
         // FORCE xInput to normalize at 1 or -1
         if (xInput > 0.25f) xInput = 1f;
         else if (xInput < -0.25f) xInput = -1;
@@ -126,13 +139,13 @@ public class PlayerMovement : MonoBehaviour
         if (xInput != 0) lastXDir = xInput;
 
         // BUTTON INPUT
-        if ((jumpButton.tap || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
+        if ((jumpButton.tap || Input.GetKeyDown(KeyCode.Space) && isGrounded)
             Jump();
         else if ((jumpButton.tap || Input.GetKeyDown(KeyCode.Space)) && isWallRiding) // WALL JUMP
             WallJump();
 
         // DASH
-        if ((dashButton.tap || Input.GetKeyDown(KeyCode.E))&& playerColor.GetCurrentColor.GetMain != COLORS.BLUE && dashCD < 0f)
+        if ((dashButton.tap || Input.GetKeyDown(KeyCode.LeftShift))&& playerColor.GetCurrentColor.GetMain != COLORS.BLUE && dashCD < 0f)
             isDashing = true;
 
         // MISC

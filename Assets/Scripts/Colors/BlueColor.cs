@@ -55,7 +55,7 @@ public class BlueColor : BaseColor
         }
 
         //Activate Dash
-        if (dashButton.tap || Input.GetKeyDown(KeyCode.E))
+        if (dashButton.tap || Input.GetKeyDown(KeyCode.LeftShift))
         {
             Dash();
         }

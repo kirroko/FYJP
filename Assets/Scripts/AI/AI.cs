@@ -111,7 +111,7 @@ public class AI : MonoBehaviour
             sr.color = Color.white;
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionStay2D(Collision2D collision)
     {
         PlayerInfo player = collision.gameObject.GetComponent<PlayerInfo>();
         if (player != null)

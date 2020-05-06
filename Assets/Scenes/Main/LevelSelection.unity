@@ -4298,6 +4298,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8070297629261575620, guid: 43014a7be23bd094a8e07698d35779a2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070297629261575620, guid: 43014a7be23bd094a8e07698d35779a2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070297629261575620, guid: 43014a7be23bd094a8e07698d35779a2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8070297629261575623, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}
       propertyPath: heart
@@ -4505,7 +4520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 11400000, guid: 7956e5a019c15e94ebb10ec652563b00, type: 2}
-  holdDuration: 0.3
+  holdDuration: 0
   lockRef: {fileID: 1335013365}
   frame: {fileID: 281646087}
   frameSprites:

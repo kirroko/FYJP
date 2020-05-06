@@ -54,10 +54,8 @@ public class PatrolAI : AI
        
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        base.OnCollisionEnter2D(collision);
-
         if (collision.gameObject.GetComponent<Projectile>() != null) return;
 
         ContactPoint2D contact = collision.GetContact(0);

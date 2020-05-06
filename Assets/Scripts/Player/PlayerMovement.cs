@@ -139,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
         if (xInput != 0) lastXDir = xInput;
 
         // BUTTON INPUT
-        if ((jumpButton.tap || Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if ((jumpButton.tap || Input.GetKeyDown(KeyCode.Space) && isGrounded))
             Jump();
         else if ((jumpButton.tap || Input.GetKeyDown(KeyCode.Space)) && isWallRiding) // WALL JUMP
             WallJump();

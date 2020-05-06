@@ -85,6 +85,7 @@ public class PlayerInfo : MonoBehaviour
     private IEnumerator DelayRestartLevel(float time)
     {
         yield return new WaitForSeconds(time);
+        canvas.SetActive(true);
         LevelManager.instance.RestartLevel();
     }
 

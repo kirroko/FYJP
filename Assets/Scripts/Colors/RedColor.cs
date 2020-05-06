@@ -51,7 +51,7 @@ public class RedColor : BaseColor
             player.GetComponent<Rigidbody2D>().velocity = -collision.relativeVelocity;//Gives player vel before they collide
             player.GetComponent<PlayerMovement>().ResetDash();
 
-            Destroy(collision.gameObject);
+            enemy.Die();
         }
     }
 }

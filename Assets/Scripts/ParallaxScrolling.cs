@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
+//[RequireComponent(typeof(Collider2D))]
 public class ParallaxScrolling : MonoBehaviour
 {
     [Header("References")]
@@ -17,14 +17,14 @@ public class ParallaxScrolling : MonoBehaviour
 
     private Vector3 startPos = Vector3.zero;
     private Vector2 bounds = Vector2.zero;
-    private bool startScroll = false;
+    //private bool startScroll = false;
 
     private void Start()
     {
         //Init Variables
         startPos = transform.position;
         bounds = GetComponent<SpriteRenderer>().bounds.size;
-        GetComponent<Collider2D>().isTrigger = true;
+        //GetComponent<Collider2D>().isTrigger = true;
         //cam = Camera.main.transform;
 
         //Spawn Duplicate
@@ -64,7 +64,7 @@ public class ParallaxScrolling : MonoBehaviour
 
     private void Update()
     {
-        if (!startScroll) return;
+        //if (!startScroll) return;
 
         Vector3 targetPos = startPos;
 
@@ -89,11 +89,11 @@ public class ParallaxScrolling : MonoBehaviour
         transform.position = targetPos;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<PlayerInfo>() != null)
-        {
-            startScroll = true;
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.GetComponent<PlayerInfo>() != null)
+    //    {
+    //        startScroll = true;
+    //    }
+    //}
 }

@@ -40,6 +40,7 @@ public class PlayerInfo : MonoBehaviour
         
         whiteMat = Resources.Load("Material/Effect/WhiteShade", typeof(Material)) as Material;
         defaultMat = sr.material;
+        canvas = ObjectReferences.instance.gameObject;
     }
 
     private void Update()

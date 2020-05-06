@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class FallingSpikes : MonoBehaviour
+public class FallingSpikes : Respawnable
 {
     [SerializeField] private float waitTime = 3f;
     [SerializeField] private float playerKnockbackAmt = 1f;
@@ -13,8 +13,10 @@ public class FallingSpikes : MonoBehaviour
 
     private Rigidbody2D rb = null;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
@@ -48,7 +50,7 @@ public class FallingSpikes : MonoBehaviour
             player.TakeDamage(1, playerKnockbackAmt);
 
         ContactPoint2D contact = collision.GetContact(0);
-        if(contact.normal.y > 0f && rb.gravityScale > 0f)
-            Destroy(gameObject);
+        if (contact.normal.y > 0f && rb.gravityScale > 0f)
+            Gone();
     }
 }

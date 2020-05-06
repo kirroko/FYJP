@@ -36,13 +36,34 @@ public class ColorCompanion : MonoBehaviour
         transform.localPosition = targetLocalPos;
 
         //Player is moving towards companion
-        if (moveInput.Direction.x != 0 && 
-            Mathf.Sign(moveInput.Direction.x) == Mathf.Sign(transform.position.x - transform.parent.position.x))
+
+        if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
         {
-            stopMove = true;
+            float dir = 0f;
+
+            if (Input.GetKey(KeyCode.A))
+                dir = -1f;
+            else if (Input.GetKey(KeyCode.D))
+                dir = 1f;
+            else
+                dir = 0f;
+
+            if (dir != 0 &&
+                Mathf.Sign(dir) == Mathf.Sign(transform.position.x - transform.parent.position.x))
+            {
+                stopMove = true;
+            }
+        }
+        else if (Application.platform == RuntimePlatform.Android)
+        {
+            if (moveInput.Direction.x != 0 &&
+                Mathf.Sign(moveInput.Direction.x) == Mathf.Sign(transform.position.x - transform.parent.position.x))
+            {
+                stopMove = true;
+            }
         }
 
-        if(stopMove)
+        if (stopMove)
         {
             //Stop the companion from moving
             Vector3 tempPos = transform.position;

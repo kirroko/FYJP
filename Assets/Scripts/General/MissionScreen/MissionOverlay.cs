@@ -11,9 +11,12 @@ public class MissionOverlay : MonoBehaviour
     private void Start()
     {
         levelName.text = "Level " + LevelManager.instance.CurrentLevelIndex + 1;
-        missions[0].text = LevelManager.instance.CurrentLevel.missions[0];
-        missions[1].text = LevelManager.instance.CurrentLevel.missions[1];
-        missions[2].text = LevelManager.instance.CurrentLevel.missions[2];
+
+        Level currentLevel = LevelManager.instance.CurrentLevel;
+
+        UpdateMissionText(0, currentLevel.numToCollect);
+        UpdateMissionText(1, currentLevel.starTime);
+        UpdateMissionText(2, currentLevel.maxDeath);
 
         ObjectReferences.instance.gameObject.SetActive(false);
     }
@@ -26,5 +29,22 @@ public class MissionOverlay : MonoBehaviour
         gameObject.SetActive(false);
         //Start Level
         LevelManager.instance.StartLevel();
+    }
+
+    private void UpdateMissionText(int index, float numToSub)
+    {
+        Level currentLevel = LevelManager.instance.CurrentLevel;
+        missions[index].text = "";
+
+        foreach (string phrase in currentLevel.missions[index])
+        {
+            if (phrase.Contains(currentLevel.subWord))
+                missions[index].text += numToSub;
+            else
+                missions[index].text += phrase;
+
+            if (phrase != currentLevel.missions[index][currentLevel.missions.Count - 1])
+                missions[index].text += " ";
+        }
     }
 }

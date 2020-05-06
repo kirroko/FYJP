@@ -1,21 +1,8 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class Collectable : MonoBehaviour
+public class Collectable : Respawnable
 {
-    public bool WillRespawn { get { return willRespawn; } set { if (collected) { willRespawn = false; } } }
-
-    private bool willRespawn = true;
-    private bool collected = false;
-
-    private Vector3 scale = Vector3.zero;
-
-    private void Start()
-    {
-        scale = transform.localScale;
-        GetComponent<Collider2D>().isTrigger = true;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -23,15 +10,7 @@ public class Collectable : MonoBehaviour
             Level currentLevel = LevelManager.instance.CurrentLevel;
             ++currentLevel.numCollected;
             ObjectReferences.instance.itemCount.text = currentLevel.numCollected.ToString() + "/" + currentLevel.numToCollect.ToString();
-            collected = true;
-            transform.localScale = Vector3.zero;
+            Gone();
         }
-    }
-
-    public void Respawn()
-    {
-        if (!willRespawn) return;
-
-        transform.localScale = scale;
     }
 }

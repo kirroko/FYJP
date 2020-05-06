@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 
-public class AI : MonoBehaviour
+public class AI : Respawnable
 {
     public bool IsStunned
     {
@@ -79,8 +79,10 @@ public class AI : MonoBehaviour
 
     private SpriteRenderer sr;
 
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
+
         speed = moveSpeed;
         sr = GetComponent<SpriteRenderer>();
     }
@@ -146,5 +148,10 @@ public class AI : MonoBehaviour
         AI enemy = collision.gameObject.GetComponent<AI>();
         if(enemy != null)
             Physics2D.IgnoreCollision(collision.otherCollider, collision.collider);
+    }
+
+    public void Die()
+    {
+        Gone();
     }
 }

@@ -207,6 +207,8 @@ public class PlayerMovement : MonoBehaviour
         float maxSpeedChange = maxAccel * Time.deltaTime;
         targetVel.x = Mathf.MoveTowards(targetVel.x, xInput * maxSpeed, maxSpeedChange);
 
+        targetVel.x = Mathf.Clamp(targetVel.x, -maxSpeed, maxSpeed);
+
         if (controlCD < 0) // Stop all update to rb is controlCD is up
         {
             ani.SetBool("IsRunning", true);
@@ -246,6 +248,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 targetVel = rb.velocity;
         float maxSpeedChange = maxAirAccel * Time.deltaTime;
         targetVel.x = Mathf.MoveTowards(targetVel.x, xInput * maxAirSpeed, maxSpeedChange);
+
+        targetVel.x = Mathf.Clamp(targetVel.x, -maxAirSpeed, maxAirSpeed);
 
         if(controlCD < 0) // Stop all update to rb is controlCD is up
             rb.velocity = targetVel;

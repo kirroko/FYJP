@@ -239,6 +239,7 @@ public class LevelManager : MonoBehaviour
 
     public void ResetLevelVariables()
     {
+        start = false;
         currentLevel.numCollected = 0;
         elapsedTime = 0f;
     }

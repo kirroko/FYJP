@@ -15,7 +15,7 @@ MonoBehaviour:
   layout: {fileID: 6634453737136895806, guid: df29e8007404b7b42865e541daa6e6dc, type: 3}
   levelNum: 1
   data:
-    unlocked: 1
+    unlocked: 0
     numStars: 0
     fastestTime: Infinity
     ghostPosSerialized: []

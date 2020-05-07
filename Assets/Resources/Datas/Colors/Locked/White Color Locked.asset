@@ -19,6 +19,7 @@ MonoBehaviour:
   parentOf1: 7
   parentOf2: 7
   locked: 1
+  abilitySprite: {fileID: 21300000, guid: 487436374544a444698f3c704535177a, type: 3}
   abilityInterval: 1
   moveSpeed: 15
   bounds: {x: 5, y: 5}

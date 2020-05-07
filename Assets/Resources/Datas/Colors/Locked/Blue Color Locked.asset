@@ -19,6 +19,7 @@ MonoBehaviour:
   parentOf1: 5
   parentOf2: 6
   locked: 1
+  abilitySprite: {fileID: 21300000, guid: 5798ddac9a1f5b944b988a99bcdbfa70, type: 3}
   abilityInterval: 1
   projectile: {fileID: 3955894298613811479, guid: 239179b6eee092048bd235a3110fc21a,
     type: 3}

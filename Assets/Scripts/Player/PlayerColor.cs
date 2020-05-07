@@ -201,13 +201,15 @@ public class PlayerColor : MonoBehaviour
             {
                 //Check if color is locked if yes set to current color
                 if(colorManager.colorList[currentColor.GetParent1].IsLocked)
-                    colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetMain]);
+                    colorPieces[1].UpdateData(colorManager.colorList[COLORS.WHITE]);
+                    //colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetMain]);
                 else
                     colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParent1]);
 
                 //Check if color is locked if yes set to current color
                 if (colorManager.colorList[currentColor.GetParent2].IsLocked)
-                    colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetMain]);
+                    colorPieces[2].UpdateData(colorManager.colorList[COLORS.WHITE]);
+                    //colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetMain]);
                 else
                     colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetParent2]);
             }
@@ -215,12 +217,14 @@ public class PlayerColor : MonoBehaviour
             {
                 //Check if color is locked if yes set to current color
                 if (colorManager.colorList[currentColor.GetParentOf1].IsLocked)
-                    colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetMain]);
+                    colorPieces[1].UpdateData(colorManager.colorList[COLORS.WHITE]);
+                    //colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetMain]);
                 else
                     colorPieces[1].UpdateData(colorManager.colorList[currentColor.GetParentOf1]);
                 //Check if color is locked if yes set to current color
                 if (colorManager.colorList[currentColor.GetParentOf2].IsLocked)
-                    colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetMain]);
+                    colorPieces[2].UpdateData(colorManager.colorList[COLORS.WHITE]);
+                    //colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetMain]);
                 else
                     colorPieces[2].UpdateData(colorManager.colorList[currentColor.GetParentOf2]);
             }

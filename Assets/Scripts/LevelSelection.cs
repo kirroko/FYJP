@@ -34,7 +34,7 @@ public class LevelSelection : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
-            if (abilityInput.IsPressed && !once && level.data.unlocked)
+            if (abilityInput.IsPressed && !once/* && level.data.unlocked*/)
             {
                 holdTime -= Time.deltaTime;
 

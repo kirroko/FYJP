@@ -160,6 +160,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     public void UpdateHandleImage(Sprite sprite)
     {
+        if (sprite == null) return;
         handle.GetComponent<UnityEngine.UI.Image>().sprite = sprite;
     }
 

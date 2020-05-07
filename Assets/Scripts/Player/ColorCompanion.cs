@@ -82,7 +82,6 @@ public class ColorCompanion : MonoBehaviour
             }
         }
 
-        stopMove = false;
         prevX = transform.position.x;
     }
 }

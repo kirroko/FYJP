@@ -15,8 +15,8 @@ public class LevelManager : MonoBehaviour
         {
             spawnPoint = value;
             numCollectedAtCP = currentLevel.numCollected;
-            foreach (Collectable collectable in currentLevelCollectables)
-                collectable.WillRespawn = false;
+            EventManager.instance.TriggerUpdateRespawnStatusEvent();
+            CPTime = elapsedTime;
         }
     }
 
@@ -27,9 +27,9 @@ public class LevelManager : MonoBehaviour
     private List<Level> levels = new List<Level>();
     private Level currentLevel = null;
     private int currentLevelIndex = 0;
-    private Collectable[] currentLevelCollectables;
 
     private float elapsedTime = 0f;
+    private float CPTime = 0f;
     private bool start = false;
     private GameObject player = null;
 
@@ -69,6 +69,7 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < levelList.Length; ++i)
         {
             Level level = levelList[i] as Level;
+            level.Init();
 
             //Get number of item player has to collect each level to get a star
             Collectable[] collectables = level.layout.transform.GetComponentsInChildren<Collectable>();
@@ -121,7 +122,6 @@ public class LevelManager : MonoBehaviour
 
         yield return null;
 
-        currentLevelCollectables = layout.transform.GetComponentsInChildren<Collectable>();
         player = GameObject.FindGameObjectWithTag("Player");
         spawnPoint = player.transform.position;
 
@@ -190,6 +190,7 @@ public class LevelManager : MonoBehaviour
             SaveSystem.SaveLevel(currentLevel);
         }
         elapsedTime = 0f;
+        CPTime = 0f;
 
         SceneTransition.instance.LoadSceneInBG("ResultScreen");
     }
@@ -199,25 +200,15 @@ public class LevelManager : MonoBehaviour
         //Reset some variables
         yield return new WaitForSeconds(1f);
 
-        elapsedTime = 0f;
+        elapsedTime = CPTime;
         currentLevel.numCollected = numCollectedAtCP;
         ObjectReferences.instance.itemCount.text = currentLevel.numCollected + "/" + currentLevel.numToCollect;
 
         //Set player's pos to checkpoint 
         player.transform.position = spawnPoint;
 
-        //Reset Collectables
-        foreach (Collectable collectable in currentLevelCollectables)
-        {
-            //Vector3 temp = collectable.transform.position;
-            //temp.y += 1f;
-            //collectable.transform.position = temp;
-            //Debug.Log("CALLED");
-            collectable.Respawn();
-        }
-
-        //Reset AIs
-
+        //Respawn Respawnable objects
+        EventManager.instance.TriggerRespawnObjectsEvent();
 
         yield return null;
 
@@ -248,6 +239,7 @@ public class LevelManager : MonoBehaviour
 
     public void ResetLevelVariables()
     {
+        start = false;
         currentLevel.numCollected = 0;
         elapsedTime = 0f;
     }

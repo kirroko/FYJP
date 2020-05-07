@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class ExtraHeart : MonoBehaviour
+public class ExtraHeart : Respawnable
 {
     [SerializeField] private int heartsToGive = 1;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         GetComponent<Collider2D>().isTrigger = true;
     }
 
@@ -19,7 +21,7 @@ public class ExtraHeart : MonoBehaviour
         if(player != null)
         {
             player.GainHeart(heartsToGive);
-            Destroy(gameObject);
+            Gone();
         }
     }
 }

@@ -9888,7 +9888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1324ef9b57917449f8a53f5217f48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heart: 100
+  heart: 2
   invincibleDuration: 3
   canvas: {fileID: 0}
 --- !u!114 &8070297629261575624

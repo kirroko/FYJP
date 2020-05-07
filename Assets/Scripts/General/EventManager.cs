@@ -12,6 +12,8 @@ public class EventManager : MonoBehaviour
     public event Action<GameObject> checkpointEvent = null;
     public event Action<BaseColor, Projectile, float, GameObject> shootProjectileEvent = null;
     public event Action sceneChangeEvent = null;
+    public event Action respawnObjectsEvent = null;
+    public event Action updateRespawnStatusEvent = null;
 
     private void Awake()
     {
@@ -60,5 +62,17 @@ public class EventManager : MonoBehaviour
     {
         if (sceneChangeEvent != null)
             sceneChangeEvent();
+    }
+
+    public void TriggerRespawnObjectsEvent()
+    {
+        if (respawnObjectsEvent != null)
+            respawnObjectsEvent();
+    }
+
+    public void TriggerUpdateRespawnStatusEvent()
+    {
+        if (updateRespawnStatusEvent != null)
+            updateRespawnStatusEvent();
     }
 }

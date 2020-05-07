@@ -87,6 +87,7 @@ public class PlayerInfo : MonoBehaviour
         yield return new WaitForSeconds(time);
         canvas.SetActive(true);
         LevelManager.instance.RestartLevel();
+        GetComponent<Animator>().SetTrigger("Reset");
     }
 
     public void GainHeart(int amt)

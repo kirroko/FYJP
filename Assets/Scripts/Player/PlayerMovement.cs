@@ -207,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
         float maxSpeedChange = maxAccel * Time.deltaTime;
         targetVel.x = Mathf.MoveTowards(targetVel.x, xInput * maxSpeed, maxSpeedChange);
 
-        targetVel.x = Mathf.Clamp(targetVel.x, -maxSpeed, maxSpeed);
+        // targetVel.x = Mathf.Clamp(targetVel.x, -maxSpeed, maxSpeed);
 
         if (controlCD < 0) // Stop all update to rb is controlCD is up
         {
@@ -249,7 +249,7 @@ public class PlayerMovement : MonoBehaviour
         float maxSpeedChange = maxAirAccel * Time.deltaTime;
         targetVel.x = Mathf.MoveTowards(targetVel.x, xInput * maxAirSpeed, maxSpeedChange);
 
-        targetVel.x = Mathf.Clamp(targetVel.x, -maxAirSpeed, maxAirSpeed);
+        // targetVel.x = Mathf.Clamp(targetVel.x, -maxAirSpeed, maxAirSpeed);
 
         if(controlCD < 0) // Stop all update to rb is controlCD is up
             rb.velocity = targetVel;

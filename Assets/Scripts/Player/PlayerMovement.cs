@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dashing")]
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCDDuration = 1f;
+    [SerializeField] private float DashFalloffDuration = 0.3f;
     [SerializeField] private float distanceBetweenImages;
 
     [Header("Wall Jump")]
@@ -68,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashDuration = 0.7f;
     private float defaultGravity = 0f;
     private float lastImageXPos;
+    private float DashFalloff = 0f;
 
 
     private void Start()
@@ -89,9 +91,10 @@ public class PlayerMovement : MonoBehaviour
     {
         // COOLDOWN CODE
         dashCD -= Time.deltaTime;
+        DashFalloff -= Time.deltaTime;
         controlCD -= Time.deltaTime;
 
-        if (dashCD < 0) // reset gravity
+        if (DashFalloff < 0) // reset gravity
             rb.gravityScale = defaultGravity;
 
         //For Dash To kill and break objects
@@ -145,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
             WallJump();
 
         // DASH
-        if ((dashButton.tap || Input.GetKeyDown(KeyCode.LeftShift))&& playerColor.GetCurrentColor.GetMain != COLORS.BLUE && dashCD < 0f)
+        if ((dashButton.tap || Input.GetKeyDown(KeyCode.LeftShift)) && playerColor.GetCurrentColor.GetMain != COLORS.BLUE && dashCD < 0f)
             isDashing = true;
 
         // MISC
@@ -275,6 +278,7 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         stillDashing = true;
         dashCD = dashCDDuration;
+        DashFalloff = DashFalloffDuration;
         // controlCD = controlCDDuration;
         dashDirection = input.Direction;
 

@@ -132,18 +132,7 @@ public class Camera2D: MonoBehaviour
         targetPos.y = Mathf.MoveTowards(transform.position.y, currentY, Time.deltaTime * followSpeed.y);
         #endregion
 
-
-
-        if (targetPos.x - camHalfSize.x <= boundsLeft.position.x)
-            targetPos.x = boundsLeft.position.x + camHalfSize.x;
-        if (targetPos.x + camHalfSize.x >= boundsRight.position.x)
-            targetPos.x = boundsRight.position.x - camHalfSize.x;
-
-        //if (targetPos.y <= boundsBot.position.y)
-        //    targetPos.y = boundsBot.position.y + padding;
-        //if (targetPos.y >= boundsTop.position.y)
-        //    targetPos.y = boundsTop.position.y - padding;
-
+        LimitCameraBounds(ref targetPos);
 
         transform.position = targetPos;
     }
@@ -198,5 +187,18 @@ public class Camera2D: MonoBehaviour
         //tempPos.y += startOffset.y;
         transform.position = tempPos;
         currentY = transform.position.y;
+    }
+
+    public void LimitCameraBounds(ref Vector3 targetPos)
+    {
+        if (targetPos.x - camHalfSize.x <= boundsLeft.position.x)
+            targetPos.x = boundsLeft.position.x + camHalfSize.x;
+        if (targetPos.x + camHalfSize.x >= boundsRight.position.x)
+            targetPos.x = boundsRight.position.x - camHalfSize.x;
+
+        if (targetPos.y - camHalfSize.y <= boundsBot.position.y)
+            targetPos.y = boundsBot.position.y + camHalfSize.y;
+        if (targetPos.y + camHalfSize.y >= boundsTop.position.y)
+            targetPos.y = boundsTop.position.y - camHalfSize.y;
     }
 }

@@ -276,17 +276,7 @@ public class PlayerMovement : MonoBehaviour
         stillDashing = true;
         dashCD = dashCDDuration;
         // controlCD = controlCDDuration;
-        dashDirection = Vector2.zero;
-
-        if (input.Direction.x > 0.5f)
-            dashDirection.x = 1f;
-        else if (input.Direction.x < -0.5f)
-            dashDirection.x = -1f;
-
-        if (input.Direction.y > 0.5f)
-            dashDirection.y = 1f;
-        else if (input.Direction.y < -0.5f)
-            dashDirection.y = -1f;
+        dashDirection = input.Direction;
 
         if (dashDirection == Vector2.zero)
             dashDirection.x = facingDirection;

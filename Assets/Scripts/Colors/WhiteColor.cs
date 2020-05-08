@@ -37,6 +37,9 @@ public class WhiteColor : BaseColor
             targetPos.x = Mathf.Clamp(targetPos.x + dir.x, player.transform.position.x -bounds.x * 0.5f, player.transform.position.x + bounds.x * 0.5f);
             targetPos.y = Mathf.Clamp(targetPos.y + dir.y, startY - bounds.y * 0.5f, startY + bounds.y * 0.5f);
 
+            cam.LimitCameraBounds(ref targetPos);
+
+
             cam.transform.position = Vector3.Lerp(cam.transform.position, targetPos, Time.deltaTime * moveSpeed);
         }
         else

@@ -78,18 +78,7 @@ public class BlueColor : BaseColor
         hasDashed = true;
         waitTime = waitTimeDuration;
 
-        Vector2 direction = Vector3.zero;
-
-        //Move Right
-        if (movementInput.Direction.x > 0.5f)
-            direction.x = 1f;
-        else if (movementInput.Direction.x < -0.5f)
-            direction.x = -1f;
-
-        if (movementInput.Direction.y > 0.5f)
-            direction.y = 1f;
-        else if (movementInput.Direction.y < -0.5f)
-            direction.y = -1f;
+        Vector2 direction = movementInput.Direction;
 
         if (direction == Vector2.zero)
             direction.x = playerMovement.GetLastXDir;

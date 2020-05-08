@@ -40,7 +40,7 @@ public class SceneTransition : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
         changedScene = true;
-        EventManager.instance.TriggerSceneChangeEvent();
+        EventManager.instance.TriggerResetJoystickEvent();
         yield return null;
         changedScene = false;
     }
@@ -60,7 +60,7 @@ public class SceneTransition : MonoBehaviour
         SceneManager.UnloadSceneAsync(prevScene);
 
         changedScene = true;
-        EventManager.instance.TriggerSceneChangeEvent();
+        EventManager.instance.TriggerResetJoystickEvent();
         yield return null;
         changedScene = false;
     }

@@ -18,7 +18,7 @@ public class EnemyFollow : AI
     {
         base.Update();
 
-        if (stun) return;
+        if (stun || dead) return;
 
         if (target == null)
         {

@@ -71,6 +71,7 @@ public class AI : Respawnable
     protected bool stun = false;
     protected bool tagged = false;
     protected bool frozen = false;
+    protected bool dead = false;
     protected float speed = 0f;
 
     private float stunCD = 0f;
@@ -153,5 +154,25 @@ public class AI : Respawnable
     public void Die()
     {
         Gone();
+        dead = true;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        if(rb != null)
+        {
+            rb.simulated = false;
+        }
+    }
+
+    protected override void TriggerRespawnEvent()
+    {
+        base.TriggerRespawnEvent();
+
+        dead = false;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        if (rb != null)
+        {
+            rb.simulated = true;
+        }
     }
 }

@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 6572566762670541939}
   - component: {fileID: 4853169847598270134}
   - component: {fileID: 2020160772694170902}
+  - component: {fileID: 5016902242902785548}
   m_Layer: 0
   m_Name: Middle Spike Hang 1
   m_TagString: Untagged
@@ -167,7 +168,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.40709466}
+  m_Offset: {x: 0, y: 0.33290255}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -178,5 +179,23 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.7858107}
+  m_Size: {x: 1, y: 0.6374265}
   m_EdgeRadius: 0
+--- !u!68 &5016902242902785548
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8538587496725307643}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.81}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}

@@ -19,7 +19,7 @@ MonoBehaviour:
     numStars: 0
     fastestTime: Infinity
     ghostPosSerialized: []
-  colorList: {fileID: 11400000, guid: 491b711cab81c174bb0a0b8dc45f036e, type: 2}
+  colorList: {fileID: 0}
   ghostPos: []
   numCollected: 0
   deathCount: 0

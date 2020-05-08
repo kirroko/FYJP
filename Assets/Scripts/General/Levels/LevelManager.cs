@@ -205,7 +205,8 @@ public class LevelManager : MonoBehaviour
         ObjectReferences.instance.itemCount.text = currentLevel.numCollected + "/" + currentLevel.numToCollect;
 
         //Set player's pos to checkpoint 
-        player.transform.position = spawnPoint;
+        player.transform.position = spawnPoint + new Vector3(0f, 5f, 0f);
+        Camera.main.transform.position = player.transform.position;
 
         //Respawn Respawnable objects
         EventManager.instance.TriggerRespawnObjectsEvent();

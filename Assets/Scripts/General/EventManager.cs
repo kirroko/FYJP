@@ -11,7 +11,7 @@ public class EventManager : MonoBehaviour
     public event Action<Collision2D, GameObject> EnemyCollisionEvent = null;
     public event Action<GameObject> checkpointEvent = null;
     public event Action<BaseColor, Projectile, float, GameObject> shootProjectileEvent = null;
-    public event Action sceneChangeEvent = null;
+    public event Action resetJoystickEvent = null;
     public event Action respawnObjectsEvent = null;
     public event Action updateRespawnStatusEvent = null;
 
@@ -58,10 +58,10 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void TriggerSceneChangeEvent()
+    public void TriggerResetJoystickEvent()
     {
-        if (sceneChangeEvent != null)
-            sceneChangeEvent();
+        if (resetJoystickEvent != null)
+            resetJoystickEvent();
     }
 
     public void TriggerRespawnObjectsEvent()

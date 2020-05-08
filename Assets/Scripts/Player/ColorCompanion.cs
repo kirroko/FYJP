@@ -13,6 +13,7 @@ public class ColorCompanion : MonoBehaviour
     private float sinValue = 0f;
     private float prevX = 0f;
     private bool stopMove = false;
+    private bool tempBool = false;
     private SpriteRenderer sr = null;
 
     private bool offsetBool = false;
@@ -39,29 +40,13 @@ public class ColorCompanion : MonoBehaviour
 
         if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
         {
-            float dir = 0f;
-
-            if (Input.GetKey(KeyCode.A))
-                dir = -1f;
-            else if (Input.GetKey(KeyCode.D))
-                dir = 1f;
-            else
-                dir = 0f;
-
-            if (dir != 0 &&
-                Mathf.Sign(dir) == Mathf.Sign(transform.position.x - transform.parent.position.x))
-            {
-                stopMove = true;
-            }
+            UpdatePCVer();   
         }
         else if (Application.platform == RuntimePlatform.Android)
         {
-            if (moveInput.Direction.x != 0 &&
-                Mathf.Sign(moveInput.Direction.x) == Mathf.Sign(transform.position.x - transform.parent.position.x))
-            {
-                stopMove = true;
-            }
+            UpdateMobileVer();
         }
+
 
         if (stopMove)
         {
@@ -74,7 +59,7 @@ public class ColorCompanion : MonoBehaviour
             if (Mathf.Abs(dist) <= 0.1f)
                 offsetBool = true;
 
-            if (Mathf.Abs(dist) >= Mathf.Abs(offset.x) && offsetBool == true)
+            if (Mathf.Abs(dist) >= Mathf.Abs(offset.x) && offsetBool)
             {
                 stopMove = false;
                 offsetBool = false;
@@ -83,5 +68,65 @@ public class ColorCompanion : MonoBehaviour
         }
 
         prevX = transform.position.x;
+    }
+
+
+    private void UpdatePCVer()
+    {
+        float dir = 0f;
+
+        if (Input.GetKey(KeyCode.A))
+            dir = -1f;
+        else if (Input.GetKey(KeyCode.D))
+            dir = 1f;
+        else
+            dir = 0f;
+
+        if (dir != 0 &&
+            Mathf.Sign(dir) == Mathf.Sign(transform.position.x - transform.parent.position.x))
+        {
+            stopMove = true;
+        }
+
+        if (stopMove && dir != 0 &&
+            Mathf.Sign(dir) != Mathf.Sign(transform.position.x - transform.parent.position.x) &&
+            !offsetBool)
+        {
+            stopMove = false;
+        }
+
+        float offsetDist = Mathf.Abs(transform.position.x - transform.parent.position.x);
+
+        if (offsetDist > Mathf.Abs(offset.x))
+        {
+            Vector3 tempPos = transform.position;
+            tempPos.x = Mathf.Lerp(transform.position.x, transform.parent.position.x + offset.x * Mathf.Sign(dir), Time.deltaTime);
+            transform.position = tempPos;
+        }
+    }
+
+    private void UpdateMobileVer()
+    {
+        if (moveInput.Direction.x != 0 &&
+            Mathf.Sign(moveInput.Direction.x) == Mathf.Sign(transform.position.x - transform.parent.position.x))
+        {
+            stopMove = true;
+        }
+
+        if (stopMove && moveInput.Direction.x != 0 &&
+            Mathf.Sign(moveInput.Direction.x) != Mathf.Sign(transform.position.x - transform.parent.position.x) &&
+            !offsetBool)
+        {
+            stopMove = false;
+        }
+
+        float offsetDist = Mathf.Abs(transform.position.x - transform.parent.position.x);
+
+        if (stopMove && offsetDist > Mathf.Abs(offset.x))
+        {
+            Vector3 tempPos = transform.position;
+            tempPos.x = transform.parent.position.x + offset.x * -Mathf.Sign(moveInput.Direction.x);
+            transform.position = tempPos;
+        }
     }
 }

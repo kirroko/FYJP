@@ -27,7 +27,7 @@ public class PatrolAI : AI
         base.Update();
         shootingInterval -= Time.deltaTime;
 
-        if (stun) return;
+        if (stun || dead) return;
 
         if (!Physics2D.Raycast(transform.position + new Vector3(collider.bounds.extents.x * dir.x, 0f, 0f), Vector2.down, collider.bounds.extents.y + 0.1f))
         {

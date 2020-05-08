@@ -25,14 +25,14 @@ public class Respawnable : MonoBehaviour
         EventManager.instance.updateRespawnStatusEvent -= TriggerRespawnStatusEvent;
     }
 
-    private void TriggerRespawnEvent()
+    protected virtual void TriggerRespawnEvent()
     {
         if (!willRespawn) return;
 
         transform.localScale = scale;
     }
 
-    private void TriggerRespawnStatusEvent()
+    protected virtual void TriggerRespawnStatusEvent()
     {
         if (gone) willRespawn = false;
     }

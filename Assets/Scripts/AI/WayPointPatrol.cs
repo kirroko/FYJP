@@ -21,7 +21,7 @@ public class WayPointPatrol : AI
     {
         base.Update();
 
-        if (stun) return;
+        if (stun || dead) return;
 
         transform.position = Vector2.MoveTowards(transform.position, moveSpots[randomSpots].position, speed * Time.deltaTime);
         if (Vector2.Distance(transform.position, moveSpots[randomSpots].position) < 0.2f)

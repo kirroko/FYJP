@@ -18,7 +18,7 @@ public class PlayerInfo : MonoBehaviour
     }
 
     [SerializeField] private int heart = 1;
-    [SerializeField] private float invincibleDuration = 3f;
+    [SerializeField] private const float invincibleDuration = 3f;
     [SerializeField] private GameObject canvas = null;
 
     private bool isInvincible = false;
@@ -67,6 +67,8 @@ public class PlayerInfo : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("Death");
             Invoke("ResetMaterial", .15f);
+            EventManager.instance.TriggerResetJoystickEvent();
+            IsInvincible = true;
             canvas.SetActive(false);
             StartCoroutine(DelayRestartLevel(1.0f));
         }
@@ -86,8 +88,11 @@ public class PlayerInfo : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         canvas.SetActive(true);
+        EventManager.instance.TriggerResetJoystickEvent();
         LevelManager.instance.RestartLevel();
         GetComponent<Animator>().SetTrigger("Reset");
+        isInvincible = true;
+        invincibleInterval = 1.5f;
     }
 
     public void GainHeart(int amt)

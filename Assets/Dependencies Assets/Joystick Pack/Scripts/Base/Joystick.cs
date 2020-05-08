@@ -58,13 +58,13 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         handle.pivot = center;
         handle.anchoredPosition = Vector2.zero;
 
-        EventManager.instance.sceneChangeEvent -= TriggerSceneChangeEvent;
-        EventManager.instance.sceneChangeEvent += TriggerSceneChangeEvent;
+        EventManager.instance.resetJoystickEvent -= TriggerResetJoystickEvent;
+        EventManager.instance.resetJoystickEvent += TriggerResetJoystickEvent;
     }
 
     private void OnDestroy()
     {
-        EventManager.instance.sceneChangeEvent -= TriggerSceneChangeEvent;
+        EventManager.instance.resetJoystickEvent -= TriggerResetJoystickEvent;
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
@@ -164,7 +164,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         handle.GetComponent<UnityEngine.UI.Image>().sprite = sprite;
     }
 
-    private void TriggerSceneChangeEvent()
+    private void TriggerResetJoystickEvent()
     {
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;

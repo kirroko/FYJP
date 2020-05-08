@@ -65,3 +65,6 @@ TagManager:
   - name: Foreground
     uniqueID: 83420219
     locked: 0
+  - name: InGameUI
+    uniqueID: 2584210051
+    locked: 0

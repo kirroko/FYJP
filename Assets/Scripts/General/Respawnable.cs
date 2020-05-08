@@ -17,12 +17,16 @@ public class Respawnable : MonoBehaviour
 
         EventManager.instance.updateRespawnStatusEvent -= TriggerRespawnStatusEvent;
         EventManager.instance.updateRespawnStatusEvent += TriggerRespawnStatusEvent;
+
+        EventManager.instance.respawnAllEvent -= TriggerRespawnAllEvent;
+        EventManager.instance.respawnAllEvent += TriggerRespawnAllEvent;
     }
 
     protected virtual void OnDestroy()
     {
         EventManager.instance.respawnObjectsEvent -= TriggerRespawnEvent;
         EventManager.instance.updateRespawnStatusEvent -= TriggerRespawnStatusEvent;
+        EventManager.instance.respawnAllEvent -= TriggerRespawnAllEvent;
     }
 
     protected virtual void TriggerRespawnEvent()
@@ -35,6 +39,14 @@ public class Respawnable : MonoBehaviour
     protected virtual void TriggerRespawnStatusEvent()
     {
         if (gone) willRespawn = false;
+    }
+
+    protected virtual void TriggerRespawnAllEvent()
+    {
+        willRespawn = true;
+        gone = false;
+
+        transform.localScale = scale;
     }
 
     protected void Gone()

@@ -175,4 +175,18 @@ public class AI : Respawnable
             rb.simulated = true;
         }
     }
+
+    protected override void TriggerRespawnAllEvent()
+    {
+        base.TriggerRespawnAllEvent();
+
+        dead = false;
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        if (rb != null)
+        {
+            rb.simulated = true;
+        }
+    }
 }

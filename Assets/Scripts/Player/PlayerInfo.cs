@@ -89,7 +89,7 @@ public class PlayerInfo : MonoBehaviour
         yield return new WaitForSeconds(time);
         canvas.SetActive(true);
         EventManager.instance.TriggerResetJoystickEvent();
-        LevelManager.instance.RestartLevel();
+        LevelManager.instance.RestartFromCheckpoint();
         GetComponent<Animator>().SetTrigger("Reset");
         isInvincible = true;
         invincibleInterval = 1.5f;

@@ -14,6 +14,7 @@ public class EventManager : MonoBehaviour
     public event Action resetJoystickEvent = null;
     public event Action respawnObjectsEvent = null;
     public event Action updateRespawnStatusEvent = null;
+    public event Action respawnAllEvent = null;
 
     private void Awake()
     {
@@ -74,5 +75,11 @@ public class EventManager : MonoBehaviour
     {
         if (updateRespawnStatusEvent != null)
             updateRespawnStatusEvent();
+    }
+
+    public void TriggerRespawnAllEvent()
+    {
+        if (respawnAllEvent != null)
+            respawnAllEvent();
     }
 }

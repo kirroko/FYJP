@@ -62,7 +62,7 @@ public class Pause : MonoBehaviour
     public void Restart()
     {
         List<System.Action> yesFunctions = new List<System.Action>();
-        yesFunctions.Add(LevelManager.instance.RestartLevel);
+        yesFunctions.Add(LevelManager.instance.RestartFromBeginning);
         yesFunctions.Add(Pausing);
 
         ConfirmationScreen temp = Instantiate(confirmationRef);

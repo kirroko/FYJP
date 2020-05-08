@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
     private GameObject player = null;
 
     private Vector3 spawnPoint = new Vector3(0f, 0f, Mathf.Infinity);
+    private Vector3 initalPos = Vector3.zero;
     private int numCollectedAtCP = 0;
 
     private void Awake()
@@ -124,6 +125,7 @@ public class LevelManager : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         spawnPoint = player.transform.position;
+        initalPos = player.transform.position;
 
         if (currentLevel.colorList != null)
             PlayerManager.instance.UpdateColorList(currentLevel.colorList);
@@ -195,17 +197,22 @@ public class LevelManager : MonoBehaviour
         SceneTransition.instance.LoadSceneInBG("ResultScreen");
     }
 
-    private IEnumerator ReloadLevel()
+    private IEnumerator ReloadLevel(Vector3 posToSpawn, bool respawnItems)
     {
-        //Reset some variables
-        yield return new WaitForSeconds(1f);
+        if(respawnItems)
+        {
+            currentLevel.numCollected = 0;
+            EventManager.instance.TriggerRespawnAllEvent();
+        }
 
+
+        //Reset some variable
         elapsedTime = CPTime;
         currentLevel.numCollected = numCollectedAtCP;
         ObjectReferences.instance.itemCount.text = currentLevel.numCollected + "/" + currentLevel.numToCollect;
 
         //Set player's pos to checkpoint 
-        player.transform.position = spawnPoint + new Vector3(0f, 5f, 0f);
+        player.transform.position = posToSpawn + new Vector3(0f, 5f, 0f);
         Camera.main.transform.position = player.transform.position;
 
         //Respawn Respawnable objects
@@ -228,9 +235,14 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(LoadLevel(index));
     }
 
-    public void RestartLevel()
+    public void RestartFromCheckpoint()
     {
-        StartCoroutine(ReloadLevel());
+        StartCoroutine(ReloadLevel(spawnPoint, false));
+    }
+
+    public void RestartFromBeginning()
+    {
+        StartCoroutine(ReloadLevel(initalPos, true));
     }
 
     public void ClearSavedData()

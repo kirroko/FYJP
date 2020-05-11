@@ -17,6 +17,7 @@ public class ParallaxScrolling : MonoBehaviour
 
     private Vector3 startPos = Vector3.zero;
     private Vector2 bounds = Vector2.zero;
+    private float startY = 0f;
     //private bool startScroll = false;
 
     private void Start()
@@ -24,6 +25,7 @@ public class ParallaxScrolling : MonoBehaviour
         //Init Variables
         startPos = transform.position;
         bounds = GetComponent<SpriteRenderer>().bounds.size;
+        startY = startPos.y;
         //GetComponent<Collider2D>().isTrigger = true;
         //cam = Camera.main.transform;
 
@@ -84,6 +86,8 @@ public class ParallaxScrolling : MonoBehaviour
                 startPos.y += bounds.y * 3f;
             else if (distY < bounds.y * -1.5f)
                 startPos.y -= bounds.y * 3f;
+
+            startPos.y = Mathf.Max(startPos.y, startY);
         }
 
         transform.position = targetPos;

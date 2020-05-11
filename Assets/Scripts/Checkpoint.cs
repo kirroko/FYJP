@@ -63,10 +63,12 @@ public class Checkpoint : MonoBehaviour
 
     private IEnumerator ILerpAlpha(SpriteRenderer sprite, float dir, float speed)
     {
+        LerpAlpha(sprite, dir, speed);
+
         while(sprite.color.a > 0f && sprite.color.a < 1f)
         {
-            LerpAlpha(sprite, dir, speed);
             yield return null;
+            LerpAlpha(sprite, dir, speed);
         }
     }
 

@@ -17,6 +17,7 @@ public class ColorCompanion : MonoBehaviour
     private SpriteRenderer sr = null;
 
     private bool offsetBool = false;
+    private float facingDir = 1f;
 
     private void Start()
     {
@@ -51,6 +52,18 @@ public class ColorCompanion : MonoBehaviour
             UpdateMobileVer();
         }
 
+        float offsetDist = Mathf.Abs(transform.position.x - transform.parent.position.x);
+
+        //Companion is further thn offset so bring it closer to player
+        if (offsetDist > Mathf.Abs(offset.x))
+        {
+            stopMove = false;
+            Vector3 tempPos = transform.position;
+
+            tempPos.x = Mathf.Lerp(transform.position.x, transform.parent.position.x + offset.x * facingDir, Time.deltaTime);
+            transform.position = tempPos;
+        }
+
 
         if (stopMove)
         {
@@ -60,7 +73,7 @@ public class ColorCompanion : MonoBehaviour
             transform.position = tempPos;
 
             float dist = transform.position.x - transform.parent.position.x;
-            if (Mathf.Abs(dist) <= 0.1f)
+            if (Mathf.Abs(dist) <= 0.1f)//Player is very near companion so can say companion shld flip
                 offsetBool = true;
 
             if (Mathf.Abs(dist) >= Mathf.Abs(offset.x) && offsetBool)
@@ -86,51 +99,37 @@ public class ColorCompanion : MonoBehaviour
         else
             dir = 0f;
 
-        if (dir != 0 &&
-            Mathf.Sign(dir) == Mathf.Sign(transform.position.x - transform.parent.position.x))
+        if (dir != 0f) facingDir = Mathf.Sign(dir);
+
+        if (facingDir == Mathf.Sign(transform.position.x - transform.parent.position.x))//Player is facing companion
         {
             stopMove = true;
         }
 
-        if (stopMove && dir != 0 &&
-            Mathf.Sign(dir) != Mathf.Sign(transform.position.x - transform.parent.position.x) &&
-            !offsetBool)
+        //Player was moving towards companion but changes dir and moves away from companion before going pass companion
+        if (stopMove &&
+            facingDir != Mathf.Sign(transform.position.x - transform.parent.position.x) &&   //Player not facing companion
+            !offsetBool)    //So tat Companion will not start following player once companion is almost same pos as player
         {
             stopMove = false;
-        }
-
-        float offsetDist = Mathf.Abs(transform.position.x - transform.parent.position.x);
-
-        if (offsetDist > Mathf.Abs(offset.x))
-        {
-            Vector3 tempPos = transform.position;
-            tempPos.x = Mathf.Lerp(transform.position.x, transform.parent.position.x + offset.x * Mathf.Sign(dir), Time.deltaTime);
-            transform.position = tempPos;
         }
     }
 
     private void UpdateMobileVer()
     {
-        if (moveInput.Direction.x != 0 &&
-            Mathf.Sign(moveInput.Direction.x) == Mathf.Sign(transform.position.x - transform.parent.position.x))
+        if (moveInput.Direction.x != 0) facingDir = Mathf.Sign(moveInput.Direction.x);
+
+        if (facingDir == Mathf.Sign(transform.position.x - transform.parent.position.x))//Player is facing companion
         {
             stopMove = true;
         }
 
-        if (stopMove && moveInput.Direction.x != 0 &&
-            Mathf.Sign(moveInput.Direction.x) != Mathf.Sign(transform.position.x - transform.parent.position.x) &&
-            !offsetBool)
+        //Player was moving towards companion but changes dir and moves away from companion before going pass companion
+        if (stopMove &&
+            facingDir != Mathf.Sign(transform.position.x - transform.parent.position.x) &&//Player not facing companion
+            !offsetBool)    //So tat Companion will not start following player once companion is almost same pos as player
         {
             stopMove = false;
-        }
-
-        float offsetDist = Mathf.Abs(transform.position.x - transform.parent.position.x);
-
-        if (stopMove && offsetDist > Mathf.Abs(offset.x))
-        {
-            Vector3 tempPos = transform.position;
-            tempPos.x = transform.parent.position.x + offset.x * -Mathf.Sign(moveInput.Direction.x);
-            transform.position = tempPos;
         }
     }
 }

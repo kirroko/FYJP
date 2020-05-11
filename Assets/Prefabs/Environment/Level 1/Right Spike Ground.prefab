@@ -150,7 +150,7 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.5, y: 0}
-  - {x: 0.05564308, y: 0}
+  - {x: -0.08, y: 0}
 --- !u!114 &5287775236532674703
 MonoBehaviour:
   m_ObjectHideFlags: 0

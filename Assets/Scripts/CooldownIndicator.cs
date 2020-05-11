@@ -11,7 +11,7 @@ public class CooldownIndicator : MonoBehaviour
     private bool onCooldown = false;
     private float divideBy = 0f;
 
-    private void Start()
+    private void Awake()
     {
         image = GetComponent<Image>();
         image.fillAmount = 0f;

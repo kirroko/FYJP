@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
@@ -9,6 +10,9 @@ public class SceneTransition : MonoBehaviour
     public bool ChangedScene { get { return changedScene; } }
 
     public static SceneTransition instance = null;
+
+    //[Header("Reference")]
+    //[SerializeField] private GameObject loadingScreen = null;
 
     private Scene prevScene;
     private Scene currentScene;
@@ -47,17 +51,25 @@ public class SceneTransition : MonoBehaviour
 
     private IEnumerator LoadSceneAsync(string sceneName)
     {
+        Debug.Log("Begin operation... Loading " + sceneName);
+        EventManager.instance.TriggerSceneTransition();
         prevScene = SceneManager.GetActiveScene();
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 
         while(!operation.isDone)
         {
-             yield return null;
+            Debug.Log("Loading...");
+            yield return null;
         }
+
+        EventManager.instance.TriggerSceneTransitionOff();
 
         currentScene = SceneManager.GetSceneByName(sceneName);
         SceneManager.SetActiveScene(currentScene);
         SceneManager.UnloadSceneAsync(prevScene);
+
+        Debug.Log("Set Active Scene... " +
+            currentScene);
 
         changedScene = true;
         EventManager.instance.TriggerResetJoystickEvent();

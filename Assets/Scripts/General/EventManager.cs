@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour
@@ -15,6 +14,8 @@ public class EventManager : MonoBehaviour
     public event Action respawnObjectsEvent = null;
     public event Action updateRespawnStatusEvent = null;
     public event Action respawnAllEvent = null;
+    public event Action startSceneTransition = null;
+    public event Action offSceneTransition = null;
 
     private void Awake()
     {
@@ -81,5 +82,17 @@ public class EventManager : MonoBehaviour
     {
         if (respawnAllEvent != null)
             respawnAllEvent();
+    }
+
+    public void TriggerSceneTransition()
+    {
+        if (startSceneTransition != null)
+            startSceneTransition();
+    }
+
+    public void TriggerSceneTransitionOff()
+    {
+        if (offSceneTransition != null)
+            offSceneTransition();
     }
 }

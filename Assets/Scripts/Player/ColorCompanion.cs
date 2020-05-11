@@ -31,10 +31,14 @@ public class ColorCompanion : MonoBehaviour
     private void LateUpdate()
     {
         //Making it Bob
-        Vector3 targetLocalPos = transform.localPosition;
-        sinValue += Time.deltaTime * bobSpeed;
-        targetLocalPos.y += Mathf.Sin(sinValue) * bobIntensity;
-        transform.localPosition = targetLocalPos;
+        if(Time.timeScale != 0f)
+        {
+            Vector3 targetLocalPos = transform.localPosition;
+            sinValue += Time.deltaTime * bobSpeed;
+            targetLocalPos.y += Mathf.Sin(sinValue) * bobIntensity;
+            transform.localPosition = targetLocalPos;
+        }
+
 
         //Player is moving towards companion
 

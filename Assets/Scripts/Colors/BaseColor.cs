@@ -49,6 +49,7 @@ public class BaseColor : ScriptableObject
     {
         abilityInput = ObjectReferences.instance.abilityInput;
         abilityInput.UpdateHandleImage(abilitySprite);
+        abilityInput.GetComponentInChildren<CooldownIndicator>().UpdateSprite(abilitySprite);
     }
 
     public virtual void UpdateAbility(GameObject player)
@@ -91,10 +92,10 @@ public class BaseColor : ScriptableObject
 
     protected void Shoot(Projectile projectile, float projectileSpeed, GameObject player)
     {
-
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Attack");
 
         EventManager.instance.TriggerShootProjectileEvent(this, projectile, projectileSpeed, player);
+        abilityInput.GetComponentInChildren<CooldownIndicator>().StartCooldown(abilityInterval);
     }
 
     private void ShootProjectileEvent(BaseColor me, Projectile projectile, float projectileSpeed, GameObject player)

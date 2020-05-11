@@ -78,6 +78,8 @@ public class BlueColor : BaseColor
         hasDashed = true;
         waitTime = waitTimeDuration;
 
+
+
         Vector2 direction = movementInput.Direction;
 
         if (direction == Vector2.zero)
@@ -110,5 +112,6 @@ public class BlueColor : BaseColor
         hasDashed = false;
         dashCD = dashCDDuration;
         dashCount = 0;
+        dashButton.GetComponentInChildren<CooldownIndicator>().StartCooldown(dashCD);
     }
 }

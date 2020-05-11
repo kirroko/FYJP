@@ -282,6 +282,8 @@ public class PlayerMovement : MonoBehaviour
         // controlCD = controlCDDuration;
         dashDirection = input.Direction;
 
+        dashButton.GetComponentInChildren<CooldownIndicator>().StartCooldown(dashCD);
+
         if (dashDirection == Vector2.zero)
             dashDirection.x = facingDirection;
 

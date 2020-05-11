@@ -32,6 +32,8 @@ public class PurpleColor : BaseColor
             abilityLeft = abilityDuration;
             abilityActivated = true;
 
+            abilityInput.GetComponentInChildren<CooldownIndicator>().StartCooldown(abilityInterval);
+
             movement.IncreaseSpeed(speedModifier);
         }
 

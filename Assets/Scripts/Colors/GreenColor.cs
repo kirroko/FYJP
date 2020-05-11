@@ -30,13 +30,7 @@ public class GreenColor : BaseColor
         playerColor = player.GetComponent<PlayerColor>();
         movement = player.GetComponent<PlayerMovement>();
         movementInput = ObjectReferences.instance.movementInput;
-        //camera = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
 
-        //if (camera == null) Debug.Log("Not found");
-        //else Debug.Log("Found Cinmachine");
-
-        //zoom = camera.m_Lens.OrthographicSize;
-        //defaultZoom = zoom;
         cam = Camera.main;
         zoom = cam.orthographicSize;
         defaultZoom = zoom;
@@ -51,7 +45,6 @@ public class GreenColor : BaseColor
 
         zoom = Mathf.Clamp(zoom, zoomBounds.x, zoomBounds.y);
 
-        //camera.m_Lens.OrthographicSize = zoom;
         cam.orthographicSize = zoom;
 
         //Check if the player is on a controllable platform
@@ -71,7 +64,6 @@ public class GreenColor : BaseColor
         base.ExitAbility(player);
 
         abilityInput.AxisOptions = AxisOptions.Both;
-        //camera.m_Lens.OrthographicSize = defaultZoom;
         cam.orthographicSize = defaultZoom;
 
         player.GetComponent<PlayerMovement>().enabled = true;

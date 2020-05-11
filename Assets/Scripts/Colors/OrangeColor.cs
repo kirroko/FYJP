@@ -29,9 +29,11 @@ public class OrangeColor : BaseColor
 
             abilityActivated = true;
             playerInfo.IsInvincible = true;
+
+            abilityInput.GetComponentInChildren<CooldownIndicator>().StartCooldown(abilityInterval);
         }
 
-        if(abilityActivated && !playerInfo.IsInvincible)
+        if (abilityActivated && !playerInfo.IsInvincible)
         {
             abilityActivated = false;
         }

@@ -155,12 +155,6 @@ public class AI : Respawnable
     {
         Gone();
         dead = true;
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-
-        if(rb != null)
-        {
-            rb.simulated = false;
-        }
     }
 
     protected override void TriggerRespawnEvent()
@@ -168,12 +162,6 @@ public class AI : Respawnable
         base.TriggerRespawnEvent();
 
         dead = false;
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-
-        if (rb != null)
-        {
-            rb.simulated = true;
-        }
     }
 
     protected override void TriggerRespawnAllEvent()
@@ -181,12 +169,5 @@ public class AI : Respawnable
         base.TriggerRespawnAllEvent();
 
         dead = false;
-
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-
-        if (rb != null)
-        {
-            rb.simulated = true;
-        }
     }
 }

@@ -7,11 +7,9 @@ public class Respawnable : MonoBehaviour
     protected bool gone = false;
     private bool willRespawn = true;
 
-    private Vector3 scale = Vector3.zero;
 
     protected virtual void Start()
     {
-        scale = transform.localScale;
         EventManager.instance.respawnObjectsEvent -= TriggerRespawnEvent;
         EventManager.instance.respawnObjectsEvent += TriggerRespawnEvent;
 
@@ -33,7 +31,7 @@ public class Respawnable : MonoBehaviour
     {
         if (!willRespawn) return;
 
-        transform.localScale = scale;
+        gameObject.SetActive(true);
     }
 
     protected virtual void TriggerRespawnStatusEvent()
@@ -46,12 +44,12 @@ public class Respawnable : MonoBehaviour
         willRespawn = true;
         gone = false;
 
-        transform.localScale = scale;
+        gameObject.SetActive(true);
     }
 
     protected void Gone()
     {
         gone = true;
-        transform.localScale = Vector3.zero;
+        gameObject.SetActive(false);
     }
 }

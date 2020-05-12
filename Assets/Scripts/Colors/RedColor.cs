@@ -47,7 +47,6 @@ public class RedColor : BaseColor
 
         if (player.GetComponent<PlayerMovement>().StillDashing && enemy.IsTagged)
         {
-            Physics2D.IgnoreCollision(collision.collider, player.GetComponent<Collider2D>());//Ignores collision so player can go thru
             player.GetComponent<Rigidbody2D>().velocity = -collision.relativeVelocity;//Gives player vel before they collide
             player.GetComponent<PlayerMovement>().ResetDash();
 

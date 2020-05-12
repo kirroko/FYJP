@@ -53,12 +53,13 @@ public class PlayerColor : MonoBehaviour
         colorPieces[2] = ObjectReferences.instance.rightPiece;
         UpdateImage();
 
+        colorIndicator = ObjectReferences.instance.colorIndicator;
+
         // REFERENCE CODE
         vol = Camera.main.GetComponent<Volume>();
         vol.profile.TryGet(out colorAdjust);
         sr = GetComponent<SpriteRenderer>();
 
-        colorIndicator = ObjectReferences.instance.colorIndicator;
     }
 
     private void Update()

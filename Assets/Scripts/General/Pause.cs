@@ -74,6 +74,7 @@ public class Pause : MonoBehaviour
         List<System.Action> yesFunctions = new List<System.Action>();
         yesFunctions.Add(delegate () { SceneTransition.instance.LoadSceneInBG("LevelSelection"); });
         yesFunctions.Add(delegate () { LevelManager.instance.ResetLevelVariables(); });
+        yesFunctions.Add(delegate () { EventManager.instance.TriggerUpdateHUDEvent(false); });
         yesFunctions.Add(Pausing);
 
         ConfirmationScreen temp = Instantiate(confirmationRef);

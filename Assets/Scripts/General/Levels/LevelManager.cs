@@ -104,6 +104,9 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator LoadLevel(int index)
     {
+        //Update HUD
+        EventManager.instance.TriggerUpdateHUDEvent(true);
+
         //Reset some variables
         elapsedTime = 0f;
         currentLevelIndex = index;
@@ -143,8 +146,9 @@ public class LevelManager : MonoBehaviour
     public void EndLevel(bool completed)
     {
         start = false;
+        EventManager.instance.TriggerUpdateHUDEvent(false);
 
-        if(!completed)
+        if (!completed)
         {
             elapsedTime = 0f;
             SceneTransition.instance.LoadSceneInBG("LevelSelection");

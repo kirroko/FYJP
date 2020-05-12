@@ -23,6 +23,12 @@ public class ObjectReferences : MonoBehaviour
     public Image colorIndicator = null;
     public TextMeshProUGUI itemCount = null;
     public TextMeshProUGUI time = null;
+    [SerializeField] private GameObject itemLogo = null;
+    [SerializeField] private GameObject timeLogo = null;  
+    
+
+    [SerializeField] private GameObject pause = null;
+    [SerializeField] private GameObject settings = null;
 
     private void Awake()
     {
@@ -34,5 +40,26 @@ public class ObjectReferences : MonoBehaviour
         fixedTimeScale = Time.fixedDeltaTime;
         instance = this;
         DontDestroyOnLoad(this);
+    }
+
+    private void Start()
+    {
+        EventManager.instance.updateHUDEvent -= TriggerUpdateHUDEvent;
+        EventManager.instance.updateHUDEvent += TriggerUpdateHUDEvent;
+    }
+
+    //Pass in true if entering level, false if exiting level
+    public void TriggerUpdateHUDEvent(bool state)
+    {
+        //Enable Item and Time UI
+        itemCount.gameObject.SetActive(state);
+        time.gameObject.SetActive(state);
+        itemLogo.gameObject.SetActive(state);
+        timeLogo.gameObject.SetActive(state);
+
+        //Change from setting to pause btn
+        settings.SetActive(!state);
+
+        pause.SetActive(state);
     }
 }

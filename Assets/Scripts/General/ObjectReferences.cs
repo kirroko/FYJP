@@ -23,8 +23,11 @@ public class ObjectReferences : MonoBehaviour
     public Image colorIndicator = null;
     public TextMeshProUGUI itemCount = null;
     public TextMeshProUGUI time = null;
+    public TextMeshProUGUI numKilled = null;
+
     [SerializeField] private GameObject itemLogo = null;
     [SerializeField] private GameObject timeLogo = null;  
+    [SerializeField] private GameObject enemyLogo = null;  
     
 
     [SerializeField] private GameObject pause = null;
@@ -51,11 +54,14 @@ public class ObjectReferences : MonoBehaviour
     //Pass in true if entering level, false if exiting level
     public void TriggerUpdateHUDEvent(bool state)
     {
-        //Enable Item and Time UI
+        //Enable Item, Time, Enemies Killed UI
         itemCount.gameObject.SetActive(state);
         time.gameObject.SetActive(state);
+        numKilled.gameObject.SetActive(state);
+
         itemLogo.gameObject.SetActive(state);
         timeLogo.gameObject.SetActive(state);
+        enemyLogo.gameObject.SetActive(state);
 
         //Change from setting to pause btn
         settings.SetActive(!state);

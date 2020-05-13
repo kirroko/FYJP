@@ -155,6 +155,10 @@ public class AI : Respawnable
     {
         Gone();
         dead = true;
+
+        Level currentLevel = LevelManager.instance.CurrentLevel;
+        ++currentLevel.enemiesKilled;
+        ObjectReferences.instance.numKilled.text = currentLevel.enemiesKilled.ToString() + "/" + currentLevel.numToKill.ToString();
     }
 
     protected override void TriggerRespawnEvent()

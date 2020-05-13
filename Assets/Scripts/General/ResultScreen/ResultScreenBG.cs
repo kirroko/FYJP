@@ -17,7 +17,7 @@ public class ResultScreenBG : MonoBehaviour
     {
         lvlManager = LevelManager.instance;
 
-        stars.sprite = starsImages[lvlManager.CurrentLevel.data.numStars];
-        border.sprite = borderImages[Mathf.Clamp(lvlManager.CurrentLevel.data.numStars - 1, 0, 2)];
+        stars.sprite = starsImages[lvlManager.CurrentLevel.currentRunStar];
+        border.sprite = borderImages[Mathf.Clamp(lvlManager.CurrentLevel.currentRunStar - 1, 0, 2)];
     }
 }

@@ -11,12 +11,12 @@ public class Level : ScriptableObject
     public ColorManager colorList = null;
     [HideInInspector] public List<Vector3> ghostPos = new List<Vector3>();//Updated when player finish the level faster than last time
     [HideInInspector] public int numCollected = 0;
-    [HideInInspector] public int deathCount = 0;
+    [HideInInspector] public int enemiesKilled = 0;
 
     [Header("Criteria For Star")]
     [HideInInspector] public int numToCollect = 0;
     public float starTime = 0f;
-    public int maxDeath = 0;
+    [HideInInspector] public int numToKill = 0;
 
     [SerializeField] private List<string> mission1 = new List<string>();
     [SerializeField] private List<string> mission2 = new List<string>();
@@ -25,6 +25,8 @@ public class Level : ScriptableObject
     public List<List<string>> missions = new List<List<string>>();
     [Tooltip("The word that will be substituted as a number")]
     public string subWord = "num";
+
+    [HideInInspector] public int currentRunStar = 0;
 
     public void Init()
     {

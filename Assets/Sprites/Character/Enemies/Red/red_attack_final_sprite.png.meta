@@ -114,8 +114,116 @@ TextureImporter:
       213: -8200390771223671184
     second: red_attack_final_sprite_36
   - first:
-      213: -8189186529834267380
-    second: red_attack_final_sprite_37
+      213: 6997205554895669272
+    second: red_attack_final_sprite_0
+  - first:
+      213: -6094612071900778145
+    second: red_attack_final_sprite_1
+  - first:
+      213: 1223479289303164541
+    second: red_attack_final_sprite_2
+  - first:
+      213: 742472404481475504
+    second: red_attack_final_sprite_3
+  - first:
+      213: -2928497928194456112
+    second: red_attack_final_sprite_4
+  - first:
+      213: -3044681985909885426
+    second: red_attack_final_sprite_5
+  - first:
+      213: -7394595743574011418
+    second: red_attack_final_sprite_6
+  - first:
+      213: 6854947264683517466
+    second: red_attack_final_sprite_7
+  - first:
+      213: 6498690267534445410
+    second: red_attack_final_sprite_8
+  - first:
+      213: 7562806358535266880
+    second: red_attack_final_sprite_9
+  - first:
+      213: -6415172435112092604
+    second: red_attack_final_sprite_10
+  - first:
+      213: 126912729146019285
+    second: red_attack_final_sprite_11
+  - first:
+      213: 3599252609796486077
+    second: red_attack_final_sprite_12
+  - first:
+      213: -8474970339177399992
+    second: red_attack_final_sprite_13
+  - first:
+      213: 1962998915799709329
+    second: red_attack_final_sprite_14
+  - first:
+      213: -532730308141390949
+    second: red_attack_final_sprite_15
+  - first:
+      213: 1977616700631847656
+    second: red_attack_final_sprite_16
+  - first:
+      213: -5651124788055747648
+    second: red_attack_final_sprite_17
+  - first:
+      213: 3339653761431725897
+    second: red_attack_final_sprite_18
+  - first:
+      213: -6889080393673129271
+    second: red_attack_final_sprite_19
+  - first:
+      213: -5268768238023141140
+    second: red_attack_final_sprite_20
+  - first:
+      213: 4306913887685137381
+    second: red_attack_final_sprite_21
+  - first:
+      213: -7921142183310394602
+    second: red_attack_final_sprite_22
+  - first:
+      213: -8169823318021773403
+    second: red_attack_final_sprite_23
+  - first:
+      213: -5349931204529529673
+    second: red_attack_final_sprite_24
+  - first:
+      213: 6102937838382209122
+    second: red_attack_final_sprite_25
+  - first:
+      213: 3280964805127700006
+    second: red_attack_final_sprite_26
+  - first:
+      213: -2670708458641458304
+    second: red_attack_final_sprite_27
+  - first:
+      213: -2179358164530932498
+    second: red_attack_final_sprite_28
+  - first:
+      213: -6675200329844331510
+    second: red_attack_final_sprite_29
+  - first:
+      213: 4991497751303407231
+    second: red_attack_final_sprite_30
+  - first:
+      213: 4099174775936525841
+    second: red_attack_final_sprite_31
+  - first:
+      213: -867303818708249955
+    second: red_attack_final_sprite_32
+  - first:
+      213: 4884549522243002641
+    second: red_attack_final_sprite_33
+  - first:
+      213: -8414189050454724312
+    second: red_attack_final_sprite_34
+  - first:
+      213: 831815131485838037
+    second: red_attack_final_sprite_35
+  - first:
+      213: -33951138852343157
+    second: red_attack_final_sprite_36
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -179,7 +287,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -191,7 +299,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -203,7 +311,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -215,7 +323,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -228,7 +336,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1152
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -238,8 +346,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0259434e888e6ce0800000000000000
-      internalID: -1410039488724774389
+      spriteID: 81842ff11611b1160800000000000000
+      internalID: 6997205554895669272
       vertices: []
       indices: 
       edges: []
@@ -249,7 +357,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 1152
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -259,8 +367,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 884439950734312c0800000000000000
-      internalID: -4462148655975807864
+      spriteID: f51fb8a7c969b6ba0800000000000000
+      internalID: -6094612071900778145
       vertices: []
       indices: 
       edges: []
@@ -270,7 +378,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 1152
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -280,8 +388,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49b8e86fe396e9ed0800000000000000
-      internalID: -2405369431823840364
+      spriteID: d7666fc6eebaaf010800000000000000
+      internalID: 1223479289303164541
       vertices: []
       indices: 
       edges: []
@@ -291,7 +399,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 1152
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -301,8 +409,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccec537e8833a4470800000000000000
-      internalID: 8379566719763861196
+      spriteID: 0b306a4d7bacd4a00800000000000000
+      internalID: 742472404481475504
       vertices: []
       indices: 
       edges: []
@@ -311,8 +419,8 @@ TextureImporter:
       name: red_attack_final_sprite_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1024
+        x: 512
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -322,8 +430,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 674c6c3541c383df0800000000000000
-      internalID: -200344125415439242
+      spriteID: 0d5808076a2eb57d0800000000000000
+      internalID: -2928497928194456112
       vertices: []
       indices: 
       edges: []
@@ -332,8 +440,8 @@ TextureImporter:
       name: red_attack_final_sprite_5
       rect:
         serializedVersion: 2
-        x: 128
-        y: 1024
+        x: 640
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -343,8 +451,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f3c07a8b10ff53f0800000000000000
-      internalID: -909744598628121614
+      spriteID: e067fcf7ddd1fb5d0800000000000000
+      internalID: -3044681985909885426
       vertices: []
       indices: 
       edges: []
@@ -353,8 +461,8 @@ TextureImporter:
       name: red_attack_final_sprite_6
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1024
+        x: 768
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -364,8 +472,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20bec8c1b483db440800000000000000
-      internalID: 4953177060430113538
+      spriteID: 6e1d7a6795e116990800000000000000
+      internalID: -7394595743574011418
       vertices: []
       indices: 
       edges: []
@@ -374,8 +482,8 @@ TextureImporter:
       name: red_attack_final_sprite_7
       rect:
         serializedVersion: 2
-        x: 384
-        y: 1024
+        x: 0
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -385,8 +493,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea7d064eeca4d4a70800000000000000
-      internalID: 8812782298289199022
+      spriteID: a162f79d73aa12f50800000000000000
+      internalID: 6854947264683517466
       vertices: []
       indices: 
       edges: []
@@ -395,8 +503,8 @@ TextureImporter:
       name: red_attack_final_sprite_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 896
+        x: 128
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -406,8 +514,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc92372c82e8562e0800000000000000
-      internalID: -2133142542777898545
+      spriteID: 26bcda5ed5cff2a50800000000000000
+      internalID: 6498690267534445410
       vertices: []
       indices: 
       edges: []
@@ -416,8 +524,8 @@ TextureImporter:
       name: red_attack_final_sprite_9
       rect:
         serializedVersion: 2
-        x: 128
-        y: 896
+        x: 256
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -427,8 +535,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a7ae52acd8a0ee40800000000000000
-      internalID: 5683728395311949737
+      spriteID: 0426f89405c74f860800000000000000
+      internalID: 7562806358535266880
       vertices: []
       indices: 
       edges: []
@@ -437,8 +545,8 @@ TextureImporter:
       name: red_attack_final_sprite_10
       rect:
         serializedVersion: 2
-        x: 256
-        y: 896
+        x: 384
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -448,8 +556,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 854cf69952a2fea10800000000000000
-      internalID: 1940816305396368472
+      spriteID: 44c1448c8aab8f6a0800000000000000
+      internalID: -6415172435112092604
       vertices: []
       indices: 
       edges: []
@@ -458,8 +566,8 @@ TextureImporter:
       name: red_attack_final_sprite_11
       rect:
         serializedVersion: 2
-        x: 384
-        y: 896
+        x: 512
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -469,8 +577,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 268025263070af070800000000000000
-      internalID: 8140826987541432418
+      spriteID: 5dd493a6472e2c100800000000000000
+      internalID: 126912729146019285
       vertices: []
       indices: 
       edges: []
@@ -479,8 +587,8 @@ TextureImporter:
       name: red_attack_final_sprite_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 768
+        x: 640
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -490,8 +598,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3101a6daf2faee960800000000000000
-      internalID: 7633231037747302419
+      spriteID: db331dfcd2d13f130800000000000000
+      internalID: 3599252609796486077
       vertices: []
       indices: 
       edges: []
@@ -500,8 +608,8 @@ TextureImporter:
       name: red_attack_final_sprite_13
       rect:
         serializedVersion: 2
-        x: 128
-        y: 768
+        x: 768
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -511,8 +619,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50af38046a06d1300800000000000000
-      internalID: 224441823601621509
+      spriteID: 849fb5bf06bd26a80800000000000000
+      internalID: -8474970339177399992
       vertices: []
       indices: 
       edges: []
@@ -521,8 +629,8 @@ TextureImporter:
       name: red_attack_final_sprite_14
       rect:
         serializedVersion: 2
-        x: 256
-        y: 768
+        x: 0
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -532,8 +640,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51a6c4dda8ee06c20800000000000000
-      internalID: 3197818015618722325
+      spriteID: 196f7be0d19fd3b10800000000000000
+      internalID: 1962998915799709329
       vertices: []
       indices: 
       edges: []
@@ -542,8 +650,8 @@ TextureImporter:
       name: red_attack_final_sprite_15
       rect:
         serializedVersion: 2
-        x: 384
-        y: 768
+        x: 128
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -553,8 +661,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eadcda2f6e0357820800000000000000
-      internalID: 2915290102264352174
+      spriteID: b93e5267b9c5b98f0800000000000000
+      internalID: -532730308141390949
       vertices: []
       indices: 
       edges: []
@@ -563,8 +671,8 @@ TextureImporter:
       name: red_attack_final_sprite_16
       rect:
         serializedVersion: 2
-        x: 0
-        y: 640
+        x: 256
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -574,8 +682,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a481b67dd87034000800000000000000
-      internalID: 18867129225517130
+      spriteID: 8e29a0f49e7e17b10800000000000000
+      internalID: 1977616700631847656
       vertices: []
       indices: 
       edges: []
@@ -584,8 +692,8 @@ TextureImporter:
       name: red_attack_final_sprite_17
       rect:
         serializedVersion: 2
-        x: 128
-        y: 640
+        x: 384
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -595,8 +703,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 493d77d08402795e0800000000000000
-      internalID: -1903016823705054316
+      spriteID: 0c3588a32fb2391b0800000000000000
+      internalID: -5651124788055747648
       vertices: []
       indices: 
       edges: []
@@ -605,8 +713,8 @@ TextureImporter:
       name: red_attack_final_sprite_18
       rect:
         serializedVersion: 2
-        x: 256
-        y: 640
+        x: 512
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -616,8 +724,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9aa5e868774a36e90800000000000000
-      internalID: -7033597359757043031
+      spriteID: 9476fead665d85e20800000000000000
+      internalID: 3339653761431725897
       vertices: []
       indices: 
       edges: []
@@ -626,8 +734,8 @@ TextureImporter:
       name: red_attack_final_sprite_19
       rect:
         serializedVersion: 2
-        x: 384
-        y: 640
+        x: 640
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -637,8 +745,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef3a73298f9bd62e0800000000000000
-      internalID: -2130842571420228610
+      spriteID: 9c24102c1e11560a0800000000000000
+      internalID: -6889080393673129271
       vertices: []
       indices: 
       edges: []
@@ -647,8 +755,8 @@ TextureImporter:
       name: red_attack_final_sprite_20
       rect:
         serializedVersion: 2
-        x: 0
-        y: 512
+        x: 768
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -658,8 +766,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: add56e5fb8594a800800000000000000
-      internalID: 622787076842479066
+      spriteID: ce815c0e33391e6b0800000000000000
+      internalID: -5268768238023141140
       vertices: []
       indices: 
       edges: []
@@ -668,8 +776,8 @@ TextureImporter:
       name: red_attack_final_sprite_21
       rect:
         serializedVersion: 2
-        x: 128
-        y: 512
+        x: 0
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -679,8 +787,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdfc7243f20e9ee00800000000000000
-      internalID: 1074636479447683035
+      spriteID: 5e35ba1ac5b35cb30800000000000000
+      internalID: 4306913887685137381
       vertices: []
       indices: 
       edges: []
@@ -689,8 +797,8 @@ TextureImporter:
       name: red_attack_final_sprite_22
       rect:
         serializedVersion: 2
-        x: 256
-        y: 512
+        x: 128
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -700,8 +808,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b17db1632fb905e90800000000000000
-      internalID: -7038954752987900133
+      spriteID: 61bfb6cf623721290800000000000000
+      internalID: -7921142183310394602
       vertices: []
       indices: 
       edges: []
@@ -710,8 +818,8 @@ TextureImporter:
       name: red_attack_final_sprite_23
       rect:
         serializedVersion: 2
-        x: 384
-        y: 512
+        x: 256
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -721,8 +829,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d184ad10937fcf600800000000000000
-      internalID: 503549082574931997
+      spriteID: 5a7eb935af4fe9e80800000000000000
+      internalID: -8169823318021773403
       vertices: []
       indices: 
       edges: []
@@ -731,8 +839,8 @@ TextureImporter:
       name: red_attack_final_sprite_24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
+        x: 384
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -742,8 +850,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c4f32804ffdda950800000000000000
-      internalID: 6462067279548118215
+      spriteID: 7bc5d352ae931c5b0800000000000000
+      internalID: -5349931204529529673
       vertices: []
       indices: 
       edges: []
@@ -752,8 +860,8 @@ TextureImporter:
       name: red_attack_final_sprite_25
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
+        x: 512
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -763,8 +871,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65f538d7e358f4a70800000000000000
-      internalID: 8813409499227578198
+      spriteID: 268df0711adf1b450800000000000000
+      internalID: 6102937838382209122
       vertices: []
       indices: 
       edges: []
@@ -773,8 +881,8 @@ TextureImporter:
       name: red_attack_final_sprite_26
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
+        x: 640
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -784,8 +892,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 522277d2ffd273ab0800000000000000
-      internalID: -5028499884933176795
+      spriteID: 62ef1326b14588d20800000000000000
+      internalID: 3280964805127700006
       vertices: []
       indices: 
       edges: []
@@ -794,8 +902,8 @@ TextureImporter:
       name: red_attack_final_sprite_27
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
+        x: 768
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -805,8 +913,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc189a7d1161faf50800000000000000
-      internalID: 6894753820415984077
+      spriteID: 08b7b009eccbfead0800000000000000
+      internalID: -2670708458641458304
       vertices: []
       indices: 
       edges: []
@@ -816,7 +924,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -826,8 +934,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 507f1fb1b0cad1240800000000000000
-      internalID: 4764153144541312773
+      spriteID: ee459cccb4d51c1e0800000000000000
+      internalID: -2179358164530932498
       vertices: []
       indices: 
       edges: []
@@ -837,7 +945,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 256
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -847,8 +955,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3684f73aab50a7d0800000000000000
-      internalID: -2909224572640000452
+      spriteID: a0cee0faaacec53a0800000000000000
+      internalID: -6675200329844331510
       vertices: []
       indices: 
       edges: []
@@ -858,7 +966,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 256
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -868,8 +976,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6219b5de9c098b780800000000000000
-      internalID: -8667018285929492186
+      spriteID: f76c99b32cc554540800000000000000
+      internalID: 4991497751303407231
       vertices: []
       indices: 
       edges: []
@@ -879,7 +987,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 256
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -889,8 +997,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f56c316451dfffb80800000000000000
-      internalID: -8358684115564509601
+      spriteID: 11620f78db133e830800000000000000
+      internalID: 4099174775936525841
       vertices: []
       indices: 
       edges: []
@@ -899,7 +1007,7 @@ TextureImporter:
       name: red_attack_final_sprite_32
       rect:
         serializedVersion: 2
-        x: 0
+        x: 512
         y: 128
         width: 128
         height: 128
@@ -910,8 +1018,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b29e8039a8aeb80a0800000000000000
-      internalID: -6878146124985079509
+      spriteID: d921e85a5c7b6f3f0800000000000000
+      internalID: -867303818708249955
       vertices: []
       indices: 
       edges: []
@@ -920,7 +1028,7 @@ TextureImporter:
       name: red_attack_final_sprite_33
       rect:
         serializedVersion: 2
-        x: 128
+        x: 640
         y: 128
         width: 128
         height: 128
@@ -931,8 +1039,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 800efb434e01de040800000000000000
-      internalID: 4678414160231391240
+      spriteID: 111291939e769c340800000000000000
+      internalID: 4884549522243002641
       vertices: []
       indices: 
       edges: []
@@ -941,7 +1049,7 @@ TextureImporter:
       name: red_attack_final_sprite_34
       rect:
         serializedVersion: 2
-        x: 256
+        x: 768
         y: 128
         width: 128
         height: 128
@@ -952,35 +1060,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8693be339d380010800000000000000
-      internalID: 1155241007041975946
+      spriteID: 8213aae83abca3b80800000000000000
+      internalID: -8414189050454724312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: red_attack_final_sprite_35
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 340bd6d957efe7fc0800000000000000
-      internalID: -3495076479687086013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: red_attack_final_sprite_36
       rect:
         serializedVersion: 2
         x: 0
@@ -994,17 +1081,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07e42d58a0c523e80800000000000000
-      internalID: -8200390771223671184
+      spriteID: 5da120774733b8b00800000000000000
+      internalID: 831815131485838037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red_attack_final_sprite_37
+      name: red_attack_final_sprite_36
       rect:
         serializedVersion: 2
-        x: 384
+        x: 128
         y: 0
         width: 128
         height: 128
@@ -1015,8 +1102,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0d80d14d3a2a5e80800000000000000
-      internalID: -8189186529834267380
+      spriteID: b827cfc7e91678ff0800000000000000
+      internalID: -33951138852343157
       vertices: []
       indices: 
       edges: []

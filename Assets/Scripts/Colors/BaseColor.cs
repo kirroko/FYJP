@@ -13,6 +13,10 @@ public enum COLORS
     NONE,
 }
 
+/**
+ * Any class that is a color the player can become has to be
+ * dereived from this class
+ */
 public class BaseColor : ScriptableObject
 {
     public bool IsLocked { get { return locked; } set { locked = value; } }
@@ -24,13 +28,23 @@ public class BaseColor : ScriptableObject
     public Color Color { get { return color;} }
 
     [Header("Color Related")]
+    /// Color value
     [SerializeField] protected Color color = Color.white;
-    [SerializeField] protected COLORS mainColor = COLORS.NONE;
-    [SerializeField] protected COLORS parentColor1 = COLORS.NONE;
-    [SerializeField] protected COLORS parentColor2 = COLORS.NONE;
-    [SerializeField] protected COLORS parentOf1 = COLORS.NONE;
-    [SerializeField] protected COLORS parentOf2 = COLORS.NONE;
 
+    /// E.g Color is red, so this shld be set to red
+    [SerializeField] protected COLORS mainColor = COLORS.NONE;
+
+    /// Color that is used to make mainColor.
+    /// If it is a primary color leave it as NONE.
+    [SerializeField] protected COLORS parentColor1 = COLORS.NONE; 
+    [SerializeField] protected COLORS parentColor2 = COLORS.NONE; ///< Same as parentColor1
+
+    /// Color that is made by mixing mainColor and another color.
+    /// If it is not part of any other color leave as NONE.
+    [SerializeField] protected COLORS parentOf1 = COLORS.NONE;
+    [SerializeField] protected COLORS parentOf2 = COLORS.NONE;///< Same as parentOf2
+
+    /// If locked player cannot use it.
     [SerializeField] protected bool locked = false;
 
     [Header("Ability Related")]
@@ -45,6 +59,7 @@ public class BaseColor : ScriptableObject
 
     private float offsetPos = 1.5f;
 
+    /// To be called once when player first changes into this color.
     public virtual void InitAbility(GameObject player)
     {
         abilityInput = ObjectReferences.instance.abilityInput;
@@ -52,6 +67,7 @@ public class BaseColor : ScriptableObject
         abilityInput.GetComponentInChildren<CooldownIndicator>().UpdateSprite(abilitySprite);
     }
 
+    /// To be called every frame while player is in this color.
     public virtual void UpdateAbility(GameObject player)
     {
         abilityCD -= Time.deltaTime;
@@ -75,9 +91,9 @@ public class BaseColor : ScriptableObject
             dir = direction;
             abilityActivated = true;
         }
-
     }
 
+    /// To be called once when player is changing to another color.
     public virtual void ExitAbility(GameObject player)
     {
         abilityCD = 0f;
@@ -85,6 +101,7 @@ public class BaseColor : ScriptableObject
         dir = Vector2.zero;
     }
 
+    /// Dereived class should override it if any function is added to the event system.
     public virtual void OnPlayerDestroyed()
     {
 

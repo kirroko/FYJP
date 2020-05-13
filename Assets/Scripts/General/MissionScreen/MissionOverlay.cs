@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/**
+ * This object is created when the player starts a level.
+ * 
+ * It shows the missions that they have to complete to gain stars.
+ */ 
 public class MissionOverlay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI levelName = null;

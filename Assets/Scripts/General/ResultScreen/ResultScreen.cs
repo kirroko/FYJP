@@ -21,6 +21,8 @@ public class ResultScreen : MonoBehaviour
         numCollected.text = ObjectReferences.instance.itemCount.text;
         timeTaken.text = ObjectReferences.instance.time.text;
         enemiesKilled.text = ObjectReferences.instance.numKilled.text;
+
+        lvlManager.ResetLevelVariables();
     }
 
     public void Retry()

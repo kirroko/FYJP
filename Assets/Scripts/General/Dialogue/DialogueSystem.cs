@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
+/**
+ * This class allow you to create a dialogue between NPC, CutScene or Tutorial 
+ */
 public class DialogueSystem : MonoBehaviour
 {
     [Header("References")]
@@ -58,6 +62,7 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
+    /// Speeds up the typing speed 
     public void Continue()
     {
         waitTime = typeSpeed * 0.5f;

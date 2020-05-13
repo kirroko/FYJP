@@ -1,6 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This Class controls all Audio related matters such as
+ * 
+ * Playing a Clip.
+ * 
+ * Pausing a Clip.
+ * 
+ * Stopping a Clip.
+ * 
+ * It will only be created once during mainmenu and is set to 
+ * not destroy on load.
+ */
 public class AudioManager : MonoBehaviour
 {
     public bool HasBGM { get { return hasBGM; } }
@@ -26,6 +38,7 @@ public class AudioManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this);
 
+        //Sort all the audioClips into their respective dictionary
         foreach (Audio audio in audios)
         {
             AudioSource temp = gameObject.AddComponent<AudioSource>();
@@ -40,6 +53,7 @@ public class AudioManager : MonoBehaviour
         int bgmVol = 1;
         int sfxVol = 1;
 
+        // Set the volume of BGM and SFX to whatever the player has set it to at the start.
         if (!PlayerPrefs.HasKey("SFX"))
             PlayerPrefs.SetInt("SFX", 1);
         else

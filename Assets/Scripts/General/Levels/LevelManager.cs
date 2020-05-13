@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
         {
             spawnPoint = value;
             numCollectedAtCP = currentLevel.numCollected;
+            numKilledAtCP = currentLevel.enemiesKilled;
             EventManager.instance.TriggerUpdateRespawnStatusEvent();
             CPTime = elapsedTime;
         }
@@ -36,6 +37,7 @@ public class LevelManager : MonoBehaviour
     private Vector3 spawnPoint = new Vector3(0f, 0f, Mathf.Infinity);
     private Vector3 initalPos = Vector3.zero;
     private int numCollectedAtCP = 0;
+    private int numKilledAtCP = 0;
 
     private void Awake()
     {
@@ -76,6 +78,10 @@ public class LevelManager : MonoBehaviour
             Collectable[] collectables = level.layout.transform.GetComponentsInChildren<Collectable>();
             level.numToCollect = Mathf.RoundToInt(collectables.Length * 0.8f);
 
+            //Get Number of enemies player has to kill each level to get a star
+            AI[] enemies = level.layout.transform.GetComponentsInChildren<AI>();
+            level.numToKill = Mathf.RoundToInt(enemies.Length * 0.5f);
+
             //Check if the file data has be created before if not create it else load it
             LevelData levelData = SaveSystem.LoadLevel("Level " + level.levelNum);
             if (levelData == null)
@@ -104,13 +110,18 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator LoadLevel(int index)
     {
+        //Update HUD
+        EventManager.instance.TriggerUpdateHUDEvent(true);
+
         //Reset some variables
         elapsedTime = 0f;
         currentLevelIndex = index;
         currentLevel = levels[index];
         currentLevel.numCollected = 0;
         numCollectedAtCP = 0;
+        currentLevel.enemiesKilled = 0;
         ObjectReferences.instance.itemCount.text = "0/" + currentLevel.numToCollect;
+        ObjectReferences.instance.numKilled.text = "0/" + currentLevel.numToKill;
 
         SceneTransition.instance.LoadSceneInBG("Level");
 
@@ -143,8 +154,9 @@ public class LevelManager : MonoBehaviour
     public void EndLevel(bool completed)
     {
         start = false;
+        EventManager.instance.TriggerUpdateHUDEvent(false);
 
-        if(!completed)
+        if (!completed)
         {
             elapsedTime = 0f;
             SceneTransition.instance.LoadSceneInBG("LevelSelection");
@@ -167,18 +179,19 @@ public class LevelManager : MonoBehaviour
         }
 
         //Collected all the collectables
-        Debug.Log("Num collected: " + currentLevel.numCollected);
         if (currentLevel.numCollected >= currentLevel.numToCollect)
             ++stars;
         //Finished level within time limit
         if (elapsedTime <= currentLevel.starTime)
             ++stars;
-        //Died less thn maxDeath
-        if (currentLevel.deathCount <= currentLevel.maxDeath)
+        //Hit kill count
+        if (currentLevel.enemiesKilled >= currentLevel.numToKill)
             ++stars;
 
         //Update NumStars
-        currentLevel.data.numStars = stars;
+        currentLevel.currentRunStar = stars;
+        if (currentLevel.currentRunStar > currentLevel.data.numStars)
+            currentLevel.data.numStars = currentLevel.currentRunStar;
 
 
         //Update current level data
@@ -209,7 +222,9 @@ public class LevelManager : MonoBehaviour
         //Reset some variable
         elapsedTime = CPTime;
         currentLevel.numCollected = numCollectedAtCP;
+        currentLevel.enemiesKilled = numKilledAtCP;
         ObjectReferences.instance.itemCount.text = currentLevel.numCollected + "/" + currentLevel.numToCollect;
+        ObjectReferences.instance.numKilled.text = currentLevel.enemiesKilled + "/" + currentLevel.numToKill;
 
         //Set player's pos to checkpoint 
         player.transform.position = posToSpawn + new Vector3(0f, 5f, 0f);
@@ -255,6 +270,7 @@ public class LevelManager : MonoBehaviour
         start = false;
         currentLevel.numCollected = 0;
         elapsedTime = 0f;
+        currentLevel.numToKill = 0;
     }
 
     public void StartLevel()

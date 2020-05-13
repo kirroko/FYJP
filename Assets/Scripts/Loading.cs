@@ -6,19 +6,19 @@ public class Loading : MonoBehaviour
 {
     private void Start()
     {
-        EventManager.instance.startSceneTransition -= TriggerTransition;
-        EventManager.instance.startSceneTransition += TriggerTransition;
+        EventManager.instance.startSceneTransitionEvent -= TriggerTransition;
+        EventManager.instance.startSceneTransitionEvent += TriggerTransition;
 
-        EventManager.instance.offSceneTransition -= TriggerTransitionOff;
-        EventManager.instance.offSceneTransition += TriggerTransitionOff;
+        EventManager.instance.offSceneTransitionEvent -= TriggerTransitionOff;
+        EventManager.instance.offSceneTransitionEvent += TriggerTransitionOff;
 
         gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
-        EventManager.instance.startSceneTransition -= TriggerTransition;
-        EventManager.instance.offSceneTransition -= TriggerTransitionOff;
+        EventManager.instance.startSceneTransitionEvent -= TriggerTransition;
+        EventManager.instance.offSceneTransitionEvent -= TriggerTransitionOff;
     }
 
     private void TriggerTransition()

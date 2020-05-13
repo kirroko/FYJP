@@ -16,7 +16,7 @@ public class MissionOverlay : MonoBehaviour
 
         UpdateMissionText(0, currentLevel.numToCollect);
         UpdateMissionText(1, currentLevel.starTime);
-        UpdateMissionText(2, currentLevel.maxDeath);
+        UpdateMissionText(2, currentLevel.numToKill);
 
         ObjectReferences.instance.gameObject.SetActive(false);
     }

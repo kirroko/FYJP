@@ -14,8 +14,9 @@ public class EventManager : MonoBehaviour
     public event Action respawnObjectsEvent = null;
     public event Action updateRespawnStatusEvent = null;
     public event Action respawnAllEvent = null;
-    public event Action startSceneTransition = null;
-    public event Action offSceneTransition = null;
+    public event Action startSceneTransitionEvent = null;
+    public event Action offSceneTransitionEvent = null;
+    public event Action<bool> updateHUDEvent = null;
 
     private void Awake()
     {
@@ -84,15 +85,21 @@ public class EventManager : MonoBehaviour
             respawnAllEvent();
     }
 
-    public void TriggerSceneTransition()
+    public void TriggerSceneTransitionEvent()
     {
-        if (startSceneTransition != null)
-            startSceneTransition();
+        if (startSceneTransitionEvent != null)
+            startSceneTransitionEvent();
     }
 
-    public void TriggerSceneTransitionOff()
+    public void TriggerSceneTransitionOffEvent()
     {
-        if (offSceneTransition != null)
-            offSceneTransition();
+        if (offSceneTransitionEvent != null)
+            offSceneTransitionEvent();
+    }
+
+    public void TriggerUpdateHUDEvent(bool state)
+    {
+        if (updateHUDEvent != null)
+            updateHUDEvent(state);
     }
 }

@@ -24,6 +24,8 @@ public class Loading : MonoBehaviour
     private void TriggerTransition()
     {
         this.gameObject.SetActive(true);
+        if (GameObject.FindGameObjectWithTag("Effect"))
+            GameObject.FindGameObjectWithTag("Effect").SetActive(false);
     }
 
     private void TriggerTransitionOff()

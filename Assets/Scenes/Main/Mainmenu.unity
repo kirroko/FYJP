@@ -866,7 +866,6 @@ GameObject:
   - component: {fileID: 918298635}
   - component: {fileID: 918298637}
   - component: {fileID: 918298636}
-  - component: {fileID: 918298638}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -929,27 +928,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918298634}
   m_CullTransparentMesh: 0
---- !u!223 &918298638
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918298634}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 3
-  m_TargetDisplay: 0
 --- !u!1 &1146027139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +1073,6 @@ GameObject:
   - component: {fileID: 1163030747}
   - component: {fileID: 1163030746}
   - component: {fileID: 1163030745}
-  - component: {fileID: 1163030748}
   m_Layer: 5
   m_Name: StartBtn
   m_TagString: Untagged
@@ -1213,27 +1190,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163030743}
   m_CullTransparentMesh: 0
---- !u!223 &1163030748
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163030743}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 3
-  m_TargetDisplay: 0
 --- !u!1 &1510161104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,7 +1322,6 @@ GameObject:
   - component: {fileID: 1639673477}
   - component: {fileID: 1639673479}
   - component: {fileID: 1639673478}
-  - component: {fileID: 1639673480}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1429,27 +1384,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639673476}
   m_CullTransparentMesh: 0
---- !u!223 &1639673480
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639673476}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 1
-  m_TargetDisplay: 0
 --- !u!1 &1672733645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,7 +1496,7 @@ GameObject:
   - component: {fileID: 1919446962}
   m_Layer: 5
   m_Name: 'Dust '
-  m_TagString: Untagged
+  m_TagString: Effect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6321,7 +6255,6 @@ GameObject:
   - component: {fileID: 1938739566}
   - component: {fileID: 1938739565}
   - component: {fileID: 1938739568}
-  - component: {fileID: 1938739569}
   m_Layer: 5
   m_Name: SettingsBtn
   m_TagString: Untagged
@@ -6451,27 +6384,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growSize: {x: 85, y: 85}
---- !u!223 &1938739569
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938739563}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 3
-  m_TargetDisplay: 0
 --- !u!1 &1965632495
 GameObject:
   m_ObjectHideFlags: 0
@@ -6693,7 +6605,7 @@ PrefabInstance:
     - target: {fileID: 5709276081584004377, guid: 76e48297ecc4f034fb4558f38409dfc1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76e48297ecc4f034fb4558f38409dfc1, type: 3}

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class Loading : MonoBehaviour
@@ -12,7 +13,7 @@ public class Loading : MonoBehaviour
         EventManager.instance.offSceneTransitionEvent -= TriggerTransitionOff;
         EventManager.instance.offSceneTransitionEvent += TriggerTransitionOff;
 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     private void OnDestroy()
@@ -23,11 +24,21 @@ public class Loading : MonoBehaviour
 
     private void TriggerTransition()
     {
-        this.gameObject.SetActive(true);
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+        //this.gameObject.SetActive(true);
+        if (GameObject.FindGameObjectWithTag("Effect"))
+            GameObject.FindGameObjectWithTag("Effect").SetActive(false);
     }
 
     private void TriggerTransitionOff()
     {
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
     }    
 }

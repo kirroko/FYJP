@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
+/**
+ * This class is used to serialize Vector3 
+ * 
+ * Convert Vector3 into Vec3Serializable to be able to use in SaveSystem.
+ */
 public class Vec3Serializable
 {
     public float x;

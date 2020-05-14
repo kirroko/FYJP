@@ -2,12 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.IO;
 
+
+/**
+ * This class manages everything level related.
+ * It is only created once in Mainmenu and is set to not destory on load.
+ * 
+ * Method to load a level.
+ * 
+ * Create a Prefab of the layout of the level.
+ * 
+ * Layout shld include: 
+ * 
+ * Camera, layout, player, background.
+ */
 public class LevelManager : MonoBehaviour
 {
     public Level CurrentLevel { get { return currentLevel; } }
     public int CurrentLevelIndex { get { return currentLevelIndex; } }
+
+    /// Allows checkpoint to set the spawnpoint of the current level.
+    /// It also updates the number of item collected, enemies killed and time taken upon reaching the checkpoint.
     public Vector3 SpawnPoint
     {
         get { return spawnPoint; }
@@ -30,14 +45,14 @@ public class LevelManager : MonoBehaviour
     private int currentLevelIndex = 0;
 
     private float elapsedTime = 0f;
-    private float CPTime = 0f;
+    private float CPTime = 0f;///< Time passed upon reaching checkpoint
     private bool start = false;
     private GameObject player = null;
 
     private Vector3 spawnPoint = new Vector3(0f, 0f, Mathf.Infinity);
     private Vector3 initalPos = Vector3.zero;
-    private int numCollectedAtCP = 0;
-    private int numKilledAtCP = 0;
+    private int numCollectedAtCP = 0;///< Number of Item Collected upon reaching checkpoint
+    private int numKilledAtCP = 0;///< Number of Enemies Killed upon reaching checkpoint
 
     private void Awake()
     {
@@ -63,6 +78,11 @@ public class LevelManager : MonoBehaviour
         ObjectReferences.instance.time.text = elapsedTime.ToString("F2");
     }
     
+    /**
+     * This function is called once during Awake and when all data is cleared.
+     * 
+     * It will initalise all the data to do with the level.
+     */
     private void InitLevelData()
     {
         SaveSystem.Init();
@@ -108,6 +128,19 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    /**
+     * What the function will do:
+     * 
+     * Reset Time, item collect, enemies killed of that level.
+     * 
+     * Load Level Scene.
+     * 
+     * Layout prefab is Instantiated once scene is loaded.
+     * 
+     * Color that player can used is updated.
+     * 
+     * Spawnpoint is Set.
+     */
     private IEnumerator LoadLevel(int index)
     {
         //Update HUD
@@ -151,6 +184,16 @@ public class LevelManager : MonoBehaviour
         //}
     }
 
+    /**
+     * Function that is called by when player reaches endpoint of the level.
+     * 
+     * What the function will do:
+     * 
+     * Calculates the number of stars obtained.
+     * 
+     * Changes Scene to ResultScreen scene.
+     * 
+     */
     public void EndLevel(bool completed)
     {
         start = false;
@@ -210,6 +253,20 @@ public class LevelManager : MonoBehaviour
         SceneTransition.instance.LoadSceneInBG("ResultScreen");
     }
 
+
+    /**
+     * What the function will do:
+     * 
+     * Set time taken to time when player reached checkpoint.
+     * 
+     * Set num item collected to num collected when player reached checkpoint.
+     * 
+     * Set enemies killed to num killed when player reached checkpoint.
+     * 
+     * Set player's position to checkpoint's position or spawnpoint.
+     * 
+     * Respawn all items and enemies killed that is before hitting a checkpoint.
+     */
     private IEnumerator ReloadLevel(Vector3 posToSpawn, bool respawnItems)
     {
         if(respawnItems)
@@ -250,11 +307,13 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(LoadLevel(index));
     }
 
+    /// Called if player dies and respawn
     public void RestartFromCheckpoint()
     {
         StartCoroutine(ReloadLevel(spawnPoint, false));
     }
 
+    /// Called if player press restart from pause menu
     public void RestartFromBeginning()
     {
         StartCoroutine(ReloadLevel(initalPos, true));
@@ -265,6 +324,7 @@ public class LevelManager : MonoBehaviour
         SaveSystem.DeleteAllSaveData();
     }
 
+    /// Called in result screen scene
     public void ResetLevelVariables()
     {
         start = false;

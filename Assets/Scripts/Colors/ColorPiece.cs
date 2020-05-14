@@ -10,6 +10,17 @@ public class Piece
     public Sprite sprite = null;
 }
 
+/**
+ * This class is used for the color wheel
+ * 
+ * The Color Wheel is made up of 3 pieces.
+ * 
+ * Left, Middle and Right.
+ * 
+ * Each of them is a Color Piece.
+ * 
+ * Every time the player changes color, displays the color by getting its data from this class
+ */
 public class ColorPiece : MonoBehaviour
 {
     public Image Image { get { return image; } }

@@ -46,6 +46,7 @@ public class PlayerColor : MonoBehaviour
         currentColor = colorManager.colorList[COLORS.WHITE];
         prevColor = currentColor;
         currentColor.InitAbility(gameObject);
+        
 
         colorInput = ObjectReferences.instance.colorInput;
         colorPieces[0] = ObjectReferences.instance.leftPiece;
@@ -54,12 +55,13 @@ public class PlayerColor : MonoBehaviour
         UpdateImage();
 
         colorIndicator = ObjectReferences.instance.colorIndicator;
+        UpdateColorWheel();
+        UpdateColorUI();
 
         // REFERENCE CODE
         vol = Camera.main.GetComponent<Volume>();
         vol.profile.TryGet(out colorAdjust);
         sr = GetComponent<SpriteRenderer>();
-
     }
 
     private void Update()
@@ -81,11 +83,11 @@ public class PlayerColor : MonoBehaviour
             {
                 currentColor = colorManager.colorList[colorPieces[index].GetMain];
                 UpdateColorWheel();
+                UpdateColorUI();
                 prevColor.ExitAbility(gameObject);
                 currentColor.InitAbility(gameObject);
                 prevColor = currentColor;
                 EventManager.instance.TriggerPlatformColorEvent(currentColor.GetMain);
-                UpdateColorUI();
 
                 //Reset variables to default
                 colorChanged = false;

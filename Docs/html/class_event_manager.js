@@ -1,0 +1,28 @@
+var class_event_manager =
+[
+    [ "Awake", "class_event_manager.html#a6943e52113a464061a34276ac83e648c", null ],
+    [ "ITriggerShootProjectileEvent", "class_event_manager.html#a85a96d22fafcda3db0b13e541b0b1a8d", null ],
+    [ "TriggerCheckpointEvent", "class_event_manager.html#aec1008489996ada63afd21cdeba4f96f", null ],
+    [ "TriggerEnemyCollisionEvent", "class_event_manager.html#ab4e6ef2bf299e4062fc91812e403c611", null ],
+    [ "TriggerPlatformColorEvent", "class_event_manager.html#a634ff50ca3aee4b828da7b9fab4d4dc0", null ],
+    [ "TriggerResetJoystickEvent", "class_event_manager.html#af5327769f3decece90b09da796036d0f", null ],
+    [ "TriggerRespawnAllEvent", "class_event_manager.html#ade7cbf9ea1c5a7ad7ba675a415bc64be", null ],
+    [ "TriggerRespawnObjectsEvent", "class_event_manager.html#ad932bdc8dc803c39355b7a577f9a3dc2", null ],
+    [ "TriggerSceneTransitionEvent", "class_event_manager.html#ad280af93ab12c2e8b18b155c5cb47972", null ],
+    [ "TriggerSceneTransitionOffEvent", "class_event_manager.html#af3e3b2f5af56eb5434e4fdb65574e82d", null ],
+    [ "TriggerShootProjectileEvent", "class_event_manager.html#a2d7f75027d2724cdb63f39c61f34f8b0", null ],
+    [ "TriggerUpdateHUDEvent", "class_event_manager.html#aeb3ceefc56aca4de9333bbddfc6dadd0", null ],
+    [ "TriggerUpdateRespawnStatusEvent", "class_event_manager.html#a9e92c016df52de98031b9a4dfe966b6a", null ],
+    [ "instance", "class_event_manager.html#a48dc961602569f67255381442e7bbd2d", null ],
+    [ "checkpointEvent", "class_event_manager.html#a903d5d218a634b10c008c9e3b45b7ee6", null ],
+    [ "EnemyCollisionEvent", "class_event_manager.html#aa268120a563056635dc4fc1c640ddee0", null ],
+    [ "offSceneTransitionEvent", "class_event_manager.html#ab72fe823e3dc57f4d6781a4cc7dca0e5", null ],
+    [ "PlatformColorEvent", "class_event_manager.html#a45f1332150594dba6e8b36bd8737c7cd", null ],
+    [ "resetJoystickEvent", "class_event_manager.html#afd6e817062a99549cd27a0cb8a2f9191", null ],
+    [ "respawnAllEvent", "class_event_manager.html#af64e677f1997c3d33fe88378e42a244b", null ],
+    [ "respawnObjectsEvent", "class_event_manager.html#ad8937fe8c912ca28030325fb60415112", null ],
+    [ "shootProjectileEvent", "class_event_manager.html#ac66d63a848f6a832d3052b00073b0037", null ],
+    [ "startSceneTransitionEvent", "class_event_manager.html#a4470c14ab65e3d12ef2989673d395dd0", null ],
+    [ "updateHUDEvent", "class_event_manager.html#a6a01c5a0b6b37efecc20c5f85e26ae4d", null ],
+    [ "updateRespawnStatusEvent", "class_event_manager.html#a9c1e85c7dfeccf6e5bca7dc7df32ece7", null ]
+];

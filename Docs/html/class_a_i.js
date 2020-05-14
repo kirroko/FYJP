@@ -1,0 +1,28 @@
+var class_a_i =
+[
+    [ "Die", "class_a_i.html#a2e4500ea30990a6cf3eb394ef996451d", null ],
+    [ "OnCollisionStay2D", "class_a_i.html#a931394dd3a4d25b641d2e1f139a28c8d", null ],
+    [ "Start", "class_a_i.html#a562ac376dfe93bb0ee38dedca2cea24c", null ],
+    [ "TriggerRespawnAllEvent", "class_a_i.html#af409ea0e9e268521cf89b9e00d0b6507", null ],
+    [ "TriggerRespawnEvent", "class_a_i.html#a6a89201e680f1f18e410b189beb4e62d", null ],
+    [ "Update", "class_a_i.html#a4986dde123bdc18b14cd626bab148251", null ],
+    [ "damage", "class_a_i.html#a5baf3eff1dd75337ef1dcc1cb7f75b0e", null ],
+    [ "dead", "class_a_i.html#acbcaeb161ac279fd5c214294233d8fb6", null ],
+    [ "frozen", "class_a_i.html#a3fd99c4e232b2563f8bc3e2305f73533", null ],
+    [ "frozenCD", "class_a_i.html#a4ba01492c0cbe48c2c3c9fc9f34adaff", null ],
+    [ "frozenDuration", "class_a_i.html#a1279d2192d094eda409a06a5c5f6b039", null ],
+    [ "moveSpeed", "class_a_i.html#ad4cf1aa60d42d4d2949779df6748241c", null ],
+    [ "playerKnockbackAmt", "class_a_i.html#a1bd4636cfb9ca93bb66c0773206e60cd", null ],
+    [ "slowAmt", "class_a_i.html#a378c512797c2c77c1b8135dd835896dc", null ],
+    [ "speed", "class_a_i.html#a84d9a14e304ecea1c3798a8c2e5ae94f", null ],
+    [ "sr", "class_a_i.html#ab8bc51703e495a43cd43df9f6b86dbe6", null ],
+    [ "stun", "class_a_i.html#a557c522743436d17e520e7a01e08c5cd", null ],
+    [ "stunCD", "class_a_i.html#affd5a03c8b7eff06f6941840721d931d", null ],
+    [ "stunDuration", "class_a_i.html#a88837f7b0509a019b81e86be73847385", null ],
+    [ "tagged", "class_a_i.html#a39a86ab4179edd0a8ea1147a7a7311d4", null ],
+    [ "taggedCD", "class_a_i.html#a90fef82d0bee223807e45edaef9c1438", null ],
+    [ "taggedDuration", "class_a_i.html#a7df237816950125ef92ee4d970ad02b6", null ],
+    [ "IsFrozen", "class_a_i.html#aef9f09030c8d217640192ac4106ff1e5", null ],
+    [ "IsStunned", "class_a_i.html#aded717cf6fe011512695171df41862f0", null ],
+    [ "IsTagged", "class_a_i.html#a9ddba603a77f08d82d6da718faf01dd0", null ]
+];

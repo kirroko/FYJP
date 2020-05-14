@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0d6f9af25e36e0a4f9d8accd047e3354
+guid: 72050cd2ec68a8745a7aa8e6c3a79572
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -221,7 +221,7 @@ TextureImporter:
       name: Attack_4
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
         width: 128
         height: 128

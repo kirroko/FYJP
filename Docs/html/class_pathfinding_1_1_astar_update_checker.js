@@ -1,0 +1,27 @@
+var class_pathfinding_1_1_astar_update_checker =
+[
+    [ "AstarUpdateChecker", "class_pathfinding_1_1_astar_update_checker.html#a96b5dc1483fe54fd3e1e29b2fc7c45e7", null ],
+    [ "CheckForUpdates", "class_pathfinding_1_1_astar_update_checker.html#a3f5448eb278237070bbf9735a570ff7e", null ],
+    [ "CheckForUpdatesNow", "class_pathfinding_1_1_astar_update_checker.html#ab941bd12d03ebe3ac81adf684c4a89e3", null ],
+    [ "DownloadVersionInfo", "class_pathfinding_1_1_astar_update_checker.html#ab9fe34531b91d8d031e0dc0b901838c1", null ],
+    [ "GetURL", "class_pathfinding_1_1_astar_update_checker.html#a2f6e59a0bcbc7b77ec6350b59cb3f335", null ],
+    [ "ParseServerMessage", "class_pathfinding_1_1_astar_update_checker.html#ac0e08ccfa8424bdd74b49378d22bfed4", null ],
+    [ "RefreshServerMessage", "class_pathfinding_1_1_astar_update_checker.html#aaf69cffa8ec2b9877cd9688b78d59841", null ],
+    [ "ShowUpdateWindowIfRelevant", "class_pathfinding_1_1_astar_update_checker.html#ad2200d0faf926f8c5ed9e0333dc0d74c", null ],
+    [ "UpdateCheckCompleted", "class_pathfinding_1_1_astar_update_checker.html#a39946f5250313eb45a9f09afbee7dc00", null ],
+    [ "UpdateCheckLoop", "class_pathfinding_1_1_astar_update_checker.html#adbe7d7051d82da6f5ed51b42aac3945c", null ],
+    [ "_lastUpdateCheck", "class_pathfinding_1_1_astar_update_checker.html#ae095e688d6336848369d8c2bdb5d814f", null ],
+    [ "_lastUpdateCheckRead", "class_pathfinding_1_1_astar_update_checker.html#a8aa3899bdf7cc925c925e5092edd4451", null ],
+    [ "_latestBetaVersion", "class_pathfinding_1_1_astar_update_checker.html#a4d80d8bef973ab32f62a4bc603d7fb1f", null ],
+    [ "_latestVersion", "class_pathfinding_1_1_astar_update_checker.html#aa0a91fba5e24144f5cc70debddbd6348", null ],
+    [ "_latestVersionDescription", "class_pathfinding_1_1_astar_update_checker.html#a0bb467f3059d0d642564156d3e7f28e0", null ],
+    [ "astarServerData", "class_pathfinding_1_1_astar_update_checker.html#ab6cf739676214e5f9f95ad183ddb6dc9", null ],
+    [ "hasParsedServerMessage", "class_pathfinding_1_1_astar_update_checker.html#aa1fa87ae7c99c05fae744378779b724f", null ],
+    [ "updateCheckDownload", "class_pathfinding_1_1_astar_update_checker.html#a09b9600e91589972f86c7bbf250cbf70", null ],
+    [ "updateCheckRate", "class_pathfinding_1_1_astar_update_checker.html#a8d787d2479779a5cb8e927d2366bd9e7", null ],
+    [ "updateURL", "class_pathfinding_1_1_astar_update_checker.html#a632aa70c74b2c28fbdf1455f4571f63d", null ],
+    [ "lastUpdateCheck", "class_pathfinding_1_1_astar_update_checker.html#ac181fd8bbf0013b566044c7dc9a93662", null ],
+    [ "latestBetaVersion", "class_pathfinding_1_1_astar_update_checker.html#a051a9f1f87b5e314d3a247c877ff28a4", null ],
+    [ "latestVersion", "class_pathfinding_1_1_astar_update_checker.html#a2ac37787f7465375c86a7d3ae83e4822", null ],
+    [ "latestVersionDescription", "class_pathfinding_1_1_astar_update_checker.html#a07ba03ef859cba77985e8fae3978766f", null ]
+];

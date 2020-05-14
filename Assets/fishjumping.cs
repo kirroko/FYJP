@@ -24,9 +24,9 @@ public class fishjumping : AI
         if (timer <= -2.0f)
             timer = 2.0f;
     }
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
-    {
-        base.OnCollisionEnter2D(collision);
+    //protected virtual void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    base.OnCollisionEnter2D(collision);
 
-    }
+    //}
 }

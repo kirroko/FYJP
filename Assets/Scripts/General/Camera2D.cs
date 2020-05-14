@@ -23,7 +23,6 @@ public class Camera2D: MonoBehaviour
     [SerializeField] private float moveAmt = 0.5f;//Percentage of the screen height
 
     [Header("Bounderies")]
-    [SerializeField] private float padding = 3f;
     [SerializeField] private Transform boundsLeft = null;
     [SerializeField] private Transform boundsRight = null;
     [SerializeField] private Transform boundsTop= null;
@@ -177,14 +176,6 @@ public class Camera2D: MonoBehaviour
         Vector3 tempPos = transform.position;
         tempPos.z = distance;
 
-        //if (target != null)
-        //{
-        //    tempPos.x = target.position.x;
-        //    tempPos.y = target.position.y;
-        //}
-
-        //tempPos.x += startOffset.x;
-        //tempPos.y += startOffset.y;
         transform.position = tempPos;
         currentY = transform.position.y;
     }

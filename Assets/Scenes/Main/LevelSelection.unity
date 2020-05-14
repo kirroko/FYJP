@@ -228,14 +228,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1877581891}
   distance: -10
-  followSpeed: {x: 2.5, y: 3}
+  followSpeed: {x: 3.5, y: 3}
   deadZoneOffsetX: 0
-  deadZoneX: 2.5
-  lookaheadAmt: 7.5
+  deadZoneX: 5
+  lookaheadAmt: 9
   yMoveTop: 0
   yMoveBottom: 0
   moveAmt: 0.5
-  padding: 0
   boundsLeft: {fileID: 4044530824543770048}
   boundsRight: {fileID: 8007293005728195959}
   boundsTop: {fileID: 2435135511924077187}
@@ -1857,8 +1856,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1, y: 0.1}
   m_AnchorMax: {x: 0.1, y: 0.1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: -80, y: -45.000015}
+  m_SizeDelta: {x: 230, y: 162.4}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &902988405
 MonoBehaviour:

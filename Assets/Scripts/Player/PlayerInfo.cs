@@ -87,10 +87,10 @@ public class PlayerInfo : MonoBehaviour
     private IEnumerator DelayRestartLevel(float time)
     {
         yield return new WaitForSeconds(time);
+        GetComponent<Animator>().SetTrigger("Reset");
         canvas.SetActive(true);
         EventManager.instance.TriggerResetJoystickEvent();
         LevelManager.instance.RestartFromCheckpoint();
-        GetComponent<Animator>().SetTrigger("Reset");
         isInvincible = true;
         invincibleInterval = 1.5f;
     }

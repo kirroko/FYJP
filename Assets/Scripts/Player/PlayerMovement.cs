@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
 
     public bool StillDashing { get { return stillDashing; } }
 
+    public bool InforceFlip { set { inforceFlip = value; } get { return inforceFlip; } }
+
+    public int FacingDirection { get { return facingDirection; } }
+
     [Header("References")]
     [SerializeField] private ParticleSystem dust = null;
     [SerializeField] private LayerMask wallLayer = 0;
@@ -55,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     private float lastXDir = 0;
     private int facingDirection = 0;
     private float speedModifier = 0f;
+    private bool inforceFlip = false;
 
     //Jumping
     private bool isGrounded = false;
@@ -339,7 +344,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (forceFlip)
             sr.flipX = !sr.flipX;
-        else
+        else if(!inforceFlip)
         {
             if (facingDirection > 0)
                 sr.flipX = false;

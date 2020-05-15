@@ -59,6 +59,8 @@ public class BaseColor : ScriptableObject
 
     private float offsetPos = 1.5f;
 
+    private bool flipped = false;
+
     /// To be called once when player first changes into this color.
     public virtual void InitAbility(GameObject player)
     {
@@ -109,8 +111,14 @@ public class BaseColor : ScriptableObject
 
     protected void Shoot(Projectile projectile, float projectileSpeed, GameObject player)
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Attack");
-
+        player.GetComponent<Animator>().SetTrigger("Attack");
+        Debug.Log(player.GetComponent<PlayerMovement>().FacingDirection + " " + dir.x);
+        if(player.GetComponent<PlayerMovement>().FacingDirection != dir.x)
+        {
+            player.GetComponent<SpriteRenderer>().flipX = !player.GetComponent<SpriteRenderer>().flipX;
+            flipped = true;
+        }
+        player.GetComponent<PlayerMovement>().InforceFlip = true;
         EventManager.instance.TriggerShootProjectileEvent(this, projectile, projectileSpeed, player);
         abilityInput.GetComponentInChildren<CooldownIndicator>().StartCooldown(abilityInterval);
     }
@@ -127,6 +135,13 @@ public class BaseColor : ScriptableObject
 
         dir = Vector2.zero;
         abilityCD = abilityInterval;
+
+        if (flipped)
+        {
+            player.GetComponent<SpriteRenderer>().flipX = !player.GetComponent<SpriteRenderer>().flipX;
+            flipped = false;
+        }
+        player.GetComponent<PlayerMovement>().InforceFlip = false;
     }
 
     protected virtual void AddEvent()

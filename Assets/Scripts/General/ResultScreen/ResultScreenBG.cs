@@ -30,6 +30,10 @@ public class ResultScreenBG : MonoBehaviour
         lvlManager = LevelManager.instance;
 
         stars.sprite = starsImages[lvlManager.CurrentLevel.currentRunStar];
+        for (int i = 0; i < lvlManager.CurrentLevel.currentRunStar; i++)
+        {
+            stars.gameObject.transform.GetChild(i).gameObject.SetActive(true);
+        }
         border.sprite = borderImages[Mathf.Clamp(lvlManager.CurrentLevel.currentRunStar - 1, 0, 2)];
     }
 }

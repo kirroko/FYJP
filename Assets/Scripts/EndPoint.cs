@@ -12,7 +12,7 @@ public class EndPoint : MonoBehaviour
 
     private IEnumerator DelaySceneChange()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.6f);
         LevelManager.instance.EndLevel(true);
     }
 }

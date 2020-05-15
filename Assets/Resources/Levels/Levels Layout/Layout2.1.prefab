@@ -4753,7 +4753,7 @@ GameObject:
   - component: {fileID: 8630226965650112991}
   - component: {fileID: 1463402369062478491}
   - component: {fileID: 338221189797359512}
-  - component: {fileID: 5981673962102796207}
+  - component: {fileID: 3993477109130883927}
   m_Layer: 0
   m_Name: fish
   m_TagString: Untagged
@@ -4840,12 +4840,12 @@ Rigidbody2D:
   m_Mass: 0.1416361
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &338221189797359512
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4862,7 +4862,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.06419481, y: 0.13271391}
   m_Size: {x: 4.2459702, y: 4.2459702}
   m_Direction: 1
---- !u!114 &5981673962102796207
+--- !u!114 &3993477109130883927
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4881,9 +4881,9 @@ MonoBehaviour:
   taggedDuration: 2
   frozenDuration: 2
   slowAmt: 0.5
-  thrust: 1
-  timer: 3
-  rb: {fileID: 0}
+  direction: {x: 0, y: 1}
+  jumpForce: 5
+  jumpInterval: 3
 --- !u!1 &1558226298619009628
 GameObject:
   m_ObjectHideFlags: 0
@@ -28816,7 +28816,7 @@ GameObject:
   - component: {fileID: 6544788695725738023}
   - component: {fileID: 2982150356697743157}
   - component: {fileID: 4739998800295856996}
-  - component: {fileID: 3132277021446404950}
+  - component: {fileID: 6927277564777246600}
   m_Layer: 0
   m_Name: fish (1)
   m_TagString: Untagged
@@ -28903,12 +28903,12 @@ Rigidbody2D:
   m_Mass: 0.1416361
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &4739998800295856996
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -28925,7 +28925,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.06419481, y: 0.13271391}
   m_Size: {x: 4.2459702, y: 4.2459702}
   m_Direction: 1
---- !u!114 &3132277021446404950
+--- !u!114 &6927277564777246600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28944,9 +28944,9 @@ MonoBehaviour:
   taggedDuration: 2
   frozenDuration: 2
   slowAmt: 0.5
-  thrust: 1
-  timer: 3
-  rb: {fileID: 0}
+  direction: {x: 0, y: 1}
+  jumpForce: 5
+  jumpInterval: 3
 --- !u!1 &9033000886672719978
 GameObject:
   m_ObjectHideFlags: 0

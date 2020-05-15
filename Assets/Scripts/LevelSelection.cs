@@ -14,14 +14,14 @@ public class LevelSelection : MonoBehaviour
     private float holdTime = 0f;
     private bool once = false;
 
-    private Joystick abilityInput = null;
+    private HoldButton triggerButton = null;
 
     private void Start()
     {
         GetComponent<Collider2D>().isTrigger = true;
 
         holdTime = holdDuration;
-        abilityInput = ObjectReferences.instance.abilityInput;
+        triggerButton = ObjectReferences.instance.jumpButton;
         frame.GetComponent<SpriteRenderer>().sprite = frameSprites[Mathf.Clamp(level.data.numStars - 1, 0, 2)];
 
         if (level.data.unlocked)
@@ -34,7 +34,7 @@ public class LevelSelection : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
-            if (abilityInput.IsPressed && !once/* && level.data.unlocked*/)
+            if (triggerButton.pressed && !once/* && level.data.unlocked*/)
             {
                 holdTime -= Time.deltaTime;
 

@@ -4581,6 +4581,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1684879449223095483, guid: 43014a7be23bd094a8e07698d35779a2,
+        type: 3}
+      propertyPath: offset.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684879449223095483, guid: 43014a7be23bd094a8e07698d35779a2,
+        type: 3}
+      propertyPath: offset.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684879449223095483, guid: 43014a7be23bd094a8e07698d35779a2,
+        type: 3}
+      propertyPath: followSpeed.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684879449223095483, guid: 43014a7be23bd094a8e07698d35779a2,
+        type: 3}
+      propertyPath: followSpeed.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8070297629261575616, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}
       propertyPath: m_Name

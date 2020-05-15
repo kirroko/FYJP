@@ -7,17 +7,18 @@ public class ColorCompanion : MonoBehaviour
     [SerializeField] private Vector2 offset = Vector2.zero;
     [SerializeField] private float bobIntensity = 5f;
     [SerializeField] private float bobSpeed = 5f;
+    [SerializeField] private Vector2 followSpeed = new Vector2(5f, 1f);
 
     private Joystick moveInput = null;
 
     private float sinValue = 0f;
-    private float prevX = 0f;
-    private bool stopMove = false;
-    private bool tempBool = false;
     private SpriteRenderer sr = null;
 
     private bool offsetBool = false;
     private float facingDir = 1f;
+    private float prevDir = 1f;
+
+    private Transform player = null;
 
     private void Start()
     {
@@ -27,66 +28,41 @@ public class ColorCompanion : MonoBehaviour
 
         // REFERENCE
         sr = GetComponent<SpriteRenderer>();
+        player = transform.parent;
+
+        transform.SetParent(null);
     }
 
     private void LateUpdate()
     {
-        //Making it Bob
-        if(Time.timeScale != 0f)
+        if (Application.platform == RuntimePlatform.Android)
+            UpdateMobileVer();
+        else if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            UpdatePCVer();
+
+        float dir = Mathf.Abs(transform.position.x - player.position.x);
+        if (dir <= 0.1f) sr.flipX = player.GetComponent<SpriteRenderer>().flipX;
+
+        Vector3 targetPos = player.position + new Vector3(offset.x * facingDir, offset.y);
+
+        Vector3 tempPos = transform.position;
+
+        tempPos.x = Mathf.Lerp(tempPos.x, targetPos.x, followSpeed.x * Time.deltaTime);
+        tempPos.y = Mathf.Lerp(tempPos.y, targetPos.y, followSpeed.y * Time.deltaTime);
+
+        transform.position = tempPos;
+        prevDir = facingDir;
+
+        if (Time.timeScale != 0f)
         {
+            transform.parent = player;
             Vector3 targetLocalPos = transform.localPosition;
             sinValue += Time.deltaTime * bobSpeed;
             targetLocalPos.y += Mathf.Sin(sinValue) * bobIntensity;
             transform.localPosition = targetLocalPos;
+            transform.parent = null;
         }
-
-
-        //Player is moving towards companion
-
-        if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
-        {
-            UpdatePCVer();   
-        }
-        else if (Application.platform == RuntimePlatform.Android)
-        {
-            UpdateMobileVer();
-        }
-
-        float offsetDist = Mathf.Abs(transform.position.x - transform.parent.position.x);
-
-        //Companion is further thn offset so bring it closer to player
-        if (offsetDist > Mathf.Abs(offset.x))
-        {
-            stopMove = false;
-            Vector3 tempPos = transform.position;
-
-            tempPos.x = Mathf.Lerp(transform.position.x, transform.parent.position.x + offset.x * facingDir, Time.deltaTime);
-            transform.position = tempPos;
-        }
-
-
-        if (stopMove)
-        {
-            //Stop the companion from moving
-            Vector3 tempPos = transform.position;
-            tempPos.x = prevX;
-            transform.position = tempPos;
-
-            float dist = transform.position.x - transform.parent.position.x;
-            if (Mathf.Abs(dist) <= 0.1f)//Player is very near companion so can say companion shld flip
-                offsetBool = true;
-
-            if (Mathf.Abs(dist) >= Mathf.Abs(offset.x) && offsetBool)
-            {
-                stopMove = false;
-                offsetBool = false;
-                sr.flipX = transform.parent.GetComponent<SpriteRenderer>().flipX;
-            }
-        }
-
-        prevX = transform.position.x;
     }
-
 
     private void UpdatePCVer()
     {
@@ -100,36 +76,10 @@ public class ColorCompanion : MonoBehaviour
             dir = 0f;
 
         if (dir != 0f) facingDir = Mathf.Sign(dir);
-
-        if (facingDir == Mathf.Sign(transform.position.x - transform.parent.position.x))//Player is facing companion
-        {
-            stopMove = true;
-        }
-
-        //Player was moving towards companion but changes dir and moves away from companion before going pass companion
-        if (stopMove &&
-            facingDir != Mathf.Sign(transform.position.x - transform.parent.position.x) &&   //Player not facing companion
-            !offsetBool)    //So tat Companion will not start following player once companion is almost same pos as player
-        {
-            stopMove = false;
-        }
     }
 
     private void UpdateMobileVer()
     {
         if (moveInput.Direction.x != 0) facingDir = Mathf.Sign(moveInput.Direction.x);
-
-        if (facingDir == Mathf.Sign(transform.position.x - transform.parent.position.x))//Player is facing companion
-        {
-            stopMove = true;
-        }
-
-        //Player was moving towards companion but changes dir and moves away from companion before going pass companion
-        if (stopMove &&
-            facingDir != Mathf.Sign(transform.position.x - transform.parent.position.x) &&//Player not facing companion
-            !offsetBool)    //So tat Companion will not start following player once companion is almost same pos as player
-        {
-            stopMove = false;
-        }
     }
 }

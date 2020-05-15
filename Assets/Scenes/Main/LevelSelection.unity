@@ -4624,7 +4624,7 @@ PrefabInstance:
     - target: {fileID: 8070297629261575620, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.17
+      value: -4.03
       objectReference: {fileID: 0}
     - target: {fileID: 8070297629261575620, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}
@@ -4979,7 +4979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 11400000, guid: 0673fb07562000000f73fb0756200000, type: 2}
-  holdDuration: 0.8
+  holdDuration: 0.5
   lockRef: {fileID: 1335013365}
   frame: {fileID: 281646087}
   frameSprites:

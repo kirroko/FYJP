@@ -8,9 +8,17 @@ public class HoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public bool tap = false;
     public bool pressed = false;
 
+    private void LateUpdate()
+    {
+        if (tap)
+        {
+            tap = false;
+        }
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
-        StartCoroutine(Tap());
+        tap = true;
         pressed = true;
     }
 
@@ -18,12 +26,5 @@ public class HoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         tap = false;
         pressed = false;
-    }
-
-    private IEnumerator Tap()
-    {
-        tap = true;
-        yield return null;
-        tap = false;
     }
 }

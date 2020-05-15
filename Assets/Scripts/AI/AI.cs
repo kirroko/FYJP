@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
+using System.Collections;
+using UnityEngine.Assertions.Must;
 
 public class AI : Respawnable
 {
@@ -153,12 +155,22 @@ public class AI : Respawnable
 
     public void Die()
     {
-        Gone();
-        dead = true;
-
+        //Gone();
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+        gameObject.GetComponent<Animator>().SetTrigger("Death");
+        StartCoroutine(DelayGone());
+        
         Level currentLevel = LevelManager.instance.CurrentLevel;
         ++currentLevel.enemiesKilled;
         ObjectReferences.instance.numKilled.text = currentLevel.enemiesKilled.ToString() + "/" + currentLevel.numToKill.ToString();
+    }
+
+    private IEnumerator DelayGone()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Gone();
+        dead = true;
     }
 
     protected override void TriggerRespawnEvent()

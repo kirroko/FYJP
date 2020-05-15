@@ -30,8 +30,8 @@ public class ObjectReferences : MonoBehaviour
     [SerializeField] private GameObject enemyLogo = null;  
     
 
-    [SerializeField] private GameObject pause = null;
-    [SerializeField] private GameObject settings = null;
+    public GameObject pause = null;
+    public GameObject settings = null;
 
     private void Awake()
     {

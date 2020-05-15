@@ -112,7 +112,6 @@ public class BaseColor : ScriptableObject
     protected void Shoot(Projectile projectile, float projectileSpeed, GameObject player)
     {
         player.GetComponent<Animator>().SetTrigger("Attack");
-        Debug.Log(player.GetComponent<PlayerMovement>().FacingDirection + " " + dir.x);
         if(player.GetComponent<PlayerMovement>().FacingDirection != dir.x)
         {
             player.GetComponent<SpriteRenderer>().flipX = !player.GetComponent<SpriteRenderer>().flipX;

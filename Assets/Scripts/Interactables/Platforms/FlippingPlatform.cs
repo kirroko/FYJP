@@ -30,7 +30,7 @@ public class FlippingPlatform : MonoBehaviour
                 currentIndex = 0;
 
             DisablePlatforms();
-            platformGroups[currentIndex].SetActive(true);
+            EnablePlatforms();
         }
     }
 
@@ -38,7 +38,31 @@ public class FlippingPlatform : MonoBehaviour
     {
         foreach (GameObject platformGroup in platformGroups)
         {
-            platformGroup.SetActive(false);
+            Collider2D[] colliders = platformGroup.GetComponentsInChildren<Collider2D>();
+
+            if (colliders.Length != platformGroup.transform.childCount)
+                Debug.LogWarning("Some of the children of " + platformGroup.name + " does not have a collider");
+
+            foreach (Collider2D collider in colliders)
+            {
+                collider.enabled = false;
+                Color tempColor = collider.GetComponent<SpriteRenderer>().color;
+                tempColor.a = 0.5f;
+                collider.GetComponent<SpriteRenderer>().color = tempColor;
+            }
+        }
+    }
+
+    private void EnablePlatforms()
+    {
+        Collider2D[] colliders = platformGroups[currentIndex].GetComponentsInChildren<Collider2D>();
+
+        foreach (Collider2D collider in colliders)
+        {
+            collider.enabled = true;
+            Color tempColor = collider.GetComponent<SpriteRenderer>().color;
+            tempColor.a = 1f;
+            collider.GetComponent<SpriteRenderer>().color = tempColor;
         }
     }
 

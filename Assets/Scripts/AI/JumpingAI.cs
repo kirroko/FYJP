@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class JumpingAI : AI
 {
-    [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float jumpInterval = 3f;
 
     private Rigidbody2D rb = null;
@@ -26,7 +25,7 @@ public class JumpingAI : AI
 
         if(jumpTime <= 0f)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * moveSpeed, ForceMode2D.Impulse);
             jumpTime = jumpInterval;
         }
     }

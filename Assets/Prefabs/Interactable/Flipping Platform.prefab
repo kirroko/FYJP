@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 7068906889965055139}
   - component: {fileID: 7068906889965055138}
   m_Layer: 0
-  m_Name: FlippingPlatform
+  m_Name: Flipping Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

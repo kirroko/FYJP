@@ -5570,7 +5570,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4726567987649947591}
-  - component: {fileID: 5395738177070669900}
   - component: {fileID: 2668211898195906946}
   m_Layer: 0
   m_Name: Boat (19)
@@ -5598,19 +5597,6 @@ Transform:
   m_Father: {fileID: 4796747031671109658}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 7.096}
---- !u!114 &5395738177070669900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444793270123955880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5581306db6af6294f8a15e48a53b6be5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floatStrength: 1
 --- !u!68 &2668211898195906946
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -11555,7 +11541,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6671495483895112406}
   - component: {fileID: 6082414605298215116}
-  - component: {fileID: 8528359846366259287}
   m_Layer: 0
   m_Name: Boat (25)
   m_TagString: Untagged
@@ -11605,19 +11590,6 @@ EdgeCollider2D:
   - {x: 15.04454, y: -8.592485}
   - {x: 15.352188, y: -8.379522}
   - {x: 15.780411, y: -7.958955}
---- !u!114 &8528359846366259287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3250444468889936753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5581306db6af6294f8a15e48a53b6be5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floatStrength: 1
 --- !u!1 &3292208827171174790
 GameObject:
   m_ObjectHideFlags: 0
@@ -17327,7 +17299,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4796747030797093533}
   - component: {fileID: 4796747030797093532}
-  - component: {fileID: 7193508743661487886}
   m_Layer: 0
   m_Name: Boat (1)
   m_TagString: Untagged
@@ -17379,19 +17350,6 @@ EdgeCollider2D:
   - {x: 3.6938128, y: -0.7203903}
   - {x: 3.7726645, y: -0.68142414}
   - {x: 4.481854, y: -0.187819}
---- !u!114 &7193508743661487886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4796747030797093506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5581306db6af6294f8a15e48a53b6be5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floatStrength: 1
 --- !u!1 &4796747030804422593
 GameObject:
   m_ObjectHideFlags: 0
@@ -19163,6 +19121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4796747031671109658}
+  - component: {fileID: 3233005534643654233}
   m_Layer: 0
   m_Name: Boats Container
   m_TagString: Untagged
@@ -19217,6 +19176,19 @@ Transform:
   m_Father: {fileID: 4796747032394098459}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3233005534643654233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4796747031671109659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5581306db6af6294f8a15e48a53b6be5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatStrength: 1
 --- !u!1 &4796747031695518294
 GameObject:
   m_ObjectHideFlags: 0
@@ -20060,7 +20032,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4796747032086062819}
   - component: {fileID: 4796747032086062818}
-  - component: {fileID: 7331466119863775025}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -20109,19 +20080,6 @@ EdgeCollider2D:
   - {x: 1.3169143, y: -0.09089422}
   - {x: 1.792644, y: 0.082345486}
   - {x: 2.4641843, y: 0.5488162}
---- !u!114 &7331466119863775025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4796747032086062816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5581306db6af6294f8a15e48a53b6be5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floatStrength: 1
 --- !u!1 &4796747032091830402
 GameObject:
   m_ObjectHideFlags: 0
@@ -22908,7 +22866,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2875886653229400582}
   - component: {fileID: 8524303701513047930}
-  - component: {fileID: 7539509848292921826}
   m_Layer: 0
   m_Name: Boat (18)
   m_TagString: Untagged
@@ -22958,19 +22915,6 @@ EdgeCollider2D:
   - {x: 15.060257, y: -8.581921}
   - {x: 15.337418, y: -8.39567}
   - {x: 15.785568, y: -7.9532}
---- !u!114 &7539509848292921826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5234945014630049745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5581306db6af6294f8a15e48a53b6be5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floatStrength: 1
 --- !u!1 &5252548163635041343
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class ParallaxScrolling : MonoBehaviour
     [SerializeField] private Transform cam = null;
 
     [Header("Settings")]
+    [SerializeField] private bool willRepeat = true;
     [Tooltip("The lower the value the Faster it moves")]
     [Range(0f,1f)]
     [SerializeField] private float scrollSpeed = 1f;//Lower the value faster it moves in game 
@@ -73,13 +74,17 @@ public class ParallaxScrolling : MonoBehaviour
         float distToMove = cam.position.x * scrollSpeed;
         targetPos.x += distToMove;
 
-        float dist = cam.position.x - targetPos.x;
-        if (dist > bounds.x * 1.5f)
-            startPos.x += bounds.x * 3f;
-        else if (dist < bounds.x * -1.5f)
-            startPos.x -= bounds.x * 3f;
+        if(willRepeat)
+        {
+            float dist = cam.position.x - targetPos.x;
+            if (dist > bounds.x * 1.5f)
+                startPos.x += bounds.x * 3f;
+            else if (dist < bounds.x * -1.5f)
+                startPos.x -= bounds.x * 3f;
+        }
 
-        if(tileVertical)
+
+        if(tileVertical && willRepeat)
         {
             float distY = cam.position.y - targetPos.y;
             if (distY > bounds.y * 1.5f)

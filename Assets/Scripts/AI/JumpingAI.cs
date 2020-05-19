@@ -21,12 +21,30 @@ public class JumpingAI : AI
     {
         base.Update();
 
-        jumpTime -= Time.deltaTime;
+        if(rb.velocity.y == 0f)
+            jumpTime -= Time.deltaTime;
 
         if(jumpTime <= 0f)
         {
             rb.AddForce(Vector2.up * moveSpeed, ForceMode2D.Impulse);
             jumpTime = jumpInterval;
+        }
+
+        if(rb.velocity.y <= 10f)
+        {
+            Vector2 tempVel = rb.velocity;
+            tempVel.y -= 1f;
+            rb.velocity = tempVel;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.bounds.extents.x * 2f > 50f ||
+            collision.collider.bounds.extents.y * 2f > 50f)
+        {
+            rb.velocity = collision.relativeVelocity;
+            Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
         }
     }
 }

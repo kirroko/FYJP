@@ -246,6 +246,7 @@ public class LevelManager : MonoBehaviour
             //Unlock next level and update the data
             levels[currentLevelIndex + 1].data.unlocked = true;
             SaveSystem.SaveLevel(currentLevel);
+            SaveSystem.SaveLevel(levels[currentLevelIndex + 1]);
         }
         elapsedTime = 0f;
         CPTime = 0f;

@@ -7,14 +7,13 @@ public class WayPointPatrol : AI
     [SerializeField] private Transform[] moveSpots = null;
     [SerializeField] private float startWaitTime = 1f;
 
-    private int randomSpots = 0;
+    private int currentIndex = 0;
     private float waitTime = 0f;
 
     protected override void Start()
     {
         base.Start();
         waitTime = startWaitTime;
-        randomSpots = Random.Range(0, moveSpots.Length);
     }
 
     protected override void Update()
@@ -23,12 +22,17 @@ public class WayPointPatrol : AI
 
         if (stun || dead) return;
 
-        transform.position = Vector2.MoveTowards(transform.position, moveSpots[randomSpots].position, speed * Time.deltaTime);
-        if (Vector2.Distance(transform.position, moveSpots[randomSpots].position) < 0.2f)
+        Vector3 targetPos = transform.position;
+        targetPos.x = Mathf.MoveTowards(transform.position.x, moveSpots[currentIndex].position.x, speed * Time.deltaTime);
+
+        transform.position = targetPos;
+        if (Vector2.Distance(transform.position, moveSpots[currentIndex].position) < 0.2f)
         {
             if (waitTime <= 0)
             {
-                randomSpots = Random.Range(0, moveSpots.Length);
+                ++currentIndex;
+                if (currentIndex >= moveSpots.Length)
+                    currentIndex = 0;
                 waitTime = startWaitTime;
             }
             else

@@ -1865,7 +1865,7 @@ Transform:
   - {fileID: 2971626552709528355}
   - {fileID: 1663734941393776880}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &5252395285125983205
 EdgeCollider2D:
@@ -4807,7 +4807,7 @@ Transform:
   - {fileID: 6485737204655491119}
   - {fileID: 8277658586012847948}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 7.096}
 --- !u!68 &2668211898195906946
 EdgeCollider2D:
@@ -7246,7 +7246,7 @@ Transform:
   - {fileID: 2385620406921601579}
   - {fileID: 2912995440491732626}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &3547429122238565000
 EdgeCollider2D:
@@ -8038,7 +8038,7 @@ Transform:
   - {fileID: 8006696119759066192}
   - {fileID: 7490327578967650556}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.578}
 --- !u!68 &6585802913999069136
 EdgeCollider2D:
@@ -8786,7 +8786,7 @@ Transform:
   - {fileID: 3336280152663890622}
   - {fileID: 6886580138009026947}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.112}
 --- !u!68 &7423639130353181398
 EdgeCollider2D:
@@ -9010,7 +9010,7 @@ Transform:
   - {fileID: 3025320004479393628}
   - {fileID: 9038585440215000228}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.5070004}
 --- !u!68 &8422871029651611896
 EdgeCollider2D:
@@ -10627,7 +10627,7 @@ Transform:
   - {fileID: 3708606364326563443}
   - {fileID: 7298094713468553859}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &6082414605298215116
 EdgeCollider2D:
@@ -12348,7 +12348,7 @@ Transform:
   - {fileID: 9110945859617442265}
   - {fileID: 6122376834648791131}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9033350797116886381
 MonoBehaviour:
@@ -13404,7 +13404,7 @@ Transform:
   - {fileID: 2886003967646519717}
   - {fileID: 8310560019198697511}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.149}
 --- !u!68 &5088107778775786881
 EdgeCollider2D:
@@ -17947,7 +17947,6 @@ Transform:
   - {fileID: 6193223229616163343}
   - {fileID: 1900184757758623709}
   - {fileID: 4782570438608742735}
-  - {fileID: 2875886653229400582}
   - {fileID: 4726567987649947591}
   - {fileID: 5493870749304194062}
   - {fileID: 6165110247464991813}
@@ -21561,60 +21560,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &5234945014630049745
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2875886653229400582}
-  - component: {fileID: 8524303701513047930}
-  m_Layer: 0
-  m_Name: Boat (18)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2875886653229400582
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5234945014630049745}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 241.98, y: -3.89, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &8524303701513047930
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5234945014630049745}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 10.804672, y: -7.947393}
-  - {x: 11.529556, y: -8.523222}
-  - {x: 11.9254, y: -8.794586}
-  - {x: 14.618149, y: -8.745682}
-  - {x: 15.060257, y: -8.581921}
-  - {x: 15.337418, y: -8.39567}
-  - {x: 15.785568, y: -7.9532}
 --- !u!1 &5252548163635041343
 GameObject:
   m_ObjectHideFlags: 0
@@ -24431,7 +24376,7 @@ Transform:
   - {fileID: 3326275208440447236}
   - {fileID: 7649327519721545759}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &2638861223124170958
 EdgeCollider2D:
@@ -24657,7 +24602,7 @@ Transform:
   - {fileID: 4381053251453338669}
   - {fileID: 1528030796035820005}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &4548108621320481739
 EdgeCollider2D:
@@ -25143,7 +25088,7 @@ Transform:
   - {fileID: 2707637837034004249}
   - {fileID: 1868179064273171631}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &6793357852174327548
 EdgeCollider2D:
@@ -26363,7 +26308,7 @@ Transform:
   - {fileID: 4840570210441585472}
   - {fileID: 900538295792858394}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7287037549629896843
 MonoBehaviour:
@@ -28623,7 +28568,7 @@ Transform:
   - {fileID: 8494113656421060580}
   - {fileID: 7552229209794688608}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.5070004}
 --- !u!68 &2790015020407216563
 EdgeCollider2D:
@@ -29732,7 +29677,7 @@ Transform:
   - {fileID: 49396050019799598}
   - {fileID: 8025119433612673552}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4195190947266058799
 MonoBehaviour:
@@ -30120,9 +30065,9 @@ GameObject:
   - component: {fileID: 5654789130489676340}
   - component: {fileID: 1616440694777120671}
   m_Layer: 0
-  m_Name: Boat (34)
+  m_Name: f
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -32116,7 +32061,7 @@ Transform:
   - {fileID: 6875026931743633020}
   - {fileID: 7233913570166857286}
   m_Father: {fileID: 4796747031671109658}
-  m_RootOrder: 31
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &4353873515076121894
 EdgeCollider2D:

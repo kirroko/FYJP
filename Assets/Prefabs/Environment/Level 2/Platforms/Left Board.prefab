@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1513113851679768573}
   - component: {fileID: 6712074218641405912}
   - component: {fileID: 6008281309132905839}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Left Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}

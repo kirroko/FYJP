@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class BoatsSway : MonoBehaviour
 {
     //[SerializeField] private float maxTilt = 25f;

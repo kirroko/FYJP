@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3271717918352194612}
   - component: {fileID: 7618948990844300356}
   - component: {fileID: 6202442665113147374}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Middle Boat Tileable
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,28 +1,22 @@
 fileFormatVersion: 2
-guid: afddcb280ff025047ac15d988ff1618f
+guid: 562c9c2c8122c024a9985187edea7904
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8714618485381547786
-    second: teardrip_sprite_0
+      213: -1939556118352367725
+    second: projectile_splatter_final_sprite_0
   - first:
-      213: 4240810083503868568
-    second: teardrip_sprite_1
+      213: -1508059273918620805
+    second: projectile_splatter_final_sprite_1
   - first:
-      213: 1219871312740020837
-    second: teardrip_sprite_2
+      213: 2055151780199279690
+    second: projectile_splatter_final_sprite_2
   - first:
-      213: 304963445390344794
-    second: teardrip_sprite_3
+      213: -2836612323558620598
+    second: projectile_splatter_final_sprite_3
   - first:
-      213: -2201920394812627528
-    second: teardrip_sprite_4
-  - first:
-      213: -344857880409319989
-    second: teardrip_sprite_5
-  - first:
-      213: 8679741526809250316
-    second: teardrip_sprite_6
+      213: -2339476234115053419
+    second: projectile_splatter_final_sprite_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -66,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 512
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -131,7 +125,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: teardrip_sprite_0
+      name: projectile_splatter_final_sprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -139,20 +133,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f8b7c9d8a47f0780800000000000000
-      internalID: -8714618485381547786
+      spriteID: 39febaf8cff4515e0800000000000000
+      internalID: -1939556118352367725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: teardrip_sprite_1
+      name: projectile_splatter_final_sprite_1
       rect:
         serializedVersion: 2
         x: 512
@@ -160,41 +154,41 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89a842b5d426ada30800000000000000
-      internalID: 4240810083503868568
+      spriteID: b7bd8d5941c421be0800000000000000
+      internalID: -1508059273918620805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: teardrip_sprite_2
+      name: projectile_splatter_final_sprite_2
       rect:
         serializedVersion: 2
-        x: 1025
+        x: 1024
         y: 0
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 562fe8bee7adde010800000000000000
-      internalID: 1219871312740020837
+      spriteID: a4c2a4ac7ad558c10800000000000000
+      internalID: 2055151780199279690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: teardrip_sprite_3
+      name: projectile_splatter_final_sprite_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -202,20 +196,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5288f743a27b3400800000000000000
-      internalID: 304963445390344794
+      spriteID: a420bc8ee1452a8d0800000000000000
+      internalID: -2836612323558620598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: teardrip_sprite_4
+      name: projectile_splatter_final_sprite_4
       rect:
         serializedVersion: 2
         x: 2048
@@ -223,56 +217,14 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b5618331153171e0800000000000000
-      internalID: -2201920394812627528
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: teardrip_sprite_5
-      rect:
-        serializedVersion: 2
-        x: 2560
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc5553cb591d63bf0800000000000000
-      internalID: -344857880409319989
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: teardrip_sprite_6
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0a0caf6ee2a47870800000000000000
-      internalID: 8679741526809250316
+      spriteID: 5988a1992c2888fd0800000000000000
+      internalID: -2339476234115053419
       vertices: []
       indices: 
       edges: []

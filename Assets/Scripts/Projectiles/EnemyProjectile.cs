@@ -20,7 +20,8 @@ public class EnemyProjectile : Projectile
             Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
             return;
         }
-
-        Destroy(gameObject);
+        gameObject.GetComponent<Animator>().SetTrigger("Destroy");
+        speed = 0f;
+        StartCoroutine(DelayDestroy(0.25f));
     }
 }

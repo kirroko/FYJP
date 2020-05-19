@@ -32,6 +32,9 @@ public class MovingPlatform : MonoBehaviour
     private int index = 0;
     private int add = 1;
 
+    // REFERENCES
+    private SpriteRenderer sr;
+
     private void Start()
     {
         for (int i = 0; i < distToTravel.Length; ++i)
@@ -41,6 +44,8 @@ public class MovingPlatform : MonoBehaviour
 
         if (!needCharge)
             isCharging = true;
+
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -74,6 +79,11 @@ public class MovingPlatform : MonoBehaviour
             }
 
             Vector3 dir = (distToTravel[index] - transform.position).normalized;
+
+            if (dir.x > 0)
+                sr.flipX = true;
+            else
+                sr.flipX = false;
 
             transform.position += dir * moveSpeed * Time.deltaTime;
             if (onPlatform != null)

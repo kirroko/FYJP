@@ -7,6 +7,7 @@ public class JumpingAI : AI
     [SerializeField] private float jumpInterval = 3f;
 
     private Rigidbody2D rb = null;
+    private SpriteRenderer sr = null;
     private float jumpTime = 0f;
 
     protected override void Start()
@@ -14,12 +15,18 @@ public class JumpingAI : AI
         base.Start();
 
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
         jumpTime = jumpInterval;
     }
 
     protected override void Update()
     {
         base.Update();
+
+        if (rb.velocity.y < 0)
+            sr.flipY = true;
+        else if (rb.velocity.y > 1)
+            sr.flipY = false;
 
         if(rb.velocity.y == 0f)
             jumpTime -= Time.deltaTime;

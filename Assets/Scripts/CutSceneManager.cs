@@ -45,11 +45,15 @@ public class CutSceneManager : MonoBehaviour
 
             if(Mathf.FloorToInt((float)videoPlayer.time) > 28)
             {
-                if(videoPlayer.GetDirectAudioVolume(0) != 0)
+                if(audioSource.volume != 0)
                 {
-                    float temp = videoPlayer.GetDirectAudioVolume(0) - Time.deltaTime;
-                    videoPlayer.SetDirectAudioVolume(0, temp);
-                }
+                    audioSource.volume -= Time.deltaTime;
+                }    
+                //if(videoPlayer.GetDirectAudioVolume(0) != 0)
+                //{
+                //    float temp = videoPlayer.GetDirectAudioVolume(0) - Time.deltaTime;
+                //    videoPlayer.SetDirectAudioVolume(0, temp);
+                //}
             }
 
             yield return null;

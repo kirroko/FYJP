@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2851640500048114722}
   - component: {fileID: 392380640440188720}
   - component: {fileID: 126833243507386390}
-  m_Layer: 0
-  m_Name: Moving platform
+  m_Layer: 13
+  m_Name: Moving Yellow Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -43,6 +43,7 @@ public class LevelSelection : MonoBehaviour
                     Time.timeScale = 1f;
                     Time.fixedDeltaTime = ObjectReferences.fixedTimeScale;
                     LevelManager.instance.StartLevel(level.levelNum - 1);
+                    LevelManager.instance.CurrentLevel.fullSprite = GetComponent<SpriteRenderer>().sprite;
                     once = true;
                 }
             }

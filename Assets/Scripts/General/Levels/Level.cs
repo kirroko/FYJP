@@ -46,6 +46,7 @@ public class Level : ScriptableObject
     public string subWord = "num";
 
     [HideInInspector] public int currentRunStar = 0;
+    [HideInInspector] public Sprite fullSprite = null;
 
     public void Init()
     {

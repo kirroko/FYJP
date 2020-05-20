@@ -5606,6 +5606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stars: {fileID: 1691623396}
   border: {fileID: 2129176136}
+  background: {fileID: 220657184}
   starsImages:
   - {fileID: 21300000, guid: 600c4a9f229d40b408487ef6e35f2535, type: 3}
   - {fileID: 21300000, guid: 6a93bc5fdf96d87419d5a99b5a9b0758, type: 3}

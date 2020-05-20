@@ -19,9 +19,11 @@ public class ResultScreenBG : MonoBehaviour
 {
     [SerializeField] private Image stars = null;
     [SerializeField] private Image border = null;
+    [SerializeField] private Image background = null;
 
     [SerializeField] private Sprite[] starsImages = null;
     [SerializeField] private Sprite[] borderImages = null;
+
 
     private LevelManager lvlManager = null;
 
@@ -35,5 +37,7 @@ public class ResultScreenBG : MonoBehaviour
             stars.gameObject.transform.GetChild(i).gameObject.SetActive(true);
         }
         border.sprite = borderImages[Mathf.Clamp(lvlManager.CurrentLevel.currentRunStar - 1, 0, 2)];
+
+        background.sprite = lvlManager.CurrentLevel.fullSprite;
     }
 }

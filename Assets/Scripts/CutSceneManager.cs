@@ -12,6 +12,8 @@ public class CutSceneManager : MonoBehaviour
     private Animator ani;
     private RawImage rImage;
 
+    private bool skip = false;
+
     private void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
@@ -20,6 +22,12 @@ public class CutSceneManager : MonoBehaviour
         rImage = GetComponent<RawImage>();
         rImage.enabled = true;
         StartCoroutine(RunVideo());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            skip = true;
     }
 
     private IEnumerator RunVideo()
@@ -48,12 +56,15 @@ public class CutSceneManager : MonoBehaviour
                 if(audioSource.volume != 0)
                 {
                     audioSource.volume -= Time.deltaTime;
-                }    
-                //if(videoPlayer.GetDirectAudioVolume(0) != 0)
-                //{
-                //    float temp = videoPlayer.GetDirectAudioVolume(0) - Time.deltaTime;
-                //    videoPlayer.SetDirectAudioVolume(0, temp);
-                //}
+                }
+            }
+
+            if(skip)
+            {
+                videoPlayer.Stop();
+                rImage.enabled = false;
+                audioSource.Stop();
+                break;
             }
 
             yield return null;

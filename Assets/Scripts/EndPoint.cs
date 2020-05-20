@@ -7,12 +7,13 @@ public class EndPoint : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GetComponent<Animator>().SetTrigger("Close");
-        StartCoroutine(DelaySceneChange());
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Exit");
+        StartCoroutine(DelaySceneChange(0.6f));
     }
 
-    private IEnumerator DelaySceneChange()
+    private IEnumerator DelaySceneChange(float time)
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(time);
         LevelManager.instance.EndLevel(true);
     }
 }

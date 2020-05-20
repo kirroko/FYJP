@@ -34,6 +34,7 @@ public class MovingPlatform : MonoBehaviour
 
     // REFERENCES
     private SpriteRenderer sr;
+    private Animator ani;
 
     private void Start()
     {
@@ -46,6 +47,9 @@ public class MovingPlatform : MonoBehaviour
             isCharging = true;
 
         sr = GetComponent<SpriteRenderer>();
+        ani = GetComponent<Animator>();
+
+        ani.SetBool("Charge", needCharge);
     }
 
     private void Update()

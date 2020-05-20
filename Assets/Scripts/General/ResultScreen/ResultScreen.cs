@@ -16,6 +16,7 @@ public class ResultScreen : MonoBehaviour
         lvlManager = LevelManager.instance;
         ObjectReferences.instance.colorIndicator.gameObject.SetActive(false);
         ObjectReferences.instance.settings.SetActive(false);
+        ObjectReferences.instance.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -29,11 +30,13 @@ public class ResultScreen : MonoBehaviour
 
     public void Retry()
     {
+        ObjectReferences.instance.gameObject.SetActive(true);
         lvlManager.StartLevel(lvlManager.CurrentLevelIndex);
     }
 
     public void Next()
     {
+        ObjectReferences.instance.gameObject.SetActive(true);
         SceneTransition.instance.LoadSceneInBG("LevelSelection");
     }
 }

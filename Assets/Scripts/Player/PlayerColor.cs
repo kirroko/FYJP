@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PlayerColor : MonoBehaviour
 {
     public BaseColor GetCurrentColor { get { return currentColor; } }
-    public GameObject GetCollidedPlatform { get { return collidedPlatform; } }
+    public GameObject GetCollidedPlatform { get { return collidedPlatform; }  set { collidedPlatform = value; } }
 
     [Header("Reference")]
     [SerializeField] private SpriteRenderer companionSR = null;

@@ -49,6 +49,7 @@ public class MovingPlatform : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         ani = GetComponent<Animator>();
 
+        if (ani == null) return;
         ani.SetBool("Charge", needCharge);
     }
 
@@ -84,10 +85,13 @@ public class MovingPlatform : MonoBehaviour
 
             Vector3 dir = (distToTravel[index] - transform.position).normalized;
 
-            if (dir.x > 0)
-                sr.flipX = true;
-            else
-                sr.flipX = false;
+            if(sr != null)
+            {
+                if (dir.x > 0)
+                    sr.flipX = true;
+                else
+                    sr.flipX = false;
+            }
 
             transform.position += dir * moveSpeed * Time.deltaTime;
             if (onPlatform != null)

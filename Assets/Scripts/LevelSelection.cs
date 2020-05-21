@@ -37,7 +37,7 @@ public class LevelSelection : MonoBehaviour
             if (triggerButton.pressed && !once/* && level.data.unlocked*/)
             {
                 holdTime -= Time.deltaTime;
-
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Enter");
                 if(holdTime <= 0f)
                 {
                     Time.timeScale = 1f;

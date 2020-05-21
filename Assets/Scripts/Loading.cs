@@ -28,14 +28,15 @@ public class Loading : MonoBehaviour
         {
             transform.GetChild(i).gameObject.SetActive(true);
         }
-        //this.gameObject.SetActive(true);
+
         if (GameObject.FindGameObjectWithTag("Effect"))
             GameObject.FindGameObjectWithTag("Effect").SetActive(false);
+
+        AudioManager.StopBGM("MainMenu");
     }
 
     private void TriggerTransitionOff()
     {
-        //this.gameObject.SetActive(false);
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);

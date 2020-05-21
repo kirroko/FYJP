@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 /**
  * This Class controls all Audio related matters such as
@@ -19,6 +20,10 @@ public class AudioManager : MonoBehaviour
     public bool HasSFX { get { return hasSFX; } }
 
     public static AudioManager instance = null;
+
+    //[SerializeField] AudioMixerGroup master = null;
+    [SerializeField] private AudioMixerGroup mixerBGM = null;
+    [SerializeField] private AudioMixerGroup mixerSFX = null;
 
     [SerializeField] Audio[] audios = null;
 
@@ -43,11 +48,17 @@ public class AudioManager : MonoBehaviour
         {
             AudioSource temp = gameObject.AddComponent<AudioSource>();
             temp.clip = audio.clip;
-
+            
             if (audio.type == AudioType.BGM)
+            {
+                temp.outputAudioMixerGroup = mixerBGM;
                 BGM.Add(audio.audioName, temp);
+            }
             else if (audio.type == AudioType.SFX)
+            {
+                temp.outputAudioMixerGroup = mixerSFX;
                 SFX.Add(audio.audioName, temp);
+            }
         }
 
         int bgmVol = 1;

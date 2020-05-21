@@ -13,6 +13,7 @@ public class Mainmenu : MonoBehaviour
     private void Start()
     {
         transition = SceneTransition.instance;
+        AudioManager.PlayBGM("MainMenu", true);
     }
 
     public void StartGame()

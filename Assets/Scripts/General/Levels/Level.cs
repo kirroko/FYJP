@@ -18,8 +18,10 @@ public class Level : ScriptableObject
     [HideInInspector] public int enemiesKilled = 0;
 
     [Header("Criteria For Star")]
-    [HideInInspector] public int numToCollect = 0; ///< Calculated in LevelManager's InitLevelData()
     public float starTime = 0f;///< Time player has to complete by to get a star
+    [Range(0f, 1f)] public float percentToCollect = 0.8f;
+    [Range(0f, 1f)] public float percentToKill = 0.5f;
+    [HideInInspector] public int numToCollect = 0; ///< Calculated in LevelManager's InitLevelData()
     [HideInInspector] public int numToKill = 0;///< Calculated in LevelManager's InitLevelData()
 
     /**

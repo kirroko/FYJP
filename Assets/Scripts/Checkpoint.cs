@@ -31,6 +31,8 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.GetComponent<PlayerInfo>() == null) return;
+
         LevelManager.instance.SpawnPoint = transform.position;
         EventManager.instance.TriggerCheckpointEvent(gameObject);
 

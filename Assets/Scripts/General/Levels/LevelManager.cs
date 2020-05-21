@@ -96,11 +96,18 @@ public class LevelManager : MonoBehaviour
 
             //Get number of item player has to collect each level to get a star
             Collectable[] collectables = level.layout.transform.GetComponentsInChildren<Collectable>();
-            level.numToCollect = Mathf.RoundToInt(collectables.Length * 0.8f);
+
+            int numToCollect = 0;
+
+            foreach(Collectable collectable in collectables)
+            {
+                if (!collectable.IsExtra) ++numToCollect;
+            }
+            level.numToCollect = Mathf.RoundToInt(numToCollect * level.percentToCollect);
 
             //Get Number of enemies player has to kill each level to get a star
             AI[] enemies = level.layout.transform.GetComponentsInChildren<AI>();
-            level.numToKill = Mathf.RoundToInt(enemies.Length * 0.5f);
+            level.numToKill = Mathf.RoundToInt(enemies.Length * level.percentToKill);
 
             //Check if the file data has be created before if not create it else load it
             LevelData levelData = SaveSystem.LoadLevel("Level " + level.levelNum);

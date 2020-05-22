@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
         //InitData();
     }
 
-    private void InitData()
+    public void InitData()
     {
         //Init Color data
         foreach(COLORS color in colorManager.colorList.Keys)

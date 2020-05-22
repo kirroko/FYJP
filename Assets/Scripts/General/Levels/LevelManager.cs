@@ -330,6 +330,8 @@ public class LevelManager : MonoBehaviour
     public void ClearSavedData()
     {
         SaveSystem.DeleteAllSaveData();
+        InitLevelData();
+        //PlayerManager.instance.InitData();
     }
 
     /// Called in result screen scene

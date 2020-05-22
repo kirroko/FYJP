@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -20,6 +21,7 @@ public class CutSceneManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         ani = GetComponent<Animator>();
         rImage = GetComponent<RawImage>();
+        transform.GetChild(0).gameObject.SetActive(true);
 
         if(PlayerPrefs.HasKey("CutScene"))
         {
@@ -34,13 +36,10 @@ public class CutSceneManager : MonoBehaviour
             StartCoroutine(RunVideo());
         }
     }
-
-    private void Update()
+    
+    public void StopVideo()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-            skip = true;
-
-
+        skip = true;
     }
 
     private IEnumerator RunVideo()

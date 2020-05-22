@@ -10,6 +10,7 @@ public class PurpleColor : BaseColor
 
     private PlayerMovement movement = null;
     private float abilityLeft = 0f;
+    private bool useBefore = false;
 
     public override void InitAbility(GameObject player)
     {
@@ -19,6 +20,7 @@ public class PurpleColor : BaseColor
         EventManager.instance.EnemyCollisionEvent += EnemyCollisionEvent;
         movement = player.GetComponent<PlayerMovement>();
         abilityInput.HandleRange = 0f;
+        useBefore = false;
     }
 
     public override void UpdateAbility(GameObject player)
@@ -35,6 +37,7 @@ public class PurpleColor : BaseColor
             abilityInput.GetComponentInChildren<CooldownIndicator>().StartCooldown(abilityInterval);
 
             movement.IncreaseSpeed(speedModifier);
+            useBefore = true;
         }
 
         if(abilityLeft <= 0f && abilityActivated)
@@ -50,7 +53,10 @@ public class PurpleColor : BaseColor
         abilityLeft = 0f;
 
         abilityInput.HandleRange = 1f;
-        movement.NormalSpeed();
+
+        if(useBefore)
+            movement.NormalSpeed();
+        useBefore = false;
     }
 
     public override void OnPlayerDestroyed()

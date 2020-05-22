@@ -1071,7 +1071,7 @@ PrefabInstance:
     - target: {fileID: 5709276081584004377, guid: 76e48297ecc4f034fb4558f38409dfc1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76e48297ecc4f034fb4558f38409dfc1, type: 3}
@@ -3011,7 +3011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15.699951, y: -78.50012}
+  m_AnchoredPosition: {x: 15.699951, y: -78.5}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1104934877
@@ -3609,7 +3609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -129.8999, y: 2.2999268}
+  m_AnchoredPosition: {x: -129.8999, y: 2.2998047}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1287178930
@@ -3777,7 +3777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50.80005, y: -42.499878}
+  m_AnchoredPosition: {x: 50.80005, y: -42.5}
   m_SizeDelta: {x: 57.99, y: 26.72}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1346498290
@@ -4189,7 +4189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 11.300049, y: -9.099976}
+  m_AnchoredPosition: {x: 11.300049, y: -9.100098}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1417041982
@@ -4952,7 +4952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 59, y: -9.099976}
+  m_AnchoredPosition: {x: 59, y: -9.100098}
   m_SizeDelta: {x: 128.6, y: 26.72}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1604695486
@@ -6062,7 +6062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f74b5dd6546c064192888ca3bba0895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  level: {fileID: 11400000, guid: 0673fb07562000000f73fb0756200000, type: 2}
   holdDuration: 0.5
   lockRef: {fileID: 1335013365}
   frame: {fileID: 281646087}
@@ -8121,7 +8121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8324628555287811830
 MonoBehaviour:
   m_ObjectHideFlags: 0

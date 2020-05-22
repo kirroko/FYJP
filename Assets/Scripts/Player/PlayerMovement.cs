@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     private float xInput = 0f;
     private float lastXDir = 0;
     private int facingDirection = 0;
-    private float speedModifier = 0f;
+    private float speedModifier = 1f;
     private bool inforceFlip = false;
 
     //Jumping
@@ -215,7 +215,7 @@ public class PlayerMovement : MonoBehaviour
         float maxSpeedChange = maxAccel * Time.deltaTime;
         targetVel.x = Mathf.MoveTowards(targetVel.x, xInput * maxSpeed, maxSpeedChange);
 
-        // targetVel.x = Mathf.Clamp(targetVel.x, -maxSpeed, maxSpeed);
+        targetVel.x = Mathf.Clamp(targetVel.x, -dashSpeed, dashSpeed);
 
         if (controlCD < 0) // Stop all update to rb is controlCD is up
         {
@@ -257,9 +257,9 @@ public class PlayerMovement : MonoBehaviour
         float maxSpeedChange = maxAirAccel * Time.deltaTime;
         targetVel.x = Mathf.MoveTowards(targetVel.x, xInput * maxAirSpeed, maxSpeedChange);
 
-        // targetVel.x = Mathf.Clamp(targetVel.x, -maxAirSpeed, maxAirSpeed);
+        targetVel.x = Mathf.Clamp(targetVel.x, -dashSpeed, dashSpeed);
 
-        if(controlCD < 0) // Stop all update to rb is controlCD is up
+        if (controlCD < 0) // Stop all update to rb is controlCD is up
             rb.velocity = targetVel;
 
     }

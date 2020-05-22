@@ -93,7 +93,6 @@ public class LevelManager : MonoBehaviour
         {
             Level level = levelList[i] as Level;
             level.Init();
-            level.data.unlocked = true;
 
             //Get number of item player has to collect each level to get a star
             Collectable[] collectables = level.layout.transform.GetComponentsInChildren<Collectable>();
@@ -116,6 +115,7 @@ public class LevelManager : MonoBehaviour
             {
                 level.data = new LevelData();
                 if (level.levelNum == 1) level.data.unlocked = true;
+                level.data.unlocked = true;
                 SaveSystem.SaveLevel(level);
             }
             else

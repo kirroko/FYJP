@@ -8,30 +8,36 @@ public class PlatformColor : MonoBehaviour
     [SerializeField] private COLORS platformColor = COLORS.NONE;
 
     private SpriteRenderer spriteRenderer = null;
-    private new Collider2D collider = null;
+    private List<Collider2D> colliders = new List<Collider2D>();
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        collider = GetComponent<Collider2D>();
-        collider.isTrigger = true;
         EventManager.instance.PlatformColorEvent -= CheckColor;
         EventManager.instance.PlatformColorEvent += CheckColor;
         CheckColor(COLORS.WHITE);
+
+        GetComponents<Collider2D>(colliders);
+        foreach (Collider2D collider in colliders)
+            collider.isTrigger = true;
     }
 
     private void CheckColor(COLORS playerColor)
     {
         if (playerColor == platformColor)
         {
-            collider.isTrigger = false;
+            foreach (Collider2D collider in colliders)
+                collider.isTrigger = false;
+
             Color temp = spriteRenderer.color;
             temp.a = 1f;
             spriteRenderer.color = temp;
         }
         else
         {
-            collider.isTrigger = true;
+            foreach (Collider2D collider in colliders)
+                collider.isTrigger = true;
+
             Color temp = spriteRenderer.color;
             temp.a = 0.25f;
             spriteRenderer.color = temp;

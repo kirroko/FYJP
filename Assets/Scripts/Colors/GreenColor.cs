@@ -15,11 +15,12 @@ public class GreenColor : BaseColor
     private PlayerColor playerColor = null;
     private PlayerMovement movement = null;
     private Joystick movementInput = null;
-    //private CinemachineVirtualCamera camera = null;
     private Camera cam = null;
 
     private float defaultZoom = 0f;
     private float zoom = 0f;
+
+    private ControllablePlatform collidedPlatform = null;
 
     public override void InitAbility(GameObject player)
     {
@@ -34,6 +35,11 @@ public class GreenColor : BaseColor
         cam = Camera.main;
         zoom = cam.orthographicSize;
         defaultZoom = zoom;
+
+        collidedPlatform = null;
+
+        EventManager.instance.setPlatform -= SetPlatform;
+        EventManager.instance.setPlatform += SetPlatform;
     }
 
     public override void UpdateAbility(GameObject player)
@@ -49,9 +55,9 @@ public class GreenColor : BaseColor
 
         //Check if the player is on a controllable platform
         player.GetComponent<PlayerMovement>().enabled = true;
-        GameObject collidedPlatform = playerColor.GetCollidedPlatform;
+        player.transform.SetParent(null);
 
-        if (collidedPlatform == null || collidedPlatform.GetComponent<ControllablePlatform>() == null) return;
+        if (collidedPlatform == null || !player.GetComponent<PlayerMovement>().OnGround) return;
 
         player.GetComponent<PlayerMovement>().enabled = false;
 
@@ -67,5 +73,21 @@ public class GreenColor : BaseColor
         cam.orthographicSize = defaultZoom;
 
         player.GetComponent<PlayerMovement>().enabled = true;
+        player.transform.SetParent(null);
+
+        collidedPlatform = null;
+    }
+
+    private void SetPlatform(GameObject platform, COLORS platformColor)
+    {
+        if (platformColor != mainColor) return;
+
+        if(platform == null)
+        {
+            collidedPlatform = null;
+            return;
+        }
+
+        if (platform.GetComponent<ControllablePlatform>() != null) collidedPlatform = platform.GetComponent<ControllablePlatform>();
     }
 }

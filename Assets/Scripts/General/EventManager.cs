@@ -17,6 +17,7 @@ public class EventManager : MonoBehaviour
     public event Action startSceneTransitionEvent = null;
     public event Action offSceneTransitionEvent = null;
     public event Action<bool> updateHUDEvent = null;
+    public event Action<GameObject, COLORS> setPlatform = null;
 
     private void Awake()
     {
@@ -101,5 +102,11 @@ public class EventManager : MonoBehaviour
     {
         if (updateHUDEvent != null)
             updateHUDEvent(state);
+    }
+
+    public void TriggerSetPlatform(GameObject gameObject, COLORS platformColor)
+    {
+        if (setPlatform != null)
+            setPlatform(gameObject, platformColor);
     }
 }

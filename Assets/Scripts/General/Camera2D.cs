@@ -43,6 +43,9 @@ public class Camera2D: MonoBehaviour
     private Vector2 camHalfSize = Vector2.zero;
 
     [HideInInspector] public bool isControlled = false;
+
+    private float moveDir = 0f;
+    private float prevX = 0f;
     
     private void Start()
     {
@@ -74,6 +77,11 @@ public class Camera2D: MonoBehaviour
     {
         if (target == null || isControlled) return;
 
+        moveDir = Sign(target.position.x - prevX);
+        if (Mathf.Approximately(target.position.x, prevX))
+            moveDir = 0f;
+        Debug.Log(moveDir);
+
         //Determine if camera should smoothly follow, snap or do nothing
         if (ignoreDead)
         {
@@ -103,7 +111,7 @@ public class Camera2D: MonoBehaviour
 
         if (!deadX)//Lookahead and have camera follow
         {
-            targetPos.x += Sign(moveJoysick.Direction.x) * lookaheadAmt;//For lookahead
+            targetPos.x += Sign(moveDir) * lookaheadAmt;//For lookahead
             targetPos.x = Mathf.Lerp(transform.position.x, targetPos.x, Time.deltaTime * followSpeed.x);
         }
         else//Dont move the camera in X
@@ -134,6 +142,7 @@ public class Camera2D: MonoBehaviour
         LimitCameraBounds(ref targetPos);
 
         transform.position = targetPos;
+        prevX = target.position.x;
     }
 
     private void OnDrawGizmosSelected()
@@ -178,6 +187,9 @@ public class Camera2D: MonoBehaviour
 
         transform.position = tempPos;
         currentY = transform.position.y;
+
+        if(target != null)
+            prevX = target.position.x;
     }
 
     public void LimitCameraBounds(ref Vector3 targetPos)

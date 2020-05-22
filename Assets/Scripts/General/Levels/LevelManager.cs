@@ -299,6 +299,9 @@ public class LevelManager : MonoBehaviour
         //Respawn Respawnable objects
         EventManager.instance.TriggerRespawnObjectsEvent();
 
+        //Reset Platforms
+        EventManager.instance.TriggerResetPlatforms();
+
         yield return null;
 
         start = true;

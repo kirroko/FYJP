@@ -126,7 +126,7 @@ MonoBehaviour:
   taggedDuration: 5
   frozenDuration: 3
   slowAmt: 0.5
-  detectionDistance: 10
+  detectionDistance: 5
 --- !u!61 &6451908035802416884
 BoxCollider2D:
   m_ObjectHideFlags: 0

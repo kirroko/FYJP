@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class LevelSelection : MonoBehaviour
@@ -37,16 +38,32 @@ public class LevelSelection : MonoBehaviour
             if (triggerButton.pressed && !once/* && level.data.unlocked*/)
             {
                 holdTime -= Time.deltaTime;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Enter");
                 if(holdTime <= 0f)
                 {
-                    Time.timeScale = 1f;
-                    Time.fixedDeltaTime = ObjectReferences.fixedTimeScale;
-                    LevelManager.instance.StartLevel(level.levelNum - 1);
-                    LevelManager.instance.CurrentLevel.fullSprite = GetComponent<SpriteRenderer>().sprite;
+                    GameObject player = GameObject.FindGameObjectWithTag("Player");
+                    player.GetComponent<Animator>().SetTrigger("Enter");
+                    player.GetComponent<PlayerMovement>().ForceGravityToZero();
+                    //GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Enter");
+                    //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>
+                    StartCoroutine(DelayEnter(0.45f,player));
                     once = true;
+                    //Time.timeScale = 1f;
+                    //Time.fixedDeltaTime = ObjectReferences.fixedTimeScale;
+                    //LevelManager.instance.StartLevel(level.levelNum - 1);
+                    //LevelManager.instance.CurrentLevel.fullSprite = GetComponent<SpriteRenderer>().sprite;
+                    //once = true;
                 }
             }
         }
+    }
+
+    private IEnumerator DelayEnter(float time, GameObject player)
+    {
+        yield return new WaitForSeconds(time);
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = ObjectReferences.fixedTimeScale;
+        LevelManager.instance.StartLevel(level.levelNum - 1);
+        LevelManager.instance.CurrentLevel.fullSprite = GetComponent<SpriteRenderer>().sprite;
+        player.GetComponent<PlayerMovement>().ResetGravityToDefault();
     }
 }

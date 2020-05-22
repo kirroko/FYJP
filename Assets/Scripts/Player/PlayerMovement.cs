@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCDDuration = 1f;
     [SerializeField] private float DashFalloffDuration = 0.3f;
-    [SerializeField] private float distanceBetweenImages;
+    [SerializeField] private float distanceBetweenImages = 0.3f;
 
     [Header("Wall Jump")]
     [SerializeField] private float wallJumpForce = 2.5f;
@@ -76,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
     private float lastImageXPos;
     private float DashFalloff = 0f;
 
+    //misc
+    private bool forceGravity = false;
 
     private void Start()
     {
@@ -99,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         DashFalloff -= Time.deltaTime;
         controlCD -= Time.deltaTime;
 
-        if (DashFalloff < 0) // reset gravity
+        if (DashFalloff < 0 && !forceGravity) // reset gravity
             rb.gravityScale = defaultGravity;
 
         //For Dash To kill and break objects
@@ -273,7 +275,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void WallJump()
     {
-        rb.AddForce(new Vector2(-facingDirection * wallJumpForce, wallJumpForce * 1.4f), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(-facingDirection * wallJumpForce, wallJumpForce * 2.0f), ForceMode2D.Impulse);
         controlCD = controlCDDuration;
         ani.SetTrigger("WallJump");
     }
@@ -392,5 +394,17 @@ public class PlayerMovement : MonoBehaviour
         dashSpeed /= speedModifier;
 
         speedModifier = 1f;
+    }
+
+    public void ForceGravityToZero()
+    {
+        rb.gravityScale = 0;
+        forceGravity = true;
+    }
+
+    public void ResetGravityToDefault()
+    {
+        rb.gravityScale = defaultGravity;
+        forceGravity = false;
     }
 }

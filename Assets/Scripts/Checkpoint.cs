@@ -12,6 +12,7 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private float raiseSpeed = 2f;
 
     private Vector3 startPos = Vector3.zero;
+    private bool triggered = false;
 
     private void Start()
     {
@@ -31,10 +32,11 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerInfo>() == null) return;
+        if (collision.GetComponent<PlayerInfo>() == null || triggered) return;
 
         LevelManager.instance.SpawnPoint = transform.position;
         EventManager.instance.TriggerCheckpointEvent(gameObject);
+        triggered = true;
 
         activatedText.SetActive(true);
         StartCoroutine(ILerpAlpha(activatedIcon, 1f, fadeSpeed));
@@ -45,6 +47,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (me == gameObject) return;
 
+        triggered = false;
         StartCoroutine(ILerpAlpha(activatedIcon, -1f, fadeSpeed));
         Color temp = activatedText.GetComponent<SpriteRenderer>().color;
         temp.a = 1f;

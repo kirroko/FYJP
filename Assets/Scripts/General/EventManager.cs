@@ -18,6 +18,7 @@ public class EventManager : MonoBehaviour
     public event Action offSceneTransitionEvent = null;
     public event Action<bool> updateHUDEvent = null;
     public event Action<GameObject, COLORS> setPlatform = null;
+    public event Action resetPlatforms = null;
 
     private void Awake()
     {
@@ -108,5 +109,11 @@ public class EventManager : MonoBehaviour
     {
         if (setPlatform != null)
             setPlatform(gameObject, platformColor);
+    }
+
+    public void TriggerResetPlatforms()
+    {
+        if (resetPlatforms != null)
+            resetPlatforms();
     }
 }

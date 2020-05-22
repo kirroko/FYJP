@@ -45,10 +45,16 @@ public class FlippingPlatform : MonoBehaviour
 
             foreach (Collider2D collider in colliders)
             {
-                collider.enabled = false;
-                Color tempColor = collider.GetComponent<SpriteRenderer>().color;
-                tempColor.a = 0.5f;
-                collider.GetComponent<SpriteRenderer>().color = tempColor;
+                if (!collider.usedByEffector)
+                    collider.isTrigger = true;
+
+
+                if (collider.GetComponent<SpriteRenderer>() != null)
+                {
+                    Color tempColor = collider.GetComponent<SpriteRenderer>().color;
+                    tempColor.a = 0.5f;
+                    collider.GetComponent<SpriteRenderer>().color = tempColor;
+                }
             }
         }
     }
@@ -59,10 +65,15 @@ public class FlippingPlatform : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            collider.enabled = true;
-            Color tempColor = collider.GetComponent<SpriteRenderer>().color;
-            tempColor.a = 1f;
-            collider.GetComponent<SpriteRenderer>().color = tempColor;
+            if (!collider.usedByEffector)
+                collider.isTrigger = false;
+
+            if (collider.GetComponent<SpriteRenderer>() != null)
+            {
+                Color tempColor = collider.GetComponent<SpriteRenderer>().color;
+                tempColor.a = 1f;
+                collider.GetComponent<SpriteRenderer>().color = tempColor;
+            }
         }
     }
 

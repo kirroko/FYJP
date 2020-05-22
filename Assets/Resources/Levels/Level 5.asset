@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level 5
   m_EditorClassIdentifier: 
   layout: {fileID: 5540887696202514588, guid: cd4144bba59452544855700bc488f935, type: 3}
-  levelNum: 5
+  levelNum: 3
   data:
     unlocked: 0
     numStars: 0
@@ -2916,8 +2916,10 @@ MonoBehaviour:
   - {x: 0, y: -2.7807298, z: 0}
   numCollected: 0
   enemiesKilled: 0
-  numToCollect: 0
   starTime: 120
+  percentToCollect: 0.8
+  percentToKill: 0.5
+  numToCollect: 0
   numToKill: 0
   mission1:
   - Collect
@@ -2933,4 +2935,4 @@ MonoBehaviour:
   - enemies
   subWord: num
   currentRunStar: 0
-  fullSprite: {fileID: 0}
+  fullSprite: {fileID: 21300000, guid: eeda7a8ae1f9f0a46bb0192e88deab54, type: 3}

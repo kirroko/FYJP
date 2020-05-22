@@ -38,6 +38,9 @@ public class MovingPlatform : MonoBehaviour
 
     private void Start()
     {
+        EventManager.instance.resetPlatforms -= ResetPlatformEvent;
+        EventManager.instance.resetPlatforms += ResetPlatformEvent;
+
         for (int i = 0; i < distToTravel.Length; ++i)
         {
             distToTravel[i] += transform.position;
@@ -139,5 +142,19 @@ public class MovingPlatform : MonoBehaviour
     {
         onPlatform = null;
         EventManager.instance.TriggerSetPlatform(null, COLORS.YELLOW);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.instance.resetPlatforms -= ResetPlatformEvent;
+    }
+    private void ResetPlatformEvent()
+    {
+        transform.position = distToTravel[0];
+
+        index = 0;
+        isCharging = false;
+        if (!needCharge)
+            isCharging = true;
     }
 }

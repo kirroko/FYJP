@@ -47,6 +47,7 @@ public class JumpingAI : AI
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //To jump thru bounds collider
         if(collision.collider.bounds.extents.x * 2f > 50f ||
             collision.collider.bounds.extents.y * 2f > 50f)
         {

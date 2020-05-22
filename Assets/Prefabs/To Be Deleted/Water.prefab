@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5581306db6af6294f8a15e48a53b6be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overlapSize: {x: 0, y: 0}
+  overlapOffset: {x: 0, y: 0}
 --- !u!50 &854046664260104148
 Rigidbody2D:
   serializedVersion: 4
@@ -176,7 +178,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.241837}
+  m_Offset: {x: 0, y: -3.2999892}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -187,7 +189,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7, y: 1.1279109}
+  m_Size: {x: 7, y: 5.244215}
   m_EdgeRadius: 0
 --- !u!253 &854046664503215254
 BuoyancyEffector2D:
@@ -335,6 +337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5581306db6af6294f8a15e48a53b6be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overlapSize: {x: 8, y: 2}
+  overlapOffset: {x: 0, y: 0}
 --- !u!1 &2003377264046855761
 GameObject:
   m_ObjectHideFlags: 0

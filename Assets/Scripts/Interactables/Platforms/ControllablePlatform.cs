@@ -13,6 +13,10 @@ public class ControllablePlatform : MonoBehaviour
 
     private void Start()
     {
+        EventManager.instance.resetPlatforms -= ResetPlatformEvent;
+        EventManager.instance.resetPlatforms += ResetPlatformEvent;
+
+
         startPos = transform.position;
         halfBounds = bounds * 0.5f;
         halfOffset = offset * 0.5f;
@@ -95,6 +99,15 @@ public class ControllablePlatform : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         EventManager.instance.TriggerSetPlatform(null, COLORS.GREEN);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.instance.resetPlatforms -= ResetPlatformEvent;
+    }
+    private void ResetPlatformEvent()
+    {
+        transform.position = startPos;
     }
 
     private void OnDrawGizmosSelected()

@@ -20,14 +20,27 @@ public class CutSceneManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         ani = GetComponent<Animator>();
         rImage = GetComponent<RawImage>();
-        rImage.enabled = true;
-        StartCoroutine(RunVideo());
+
+        if(PlayerPrefs.HasKey("CutScene"))
+        {
+            Debug.Log("Have already seen the cutScene...");
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("CutScene", 1);
+            PlayerPrefs.Save();
+            rImage.enabled = true;
+            StartCoroutine(RunVideo());
+        }
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             skip = true;
+
+
     }
 
     private IEnumerator RunVideo()

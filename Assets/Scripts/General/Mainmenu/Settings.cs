@@ -34,6 +34,7 @@ public class Settings : MonoBehaviour
     {
         List<System.Action> yesFunctions = new List<System.Action>();
         yesFunctions.Add(LevelManager.instance.ClearSavedData);
+        PlayerPrefs.DeleteAll();
 
         ConfirmationScreen temp = Instantiate(confirmationRef);
         temp.Init("Are you sure you want to clear all Data?", yesFunctions);

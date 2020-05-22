@@ -35,6 +35,68 @@ public class ControllablePlatform : MonoBehaviour
         transform.position = targetPos;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ContactPoint2D contact = collision.GetContact(0);
+
+        //Check if collided object is below 
+        if (contact.normal.y < 0f && collision.gameObject.GetComponent<PlayerInfo>())
+        {
+            EventManager.instance.TriggerSetPlatform(gameObject, COLORS.GREEN);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        ContactPoint2D contact = collision.GetContact(0);
+
+        //Check if collided object is below 
+        if (contact.normal.y < 0f && collision.gameObject.GetComponent<PlayerInfo>())
+        {
+            EventManager.instance.TriggerSetPlatform(gameObject, COLORS.GREEN);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        EventManager.instance.TriggerSetPlatform(null, COLORS.GREEN);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        List<ContactPoint2D> contacts = new List<ContactPoint2D>();
+        collision.GetContacts(contacts);
+
+        foreach (ContactPoint2D contact in contacts)
+        {
+            //Check if collided object is below && is player
+            if (contact.normal.y > 0f && collision.gameObject.GetComponent<PlayerInfo>())
+            {
+                EventManager.instance.TriggerSetPlatform(gameObject, COLORS.GREEN);
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        List<ContactPoint2D> contacts = new List<ContactPoint2D>();
+        collision.GetContacts(contacts);
+
+        foreach (ContactPoint2D contact in contacts)
+        {
+            //Check if collided object is below && is player
+            if (contact.normal.y > 0f && collision.gameObject.GetComponent<PlayerInfo>())
+            {
+                EventManager.instance.TriggerSetPlatform(gameObject, COLORS.GREEN);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        EventManager.instance.TriggerSetPlatform(null, COLORS.GREEN);
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;

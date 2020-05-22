@@ -10,11 +10,17 @@ public class YellowColor : BaseColor
     
     private PlayerColor playerColor = null;
 
+    private MovingPlatform collidedPlatform = null;
+
     public override void InitAbility(GameObject player)
     {
         base.InitAbility(player);
         AddEvent();
         playerColor = player.GetComponent<PlayerColor>();
+        collidedPlatform = null;
+
+        EventManager.instance.setPlatform -= SetPlatform;
+        EventManager.instance.setPlatform += SetPlatform;
     }
 
     public override void UpdateAbility(GameObject player)
@@ -30,15 +36,31 @@ public class YellowColor : BaseColor
             Shoot(projectile, projectileSpeed, player);
         }
 
-        GameObject collidedPlatform = playerColor.GetCollidedPlatform;
-        if (collidedPlatform != null && collidedPlatform.GetComponent<MovingPlatform>() != null)
+        //UPdate for moving platform
+        if (collidedPlatform != null)
             collidedPlatform.GetComponent<MovingPlatform>().Charging = true;
     }
 
     public override void ExitAbility(GameObject player)
     {
-        GameObject collidedPlatform = playerColor.GetCollidedPlatform;
-        if (collidedPlatform != null && collidedPlatform.GetComponent<MovingPlatform>() != null)
-            collidedPlatform.GetComponent<MovingPlatform>().Charging = false;
+        if (collidedPlatform != null )
+            collidedPlatform.Charging = false;
+
+        collidedPlatform = null;
+    }
+
+    private void SetPlatform(GameObject platform, COLORS platformColor)
+    {
+        if (platformColor != mainColor) return;
+
+        if (platform == null)
+        {
+            if(collidedPlatform != null)
+                collidedPlatform.Charging = false;
+            collidedPlatform = null;
+            return;
+        }
+
+        if(platform.GetComponent<MovingPlatform>() != null) collidedPlatform = platform.GetComponent<MovingPlatform>();
     }
 }

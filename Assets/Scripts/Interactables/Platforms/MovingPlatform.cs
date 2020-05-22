@@ -57,6 +57,8 @@ public class MovingPlatform : MonoBehaviour
     {
         if (isCharging)
         {
+            if (needCharge && !onPlatform.GetComponent<PlayerMovement>().OnGround) return;
+
             float dist = (distToTravel[index] - transform.position).magnitude;
 
             if (dist <= 0.1f)
@@ -107,11 +109,35 @@ public class MovingPlatform : MonoBehaviour
         if (contact.normal.y < 0f && collision.gameObject.GetComponent<PlayerInfo>())
         {
             onPlatform = collision.transform;
+            EventManager.instance.TriggerSetPlatform(gameObject, COLORS.YELLOW);
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         onPlatform = null;
+        EventManager.instance.TriggerSetPlatform(null, COLORS.YELLOW);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        List<ContactPoint2D> contacts = new List<ContactPoint2D>();
+        collision.GetContacts(contacts);
+
+        foreach(ContactPoint2D contact in contacts)
+        {
+            //Check if collided object is below && is player
+            if (contact.normal.y > 0f && collision.gameObject.GetComponent<PlayerInfo>())
+            {
+                onPlatform = collision.transform;
+                EventManager.instance.TriggerSetPlatform(gameObject, COLORS.YELLOW);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        onPlatform = null;
+        EventManager.instance.TriggerSetPlatform(null, COLORS.YELLOW);
     }
 }

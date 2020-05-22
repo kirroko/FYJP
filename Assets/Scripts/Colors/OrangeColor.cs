@@ -10,6 +10,8 @@ public class OrangeColor : BaseColor
     private PlayerColor playerColor = null;
     private PlayerInfo playerInfo = null;
 
+    private DamagingPlatform collidedPlatform = null;
+
     public override void InitAbility(GameObject player)
     {
         base.InitAbility(player);
@@ -17,6 +19,11 @@ public class OrangeColor : BaseColor
         abilityInput.HandleRange = 0f;
         playerColor = player.GetComponent<PlayerColor>();
         playerInfo = player.GetComponent<PlayerInfo>();
+
+        collidedPlatform = null;
+
+        EventManager.instance.setPlatform -= SetPlatform;
+        EventManager.instance.setPlatform += SetPlatform;
     }
 
     public override void UpdateAbility(GameObject player)
@@ -39,13 +46,10 @@ public class OrangeColor : BaseColor
         }
 
 
-
         //Player Collided with a Damaging platform
-        GameObject collidedPlatform = playerColor.GetCollidedPlatform;
-
-        if (collidedPlatform != null && collidedPlatform.GetComponent<DamagingPlatform>() != null)
+        if (collidedPlatform != null)
         {
-            collidedPlatform.GetComponent<DamagingPlatform>().IsDamaging = true;
+            collidedPlatform.IsDamaging = true;
         }
     }
 
@@ -55,11 +59,27 @@ public class OrangeColor : BaseColor
 
         abilityInput.HandleRange = 1f;
 
-        GameObject collidedPlatform = playerColor.GetCollidedPlatform;
-
-        if (collidedPlatform != null && collidedPlatform.GetComponent<DamagingPlatform>() != null)
+        if (collidedPlatform != null)
         {
-            collidedPlatform.GetComponent<DamagingPlatform>().IsDamaging = false;
+            collidedPlatform.IsDamaging = false;
         }
+
+        collidedPlatform = null;
+    }
+
+    private void SetPlatform(GameObject platform, COLORS platformColor)
+    {
+        if (platformColor != mainColor) return;
+
+        if (platform == null)
+        {
+            if (collidedPlatform != null)
+                collidedPlatform.IsDamaging = false;
+
+            collidedPlatform = null;
+            return;
+        }
+
+        if (platform.GetComponent<DamagingPlatform>() != null) collidedPlatform = platform.GetComponent<DamagingPlatform>();
     }
 }

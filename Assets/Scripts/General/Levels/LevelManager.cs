@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private PlayerGhost ghost = null;
+    //[SerializeField] private PlayerGhost ghost = null;
 
     public static LevelManager instance = null;
 

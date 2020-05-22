@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "OrangeColor", menuName = "Colors/Orange", order = 7)]
 public class OrangeColor : BaseColor
 {
-    [SerializeField] private float abilityDuration = 3f;
-
     private PlayerColor playerColor = null;
     private PlayerInfo playerInfo = null;
 

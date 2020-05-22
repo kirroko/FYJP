@@ -15,7 +15,8 @@ public class MissionOverlay : MonoBehaviour
 
     private void Start()
     {
-        levelName.text = "Level " + LevelManager.instance.CurrentLevelIndex + 1;
+        Debug.Log(LevelManager.instance.CurrentLevelIndex);
+        levelName.text = "Level " + (LevelManager.instance.CurrentLevelIndex + 1);
 
         Level currentLevel = LevelManager.instance.CurrentLevel;
 

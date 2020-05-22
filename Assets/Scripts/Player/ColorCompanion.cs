@@ -14,7 +14,6 @@ public class ColorCompanion : MonoBehaviour
     private float sinValue = 0f;
     private SpriteRenderer sr = null;
 
-    private bool offsetBool = false;
     private float facingDir = 1f;
     private float prevDir = 1f;
 

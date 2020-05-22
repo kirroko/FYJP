@@ -10,7 +10,7 @@ public class Pause : MonoBehaviour
     [SerializeField] private Button restartBtn = null;
     [SerializeField] private Button toggleMusicBtn = null;
     [SerializeField] private Button toggleSFXBtn = null;
-    [SerializeField] private Button exitBtn = null;
+    [SerializeField] private Button homeBtn = null;
 
     private float prevTimeScale = 0f;
     private float prevFixedDelta = 0f;
@@ -30,6 +30,10 @@ public class Pause : MonoBehaviour
         swapSpritesSFX.Swap(AudioManager.instance.HasSFX);
         toggleSFXBtn.onClick.AddListener(AudioManager.instance.ToggleMuteSFX);
         toggleSFXBtn.onClick.AddListener(delegate () { swapSpritesSFX.Swap(AudioManager.instance.HasSFX); });
+
+        restartBtn.onClick.AddListener(Restart);
+
+        homeBtn.onClick.AddListener(Home);
     }
 
     private void Update()

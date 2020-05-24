@@ -5072,7 +5072,7 @@ GameObject:
   - component: {fileID: 7787543842085385291}
   - component: {fileID: 1345865214455371108}
   - component: {fileID: 6633112158822043259}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Top Half Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14975,6 +14975,7 @@ Transform:
   - {fileID: 4640006362332087327}
   - {fileID: 5795142496150079923}
   - {fileID: 6028975620451600571}
+  - {fileID: 249053057730617899}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37697,6 +37698,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &8633850814206095550 stripped
@@ -37877,6 +37883,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Down Wall (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588650246796877507, guid: 010f71670be0e5e488aa738c6051e2b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6588650246796877508, guid: 010f71670be0e5e488aa738c6051e2b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38026,6 +38037,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Down Wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588650246796877507, guid: 010f71670be0e5e488aa738c6051e2b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6588650246796877508, guid: 010f71670be0e5e488aa738c6051e2b4,
         type: 3}
@@ -38477,6 +38493,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left L Turn Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 6604125690473477589, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6604125690473477591, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38552,6 +38573,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Bottom Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 2532228348420100917, guid: 647cfa164e04df944941ad4d7f2985cd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 2532228348420100919, guid: 647cfa164e04df944941ad4d7f2985cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38626,6 +38652,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Turn Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117776209395015665, guid: 8b3a30fa8544712448202ac979013946,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7117776209395015667, guid: 8b3a30fa8544712448202ac979013946,
         type: 3}
@@ -38958,6 +38989,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left L Turn Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 6604125690473477589, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6604125690473477591, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39174,6 +39210,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &8191157715217694222 stripped
@@ -39278,6 +39319,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -39484,6 +39530,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &8139848065604262278 stripped
@@ -39634,6 +39685,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Turn End Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 6568480241348372349, guid: 6fd50fcfc34763c4888c953a71b0285f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fd50fcfc34763c4888c953a71b0285f, type: 3}
 --- !u!4 &6869282613723468944 stripped
@@ -39653,6 +39709,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -39728,6 +39789,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -39903,6 +39969,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Turn Wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117776209395015665, guid: 8b3a30fa8544712448202ac979013946,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7117776209395015667, guid: 8b3a30fa8544712448202ac979013946,
         type: 3}
@@ -40119,6 +40190,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &9042939921264372794 stripped
@@ -40263,6 +40339,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906710304717599030, guid: 558ed7e2e75965b4c93043123f654112,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3906710304717599037, guid: 558ed7e2e75965b4c93043123f654112,
         type: 3}
@@ -40514,6 +40595,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -40675,6 +40761,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall Single (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6476180873691155109, guid: 91ef4b1bc874cb845885031aa18497af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8297347374207915912, guid: 91ef4b1bc874cb845885031aa18497af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -40749,6 +40840,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left L Turn Wall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604125690473477589, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6604125690473477591, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
         type: 3}
@@ -41059,6 +41155,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -41438,6 +41539,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &8701207799623548410 stripped
@@ -41457,6 +41563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -41533,6 +41644,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41596,6 +41712,81 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1146363957923947076}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1267757439613658857
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1407167490566410840}
+    m_Modifications:
+    - target: {fileID: 1360978529768293570, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 103.44732
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360978529768293570, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 28.223957
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360978529768293570, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360978529768293570, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360978529768293570, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360978529768293570, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360978529768293570, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360978529768293570, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360978529768293570, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360978529768293570, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360978529768293570, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480352144970305401, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+        type: 3}
+      propertyPath: m_Name
+      value: EndGoal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25eaef40c8a1caf4a929c82892cbfa51, type: 3}
+--- !u!4 &249053057730617899 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1360978529768293570, guid: 25eaef40c8a1caf4a929c82892cbfa51,
+    type: 3}
+  m_PrefabInstance: {fileID: 1267757439613658857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1286779319543339693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41607,6 +41798,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -42048,6 +42244,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &7209863740643945803 stripped
@@ -42443,6 +42644,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left L Turn Wall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6604125690473477589, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6604125690473477591, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42592,6 +42798,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left L Turn Wall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604125690473477589, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6604125690473477591, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
         type: 3}
@@ -42913,6 +43124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Turn Tile (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5442955830515392855, guid: 09bb76bd705bfcc408264f944a9ae411,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8621888293410175165, guid: 09bb76bd705bfcc408264f944a9ae411,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42987,6 +43203,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bottom Left Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5488595027480452619, guid: a64bf91c72733b748ba7d7905a094f68,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8519450526618042653, guid: a64bf91c72733b748ba7d7905a094f68,
         type: 3}
@@ -43118,6 +43339,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftBottom Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 2507846138305968238, guid: 21060608be7f16d4b98022bd0358a482,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21060608be7f16d4b98022bd0358a482, type: 3}
 --- !u!4 &4257924388842586590 stripped
@@ -43137,6 +43363,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall Single (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476180873691155109, guid: 91ef4b1bc874cb845885031aa18497af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8297347374207915912, guid: 91ef4b1bc874cb845885031aa18497af,
         type: 3}
@@ -43213,6 +43444,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Turn Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 2611839009139842632, guid: f5898bf681c0f294bb3d73c28de36536,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3458465808410433318, guid: f5898bf681c0f294bb3d73c28de36536,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43287,6 +43523,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall Single (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476180873691155109, guid: 91ef4b1bc874cb845885031aa18497af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8297347374207915912, guid: 91ef4b1bc874cb845885031aa18497af,
         type: 3}
@@ -43437,6 +43678,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -43598,6 +43844,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43728,6 +43979,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &7602131630258466514 stripped
@@ -43747,6 +44003,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -44048,6 +44309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall Single (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6476180873691155109, guid: 91ef4b1bc874cb845885031aa18497af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8297347374207915912, guid: 91ef4b1bc874cb845885031aa18497af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44178,6 +44444,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &6313086712230528377 stripped
@@ -44197,6 +44468,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -44327,6 +44603,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -44798,6 +45079,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44947,6 +45233,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left L Turn Wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604125690473477589, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6604125690473477591, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
         type: 3}
@@ -45468,6 +45759,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3906710304717599030, guid: 558ed7e2e75965b4c93043123f654112,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3906710304717599037, guid: 558ed7e2e75965b4c93043123f654112,
         type: 3}
       propertyPath: m_Name
@@ -45582,6 +45878,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -45978,6 +46279,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46127,6 +46433,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Turn Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611839009139842632, guid: f5898bf681c0f294bb3d73c28de36536,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3458465808410433318, guid: f5898bf681c0f294bb3d73c28de36536,
         type: 3}
@@ -46448,6 +46759,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left L Turn Wall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6604125690473477589, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6604125690473477591, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46653,6 +46969,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftTop Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 3144551829902497880, guid: a5dab16c539349d4e8369dc834cf03ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5dab16c539349d4e8369dc834cf03ad, type: 3}
 --- !u!4 &347959804151837301 stripped
@@ -46747,6 +47068,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall Single (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476180873691155109, guid: 91ef4b1bc874cb845885031aa18497af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8297347374207915912, guid: 91ef4b1bc874cb845885031aa18497af,
         type: 3}
@@ -47103,6 +47429,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &4911002852319508625 stripped
@@ -47402,6 +47733,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -47798,6 +48134,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -48003,6 +48344,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftTop Wall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3144551829902497880, guid: a5dab16c539349d4e8369dc834cf03ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5dab16c539349d4e8369dc834cf03ad, type: 3}
 --- !u!4 &1436833866732396820 stripped
@@ -48077,6 +48423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -48227,6 +48578,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -48408,6 +48764,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -48557,6 +48918,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall Single (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476180873691155109, guid: 91ef4b1bc874cb845885031aa18497af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8297347374207915912, guid: 91ef4b1bc874cb845885031aa18497af,
         type: 3}
@@ -48754,6 +49120,21 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416886, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416887, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416888, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: detectionDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6451908035802416889, guid: aef0eca985091014ab525f80f2c6a1de,
         type: 3}
       propertyPath: m_Name
@@ -48761,15 +49142,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aef0eca985091014ab525f80f2c6a1de, type: 3}
---- !u!4 &7131734426259426740 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6451908035802416885, guid: aef0eca985091014ab525f80f2c6a1de,
-    type: 3}
-  m_PrefabInstance: {fileID: 4283145897017330497}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7131734426259426744 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6451908035802416889, guid: aef0eca985091014ab525f80f2c6a1de,
+    type: 3}
+  m_PrefabInstance: {fileID: 4283145897017330497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7131734426259426740 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6451908035802416885, guid: aef0eca985091014ab525f80f2c6a1de,
     type: 3}
   m_PrefabInstance: {fileID: 4283145897017330497}
   m_PrefabAsset: {fileID: 0}
@@ -48839,6 +49220,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -48934,6 +49320,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -49215,6 +49606,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &5336930897813481647 stripped
@@ -49234,6 +49630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Down Wall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588650246796877507, guid: 010f71670be0e5e488aa738c6051e2b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6588650246796877508, guid: 010f71670be0e5e488aa738c6051e2b4,
         type: 3}
@@ -49394,6 +49795,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -49824,6 +50230,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -50295,6 +50706,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -50445,6 +50861,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Down Wall (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6588650246796877507, guid: 010f71670be0e5e488aa738c6051e2b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6588650246796877508, guid: 010f71670be0e5e488aa738c6051e2b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -50574,6 +50995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -50820,6 +51246,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottom Left Wall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5488595027480452619, guid: a64bf91c72733b748ba7d7905a094f68,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8519450526618042653, guid: a64bf91c72733b748ba7d7905a094f68,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -51029,6 +51460,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906710304717599030, guid: 558ed7e2e75965b4c93043123f654112,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3906710304717599037, guid: 558ed7e2e75965b4c93043123f654112,
         type: 3}
@@ -51270,6 +51706,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &4541099159803922712 stripped
@@ -51289,6 +51730,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Down Wall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588650246796877507, guid: 010f71670be0e5e488aa738c6051e2b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6588650246796877508, guid: 010f71670be0e5e488aa738c6051e2b4,
         type: 3}
@@ -51449,6 +51895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall Single
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476180873691155109, guid: 91ef4b1bc874cb845885031aa18497af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8297347374207915912, guid: 91ef4b1bc874cb845885031aa18497af,
         type: 3}
@@ -51975,6 +52426,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &4510879300049580894 stripped
@@ -51994,6 +52450,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -52070,6 +52531,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall Single (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6476180873691155109, guid: 91ef4b1bc874cb845885031aa18497af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8297347374207915912, guid: 91ef4b1bc874cb845885031aa18497af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52144,6 +52610,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -52375,6 +52846,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Turn Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 7117776209395015665, guid: 8b3a30fa8544712448202ac979013946,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7117776209395015667, guid: 8b3a30fa8544712448202ac979013946,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52449,6 +52925,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -52655,6 +53136,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &4284291025444359506 stripped
@@ -52724,6 +53210,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416886, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416887, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416888, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: detectionDistance
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6451908035802416889, guid: aef0eca985091014ab525f80f2c6a1de,
         type: 3}
@@ -52985,6 +53486,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53115,6 +53621,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &4250365562321682989 stripped
@@ -53210,6 +53721,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53284,6 +53800,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -53434,6 +53955,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall Single (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476180873691155109, guid: 91ef4b1bc874cb845885031aa18497af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8297347374207915912, guid: 91ef4b1bc874cb845885031aa18497af,
         type: 3}
@@ -53660,6 +54186,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Turn Tile (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5442955830515392855, guid: 09bb76bd705bfcc408264f944a9ae411,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8621888293410175165, guid: 09bb76bd705bfcc408264f944a9ae411,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53810,6 +54341,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left L Turn Wall (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6604125690473477589, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6604125690473477591, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53934,6 +54470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906710304717599030, guid: 558ed7e2e75965b4c93043123f654112,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3906710304717599037, guid: 558ed7e2e75965b4c93043123f654112,
         type: 3}
@@ -54156,6 +54697,21 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416886, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416887, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416888, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: detectionDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6451908035802416889, guid: aef0eca985091014ab525f80f2c6a1de,
         type: 3}
       propertyPath: m_Name
@@ -54163,15 +54719,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aef0eca985091014ab525f80f2c6a1de, type: 3}
---- !u!1 &842021139072011291 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6451908035802416889, guid: aef0eca985091014ab525f80f2c6a1de,
-    type: 3}
-  m_PrefabInstance: {fileID: 5919627594465807074}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &842021139072011287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6451908035802416885, guid: aef0eca985091014ab525f80f2c6a1de,
+    type: 3}
+  m_PrefabInstance: {fileID: 5919627594465807074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &842021139072011291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6451908035802416889, guid: aef0eca985091014ab525f80f2c6a1de,
     type: 3}
   m_PrefabInstance: {fileID: 5919627594465807074}
   m_PrefabAsset: {fileID: 0}
@@ -54241,6 +54797,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -54346,6 +54907,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -54477,6 +55043,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall Single (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4540979235267801418, guid: 16d323be16584904db4afe920fe4d63c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16d323be16584904db4afe920fe4d63c, type: 3}
 --- !u!4 &8549579923835575391 stripped
@@ -54496,6 +55067,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -54807,6 +55383,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Turn Tile (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2611839009139842632, guid: f5898bf681c0f294bb3d73c28de36536,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3458465808410433318, guid: f5898bf681c0f294bb3d73c28de36536,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -54932,6 +55513,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3906710304717599030, guid: 558ed7e2e75965b4c93043123f654112,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3906710304717599037, guid: 558ed7e2e75965b4c93043123f654112,
         type: 3}
       propertyPath: m_Name
@@ -54956,6 +55542,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left L Turn Wall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604125690473477589, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6604125690473477591, guid: 3d68c16f9edfc7b43bc5c2c6a6d62881,
         type: 3}
@@ -55397,6 +55988,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &3307090496234947799 stripped
@@ -55471,6 +56067,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -55622,6 +56223,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &3057794807478490756 stripped
@@ -55641,6 +56247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Turn Tile (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442955830515392855, guid: 09bb76bd705bfcc408264f944a9ae411,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8621888293410175165, guid: 09bb76bd705bfcc408264f944a9ae411,
         type: 3}
@@ -55932,6 +56543,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &2924157669049652260 stripped
@@ -55951,6 +56567,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Turn Tile (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611839009139842632, guid: f5898bf681c0f294bb3d73c28de36536,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3458465808410433318, guid: f5898bf681c0f294bb3d73c28de36536,
         type: 3}
@@ -56177,6 +56798,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -56251,6 +56877,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Down Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588650246796877507, guid: 010f71670be0e5e488aa738c6051e2b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6588650246796877508, guid: 010f71670be0e5e488aa738c6051e2b4,
         type: 3}
@@ -56638,6 +57269,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -56873,6 +57509,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -57003,6 +57644,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &1365917102864055961 stripped
@@ -57078,6 +57724,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &1367893796522506925 stripped
@@ -57152,6 +57803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -57247,6 +57903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -57378,6 +58039,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &1173845398684374099 stripped
@@ -57482,6 +58148,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall Single (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476180873691155109, guid: 91ef4b1bc874cb845885031aa18497af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8297347374207915912, guid: 91ef4b1bc874cb845885031aa18497af,
         type: 3}
@@ -57687,6 +58358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left L Turn Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766453582831960697, guid: 0a9abb78d151fa444a144a5f9fd1572e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a9abb78d151fa444a144a5f9fd1572e, type: 3}
@@ -58012,6 +58688,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -58499,6 +59180,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall Single (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4540979235267801418, guid: 16d323be16584904db4afe920fe4d63c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16d323be16584904db4afe920fe4d63c, type: 3}
 --- !u!4 &5666277675078666683 stripped
@@ -58724,6 +59410,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &1903484851172005911 stripped
@@ -58743,6 +59434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Down Wall (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588650246796877507, guid: 010f71670be0e5e488aa738c6051e2b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6588650246796877508, guid: 010f71670be0e5e488aa738c6051e2b4,
         type: 3}
@@ -59023,6 +59719,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -59505,6 +60206,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &376341501447029016 stripped
@@ -59579,6 +60285,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall Single (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540979235267801418, guid: 16d323be16584904db4afe920fe4d63c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16d323be16584904db4afe920fe4d63c, type: 3}
@@ -59836,6 +60547,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Top Turn Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 7934127495147699061, guid: a2cae11531cda204d9f2e251f9384afa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7934127495147699067, guid: a2cae11531cda204d9f2e251f9384afa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -60040,6 +60756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -60528,6 +61249,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416886, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416887, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416888, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: detectionDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6451908035802416889, guid: aef0eca985091014ab525f80f2c6a1de,
         type: 3}
       propertyPath: m_Name
@@ -60608,6 +61344,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &1102074478081434952 stripped
@@ -60682,6 +61423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Wall (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
@@ -60778,6 +61524,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Wall (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -60852,6 +61603,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -61077,6 +61833,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}
@@ -61519,6 +62280,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Wall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8581333176682313086, guid: 040a48cf0c164134e86f8ed08ba5140f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040a48cf0c164134e86f8ed08ba5140f, type: 3}
 --- !u!4 &650274774662245466 stripped
@@ -61538,6 +62304,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Wall (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540859879475244964, guid: fd710ce13f9785b44b4e034dc8be1140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5540859879475244966, guid: fd710ce13f9785b44b4e034dc8be1140,
         type: 3}

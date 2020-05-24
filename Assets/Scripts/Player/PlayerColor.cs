@@ -22,7 +22,7 @@ public class PlayerColor : MonoBehaviour
     [SerializeField] private float growSize = 150f;
 
     [Header("Color Reference")]
-    [SerializeField] private Color[] colorsEffects;
+    [SerializeField] private Color[] colorsEffects = null;
 
     //Image & Input References
     private ColorPiece[] colorPieces = new ColorPiece[3];
@@ -109,12 +109,12 @@ public class PlayerColor : MonoBehaviour
         {
             //Top left Quarter of joystick
             UpdateColorWheel();
-            if (colorInput.Direction.x < 0f && colorInput.Direction.y > 0f)
+            ResetColorPiecesSize();
+            if (colorInput.Direction.x < 0f && colorInput.Direction.y > 0f &&
+                colorInput.Handle.anchoredPosition.magnitude >= 50f)
             {
                 float dotProduct = Vector2.Dot(colorInput.Direction, Vector2.up);
                 float angle = Mathf.Acos(dotProduct) * Mathf.Rad2Deg;
-
-                ResetColorPiecesSize();
 
                 if (angle <= 30f)//right piece
                     index = 2;
@@ -127,6 +127,11 @@ public class PlayerColor : MonoBehaviour
                 
                 ToggleVisualEffect(index + 1);
                 colorChanged = true;
+            }
+            else
+            {
+                colorChanged = false;
+                colorAdjust.colorFilter.value = colorsEffects[0];
             }
         }
 
@@ -240,13 +245,13 @@ public class PlayerColor : MonoBehaviour
         {
             slowDown = false;
             Time.timeScale = 1f;
-            Time.fixedDeltaTime *= 2f;
+            Time.fixedDeltaTime *= 4f;
         }
         else if(!slowDown && canChoose)
         {
             slowDown = true;
-            Time.timeScale = 0.5f;
-            Time.fixedDeltaTime *= 0.5f;
+            Time.timeScale = 0.25f;
+            Time.fixedDeltaTime *= 0.25f;
         }
     }
 
@@ -297,5 +302,14 @@ public class PlayerColor : MonoBehaviour
             colorIndicator.enabled = true;
 
         colorIndicator.color = currentColor.Color;
+    }
+
+    private bool CheckDragDistance(float dist)
+    {
+        if (colorInput.Handle.anchoredPosition.magnitude >= dist) return true;
+        else if (Mathf.Abs(colorInput.Handle.anchoredPosition.x) >= dist) return true;
+        else if (Mathf.Abs(colorInput.Handle.anchoredPosition.y) >= dist) return true;
+
+        return false;
     }
 }

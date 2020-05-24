@@ -116,6 +116,18 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        ContactPoint2D contact = collision.GetContact(0);
+
+        //Check if collided object is below 
+        if (contact.normal.y < 0f && collision.gameObject.GetComponent<PlayerInfo>())
+        {
+            onPlatform = collision.transform;
+            EventManager.instance.TriggerSetPlatform(gameObject, COLORS.YELLOW);
+        }
+    }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         onPlatform = null;
@@ -128,6 +140,22 @@ public class MovingPlatform : MonoBehaviour
         collision.GetContacts(contacts);
 
         foreach(ContactPoint2D contact in contacts)
+        {
+            //Check if collided object is below && is player
+            if (contact.normal.y > 0f && collision.gameObject.GetComponent<PlayerInfo>())
+            {
+                onPlatform = collision.transform;
+                EventManager.instance.TriggerSetPlatform(gameObject, COLORS.YELLOW);
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        List<ContactPoint2D> contacts = new List<ContactPoint2D>();
+        collision.GetContacts(contacts);
+
+        foreach (ContactPoint2D contact in contacts)
         {
             //Check if collided object is below && is player
             if (contact.normal.y > 0f && collision.gameObject.GetComponent<PlayerInfo>())

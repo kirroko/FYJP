@@ -9,6 +9,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
     public bool IsPressed { get { return pressed; } }
+    public RectTransform Handle { get { return handle; } }
 
     public float HandleRange
     {
@@ -34,6 +35,9 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     [SerializeField] protected RectTransform background = null;
     [SerializeField] private RectTransform handle = null;
+
+    [SerializeField] private float sensitivity = 1f;
+
     private RectTransform baseRect = null;
 
     private Canvas canvas;
@@ -81,10 +85,14 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
         Vector2 position = RectTransformUtility.WorldToScreenPoint(cam, background.position);
         Vector2 radius = background.sizeDelta / 2;
-        input = (eventData.position - position) / (radius * canvas.scaleFactor);
+        input = (eventData.position - position) / (radius * canvas.scaleFactor * sensitivity);
         FormatInput();
         HandleInput(input.magnitude, input.normalized, radius, cam);
         handle.anchoredPosition = input * radius * handleRange;
+
+        input = (eventData.position - position) / (radius * canvas.scaleFactor);
+        FormatInput();
+        HandleInput(input.magnitude, input.normalized, radius, cam);
     }
 
     protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)

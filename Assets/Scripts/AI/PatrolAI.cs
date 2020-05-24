@@ -1,7 +1,4 @@
-﻿   using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using UnityEditor;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PatrolAI : AI
@@ -12,18 +9,24 @@ public class PatrolAI : AI
     [Header("Settings")]
     [SerializeField] private bool shootable = false;
     [SerializeField] private float shootInterval = 2f;
+    [SerializeField] private float distanceBeforeRotate = 5f;
 
     private float shootingInterval = 0f;
     private float defaultSpeed = 0f;
+    private Vector3 startPos = new Vector3();
 
     [SerializeField] private Vector2 dir = new Vector2(1f, 0f);
     private new Collider2D collider = null;
+
+    private SpriteRenderer sr = null;
 
     protected override void Start()
     {
         base.Start();
         collider = GetComponent<Collider2D>();
         defaultSpeed = moveSpeed;
+        startPos = transform.position;
+        sr = GetComponent<SpriteRenderer>();
     }
 
     protected override void Update()
@@ -33,14 +36,23 @@ public class PatrolAI : AI
 
         if (stun || dead) return;
 
-        if (!Physics2D.Raycast(transform.position + new Vector3(collider.bounds.extents.x * dir.x, 0f, 0f), Vector2.down, collider.bounds.extents.y + 0.1f))
+        Vector3 origin = transform.position - new Vector3(0, collider.bounds.extents.y, 0);
+        origin += new Vector3(collider.bounds.extents.x * dir.x, 0);
+        Debug.DrawRay(origin, new Vector2(0, -1) * (collider.bounds.extents.y + 0.1f), Color.red);
+
+        // If on platform it'll flip at the edge or reach max distance 
+        if (!Physics2D.Raycast(collider.bounds.center + new Vector3(collider.bounds.extents.x * dir.x, 0f, 0f), Vector2.down, collider.bounds.extents.y + 0.1f) ||
+            Vector3.Distance(startPos, transform.position) > distanceBeforeRotate)
         {
             dir.x = -dir.x;
-            SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
             sr.flipX = !sr.flipX;
+            if(Vector3.Distance(startPos,transform.position) > distanceBeforeRotate)
+            {
+                Vector3 temp = transform.position;
+                temp.x += dir.x;
+                transform.position = temp;
+            }
         }
-
-
 
         Vector3 targetPos = transform.position;
 
@@ -56,8 +68,6 @@ public class PatrolAI : AI
                 gameObject.GetComponent<Animator>().SetBool("Walking", false);
 
                 Vector3 firePoint = collider.bounds.center + new Vector3(collider.bounds.extents.x, 0f, 0f) * dir.x * 1.25f;
-
-
 
                 gameObject.GetComponent<Animator>().SetTrigger("Shoot");
                 StartCoroutine(DelayReset(3.15f));

@@ -20,6 +20,7 @@ public class LevelManager : MonoBehaviour
 {
     public Level CurrentLevel { get { return currentLevel; } }
     public int CurrentLevelIndex { get { return currentLevelIndex; } }
+    public bool GodModeOn { get { return godMode; } }
 
     /// Allows checkpoint to set the spawnpoint of the current level.
     /// It also updates the number of item collected, enemies killed and time taken upon reaching the checkpoint.
@@ -53,6 +54,8 @@ public class LevelManager : MonoBehaviour
     private Vector3 initalPos = Vector3.zero;
     private int numCollectedAtCP = 0;///< Number of Item Collected upon reaching checkpoint
     private int numKilledAtCP = 0;///< Number of Enemies Killed upon reaching checkpoint
+
+    private bool godMode = false;
 
     private void Awake()
     {
@@ -179,6 +182,9 @@ public class LevelManager : MonoBehaviour
         spawnPoint = player.transform.position;
         initalPos = player.transform.position;
 
+        if (godMode)
+            player.GetComponent<PlayerInfo>().GainHeart(9999);
+
         if (currentLevel.colorList != null)
             PlayerManager.instance.UpdateColorList(currentLevel.colorList);
         else
@@ -303,6 +309,9 @@ public class LevelManager : MonoBehaviour
         //Reset Platforms
         EventManager.instance.TriggerResetPlatforms();
 
+        if (godMode)
+            player.GetComponent<PlayerInfo>().GainHeart(9999);
+
         yield return null;
 
         start = true;
@@ -351,5 +360,10 @@ public class LevelManager : MonoBehaviour
     public void StartLevel()
     {
         start = true;
+    }
+
+    public void ToggleGodMode()
+    {
+        godMode = !godMode;
     }
 }

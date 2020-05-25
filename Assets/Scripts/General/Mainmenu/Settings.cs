@@ -10,6 +10,8 @@ public class Settings : MonoBehaviour
     [SerializeField] private GameObject main = null;
     [SerializeField] private Button toggleMusicBtn = null;
     [SerializeField] private Button toggleSFXBtn = null;
+    [SerializeField] private Button godModeBtn = null;
+    [SerializeField] private Image slash = null;
 
     private void Start()
     {
@@ -22,6 +24,12 @@ public class Settings : MonoBehaviour
         swapSpritesSFX.Swap(AudioManager.instance.HasSFX);
         toggleSFXBtn.onClick.AddListener(AudioManager.instance.ToggleMuteSFX);
         toggleSFXBtn.onClick.AddListener(delegate () { swapSpritesSFX.Swap(AudioManager.instance.HasSFX); });
+
+        godModeBtn.onClick.AddListener(ToggleGodMode);
+        if (LevelManager.instance.GodModeOn)
+            slash.gameObject.SetActive(false);
+        else
+            slash.gameObject.SetActive(true);
     }
 
     public void ToMain()
@@ -38,5 +46,15 @@ public class Settings : MonoBehaviour
 
         ConfirmationScreen temp = Instantiate(confirmationRef);
         temp.Init("Are you sure you want to clear all Data?", yesFunctions);
+    }
+
+    private void ToggleGodMode()
+    {
+        Debug.Log("Called");
+        LevelManager.instance.ToggleGodMode();
+        if (LevelManager.instance.GodModeOn)
+            slash.gameObject.SetActive(false);
+        else
+            slash.gameObject.SetActive(true);
     }
 }

@@ -27,7 +27,7 @@ public class WayPointPatrol : AI
         // Debug.Log("Current: " + transform.position + " | Target: " + targetPos);
         transform.position = targetPos;
         // Debug.Log("Distance: " + Vector2.Distance(transform.position, moveSpots[currentIndex].position));
-        Debug.Log("Abs Distance: " + Mathf.Abs(transform.position.x - moveSpots[currentIndex].position.x));
+
         if(Mathf.Abs(transform.position.x - moveSpots[currentIndex].position.x) < 0.2f)
         {
             if (waitTime <= 0)

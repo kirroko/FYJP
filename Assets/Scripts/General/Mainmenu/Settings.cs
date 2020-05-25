@@ -26,6 +26,7 @@ public class Settings : MonoBehaviour
 
     public void ToMain()
     {
+        AudioManager.PlaySFX("Cancel", false);
         main.SetActive(true);
         gameObject.SetActive(false);
     }

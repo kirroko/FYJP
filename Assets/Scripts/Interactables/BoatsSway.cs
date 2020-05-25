@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class BoatsSway : Respawnable
 {
-    [SerializeField] private float maxTilt = 25f;
+    //[SerializeField] private float maxTilt = 25f;
     [SerializeField] private Vector2 overlapSize = Vector2.zero;
     [SerializeField] private Vector2 overlapOffset = Vector2.zero;
 
@@ -35,7 +35,7 @@ public class BoatsSway : Respawnable
         targetPos.x = startX;
         transform.position = targetPos;
 
-        rb.rotation = Mathf.Clamp(rb.rotation, -maxTilt, maxTilt);
+        //rb.rotation = Mathf.Clamp(rb.rotation, -maxTilt, maxTilt);
 
         float averageX = 0f;
         List<ContactPoint2D> contactPoints = new List<ContactPoint2D>();
@@ -97,17 +97,17 @@ public class BoatsSway : Respawnable
         Gizmos.DrawWireCube(pos, overlapSize);
     }
 
-    private void LateUpdate()
-    {
-        Vector3 rotation = transform.localEulerAngles;
+    //private void LateUpdate()
+    //{
+    //    Vector3 rotation = transform.localEulerAngles;
 
-        if (rotation.z > 300f)
-            rotation.z = Mathf.Clamp(rotation.z, 360f - maxTilt, 360f);
-        else if (rotation.z < 100f)
-            rotation.z = Mathf.Clamp(rotation.z, 0f, maxTilt);
+    //    if (rotation.z > 300f)
+    //        rotation.z = Mathf.Clamp(rotation.z, 360f - maxTilt, 360f);
+    //    else if (rotation.z < 100f)
+    //        rotation.z = Mathf.Clamp(rotation.z, 0f, maxTilt);
 
-        transform.localRotation = Quaternion.Euler(rotation);
-    }
+    //    transform.localRotation = Quaternion.Euler(rotation);
+    //}
 
     protected override void TriggerRespawnAllEvent()
     {

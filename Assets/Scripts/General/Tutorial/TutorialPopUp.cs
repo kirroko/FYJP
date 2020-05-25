@@ -23,14 +23,14 @@ public class TutorialPopUp : MonoBehaviour
 
     private void Start()
     {
-        currentIndex = 0;
-        UpdatePages();
-
-        for(int i = 0; i < pages.Length; ++i)
+        for (int i = 0; i < pages.Length; ++i)
         {
-            if(!enableThumb.ContainsKey(i))
+            if (!enableThumb.ContainsKey(i))
                 enableThumb.Add(i, false);
         }
+
+        currentIndex = 0;
+        UpdatePages();
     }
 
     public void Init(Sprite[] images, TutorialSign tutorialSign, int[] pageWThumbs)
@@ -40,6 +40,9 @@ public class TutorialPopUp : MonoBehaviour
 
         foreach(int page in pageWThumbs)
         {
+            if (!enableThumb.ContainsKey(page))
+                enableThumb.Add(page, false);
+
             enableThumb[page] = true;
         }
     }

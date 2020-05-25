@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     public int FacingDirection { get { return facingDirection; } }
 
+    public float DefaultGravity { get { return defaultGravity; } }
+
     [Header("References")]
     [SerializeField] private ParticleSystem dust = null;
     [SerializeField] private LayerMask wallLayer = 0;
@@ -293,6 +295,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (dashDirection == Vector2.zero)
             dashDirection.x = facingDirection;
+        else if (dashDirection.y <= 0f && dashDirection.y > -0.3f)
+            dashDirection.y = 0f;
 
         if (dashDirection.x == 0 && dashDirection.y > 0) // JOYSTICK FACING UPWARDS
             ani.SetTrigger("UpDash");

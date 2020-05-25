@@ -7,6 +7,7 @@ public class TutorialSign : MonoBehaviour
 {
     [SerializeField] private TutorialPopUp popUpRef = null;
     [SerializeField] private Sprite[] pages = null;
+    [SerializeField] private int[] pageWThumbs = null;
     [SerializeField] private float holdDuration = 0.5f;
 
     private Joystick abilityInput = null;
@@ -40,7 +41,7 @@ public class TutorialSign : MonoBehaviour
                 triggered = true;
 
                 TutorialPopUp popUp = Instantiate(popUpRef);
-                popUp.Init(pages, this);
+                popUp.Init(pages, this, pageWThumbs);
 
                 prevFixedTimeScale = Time.fixedDeltaTime;
                 prevTimeScale = Time.timeScale;

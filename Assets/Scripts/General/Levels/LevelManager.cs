@@ -292,8 +292,9 @@ public class LevelManager : MonoBehaviour
         ObjectReferences.instance.itemCount.text = currentLevel.numCollected + "/" + currentLevel.numToCollect;
         ObjectReferences.instance.numKilled.text = currentLevel.enemiesKilled + "/" + currentLevel.numToKill;
 
-        //Set player's pos to checkpoint 
-        player.transform.position = posToSpawn + new Vector3(0f, 5f, 0f);
+        //Set player's pos to checkpoint
+        Collider2D playerCollider = player.GetComponent<Collider2D>();
+        player.transform.position = posToSpawn - new Vector3(0f, playerCollider.bounds.extents.y, 0f);
         Camera.main.transform.position = player.transform.position;
 
         //Respawn Respawnable objects

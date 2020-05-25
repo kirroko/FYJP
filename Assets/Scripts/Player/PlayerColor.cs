@@ -111,7 +111,7 @@ public class PlayerColor : MonoBehaviour
             UpdateColorWheel();
             ResetColorPiecesSize();
             if (colorInput.Direction.x < 0f && colorInput.Direction.y > 0f &&
-                colorInput.Handle.anchoredPosition.magnitude >= 50f)
+                colorInput.Handle.anchoredPosition.magnitude >= 40f)
             {
                 float dotProduct = Vector2.Dot(colorInput.Direction, Vector2.up);
                 float angle = Mathf.Acos(dotProduct) * Mathf.Rad2Deg;

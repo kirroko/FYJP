@@ -12,12 +12,15 @@ public class BlueColor : BaseColor
     [SerializeField] private int maxDash = 3;
     [SerializeField] private float waitTimeDuration = 1f;
     [SerializeField] private float dashCDDuration = 1f;
+    [SerializeField] private float dashFalloffDuration = 0.15f;
 
     private float waitTime = 0f;
     private float dashCD = 0f;
 
     private int dashCount = 0;
     private bool hasDashed = false;
+    private float dashFalloff = 0f;
+    private float defaultGravity = 0f;
 
     private HoldButton dashButton = null;
     private Joystick movementInput = null;
@@ -35,6 +38,8 @@ public class BlueColor : BaseColor
         playerRB = player.GetComponent<Rigidbody2D>();
         playerMovement = player.GetComponent<PlayerMovement>();
         playerAnimator = player.GetComponent<Animator>();
+
+        defaultGravity = playerMovement.DefaultGravity;
     }
 
     public override void UpdateAbility(GameObject player)
@@ -43,6 +48,10 @@ public class BlueColor : BaseColor
 
         waitTime -= Time.deltaTime;
         dashCD -= Time.deltaTime;
+        dashFalloff -= Time.deltaTime;
+
+        if (dashFalloff < 0) // reset gravity
+            playerRB.gravityScale = defaultGravity;
 
         //Shoot projectiles
         if (!abilityInput.IsPressed && abilityActivated)
@@ -77,6 +86,7 @@ public class BlueColor : BaseColor
         ++dashCount;
         hasDashed = true;
         waitTime = waitTimeDuration;
+        dashFalloff = dashFalloffDuration;
 
 
 
@@ -102,6 +112,7 @@ public class BlueColor : BaseColor
             playerAnimator.SetTrigger("Dash");
 
         playerRB.velocity = Vector2.zero;
+        playerRB.gravityScale = 0f;
         Vector3 force = direction * dashSpeed;
         force = Vector3.ClampMagnitude(force, dashSpeed);
         playerRB.AddForce(force, ForceMode2D.Impulse);

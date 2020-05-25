@@ -79,7 +79,7 @@ public class Camera2D: MonoBehaviour
 
         float tempDist = target.position.x - prevX;
         moveDir = Sign(tempDist);
-        if (Mathf.Approximately(target.position.x, prevX) || Mathf.Abs(tempDist) < 0.1f)
+        if (Mathf.Approximately(target.position.x, prevX) || Mathf.Abs(tempDist) < 0.01f)
             moveDir = 0f;
 
         //Determine if camera should smoothly follow, snap or do nothing

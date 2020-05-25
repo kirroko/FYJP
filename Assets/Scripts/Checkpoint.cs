@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Checkpoint : MonoBehaviour
 {
+    [SerializeField] private Transform spawnPoint = null;
     [SerializeField] private SpriteRenderer activatedIcon = null;
     [SerializeField] private GameObject activatedText = null;
     [SerializeField] private float fadeSpeed = 2f;
@@ -34,7 +35,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (collision.GetComponent<PlayerInfo>() == null || triggered) return;
 
-        LevelManager.instance.SpawnPoint = transform.position;
+        LevelManager.instance.SpawnPoint = spawnPoint.position;
         EventManager.instance.TriggerCheckpointEvent(gameObject);
         triggered = true;
 

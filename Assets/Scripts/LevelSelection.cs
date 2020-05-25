@@ -45,7 +45,7 @@ public class LevelSelection : MonoBehaviour
                     player.GetComponent<PlayerMovement>().ForceGravityToZero();
                     //GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Enter");
                     //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>
-                    StartCoroutine(DelayEnter(0.45f,player));
+                    StartCoroutine(DelayEnter(0.43f,player));
                     once = true;
                     //Time.timeScale = 1f;
                     //Time.fixedDeltaTime = ObjectReferences.fixedTimeScale;

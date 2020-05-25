@@ -8,6 +8,7 @@ public class TutorialPopUp : MonoBehaviour
     [Header("Tutorial")]
     [SerializeField] private Image tutorialImg = null;
     [SerializeField] private Sprite[] pages = null;
+    [SerializeField] private Image thumbImage = null;
 
     [Header("Buttons")]
     [SerializeField] private GameObject backBtn = null;
@@ -16,36 +17,43 @@ public class TutorialPopUp : MonoBehaviour
 
     private int currentIndex = 0;
     private TutorialSign sign = null;
+    private Dictionary<int, bool> enableThumb = new Dictionary<int, bool>();
+
+    public float speed = 5f;
 
     private void Start()
     {
         currentIndex = 0;
-        tutorialImg.sprite = pages[currentIndex];
+        UpdatePages();
 
-        //Only 1 page, close btn shld be active
-        if(pages.Length - 1 == currentIndex)
+        for(int i = 0; i < pages.Length; ++i)
         {
-            backBtn.SetActive(false);
-            nextBtn.SetActive(false);
-            closeBtn.SetActive(true);
+            if(!enableThumb.ContainsKey(i))
+                enableThumb.Add(i, false);
         }
-        else // More than 1 page, only next button shld be active
-        {
-            backBtn.SetActive(false);
-            nextBtn.SetActive(true);
-            closeBtn.SetActive(false);
-        }
-
     }
 
-    public void Init(Sprite[] images, TutorialSign tutorialSign)
+    public void Init(Sprite[] images, TutorialSign tutorialSign, int[] pageWThumbs)
     {
         pages = images;
         sign = tutorialSign;
+
+        foreach(int page in pageWThumbs)
+        {
+            enableThumb[page] = true;
+        }
     }
 
     private void UpdatePages()
     {
+        //Reset thumb pos
+        thumbImage.rectTransform.anchoredPosition = Vector2.zero;
+        thumbImage.gameObject.SetActive(enableThumb[currentIndex]);
+        if (enableThumb[currentIndex])
+            thumbImage.GetComponent<Animator>().SetBool("Play", true);
+        else
+            thumbImage.GetComponent<Animator>().SetBool("Play", false);
+
         tutorialImg.sprite = pages[currentIndex];
 
         backBtn.SetActive(false);

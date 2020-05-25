@@ -82,6 +82,11 @@ public class Camera2D: MonoBehaviour
         if (Mathf.Approximately(target.position.x, prevX) || Mathf.Abs(tempDist) < 0.01f)
             moveDir = 0f;
 
+        if (target.GetComponent<PlayerInfo>().TookDamage)
+        {
+            moveDir = 0f;
+        }
+
         //Determine if camera should smoothly follow, snap or do nothing
         if (ignoreDead)
         {

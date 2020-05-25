@@ -17,11 +17,14 @@ public class PlayerInfo : MonoBehaviour
         }
     }
 
+    public bool TookDamage { get { return tookDamage; } }
+
     [SerializeField] private int heart = 1;
     [SerializeField] private const float invincibleDuration = 3f;
     [SerializeField] private GameObject canvas = null;
 
     private bool isInvincible = false;
+    private bool tookDamage = false;
 
     private PlayerMovement movement = null;
     private Rigidbody2D rb = null;
@@ -48,7 +51,10 @@ public class PlayerInfo : MonoBehaviour
         invincibleInterval -= Time.deltaTime;
 
         if (invincibleInterval <= 0f)
+        {
             isInvincible = false;
+            tookDamage = false;
+        }
     }
 
     public void TakeDamage(int damage, float knockbackForce)
@@ -57,6 +63,7 @@ public class PlayerInfo : MonoBehaviour
 
         heart -= damage;
         isInvincible = true;
+        tookDamage = true;
         invincibleInterval = 1.0f;
 
         rb.AddForce(new Vector2(-movement.GetLastXDir, 1f) * knockbackForce, ForceMode2D.Impulse);

@@ -26,7 +26,7 @@ public class SaveSystem
     public static void SaveLevel(Level level)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = levelDirectory + level.name + ".data";
+        string path = levelDirectory + "Level " + level.levelNum + ".data";
 
         FileStream fs = new FileStream(path, FileMode.Create);
 

@@ -50,7 +50,6 @@ public class Settings : MonoBehaviour
 
     private void ToggleGodMode()
     {
-        Debug.Log("Called");
         LevelManager.instance.ToggleGodMode();
         if (LevelManager.instance.GodModeOn)
             slash.gameObject.SetActive(false);

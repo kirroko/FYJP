@@ -39806,6 +39806,16 @@ PrefabInstance:
       propertyPath: boundsBot
       value: 
       objectReference: {fileID: 1356976145490518853}
+    - target: {fileID: 4342268424033313408, guid: 0a46d97563ea69d41913891ac245a4e4,
+        type: 3}
+      propertyPath: followSpeed.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342268424033313408, guid: 0a46d97563ea69d41913891ac245a4e4,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 7994959312607523229}
     - target: {fileID: 4342268424033313435, guid: 0a46d97563ea69d41913891ac245a4e4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41172,13 +41182,13 @@ PrefabInstance:
         type: 3}
       propertyPath: pages.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: b6e028944c99c6748817e301d6eeb46e,
+      objectReference: {fileID: 21300000, guid: add9ecadb0c3bae4bad95c40f63f89fa,
         type: 3}
     - target: {fileID: 5716266142845523361, guid: 4239b1c0ff095534aaba8d48a69bca81,
         type: 3}
       propertyPath: pages.Array.data[2]
       value: 
-      objectReference: {fileID: 21300000, guid: 30e1a1e52f54376429894dff979a4932,
+      objectReference: {fileID: 21300000, guid: c487fdce83600584697e6763b481ed5a,
         type: 3}
     - target: {fileID: 5716266142845523364, guid: 4239b1c0ff095534aaba8d48a69bca81,
         type: 3}

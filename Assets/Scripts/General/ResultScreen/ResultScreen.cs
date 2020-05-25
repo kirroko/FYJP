@@ -30,12 +30,32 @@ public class ResultScreen : MonoBehaviour
 
     public void Retry()
     {
+        AudioManager.PlaySFX("Click", false);
+        switch(lvlManager.CurrentLevelIndex)
+        {
+            case 0:
+                AudioManager.PlayBGM("Level 1", true);
+                break;
+            case 1:
+                AudioManager.PlayBGM("Level 2", true);
+                break;
+            case 2:
+                AudioManager.PlayBGM("Level 3", true);
+                break;
+            default:
+                Debug.LogWarning("RESULTSCREEN.CS RETRY FUNCTION DEFAULT CASE HAS BEEN TRIGGERED");
+                break;
+        }
+
         ObjectReferences.instance.gameObject.SetActive(true);
         lvlManager.StartLevel(lvlManager.CurrentLevelIndex);
     }
 
     public void Next()
     {
+        AudioManager.StopBGM("Result");
+        AudioManager.PlaySFX("Click", false);
+        AudioManager.PlayBGM("Level", true);
         ObjectReferences.instance.gameObject.SetActive(true);
         SceneTransition.instance.LoadSceneInBG("LevelSelection");
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Timeline;
 
 /**
  * This class manages everything level related.
@@ -178,6 +178,22 @@ public class LevelManager : MonoBehaviour
 
         yield return null;
 
+        AudioManager.StopBGM("Level");
+        switch(index)
+        {
+            case 0:
+                AudioManager.PlayBGM("Level 1", true);
+                break;
+            case 1:
+                AudioManager.PlayBGM("Level 2", true);
+                break;
+            case 2:
+                AudioManager.PlayBGM("Level 3", true);
+                break;
+            default:
+                break;
+        }
+
         player = GameObject.FindGameObjectWithTag("Player");
         spawnPoint = player.transform.position;
         initalPos = player.transform.position;
@@ -265,6 +281,39 @@ public class LevelManager : MonoBehaviour
         elapsedTime = 0f;
         CPTime = 0f;
 
+        switch(currentLevelIndex)
+        {
+            case 0:
+                AudioManager.StopBGM("Level 1");
+                break;
+            case 1:
+                AudioManager.StopBGM("Level 2");
+                break;
+            case 2:
+                AudioManager.StopBGM("Level 3");
+                break;
+            default:
+                Debug.LogWarning("LEVEL MANAGER.CS ENDLEVEL FUNCTION SWITCH CASE DEFAULT HAS BEEN TRIGGERED");
+                break;
+        }
+
+        switch(stars)
+        {
+            case 1:
+                AudioManager.PlaySFX("Star 1", false);
+                break;
+            case 2:
+                AudioManager.PlaySFX("Star 2", false);
+                break;
+            case 3:
+                AudioManager.PlaySFX("Star 3", false);
+                break;
+            default:
+                break;
+        }
+
+        AudioManager.PlayBGM("Result", true);
+        
         SceneTransition.instance.LoadSceneInBG("ResultScreen");
     }
 

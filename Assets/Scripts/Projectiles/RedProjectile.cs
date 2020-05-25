@@ -16,6 +16,7 @@ public class RedProjectile : Projectile
         {
             enemy.IsTagged = true;
         }
+        AudioManager.PlaySFX("Hit", false);
         gameObject.GetComponent<Animator>().SetTrigger("Destroy");
         speed = 0f;
         StartCoroutine(DelayDestroy(0.3f));

@@ -54,6 +54,8 @@ public class MovingPlatform : MonoBehaviour
 
         if (ani == null) return;
         ani.SetBool("Charge", needCharge);
+        if (!needCharge)
+            transform.GetChild(0).gameObject.SetActive(false);
     }
 
     private void Update()

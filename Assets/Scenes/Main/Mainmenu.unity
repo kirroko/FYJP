@@ -6471,21 +6471,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[5].audioName
-      value: Dash
-      objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[4].audioName
-      value: Collect
-      objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1543aae96245d2643a3f424955ea2151, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da87a2133906b4b468c1dacfe1c44d32, type: 3}
 --- !u!1 &1965632495

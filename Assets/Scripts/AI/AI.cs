@@ -2,6 +2,7 @@
 using TMPro;
 using System.Collections;
 using UnityEngine.Assertions.Must;
+using System.CodeDom;
 
 public class AI : Respawnable
 {
@@ -159,6 +160,7 @@ public class AI : Respawnable
         gameObject.GetComponent<Collider2D>().enabled = false;
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
         gameObject.GetComponent<Animator>().SetTrigger("Death");
+        AudioManager.PlaySFX("EnemyDeath", false);
         StartCoroutine(DelayGone());
         
         Level currentLevel = LevelManager.instance.CurrentLevel;
@@ -177,13 +179,18 @@ public class AI : Respawnable
     {
         base.TriggerRespawnEvent();
 
-        dead = false;
+        if(!gone)
+        {
+            gameObject.GetComponent<Collider2D>().enabled = true;
+            dead = false;
+        }
     }
 
     protected override void TriggerRespawnAllEvent()
     {
         base.TriggerRespawnAllEvent();
 
+        gameObject.GetComponent<Collider2D>().enabled = true;
         dead = false;
     }
 }

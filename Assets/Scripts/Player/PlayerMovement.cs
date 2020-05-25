@@ -182,7 +182,10 @@ public class PlayerMovement : MonoBehaviour
 
         // VISUAL EFFECTS (DUST)
         if (!isGrounded && temp)
+        {
+            AudioManager.PlaySFX("Land", false);
             CreateDust();
+        }
         isGrounded = temp;
 
         if (isGrounded)

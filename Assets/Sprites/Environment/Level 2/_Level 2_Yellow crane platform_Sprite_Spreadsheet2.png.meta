@@ -1,91 +1,25 @@
 fileFormatVersion: 2
-guid: 3b2d1203a991ec540a8daaaf8c722ddf
+guid: a1f53233087f94142abd0e7a71c81a39
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1109173409407447237
-    second: Crane_Animation_Spreadsheet_Sprite_0
+      213: -1420552467821514090
+    second: _Level 2_Yellow crane platform_Sprite_Spreadsheet2_0
   - first:
-      213: -6843769124752741722
-    second: Crane_Animation_Spreadsheet_Sprite_1
+      213: -2782178315446342169
+    second: _Level 2_Yellow crane platform_Sprite_Spreadsheet2_1
   - first:
-      213: -877091922073929682
-    second: Crane_Animation_Spreadsheet_Sprite_2
+      213: 9084765759245566830
+    second: _Level 2_Yellow crane platform_Sprite_Spreadsheet2_2
   - first:
-      213: -4366015547045555479
-    second: Crane_Animation_Spreadsheet_Sprite_3
+      213: 3573360793683103830
+    second: _Level 2_Yellow crane platform_Sprite_Spreadsheet2_3
   - first:
-      213: -7543187210346652253
-    second: Crane_Animation_Spreadsheet_Sprite_4
+      213: 4543873776805271020
+    second: _Level 2_Yellow crane platform_Sprite_Spreadsheet2_4
   - first:
-      213: 6239613963720860026
-    second: Crane_Animation_Spreadsheet_Sprite_5
-  - first:
-      213: -5696977726824190471
-    second: Crane_Animation_Spreadsheet_Sprite_6
-  - first:
-      213: 2402906891488454322
-    second: Crane_Animation_Spreadsheet_Sprite_7
-  - first:
-      213: 220198672678811163
-    second: Crane_Animation_Spreadsheet_Sprite_8
-  - first:
-      213: -2628966313348199758
-    second: Crane_Animation_Spreadsheet_Sprite_9
-  - first:
-      213: 1925260601771506283
-    second: Crane_Animation_Spreadsheet_Sprite_10
-  - first:
-      213: -6770990509254384522
-    second: Crane_Animation_Spreadsheet_Sprite_11
-  - first:
-      213: -4811736284976858045
-    second: Crane_Animation_Spreadsheet_Sprite_12
-  - first:
-      213: 8056838642056240072
-    second: Crane_Animation_Spreadsheet_Sprite_13
-  - first:
-      213: 5840637429271736513
-    second: Crane_Animation_Spreadsheet_Sprite_14
-  - first:
-      213: 3067255435990891263
-    second: Crane_Animation_Spreadsheet_Sprite_15
-  - first:
-      213: -1806574778120190104
-    second: Crane_Animation_Spreadsheet_Sprite_16
-  - first:
-      213: 4746440061659518910
-    second: Crane_Animation_Spreadsheet_Sprite_17
-  - first:
-      213: 6643300584981918346
-    second: Crane_Animation_Spreadsheet_Sprite_18
-  - first:
-      213: 217067377843713628
-    second: Crane_Animation_Spreadsheet_Sprite_19
-  - first:
-      213: 1933080544147321825
-    second: Crane_Animation_Spreadsheet_Sprite_20
-  - first:
-      213: -2393814934791007882
-    second: Crane_Animation_Spreadsheet_Sprite_21
-  - first:
-      213: -2138261139707781261
-    second: Crane_Animation_Spreadsheet_Sprite_22
-  - first:
-      213: -839956142589917392
-    second: Crane_Animation_Spreadsheet_Sprite_23
-  - first:
-      213: 4901791189620149256
-    second: Crane_Animation_Spreadsheet_Sprite_24
-  - first:
-      213: -1571825325614572297
-    second: Crane_Animation_Spreadsheet_Sprite_25
-  - first:
-      213: 6754357263927725268
-    second: Crane_Animation_Spreadsheet_Sprite_26
-  - first:
-      213: -9040768054688932134
-    second: Crane_Animation_Spreadsheet_Sprite_27
+      213: 4449969104777533322
+    second: _Level 2_Yellow crane platform_Sprite_Spreadsheet2_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -144,7 +78,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -156,7 +90,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -168,7 +102,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -180,7 +114,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -194,7 +128,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Crane_Animation_Spreadsheet_Sprite_0
+      name: _Level 2_Yellow crane platform_Sprite_Spreadsheet2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -208,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c03a06d653946f00800000000000000
-      internalID: 1109173409407447237
+      spriteID: 692b1b29e0f294ce0800000000000000
+      internalID: -1420552467821514090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crane_Animation_Spreadsheet_Sprite_1
+      name: _Level 2_Yellow crane platform_Sprite_Spreadsheet2_1
       rect:
         serializedVersion: 2
         x: 384
@@ -229,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6aaa35aad3c0601a0800000000000000
-      internalID: -6843769124752741722
+      spriteID: 7eda60e0097b369d0800000000000000
+      internalID: -2782178315446342169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crane_Animation_Spreadsheet_Sprite_2
+      name: _Level 2_Yellow crane platform_Sprite_Spreadsheet2_2
       rect:
         serializedVersion: 2
         x: 768
@@ -250,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e283b6d3b81f3d3f0800000000000000
-      internalID: -877091922073929682
+      spriteID: e63c67b2352931e70800000000000000
+      internalID: 9084765759245566830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crane_Animation_Spreadsheet_Sprite_3
+      name: _Level 2_Yellow crane platform_Sprite_Spreadsheet2_3
       rect:
         serializedVersion: 2
         x: 1152
@@ -271,14 +205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e2548afdfbc863c0800000000000000
-      internalID: -4366015547045555479
+      spriteID: 6501ac995b0279130800000000000000
+      internalID: 3573360793683103830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crane_Animation_Spreadsheet_Sprite_4
+      name: _Level 2_Yellow crane platform_Sprite_Spreadsheet2_4
       rect:
         serializedVersion: 2
         x: 1536
@@ -292,14 +226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ad940d9237315790800000000000000
-      internalID: -7543187210346652253
+      spriteID: ce5d0b220251f0f30800000000000000
+      internalID: 4543873776805271020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crane_Animation_Spreadsheet_Sprite_5
+      name: _Level 2_Yellow crane platform_Sprite_Spreadsheet2_5
       rect:
         serializedVersion: 2
         x: 1920
@@ -313,8 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a71262357df879650800000000000000
-      internalID: 6239613963720860026
+      spriteID: a875ab7e25771cd30800000000000000
+      internalID: 4449969104777533322
       vertices: []
       indices: 
       edges: []

@@ -77,9 +77,9 @@ MonoBehaviour:
   - audioName: Cancel
     type: 1
     clip: {fileID: 8300000, guid: 80c99a27430d55941ac44c36f63e3906, type: 3}
-  - audioName: Cancel
+  - audioName: Collect
     type: 1
-    clip: {fileID: 8300000, guid: 80c99a27430d55941ac44c36f63e3906, type: 3}
+    clip: {fileID: 8300000, guid: 1543aae96245d2643a3f424955ea2151, type: 3}
   - audioName: Dash
     type: 1
     clip: {fileID: 8300000, guid: dc74d5b38cd2e4d4eb4f1e121084d58b, type: 3}
@@ -89,6 +89,36 @@ MonoBehaviour:
   - audioName: Death
     type: 1
     clip: {fileID: 8300000, guid: 443a285d99edd7641bda389faced4cec, type: 3}
+  - audioName: Level 1
+    type: 0
+    clip: {fileID: 8300000, guid: 1d00824b2aa77954ebcfd0c8b9ab849a, type: 3}
+  - audioName: Level 2
+    type: 0
+    clip: {fileID: 8300000, guid: bb8f16c428c03f24e950d1e178d0e2ea, type: 3}
+  - audioName: Level 3
+    type: 0
+    clip: {fileID: 8300000, guid: ec201d4319efe084398231a2dbdbbdba, type: 3}
+  - audioName: Land
+    type: 1
+    clip: {fileID: 8300000, guid: b75922eac590cda43a4fb786dea0bcab, type: 3}
+  - audioName: EnemyDeath
+    type: 1
+    clip: {fileID: 8300000, guid: f46f4170bf191c44686c82e82a895ada, type: 3}
+  - audioName: Star 1
+    type: 1
+    clip: {fileID: 8300000, guid: 8655f9ca2b642e94ba7a8cd651e50cd4, type: 3}
+  - audioName: Star 2
+    type: 1
+    clip: {fileID: 8300000, guid: bd6c8d9728990064899e24bc5d5eb845, type: 3}
+  - audioName: Star 3
+    type: 1
+    clip: {fileID: 8300000, guid: 1196d52c9898f6247b4c13ecaa44c085, type: 3}
+  - audioName: Hit
+    type: 1
+    clip: {fileID: 8300000, guid: 0d258fc04c9836043a0fbb2716cc73aa, type: 3}
+  - audioName: Result
+    type: 0
+    clip: {fileID: 8300000, guid: 27cdb64b2b3f4154f978c2371476822c, type: 3}
 --- !u!114 &6902539025529987250
 MonoBehaviour:
   m_ObjectHideFlags: 0

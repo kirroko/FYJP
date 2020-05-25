@@ -58,7 +58,6 @@ public class SceneTransition : MonoBehaviour
 
         while(!operation.isDone)
         {
-            Debug.Log("Loading...");
             yield return null;
         }
 

@@ -42255,6 +42255,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5467065513259894294, guid: a718057a6d4d6a247af79e0e67048271,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467065513259894294, guid: a718057a6d4d6a247af79e0e67048271,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467065513259894295, guid: a718057a6d4d6a247af79e0e67048271,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a718057a6d4d6a247af79e0e67048271, type: 3}
 --- !u!4 &1785750200889435175 stripped
@@ -49326,10 +49341,15 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416887, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6451908035802416888, guid: aef0eca985091014ab525f80f2c6a1de,
         type: 3}
       propertyPath: detectionDistance
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6451908035802416889, guid: aef0eca985091014ab525f80f2c6a1de,
         type: 3}
@@ -53247,10 +53267,15 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416887, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6451908035802416888, guid: aef0eca985091014ab525f80f2c6a1de,
         type: 3}
       propertyPath: detectionDistance
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6451908035802416889, guid: aef0eca985091014ab525f80f2c6a1de,
         type: 3}
@@ -54733,10 +54758,15 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416887, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6451908035802416888, guid: aef0eca985091014ab525f80f2c6a1de,
         type: 3}
       propertyPath: detectionDistance
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6451908035802416889, guid: aef0eca985091014ab525f80f2c6a1de,
         type: 3}
@@ -61285,10 +61315,15 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6451908035802416887, guid: aef0eca985091014ab525f80f2c6a1de,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6451908035802416888, guid: aef0eca985091014ab525f80f2c6a1de,
         type: 3}
       propertyPath: detectionDistance
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6451908035802416889, guid: aef0eca985091014ab525f80f2c6a1de,
         type: 3}

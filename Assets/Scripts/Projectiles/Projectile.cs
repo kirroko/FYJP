@@ -48,7 +48,6 @@ public class Projectile : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-
     }
 
     protected IEnumerator DelayDestroy(float time)

@@ -11,4 +11,10 @@ public class Respawn : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerInfo>() != null)
             collision.gameObject.GetComponent<PlayerInfo>().TakeDamage(10000, 0f);
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerInfo>() != null)
+            collision.gameObject.GetComponent<PlayerInfo>().TakeDamage(10000, 0f);
+    }
 }

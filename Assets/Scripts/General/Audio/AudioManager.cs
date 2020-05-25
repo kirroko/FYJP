@@ -52,12 +52,16 @@ public class AudioManager : MonoBehaviour
             if (audio.type == AudioType.BGM)
             {
                 temp.outputAudioMixerGroup = mixerBGM;
-                BGM.Add(audio.audioName, temp);
+
+                if(!BGM.ContainsKey(audio.audioName))
+                    BGM.Add(audio.audioName, temp);
             }
             else if (audio.type == AudioType.SFX)
             {
                 temp.outputAudioMixerGroup = mixerSFX;
-                SFX.Add(audio.audioName, temp);
+
+                if (!SFX.ContainsKey(audio.audioName))
+                    SFX.Add(audio.audioName, temp);
             }
         }
 

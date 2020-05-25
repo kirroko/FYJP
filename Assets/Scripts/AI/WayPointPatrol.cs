@@ -24,9 +24,11 @@ public class WayPointPatrol : AI
 
         Vector3 targetPos = transform.position;
         targetPos.x = Mathf.MoveTowards(transform.position.x, moveSpots[currentIndex].position.x, speed * Time.deltaTime);
-
+        // Debug.Log("Current: " + transform.position + " | Target: " + targetPos);
         transform.position = targetPos;
-        if (Vector2.Distance(transform.position, moveSpots[currentIndex].position) < 0.2f)
+        // Debug.Log("Distance: " + Vector2.Distance(transform.position, moveSpots[currentIndex].position));
+        Debug.Log("Abs Distance: " + Mathf.Abs(transform.position.x - moveSpots[currentIndex].position.x));
+        if(Mathf.Abs(transform.position.x - moveSpots[currentIndex].position.x) < 0.2f)
         {
             if (waitTime <= 0)
             {
@@ -38,5 +40,17 @@ public class WayPointPatrol : AI
             else
                 waitTime -= Time.deltaTime;
         }
+        //if (Vector2.Distance(transform.position, moveSpots[currentIndex].position) < 0.2f)
+        //{
+        //    if (waitTime <= 0)
+        //    {
+        //        ++currentIndex;
+        //        if (currentIndex >= moveSpots.Length)
+        //            currentIndex = 0;
+        //        waitTime = startWaitTime;
+        //    }
+        //    else
+        //        waitTime -= Time.deltaTime;
+        //}
     }
 }

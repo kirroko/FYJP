@@ -4911,6 +4911,7 @@ MonoBehaviour:
   offset: {x: -2, y: 1.5}
   bobIntensity: 0.005
   bobSpeed: 5
+  followSpeed: {x: 5, y: 1}
 --- !u!95 &880383860
 Animator:
   serializedVersion: 3
@@ -5122,6 +5123,11 @@ MonoBehaviour:
   - {r: 1, g: 0.7843138, b: 0.69411767, a: 1}
   - {r: 0.90377, g: 0.69411767, b: 1, a: 1}
   - {r: 0.78039217, g: 1, b: 0.69411767, a: 1}
+  colorsOverlay:
+  - {r: 1, g: 0.05882353, b: 0.05882353, a: 1}
+  - {r: 1, g: 0.5568628, b: 0.08627451, a: 1}
+  - {r: 0.14509805, g: 0.23137255, b: 1, a: 1}
+  - {r: 1, g: 0.05882353, b: 0.9764706, a: 1}
 --- !u!114 &8070297629261575623
 MonoBehaviour:
   m_ObjectHideFlags: 0

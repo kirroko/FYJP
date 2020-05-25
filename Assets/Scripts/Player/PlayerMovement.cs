@@ -312,6 +312,8 @@ public class PlayerMovement : MonoBehaviour
         PlayerAfterImagePool.Instance.GetFromPool();
         lastImageXPos = transform.position.x;
 
+        AudioManager.PlaySFX("Dash", false);
+
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0;
         Vector3 force = dashDirection * dashSpeed;

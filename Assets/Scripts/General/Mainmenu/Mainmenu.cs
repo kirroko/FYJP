@@ -19,11 +19,14 @@ public class Mainmenu : MonoBehaviour
     public void StartGame()
     {
         transition.LoadSceneInBG(sceneName);
+        AudioManager.PlaySFX("Click",false);
+        AudioManager.PlayBGM("Level", true);
     }
 
     public void ToSettings()
     {
         settings.SetActive(true);
         gameObject.SetActive(false);
+        AudioManager.PlaySFX("Click", false);
     }
 }

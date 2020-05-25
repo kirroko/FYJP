@@ -11,6 +11,7 @@ public class Collectable : Respawnable
     {
         if(collision.gameObject.tag == "Player")
         {
+            AudioManager.PlaySFX("Collect", false);
             Level currentLevel = LevelManager.instance.CurrentLevel;
             ++currentLevel.numCollected;
             ObjectReferences.instance.itemCount.text = currentLevel.numCollected.ToString() + "/" + currentLevel.numToCollect.ToString();

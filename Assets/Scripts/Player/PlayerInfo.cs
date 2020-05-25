@@ -72,6 +72,7 @@ public class PlayerInfo : MonoBehaviour
 
         if (heart <= 0)
         {
+            AudioManager.PlaySFX("Death",false);
             GetComponent<Animator>().SetTrigger("Death");
             Invoke("ResetMaterial", .15f);
             EventManager.instance.TriggerResetJoystickEvent();
@@ -81,6 +82,7 @@ public class PlayerInfo : MonoBehaviour
         }
         else
         {
+            AudioManager.PlaySFX("Hurt", false);
             GetComponent<Animator>().SetTrigger("Hurt");
             Invoke("ResetMaterial", .15f);
         }

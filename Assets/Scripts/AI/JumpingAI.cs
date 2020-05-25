@@ -9,6 +9,7 @@ public class JumpingAI : AI
     private Rigidbody2D rb = null;
     private SpriteRenderer sr = null;
     private float jumpTime = 0f;
+    private bool reduceCooldown = true;
 
     protected override void Start()
     {
@@ -28,13 +29,14 @@ public class JumpingAI : AI
         else if (rb.velocity.y > 1)
             sr.flipY = false;
 
-        if(rb.velocity.y == 0f)
+        if(reduceCooldown)
             jumpTime -= Time.deltaTime;
 
         if(jumpTime <= 0f)
         {
             rb.AddForce(Vector2.up * moveSpeed, ForceMode2D.Impulse);
             jumpTime = jumpInterval;
+            reduceCooldown = false;
         }
 
         if(rb.velocity.y <= 10f)
@@ -47,8 +49,11 @@ public class JumpingAI : AI
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.collider.gameObject == transform.parent.gameObject)
+            reduceCooldown = true;
+
         //To jump thru bounds collider
-        if(collision.collider.bounds.extents.x * 2f > 50f ||
+        if (collision.collider.bounds.extents.x * 2f > 50f ||
             collision.collider.bounds.extents.y * 2f > 50f)
         {
             rb.velocity = collision.relativeVelocity;

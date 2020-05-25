@@ -70,10 +70,25 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 5074ea1167058b94a97a4d291160297e, type: 3}
   - audioName: Click
     type: 1
-    clip: {fileID: 8300000, guid: c254e351a4933ff41b1e52c5f020865b, type: 3}
+    clip: {fileID: 8300000, guid: 0d03d57386b60f94a9e4e611af02f6d3, type: 3}
   - audioName: Level
     type: 0
     clip: {fileID: 8300000, guid: 33ac936978728b243adfdf0047fcea26, type: 3}
+  - audioName: Cancel
+    type: 1
+    clip: {fileID: 8300000, guid: 80c99a27430d55941ac44c36f63e3906, type: 3}
+  - audioName: Cancel
+    type: 1
+    clip: {fileID: 8300000, guid: 80c99a27430d55941ac44c36f63e3906, type: 3}
+  - audioName: Dash
+    type: 1
+    clip: {fileID: 8300000, guid: dc74d5b38cd2e4d4eb4f1e121084d58b, type: 3}
+  - audioName: Hurt
+    type: 1
+    clip: {fileID: 8300000, guid: 9784319307d766d48912f5802117bec2, type: 3}
+  - audioName: Death
+    type: 1
+    clip: {fileID: 8300000, guid: 443a285d99edd7641bda389faced4cec, type: 3}
 --- !u!114 &6902539025529987250
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6473,89 +6473,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
         type: 3}
-      propertyPath: audios.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0d03d57386b60f94a9e4e611af02f6d3, type: 3}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[3].audioName
-      value: Cancel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 80c99a27430d55941ac44c36f63e3906, type: 3}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[3].type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[4].audioName
-      value: Cancel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[4].type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 80c99a27430d55941ac44c36f63e3906, type: 3}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
       propertyPath: audios.Array.data[5].audioName
       value: Dash
       objectReference: {fileID: 0}
     - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
         type: 3}
-      propertyPath: audios.Array.data[5].type
-      value: 1
+      propertyPath: audios.Array.data[4].audioName
+      value: Collect
       objectReference: {fileID: 0}
     - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
         type: 3}
-      propertyPath: audios.Array.data[5].clip
+      propertyPath: audios.Array.data[4].clip
       value: 
-      objectReference: {fileID: 8300000, guid: dc74d5b38cd2e4d4eb4f1e121084d58b, type: 3}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[6].audioName
-      value: Hurt
-      objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[6].type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[6].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9784319307d766d48912f5802117bec2, type: 3}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[7].audioName
-      value: Death
-      objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[7].type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
-        type: 3}
-      propertyPath: audios.Array.data[7].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 443a285d99edd7641bda389faced4cec, type: 3}
+      objectReference: {fileID: 8300000, guid: 1543aae96245d2643a3f424955ea2151, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da87a2133906b4b468c1dacfe1c44d32, type: 3}
 --- !u!1 &1965632495

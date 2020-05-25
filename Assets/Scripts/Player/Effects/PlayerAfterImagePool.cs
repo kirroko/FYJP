@@ -40,15 +40,13 @@ public class PlayerAfterImagePool : MonoBehaviour
 
     public GameObject GetFromPool()
     {
-        Debug.Log(availableObjects.Count);
+
         if (availableObjects.Count == 0)
         {
-            Debug.Log("Did you just try to grow this?");
             GrowPool();
         }
         GameObject instance = availableObjects.Dequeue();
-        Debug.Log("Insatce " + instance);
-        Debug.Log("object " + availableObjects);
+
         instance.SetActive(true);
         return instance;
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -23,6 +24,7 @@ public class PlayerColor : MonoBehaviour
 
     [Header("Color Reference")]
     [SerializeField] private Color[] colorsEffects = null;
+    [SerializeField] private Color[] colorsOverlay = null;
 
     //Image & Input References
     private ColorPiece[] colorPieces = new ColorPiece[3];
@@ -96,7 +98,10 @@ public class PlayerColor : MonoBehaviour
 
                 // Change character color hue
                 // sr.color = currentColor.Color; // now change color of companion to current color hue
-                companionSR.color = currentColor.Color;
+                if (currentColor.GetMain == COLORS.PURPLE) companionSR.color = colorsOverlay[3];
+                else if (currentColor.GetMain == COLORS.ORANGE) companionSR.color = colorsOverlay[1];
+                else companionSR.color = currentColor.Color;
+
                 if (!companionSR.gameObject.GetComponent<Animator>().GetBool("Hue") && currentColor.Color != Color.white)  // hasn't change to hue yet and the next color is not white shall you change to hue
                     companionSR.gameObject.GetComponent<Animator>().SetBool("Hue", true);
                 else if (currentColor.Color == Color.white)                                                                // switch out of hue if the next color is white instead
@@ -301,7 +306,26 @@ public class PlayerColor : MonoBehaviour
         else
             colorIndicator.enabled = true;
 
-        colorIndicator.color = currentColor.Color;
+        switch(currentColor.GetMain)
+        {
+            case COLORS.RED:
+                colorIndicator.color = colorsOverlay[0];
+                break;
+            case COLORS.BLUE:
+                colorIndicator.color = colorsOverlay[2];
+                break;
+            case COLORS.ORANGE:
+                colorIndicator.color = colorsOverlay[1];
+                break;
+            case COLORS.PURPLE:
+                colorIndicator.color = colorsOverlay[3];
+                break;
+            default:
+                colorIndicator.color = currentColor.Color;
+                // Debug.LogWarning("Something went wrong at 'UpdateColorUI'");
+                break;
+        }
+        //colorIndicator.color = currentColor.Color;
     }
 
     private bool CheckDragDistance(float dist)

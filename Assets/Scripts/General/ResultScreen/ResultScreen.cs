@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/**
+ * This class updates the resultscreen with the correct details such as 
+ * item collected, time taken and enemies killed
+ */
+
 public class ResultScreen : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI numCollected = null;

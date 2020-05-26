@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/**
+ * This Object is to be used in Level 2 platforms
+ * 
+ * It will Limit the rotation of the object and resets the rotation upon respawning
+ */
 [RequireComponent(typeof(Rigidbody2D))]
 public class BoatsSway : Respawnable
 {

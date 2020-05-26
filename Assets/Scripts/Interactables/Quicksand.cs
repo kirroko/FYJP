@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/**
+ * This is a Obstacle which causes the player to take damage and sink if they are not the same color as the obstacle
+ */
 public class Quicksand : MonoBehaviour
 {
+    ///Sinking speed
     [SerializeField] float fallSpeed = 2f;
+    ///Color of the quicksand that the player has to match
     [SerializeField] COLORS color = COLORS.NONE;
     [SerializeField] private BoxCollider2D boxCollider = null;
 

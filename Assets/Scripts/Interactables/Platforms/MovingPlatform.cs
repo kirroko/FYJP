@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This is a moving platform that can be used by the yellow color
+ */
 public class MovingPlatform : MonoBehaviour
 {
     public bool Charging
@@ -19,12 +22,31 @@ public class MovingPlatform : MonoBehaviour
     }
 
     [Header("Movement")]
+    /**
+    * Leave the first index as 0,0,0 as it will be start point
+    * 
+    * The values to input are the distance to travel from the start point
+    * 
+    * E.g
+    * 
+    * Platform is at 5,10,0
+    * 
+    * I want it to move to 10 units on the x then 10 units on the y
+    * 
+    * Inputs:
+    * 
+    * index 0: 0,0,0
+    * 
+    * index 1: 10,0,0
+    * 
+    * index 2: 10,10,0
+    */
     [SerializeField] private Vector3[] distToTravel = null;
     [SerializeField] private float moveSpeed = 5f;
 
     [Header("Settings")]
     [SerializeField] private bool loop = false;
-    [SerializeField] private bool needCharge = false;
+    [SerializeField] private bool needCharge = false;///< Set to true if the player has to be yellow in order for the platform to move
 
     private bool isCharging = false;
     private Transform onPlatform = null;
@@ -38,8 +60,8 @@ public class MovingPlatform : MonoBehaviour
 
     private void Start()
     {
-        EventManager.instance.resetPlatforms -= ResetPlatformEvent;
-        EventManager.instance.resetPlatforms += ResetPlatformEvent;
+        EventManager.instance.resetPlatformsEvent -= ResetPlatformEvent;
+        EventManager.instance.resetPlatformsEvent += ResetPlatformEvent;
 
         for (int i = 0; i < distToTravel.Length; ++i)
         {
@@ -176,7 +198,7 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.instance.resetPlatforms -= ResetPlatformEvent;
+        EventManager.instance.resetPlatformsEvent -= ResetPlatformEvent;
     }
     private void ResetPlatformEvent()
     {

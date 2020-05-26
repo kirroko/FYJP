@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * This class should be on objects that upon colliding should cause the player to respawn regardless of their health
+ */
+
 [RequireComponent(typeof(BoxCollider2D))]
 public class Respawn : MonoBehaviour
 {

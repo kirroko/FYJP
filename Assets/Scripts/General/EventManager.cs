@@ -2,6 +2,27 @@
 using System.Collections;
 using UnityEngine;
 
+/**
+ * This class manages all the events that is created by the developer
+ * 
+ * How to use:
+ * 
+ * Templete: public event Action<T> testEvent = null;
+ * 
+ * if no variables needs to be passed in to the function attached, use Action instead of Action<T>
+ * 
+ * The gameobject that needs to be linked to that event add this:
+ * 
+ * EventManager.instance.testEvent -= functionToLink;
+ * EventManager.instance.testEvent += functionToLink;
+ * 
+ * Always minus before adding to make sure that the manager does not have duplicates of the function
+ * 
+ * Remember to Minus in the OnDestroy Function of the gameobject to make sure that once the object is destroyed, the link is removed
+ * 
+ * Create a TriggerTestEvent Function in this class to be called whenever the event needs to be triggered
+ */
+
 public class EventManager : MonoBehaviour
 {
     public static EventManager instance = null;
@@ -17,8 +38,8 @@ public class EventManager : MonoBehaviour
     public event Action startSceneTransitionEvent = null;
     public event Action offSceneTransitionEvent = null;
     public event Action<bool> updateHUDEvent = null;
-    public event Action<GameObject, COLORS> setPlatform = null;
-    public event Action resetPlatforms = null;
+    public event Action<GameObject, COLORS> setPlatformEvent = null;
+    public event Action resetPlatformsEvent = null;
 
     private void Awake()
     {
@@ -107,13 +128,13 @@ public class EventManager : MonoBehaviour
 
     public void TriggerSetPlatform(GameObject gameObject, COLORS platformColor)
     {
-        if (setPlatform != null)
-            setPlatform(gameObject, platformColor);
+        if (setPlatformEvent != null)
+            setPlatformEvent(gameObject, platformColor);
     }
 
     public void TriggerResetPlatforms()
     {
-        if (resetPlatforms != null)
-            resetPlatforms();
+        if (resetPlatformsEvent != null)
+            resetPlatformsEvent();
     }
 }

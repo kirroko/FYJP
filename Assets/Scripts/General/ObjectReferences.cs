@@ -2,6 +2,15 @@
 using UnityEngine.UI;
 using TMPro;
 
+/**
+ * This class is attached to the HUD of the game.
+ * 
+ * It is set to do not destory on load
+ * 
+ * It holds reference to most of the HUD objects.
+ * 
+ * If there is an object that needs to be referenced by many classes, you can store them here for easy access
+ */
 public class ObjectReferences : MonoBehaviour
 {
     public static ObjectReferences instance = null;
@@ -51,7 +60,11 @@ public class ObjectReferences : MonoBehaviour
         EventManager.instance.updateHUDEvent += TriggerUpdateHUDEvent;
     }
 
-    //Pass in true if entering level, false if exiting level
+    /**
+     * This function is called when the HUD needs to be updated
+     * 
+     * Pass in true if entering level, false if exiting level
+     */
     public void TriggerUpdateHUDEvent(bool state)
     {
         //Enable Item, Time, Enemies Killed UI

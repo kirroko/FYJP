@@ -2,8 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/**
+* This fplatform is used by the green color
+* 
+* If the player is green and is standing on it, player can move the platform as by using the left joystick but they cannot 
+* move the player itself
+* 
+* If player is anyother color than green, it will act as a normal platform
+*/
 public class ControllablePlatform : MonoBehaviour
 {
+    ///The Bounds of where the player can control it 
     [SerializeField] private Vector2 bounds = Vector2.zero;
     [SerializeField] private Vector2 offset = Vector2.zero;
 
@@ -13,8 +23,8 @@ public class ControllablePlatform : MonoBehaviour
 
     private void Start()
     {
-        EventManager.instance.resetPlatforms -= ResetPlatformEvent;
-        EventManager.instance.resetPlatforms += ResetPlatformEvent;
+        EventManager.instance.resetPlatformsEvent -= ResetPlatformEvent;
+        EventManager.instance.resetPlatformsEvent += ResetPlatformEvent;
 
 
         startPos = transform.position;
@@ -103,7 +113,7 @@ public class ControllablePlatform : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.instance.resetPlatforms -= ResetPlatformEvent;
+        EventManager.instance.resetPlatformsEvent -= ResetPlatformEvent;
     }
     private void ResetPlatformEvent()
     {

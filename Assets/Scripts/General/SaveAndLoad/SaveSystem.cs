@@ -2,6 +2,11 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+/**
+ * This class handles the saving and loading of data 
+ * 
+ * It also contains a method to delete all of level's data and player's color data
+ */
 public class SaveSystem
 {
     public static string mainDirectory = Application.persistentDataPath + "/Data/";

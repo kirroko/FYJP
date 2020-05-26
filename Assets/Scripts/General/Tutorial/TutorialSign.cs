@@ -2,12 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+* This Class Works together with TutorialPopUp
+* 
+* It is used whenever you want to have a pop up to teach player something
+*/
+
 [RequireComponent(typeof(Collider2D))]
 public class TutorialSign : MonoBehaviour
 {
     [SerializeField] private TutorialPopUp popUpRef = null;
+
+    ///Stores all the sprite of the tutorial to show index 0 is page 1
     [SerializeField] private Sprite[] pages = null;
+
+    ///Stores all the page number that requires thumb moving animation
     [SerializeField] private int[] pageWThumbs = null;
+
+    ///Duration the player has to hold for the tutorial Pop up to show
     [SerializeField] private float holdDuration = 0.5f;
 
     private Joystick abilityInput = null;
@@ -52,6 +64,10 @@ public class TutorialSign : MonoBehaviour
         }
     }
 
+
+    /**
+    * Called when the TutorialPopUp is closed to unpause the game
+    */
     public void PopUpClosed()
     {
         EventManager.instance.TriggerResetJoystickEvent();

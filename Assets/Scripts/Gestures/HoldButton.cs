@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/**
+ * This Class will act as a button you can hold
+ */
+
 public class HoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public bool tap = false;

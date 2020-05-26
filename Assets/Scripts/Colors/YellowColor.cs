@@ -19,8 +19,8 @@ public class YellowColor : BaseColor
         playerColor = player.GetComponent<PlayerColor>();
         collidedPlatform = null;
 
-        EventManager.instance.setPlatform -= SetPlatform;
-        EventManager.instance.setPlatform += SetPlatform;
+        EventManager.instance.setPlatformEvent -= SetPlatform;
+        EventManager.instance.setPlatformEvent += SetPlatform;
     }
 
     public override void UpdateAbility(GameObject player)

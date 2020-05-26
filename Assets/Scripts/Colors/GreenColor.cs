@@ -38,8 +38,8 @@ public class GreenColor : BaseColor
 
         collidedPlatform = null;
 
-        EventManager.instance.setPlatform -= SetPlatform;
-        EventManager.instance.setPlatform += SetPlatform;
+        EventManager.instance.setPlatformEvent -= SetPlatform;
+        EventManager.instance.setPlatformEvent += SetPlatform;
     }
 
     public override void UpdateAbility(GameObject player)

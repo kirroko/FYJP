@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+* TThis Platform is used by the orange color
+* 
+* If the player is orange, the platform will damage enemies on it
+* else it acts as a normal platform
+*/
 public class DamagingPlatform : MonoBehaviour
 {
     public bool IsDamaging {

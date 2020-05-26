@@ -3,6 +3,10 @@ using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
 
+/**
+ * This class handles the changing of scenes in the game.
+ */
+
 public class SceneTransition : MonoBehaviour
 {
     public Scene PrevScene { get { return prevScene; } }

@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+* This is a platform that will disappear after x amt of time once player stand on it
+*/
 public class DisappearingPlatform : MonoBehaviour
 {
+    ///Duration to wait before disappearing
     [SerializeField] private float waitDuration = 5f;
 
     private float waitTime = 0f;

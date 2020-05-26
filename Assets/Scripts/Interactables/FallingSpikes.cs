@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This is an obstacle that will drop and deal damage when the player walks below it
+ */
 [RequireComponent(typeof(Rigidbody2D))]
 public class FallingSpikes : Respawnable
 {
+    ///Duration to wait before dropping
     [SerializeField] private float waitTime = 3f;
+
+    ///Amount to knock player back when in contact
     [SerializeField] private float playerKnockbackAmt = 1f;
 
     private bool start = false;

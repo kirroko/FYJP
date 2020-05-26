@@ -2,37 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/**
+ * This class handles the Camera Movement
+ */
 public class Camera2D: MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private Transform target = null;
     [SerializeField] private float distance = -10f;//z distance from player
     [SerializeField] private Vector2 followSpeed = new Vector2(3f, 3f);
-    //[SerializeField] private Vector2 startOffset = Vector2.zero;
 
     [Header("Dead Zone")]
     [SerializeField] private float deadZoneOffsetX = 0f;
-    [SerializeField] private float deadZoneX = 0f;
+    [SerializeField] private float deadZoneX = 0f;///< Distance between player and camera where the camera will not follow
 
     [Header("Lookahead")]
     [SerializeField] private float lookaheadAmt = 20f;
 
     [Header("Follow Y")]
-    [SerializeField] private float yMoveTop = 0.2f;//Percent from top
-    [SerializeField] private float yMoveBottom = 0.2f;
-    [SerializeField] private float moveAmt = 0.5f;//Percentage of the screen height
+    [SerializeField] private float yMoveTop = 0.2f;///< Percentage from the top of the screen, When the player is below that percentage, camera will move up
+    [SerializeField] private float yMoveBottom = 0.2f;///< Percentage from the bottom of the screen, When the player is below that percentage, camera will move down
+    [SerializeField] private float moveAmt = 0.5f;///< Percentage of the screen height to increase by when moving
 
     [Header("Bounderies")]
-    [SerializeField] private Transform boundsLeft = null;
-    [SerializeField] private Transform boundsRight = null;
-    [SerializeField] private Transform boundsTop= null;
-    [SerializeField] private Transform boundsBot = null;
+    [SerializeField] private Transform boundsLeft = null;///< Most Left Pos where the camera can move to
+    [SerializeField] private Transform boundsRight = null;///< Most Right Pos where the camera can move to
+    [SerializeField] private Transform boundsTop= null;///< Most Top Pos where the camera can move to
+    [SerializeField] private Transform boundsBot = null;///< Most Bottom Pos where the camera can move to
 
     private float halfDeadZoneX = 0f;
 
     private bool deadX = false;
 
-    //Target
     private Joystick moveJoysick = null;
 
     //Camera
@@ -42,7 +44,7 @@ public class Camera2D: MonoBehaviour
     private float prevDir = 0f;
     private Vector2 camHalfSize = Vector2.zero;
 
-    [HideInInspector] public bool isControlled = false;
+    [HideInInspector] public bool isControlled = false;///< used by WhiteColor
 
     private float moveDir = 0f;
     private float prevX = 0f;
@@ -77,11 +79,13 @@ public class Camera2D: MonoBehaviour
     {
         if (target == null || isControlled) return;
 
+        //Set the direction of the lookahead to be
         float tempDist = target.position.x - prevX;
         moveDir = Sign(tempDist);
         if (Mathf.Approximately(target.position.x, prevX) || Mathf.Abs(tempDist) < 0.01f)
             moveDir = 0f;
 
+        //If player took damage dont have lookahead
         if (target.GetComponent<PlayerInfo>().TookDamage)
         {
             moveDir = 0f;
@@ -95,7 +99,8 @@ public class Camera2D: MonoBehaviour
                 ignoreDead = false;
             }
         }
-
+        
+        //Player is within the bounds of deadzone and lookahead is not active
         if (!ignoreDead && target.position.x < transform.position.x + deadZoneOffsetX + halfDeadZoneX &&
             target.position.x > transform.position.x + deadZoneOffsetX - halfDeadZoneX)
         {
@@ -197,6 +202,9 @@ public class Camera2D: MonoBehaviour
             prevX = target.position.x;
     }
 
+    /**
+     * This Function is used to limit the camera's position to the bounds that was set previously
+     */
     public void LimitCameraBounds(ref Vector3 targetPos)
     {
         if (targetPos.x - camHalfSize.x <= boundsLeft.position.x)

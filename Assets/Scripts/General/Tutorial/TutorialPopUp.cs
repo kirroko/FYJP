@@ -3,11 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+* This Class can work with and without the TutorialSign class
+* 
+* This Class is the PopUp canvas that will show to display tutorials
+*/
+
 public class TutorialPopUp : MonoBehaviour
 {
     [Header("Tutorial")]
+    ///Reference to the image gameobject in the scene
     [SerializeField] private Image tutorialImg = null;
+
+    /**
+    * Leave This Empty if it is to be used with TutorialSign.
+    * 
+    * TutorialSign will set it upon creating this object in the Init function
+    * 
+    * If is used alone, it stores all the sprite of the tutorial to show.
+    * 
+    * index 0 is page 1
+    */
     [SerializeField] private Sprite[] pages = null;
+
+    ///Reference to the gameobject in the scene
     [SerializeField] private Image thumbImage = null;
 
     [Header("Buttons")]
@@ -33,6 +52,10 @@ public class TutorialPopUp : MonoBehaviour
         UpdatePages();
     }
 
+    /**
+     * This Function is called by TutorialSign to initalise the page sprites 
+     * and set whether the thumb animation should play
+     */
     public void Init(Sprite[] images, TutorialSign tutorialSign, int[] pageWThumbs)
     {
         pages = images;
@@ -47,6 +70,9 @@ public class TutorialPopUp : MonoBehaviour
         }
     }
 
+    /**
+     * This Function is called each time the player changes a page
+     */
     private void UpdatePages()
     {
         //Reset thumb pos

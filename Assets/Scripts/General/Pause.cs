@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * This Class handles the pause screen
+ */
+
 public class Pause : MonoBehaviour
 {
     [SerializeField] private ConfirmationScreen confirmationRef = null;

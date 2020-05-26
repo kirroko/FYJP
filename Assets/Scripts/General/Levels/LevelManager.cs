@@ -371,7 +371,7 @@ public class LevelManager : MonoBehaviour
     {
         SaveSystem.DeleteAllSaveData();
         InitLevelData();
-        //PlayerManager.instance.InitData();
+        PlayerManager.instance.InitData();
 
         EventManager.instance.TriggerUpdatePaintingBorderEvent();
     }

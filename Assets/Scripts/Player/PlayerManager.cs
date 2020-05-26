@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(this);
-        //InitData();
+        InitData();
     }
 
 
@@ -86,7 +86,7 @@ public class PlayerManager : MonoBehaviour
         foreach(COLORS color in colorToUpdate.Keys)
         {
             colorManager.colorList[color].IsLocked = colorToUpdate[color];
-            //SaveSystem.SaveColor(colorManager.colorList[color]);
+            SaveSystem.SaveColor(colorManager.colorList[color]);
         }
     }
 }

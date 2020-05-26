@@ -17,8 +17,10 @@ public class BoatsSway : Respawnable
     private string[] layerNames = new string[3];
 
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         startX = transform.position.x;
         rb = GetComponent<Rigidbody2D>();
         startCenterMass = rb.centerOfMass;

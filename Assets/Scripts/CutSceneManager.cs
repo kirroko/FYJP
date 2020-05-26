@@ -25,7 +25,6 @@ public class CutSceneManager : MonoBehaviour
 
         if(PlayerPrefs.HasKey("CutScene"))
         {
-            Debug.Log("Have already seen the cutScene...");
             gameObject.SetActive(false);
         }
         else

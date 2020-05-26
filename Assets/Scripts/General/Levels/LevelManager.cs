@@ -204,7 +204,7 @@ public class LevelManager : MonoBehaviour
         if (currentLevel.colorList != null)
             PlayerManager.instance.UpdateColorList(currentLevel.colorList);
         else
-            Debug.LogError("Level" + index + " Color list not set");
+            Debug.LogWarning("Level" + index + " Color list not set");
 
         //Spawn ghost if it exist
         //if(currentLevel.ghostPos.Count > 0)

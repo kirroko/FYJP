@@ -18,15 +18,12 @@ public class PatrolAI : AI
     [SerializeField] private Vector2 dir = new Vector2(1f, 0f);
     private new Collider2D collider = null;
 
-    private SpriteRenderer sr = null;
-
     protected override void Start()
     {
         base.Start();
         collider = GetComponent<Collider2D>();
         defaultSpeed = moveSpeed;
         startPos = transform.position;
-        sr = GetComponent<SpriteRenderer>();
     }
 
     protected override void Update()

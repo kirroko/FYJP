@@ -7,7 +7,6 @@ public class JumpingAI : AI
     [SerializeField] private float jumpInterval = 3f;
 
     private Rigidbody2D rb = null;
-    private SpriteRenderer sr = null;
     private float jumpTime = 0f;
     private bool reduceCooldown = true;
 
@@ -16,7 +15,6 @@ public class JumpingAI : AI
         base.Start();
 
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
         jumpTime = jumpInterval;
     }
 

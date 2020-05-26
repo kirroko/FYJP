@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Respawnable : MonoBehaviour
 {
-    protected bool gone = false;
-    private bool willRespawn = true;
+    private bool gone = false;
+    protected bool willRespawn = true;
 
 
     protected virtual void Start()

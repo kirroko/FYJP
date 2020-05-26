@@ -51,7 +51,6 @@ public class SceneTransition : MonoBehaviour
 
     private IEnumerator LoadSceneAsync(string sceneName)
     {
-        Debug.Log("Begin operation... Loading " + sceneName);
         EventManager.instance.TriggerSceneTransitionEvent();
         prevScene = SceneManager.GetActiveScene();
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
@@ -66,9 +65,6 @@ public class SceneTransition : MonoBehaviour
         currentScene = SceneManager.GetSceneByName(sceneName);
         SceneManager.SetActiveScene(currentScene);
         SceneManager.UnloadSceneAsync(prevScene);
-
-        Debug.Log("Set Active Scene... " +
-            currentScene);
 
         changedScene = true;
         EventManager.instance.TriggerResetJoystickEvent();

@@ -81,13 +81,16 @@ public class AI : Respawnable
     private float taggedCD = 0f;
     private float frozenCD = 0f;
 
-    private SpriteRenderer sr;
+    private float defaultGravity = 0f;
+
+    protected SpriteRenderer sr;
 
     protected override void Start()
     {
         base.Start();
 
         speed = moveSpeed;
+        defaultGravity = GetComponent<Rigidbody2D>().gravityScale;
         sr = GetComponent<SpriteRenderer>();
     }
 
@@ -179,11 +182,18 @@ public class AI : Respawnable
     {
         base.TriggerRespawnEvent();
 
-        if(!gone)
-        {
-            gameObject.GetComponent<Collider2D>().enabled = true;
-            dead = false;
-        }
+        if (!willRespawn) return;
+
+        gameObject.GetComponent<Collider2D>().enabled = true;
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = defaultGravity;
+
+        tagged = frozen = stun = false;
+
+        taggedCD = frozenCD = stunCD = 0f;
+
+        speed = moveSpeed;
+
+        dead = false;
     }
 
     protected override void TriggerRespawnAllEvent()

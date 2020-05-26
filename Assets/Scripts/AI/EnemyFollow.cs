@@ -7,13 +7,11 @@ public class EnemyFollow : AI
     [SerializeField] private float detectionDistance = 5f;
 
     private Transform target = null;
-    private SpriteRenderer sr = null;
 
     protected override void Start()
     {
         base.Start();
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        sr = GetComponent<SpriteRenderer>();
     }
 
     protected override void Update()

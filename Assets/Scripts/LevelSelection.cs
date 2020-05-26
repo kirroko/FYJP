@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+/**
+ * This is the script to attach to the gameobject that contains the painting in level selection screen
+ */
 [RequireComponent(typeof(Collider2D))]
 public class LevelSelection : MonoBehaviour
 {
     [SerializeField] private Level level = null;
-    [SerializeField] private float holdDuration = 1f;
+    [SerializeField] private float holdDuration = 1f;///< Duration to hold before it counts as entering the level
 
     [SerializeField] private GameObject lockRef = null;
     [SerializeField] private GameObject frame = null;
@@ -45,7 +48,7 @@ public class LevelSelection : MonoBehaviour
                     player.GetComponent<PlayerMovement>().ForceGravityToZero();
                     //GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Enter");
                     //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>
-                    StartCoroutine(DelayEnter(0.43f,player));
+                    StartCoroutine(DelayEnter(0.4f,player));
                     once = true;
                     //Time.timeScale = 1f;
                     //Time.fixedDeltaTime = ObjectReferences.fixedTimeScale;
@@ -57,6 +60,9 @@ public class LevelSelection : MonoBehaviour
         }
     }
 
+    /**
+     * This Delay is used so that the animation can play finish before the player enter the game
+     */
     private IEnumerator DelayEnter(float time, GameObject player)
     {
         yield return new WaitForSeconds(time);

@@ -2,6 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This class will get the loaded player data from the files and 
+ * update it in game
+ * 
+ * Loaded / Saved Data:
+ * Player's Color Info
+ * 
+ * Anything related to the player's loading and saving can be written here
+ */
+
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance = null;
@@ -21,6 +31,14 @@ public class PlayerManager : MonoBehaviour
         //InitData();
     }
 
+
+    /**
+     * This functions loads all the data from the save files and place updates the game accordingly
+     * 
+     * Anything player data that is loaded and to be updated can be found here
+     * 
+     * This function is also called when the player clear all data
+     */
     public void InitData()
     {
         //Init Color data
@@ -38,6 +56,12 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    /**
+     * This Function is called whenever a player enters a level.
+     * 
+     * It will check if there is a new color unlocked for the player to use 
+     * If there is it will update the data and save it to the file
+     */
     public void UpdateColorList(ColorManager newColorList)
     {
         Dictionary<COLORS, bool> colorToUpdate = new Dictionary<COLORS, bool>();
@@ -55,7 +79,7 @@ public class PlayerManager : MonoBehaviour
         foreach(COLORS color in colorToUpdate.Keys)
         {
             colorManager.colorList[color].IsLocked = colorToUpdate[color];
-            SaveSystem.SaveColor(colorManager.colorList[color]);
+            //SaveSystem.SaveColor(colorManager.colorList[color]);
         }
     }
 }

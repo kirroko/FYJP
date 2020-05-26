@@ -38179,6 +38179,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patrol AI
       objectReference: {fileID: 0}
+    - target: {fileID: 3906710304717599037, guid: 2b0a8aa7d794b6f418f12c948e7c628e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b0a8aa7d794b6f418f12c948e7c628e, type: 3}
 --- !u!4 &3849591010263961532 stripped
@@ -40280,6 +40285,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Patrol AI (Non-shootable)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906710304717599037, guid: 558ed7e2e75965b4c93043123f654112,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 558ed7e2e75965b4c93043123f654112, type: 3}
@@ -45889,6 +45899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Patrol AI (Non-shootable)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906710304717599037, guid: 558ed7e2e75965b4c93043123f654112,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 558ed7e2e75965b4c93043123f654112, type: 3}
@@ -51687,6 +51702,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patrol AI (Non-shootable) (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3906710304717599037, guid: 558ed7e2e75965b4c93043123f654112,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 558ed7e2e75965b4c93043123f654112, type: 3}
 --- !u!4 &8119821586698548106 stripped
@@ -54532,6 +54552,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patrol AI (Non-shootable) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3906710304717599037, guid: 558ed7e2e75965b4c93043123f654112,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 558ed7e2e75965b4c93043123f654112, type: 3}
 --- !u!4 &7461189270906871301 stripped
@@ -55578,6 +55603,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Patrol AI (Non-shootable)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906710304717599037, guid: 558ed7e2e75965b4c93043123f654112,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 558ed7e2e75965b4c93043123f654112, type: 3}

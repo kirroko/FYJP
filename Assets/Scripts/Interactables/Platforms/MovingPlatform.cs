@@ -117,9 +117,15 @@ public class MovingPlatform : MonoBehaviour
             if(sr != null)
             {
                 if (dir.x > 0)
+                {
                     sr.flipX = true;
+                    transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+                }
                 else
+                {
                     sr.flipX = false;
+                    transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+                }
             }
 
             transform.position += dir * moveSpeed * Time.deltaTime;

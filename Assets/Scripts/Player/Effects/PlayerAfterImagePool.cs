@@ -25,7 +25,6 @@ public class PlayerAfterImagePool : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(this);
         GrowPool();
     }
 

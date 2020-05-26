@@ -20,7 +20,7 @@ public class Mainmenu : MonoBehaviour
     {
         transition.LoadSceneInBG(sceneName);
         AudioManager.PlaySFX("Click",false);
-        AudioManager.PlayBGM("Level", true);
+        // AudioManager.PlayBGM("Level", true);
     }
 
     public void ToSettings()

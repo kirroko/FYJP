@@ -162,6 +162,7 @@ public class AI : Respawnable
         //Gone();
         gameObject.GetComponent<Collider2D>().enabled = false;
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+        speed = 0;
         gameObject.GetComponent<Animator>().SetTrigger("Death");
         AudioManager.PlaySFX("EnemyDeath", false);
         StartCoroutine(DelayGone());

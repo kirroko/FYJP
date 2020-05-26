@@ -26,6 +26,7 @@ public class CutSceneManager : MonoBehaviour
         if(PlayerPrefs.HasKey("CutScene"))
         {
             gameObject.SetActive(false);
+            AudioManager.PlayBGM("Level", true);
         }
         else
         {
@@ -75,12 +76,13 @@ public class CutSceneManager : MonoBehaviour
                 videoPlayer.Stop();
                 rImage.enabled = false;
                 audioSource.Stop();
+                AudioManager.PlayBGM("Level", true);
                 break;
             }
 
             yield return null;
         }
-
+        AudioManager.PlayBGM("Level", true);
         Debug.Log("Video playback finish");
         gameObject.SetActive(false);
     }

@@ -38,8 +38,8 @@ public class PatrolAI : AI
         Debug.DrawRay(origin, new Vector2(0, -1) * (collider.bounds.extents.y + 0.1f), Color.red);
 
         // If on platform it'll flip at the edge or reach max distance 
-        if (!Physics2D.Raycast(collider.bounds.center + new Vector3(collider.bounds.extents.x * dir.x, 0f, 0f), Vector2.down, collider.bounds.extents.y + 0.1f) ||
-            Vector3.Distance(startPos, transform.position) > distanceBeforeRotate)
+        if ((!Physics2D.Raycast(collider.bounds.center + new Vector3(collider.bounds.extents.x * dir.x, 0f, 0f), Vector2.down, collider.bounds.extents.y + 0.1f) ||
+            Vector3.Distance(startPos, transform.position) > distanceBeforeRotate) && collider.enabled == true)
         {
             dir.x = -dir.x;
             sr.flipX = !sr.flipX;
@@ -91,13 +91,19 @@ public class PatrolAI : AI
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Projectile>() != null) return;
-
-        ContactPoint2D contact = collision.GetContact(0);
-        if(contact.normal.x != 0f)
+        if (collision.gameObject.tag == "Projectile") return;
+        if (collision.gameObject.tag == "Player") return;
+        //if (collision.gameObject.GetComponent<Projectile>() != null) return;
+        //if (collision.gameObject.GetComponent<PlayerMovement>() != null) return;
+        if(collision.gameObject.layer == 11) // wall layer
         {
-            dir.x = -dir.x;
-            sr.flipX = !sr.flipX;
+            ContactPoint2D contact = collision.GetContact(0);
+            if(contact.normal.x != 0f)
+            {
+                Debug.Log("Its this fker right?");
+                dir.x = -dir.x;
+                sr.flipX = !sr.flipX;
+            }
         }
     }
 }

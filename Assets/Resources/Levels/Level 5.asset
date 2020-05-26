@@ -24,10 +24,10 @@ MonoBehaviour:
   starTime: 180
   percentToCollect: 0.6
   percentToKill: 0.2
-  numToCollect: 18
-  numToKill: 5
+  numToCollect: 13
+  numToKill: 2
   mission1:
-  - Collect
+  - Collect at least
   - num
   - items
   mission2:

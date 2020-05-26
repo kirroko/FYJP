@@ -51,6 +51,7 @@ public class Level : ScriptableObject
 
     public void Init()
     {
+        missions.Clear();
         missions.Add(mission1);
         missions.Add(mission2);
         missions.Add(mission3);

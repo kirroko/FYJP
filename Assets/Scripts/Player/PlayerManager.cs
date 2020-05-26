@@ -55,8 +55,7 @@ public class PlayerManager : MonoBehaviour
         foreach(COLORS color in colorToUpdate.Keys)
         {
             colorManager.colorList[color].IsLocked = colorToUpdate[color];
-            Debug.Log(color + ": " + colorManager.colorList[color].IsLocked);
-            //SaveSystem.SaveColor(colorManager.colorList[color]);
+            SaveSystem.SaveColor(colorManager.colorList[color]);
         }
     }
 }

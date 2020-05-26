@@ -366,7 +366,7 @@ public class LevelManager : MonoBehaviour
     {
         SaveSystem.DeleteAllSaveData();
         InitLevelData();
-        //PlayerManager.instance.InitData();
+        PlayerManager.instance.InitData();
     }
 
     /// Called in result screen scene

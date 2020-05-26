@@ -78,6 +78,7 @@ public class PlayerInfo : MonoBehaviour
 
         if (heart <= 0)
         {
+            AudioManager.PlaySFX("Hurt", false);
             AudioManager.PlaySFX("Death",false);
             GetComponent<Animator>().SetTrigger("Death");
             Invoke("ResetMaterial", .15f);

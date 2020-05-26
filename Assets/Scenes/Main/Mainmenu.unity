@@ -1227,7 +1227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -72.80005, y: 52.899902}
+  m_AnchoredPosition: {x: -72.79999, y: 52.899994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1206717327
@@ -6471,12 +6471,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 6902539025529987248, guid: da87a2133906b4b468c1dacfe1c44d32,
+    - target: {fileID: 6902539025529987251, guid: da87a2133906b4b468c1dacfe1c44d32,
         type: 3}
-      propertyPath: colorManager
+      propertyPath: audios.Array.data[6].clip
       value: 
-      objectReference: {fileID: 11400000, guid: 1b1ff834e4343594dbbf192f5eec68e8,
-        type: 2}
+      objectReference: {fileID: 8300000, guid: 61d348479d8ee43439e3e1bb53899f5c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da87a2133906b4b468c1dacfe1c44d32, type: 3}
 --- !u!1 &1965632495

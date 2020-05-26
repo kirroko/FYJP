@@ -135,6 +135,14 @@ public class AudioManager : MonoBehaviour
         instance.BGM[audioName].Stop();
     }
 
+    public static void StopAllBGM()
+    {
+        foreach(AudioSource source in instance.BGM.Values)
+        {
+            source.Stop();
+        }
+    }
+
     public static void StopSFX(string audioName)
     {
         instance.SFX[audioName].Stop();

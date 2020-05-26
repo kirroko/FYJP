@@ -13,11 +13,19 @@ public class PlayerAfterImagePool : MonoBehaviour
 
     private Queue<GameObject> availableObjects = new Queue<GameObject>();
 
-    public static PlayerAfterImagePool Instance { get; private set; }
+    //public static PlayerAfterImagePool Instance { get; private set; }
+
+    public static PlayerAfterImagePool Instance = null;
 
     private void Awake()
     {
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
+        DontDestroyOnLoad(this);
         GrowPool();
     }
 

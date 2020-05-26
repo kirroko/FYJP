@@ -83,6 +83,8 @@ public class Pause : MonoBehaviour
         yesFunctions.Add(delegate () { SceneTransition.instance.LoadSceneInBG("LevelSelection"); });
         yesFunctions.Add(delegate () { LevelManager.instance.ResetLevelVariables(); });
         yesFunctions.Add(delegate () { EventManager.instance.TriggerUpdateHUDEvent(false); });
+        yesFunctions.Add(delegate () { AudioManager.StopAllBGM(); });
+        yesFunctions.Add(delegate () { AudioManager.PlayBGM("Level", true); });
         yesFunctions.Add(Pausing);
 
         ConfirmationScreen temp = Instantiate(confirmationRef);

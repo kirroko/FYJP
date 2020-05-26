@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This is the base class which all projectiles inherit from
+ */
 public class Projectile : MonoBehaviour
 {
     [SerializeField] protected float lifeTime = 5f;

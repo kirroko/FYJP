@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Add This Script to Any Gameobject that the player can break by dashing into it
+ */
 public class DashBreak : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)

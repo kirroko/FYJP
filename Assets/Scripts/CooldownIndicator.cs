@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * This Class is used on buttons that has a cooldown
+ */
 public class CooldownIndicator : MonoBehaviour
 {
     private Image image = null;

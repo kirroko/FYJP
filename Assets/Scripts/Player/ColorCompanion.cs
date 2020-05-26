@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/**
+ * This is the companion that will follow the player around
+ */
 public class ColorCompanion : MonoBehaviour
 {
     [SerializeField] private Vector2 offset = Vector2.zero;

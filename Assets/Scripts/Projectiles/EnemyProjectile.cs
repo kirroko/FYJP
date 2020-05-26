@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This is the projectile that the enemy shoots
+ */
 public class EnemyProjectile : Projectile
 {
     protected override void OnCollisionEnter2D(Collision2D collision)

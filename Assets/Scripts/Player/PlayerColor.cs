@@ -6,10 +6,12 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
+/**
+ * This class Handles the switching of colors and updating them.
+ */
 public class PlayerColor : MonoBehaviour
 {
     public BaseColor GetCurrentColor { get { return currentColor; } }
-    public GameObject GetCollidedPlatform { get { return collidedPlatform; }  set { collidedPlatform = value; } }
 
     [Header("Reference")]
     [SerializeField] private SpriteRenderer companionSR = null;
@@ -20,7 +22,7 @@ public class PlayerColor : MonoBehaviour
 
     [Header("Color Wheel")]
     [SerializeField] private float defaultSize = 100f;
-    [SerializeField] private float growSize = 150f;
+    [SerializeField] private float growSize = 150f;///< The Size the Color Piece should be when selecting
 
     [Header("Color Reference")]
     [SerializeField] private Color[] colorsEffects = null;
@@ -37,7 +39,6 @@ public class PlayerColor : MonoBehaviour
     private bool slowDown = false;
     private int index = 0;
 
-    private GameObject collidedPlatform = null;
     private SpriteRenderer sr = null;
 
     private Image colorIndicator = null;
@@ -147,29 +148,6 @@ public class PlayerColor : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         EventManager.instance.TriggerEnemyCollisionEvent(collision, gameObject);
-
-        if (collision.gameObject == null || collision.contactCount == 0) return;
-
-        ContactPoint2D contact = collision.GetContact(0);
-
-        //Check if collided object is below 
-        if(contact.normal.y > 0f)
-        {
-            collidedPlatform = collision.gameObject;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collidedPlatform == null) return;
-
-        if (collidedPlatform.GetComponent<DamagingPlatform>() != null)
-            collidedPlatform.GetComponent<DamagingPlatform>().IsDamaging = false;
-
-        if (collidedPlatform.GetComponent<MovingPlatform>() != null)
-            collidedPlatform.GetComponent<MovingPlatform>().Charging = false;
-
-        collidedPlatform = null;
     }
 
     private void OnDestroy()
@@ -180,6 +158,9 @@ public class PlayerColor : MonoBehaviour
         }
     }
 
+    /**
+     * This Function Updates the Color Wheel's image to show the current color
+     */
     private void UpdateImage()
     {
         foreach (ColorPiece colorPiece in colorPieces)
@@ -188,6 +169,9 @@ public class PlayerColor : MonoBehaviour
         }
     }
 
+    /**
+    * This Function Updates the Color Wheel's as the player is selecting the colors
+    */
     private void UpdateColorWheel()
     {
         if(currentColor.GetMain == COLORS.WHITE)
@@ -244,6 +228,9 @@ public class PlayerColor : MonoBehaviour
         }
     }
 
+    /**
+     * This function will slow the game down when player is choosing color
+     */
     private void ToggleSlowDown()
     {
         if(slowDown && !canChoose)
@@ -260,6 +247,9 @@ public class PlayerColor : MonoBehaviour
         }
     }
 
+    /**
+     * This function resets all the color wheel's pieces to their orignal size
+     */
     private void ResetColorPiecesSize()
     {
         foreach(ColorPiece colorPiece in colorPieces)
@@ -272,7 +262,9 @@ public class PlayerColor : MonoBehaviour
     {
         colorAdjust.colorFilter.value = colorsEffects[0];
     }
-    
+    /**
+     * This function changes the color overlay when player is selecting color
+     */
     private void ToggleVisualEffect(int index)
     {
         if(currentColor.GetMain == COLORS.WHITE)
@@ -299,6 +291,9 @@ public class PlayerColor : MonoBehaviour
         }
     }
 
+    /**
+     * This function updates the color indicator.
+     */
     private void UpdateColorUI()
     {
         if (currentColor.GetMain == COLORS.WHITE)
@@ -326,14 +321,5 @@ public class PlayerColor : MonoBehaviour
                 break;
         }
         //colorIndicator.color = currentColor.Color;
-    }
-
-    private bool CheckDragDistance(float dist)
-    {
-        if (colorInput.Handle.anchoredPosition.magnitude >= dist) return true;
-        else if (Mathf.Abs(colorInput.Handle.anchoredPosition.x) >= dist) return true;
-        else if (Mathf.Abs(colorInput.Handle.anchoredPosition.y) >= dist) return true;
-
-        return false;
     }
 }

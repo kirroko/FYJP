@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/**
+ * This is the projectile that the Red color shoots
+ */
 public class RedProjectile : Projectile
 {
     protected override void OnCollisionEnter2D(Collision2D collision)

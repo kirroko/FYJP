@@ -109,6 +109,8 @@ public class LevelManager : MonoBehaviour
             //Get Number of enemies player has to kill each level to get a star
             AI[] enemies = level.layout.transform.GetComponentsInChildren<AI>();
             level.numToKill = Mathf.RoundToInt(enemies.Length * level.percentToKill);
+            if (enemies.Length > 0 && level.numToKill == 0)
+                level.numToKill = 1;
 
             //Check if the file data has be created before if not create it else load it
             LevelData levelData = SaveSystem.LoadLevel("Level " + level.levelNum);

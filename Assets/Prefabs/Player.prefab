@@ -4946,7 +4946,6 @@ GameObject:
   - component: {fileID: 8070297629261575621}
   - component: {fileID: 8070297629261575622}
   - component: {fileID: 8070297629261575623}
-  - component: {fileID: 8070297629261575624}
   - component: {fileID: 924146073}
   m_Layer: 10
   m_Name: Player
@@ -5142,18 +5141,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heart: 2
   canvas: {fileID: 0}
---- !u!114 &8070297629261575624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8070297629261575616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90f2e78f948f21f4abc99d73dafba9d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &924146073
 Animator:
   serializedVersion: 3

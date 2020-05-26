@@ -37,8 +37,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    //[SerializeField] private PlayerGhost ghost = null;
-
     public static LevelManager instance = null;
 
     private List<Level> levels = new List<Level>();
@@ -132,11 +130,6 @@ public class LevelManager : MonoBehaviour
     private void UpdateLevelData(Level level, LevelData levelData)
     {
         level.data = levelData;
-        
-        foreach(Vec3Serializable pos in levelData.ghostPosSerialized)
-        {
-            level.ghostPos.Add(new Vector3(pos.x, pos.y, pos.z));
-        }
     }
 
     /**
@@ -205,13 +198,6 @@ public class LevelManager : MonoBehaviour
             PlayerManager.instance.UpdateColorList(currentLevel.colorList);
         else
             Debug.LogWarning("Level" + index + " Color list not set");
-
-        //Spawn ghost if it exist
-        //if(currentLevel.ghostPos.Count > 0)
-        //{
-        //    PlayerGhost tempGhost = Instantiate(ghost, currentLevel.ghostPos[0], Quaternion.identity);
-        //    tempGhost.Init(currentLevel.ghostPos);
-        //}
     }
 
     /**
@@ -238,17 +224,10 @@ public class LevelManager : MonoBehaviour
 
         int stars = 0;
 
-        //Updated Fastest Time & ghost
+        //Updated Fastest Time
         if (elapsedTime < currentLevel.data.fastestTime)
         {
             currentLevel.data.fastestTime = elapsedTime;
-            //Update GhostPos
-            currentLevel.ghostPos = player.GetComponent<GhostManager>().RecordedPos;
-            //Updated ghost data to be serialized
-            foreach (Vector3 pos in currentLevel.ghostPos)
-            {
-                currentLevel.data.ghostPosSerialized.Add(Vec3Serializable.ToVec3Serializable(pos));
-            }
         }
 
         //Collected all the collectables
@@ -364,13 +343,6 @@ public class LevelManager : MonoBehaviour
         yield return null;
 
         start = true;
-        
-        //Spawn ghost if it exist
-        //if(currentLevel.ghostPos.Count > 0)
-        //{
-        //    PlayerGhost tempGhost = Instantiate(ghost, currentLevel.ghostPos[0], Quaternion.identity);
-        //    tempGhost.Init(currentLevel.ghostPos);
-        //}
     }
 
     public void StartLevel(int index)

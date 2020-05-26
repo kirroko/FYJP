@@ -13,7 +13,6 @@ public class Level : ScriptableObject
     public int levelNum = 0;
     public LevelData data = null;//Updated in EndLevel() of lvlManager ///< this is data that will be serialized by the save system
     public ColorManager colorList = null;///< The Colors the player can use
-    [HideInInspector] public List<Vector3> ghostPos = new List<Vector3>();//Updated when player finish the level faster than last time
     [HideInInspector] public int numCollected = 0;
     [HideInInspector] public int enemiesKilled = 0;
 
@@ -62,6 +61,5 @@ public class Level : ScriptableObject
         Debug.Log(name);
         Debug.Log("Fastest Time: " + data.fastestTime);
         Debug.Log("Stars Collected: " + data.numStars);
-        Debug.Log("Num Ghost Pos: " + ghostPos.Count);
     }
 }

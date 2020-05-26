@@ -375,7 +375,7 @@ public class LevelManager : MonoBehaviour
         start = false;
         currentLevel.numCollected = 0;
         elapsedTime = 0f;
-        currentLevel.numToKill = 0;
+        currentLevel.enemiesKilled = 0;
     }
 
     public void StartLevel()

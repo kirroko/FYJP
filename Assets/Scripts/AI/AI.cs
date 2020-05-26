@@ -83,7 +83,9 @@ public class AI : Respawnable
 
     private float defaultGravity = 0f;
 
-    protected SpriteRenderer sr;
+    protected Vector3 startPos = new Vector3();
+
+    protected SpriteRenderer sr = null;
 
     protected override void Start()
     {
@@ -92,6 +94,7 @@ public class AI : Respawnable
         speed = moveSpeed;
         defaultGravity = GetComponent<Rigidbody2D>().gravityScale;
         sr = GetComponent<SpriteRenderer>();
+        startPos = transform.position;
     }
 
     protected virtual void Update()
@@ -195,6 +198,8 @@ public class AI : Respawnable
         speed = moveSpeed;
 
         dead = false;
+
+        transform.position = startPos;
     }
 
     protected override void TriggerRespawnAllEvent()

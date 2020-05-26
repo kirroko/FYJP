@@ -13,7 +13,8 @@ public class EndPoint : MonoBehaviour
     {
         GetComponent<Animator>().SetTrigger("Close");
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Exit");
-        StartCoroutine(DelaySceneChange(0.6f));
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().ForceGravityToZero();
+        StartCoroutine(DelaySceneChange(0.5f));
     }
 
     private IEnumerator DelaySceneChange(float time)

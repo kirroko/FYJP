@@ -85,7 +85,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: dc74d5b38cd2e4d4eb4f1e121084d58b, type: 3}
   - audioName: Hurt
     type: 1
-    clip: {fileID: 8300000, guid: 9784319307d766d48912f5802117bec2, type: 3}
+    clip: {fileID: 8300000, guid: 61d348479d8ee43439e3e1bb53899f5c, type: 3}
   - audioName: Death
     type: 1
     clip: {fileID: 8300000, guid: 443a285d99edd7641bda389faced4cec, type: 3}

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7124136600914732512}
   - component: {fileID: 8015645242827564086}
   - component: {fileID: 7970329506604838823}
-  m_Layer: 0
-  m_Name: Arm-Blue-Left-End
+  m_Layer: 8
+  m_Name: Left Blue Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

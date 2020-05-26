@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1594864444866676741}
   - component: {fileID: 7394237193718579985}
   - component: {fileID: 2385849035821567509}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spike Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 4853169847598270134}
   - component: {fileID: 2020160772694170902}
   - component: {fileID: 5016902242902785548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Middle Spike Hang 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8538587496725307643}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:

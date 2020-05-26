@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5445170963747019677}
   - component: {fileID: 3990165982445235335}
   - component: {fileID: -3500682438469031917}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Purple Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

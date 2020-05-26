@@ -1271,7 +1271,7 @@ GameObject:
   - component: {fileID: 477705796}
   - component: {fileID: 477705795}
   - component: {fileID: 477705794}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bg_seamless
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1793,7 +1793,7 @@ GameObject:
   - component: {fileID: 816247125}
   - component: {fileID: 816247127}
   - component: {fileID: 816247126}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bg_seamless (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3447,7 +3447,7 @@ GameObject:
   - component: {fileID: 1182179219}
   - component: {fileID: 1182179221}
   - component: {fileID: 1182179220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bg_seamless (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4806,7 +4806,7 @@ GameObject:
   - component: {fileID: 1530926900}
   - component: {fileID: 1530926899}
   - component: {fileID: 1530926898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bg_seamless (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5783,11 +5783,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070297629261575621, guid: 43014a7be23bd094a8e07698d35779a2,
-        type: 3}
-      propertyPath: dashCDDuration
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8070297629261575623, guid: 43014a7be23bd094a8e07698d35779a2,
         type: 3}

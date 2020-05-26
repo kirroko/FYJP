@@ -5084,6 +5084,9 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 2048
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 8448
   maxSpeed: 9
   maxAccel: 25
   maxAirSpeed: 9

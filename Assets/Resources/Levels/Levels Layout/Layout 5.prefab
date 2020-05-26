@@ -12752,7 +12752,6 @@ Transform:
   - {fileID: 4352591289809639878}
   - {fileID: 705120100207780213}
   - {fileID: 1884461700068428300}
-  - {fileID: 5184397586445395691}
   - {fileID: 3009444000632819533}
   m_Father: {fileID: 4676752493220995238}
   m_RootOrder: 0
@@ -38204,6 +38203,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Tile 3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38279,6 +38283,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 6914717232637592549, guid: 154438df989760e41981cc7ede951f2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8535908023720974847, guid: 154438df989760e41981cc7ede951f2c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38353,6 +38362,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Spike Ground 2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561020962415345483, guid: 89c3a76e8c4d30f4993ab34295f69168,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6760807354111088203, guid: 89c3a76e8c4d30f4993ab34295f69168,
         type: 3}
@@ -39481,6 +39495,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Tile 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -40041,16 +40060,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3802306334333001175, guid: d929ae0bfbbf99f4d8e87d684a212b2c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3802306334333001175, guid: d929ae0bfbbf99f4d8e87d684a212b2c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d929ae0bfbbf99f4d8e87d684a212b2c, type: 3}
 --- !u!4 &4508321192142427026 stripped
@@ -40150,6 +40159,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
         type: 3}
@@ -40912,16 +40926,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 140952631052174535, guid: 332a2cb55643a434780d881e7e833fd2,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 140952631052174535, guid: 332a2cb55643a434780d881e7e833fd2,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 264562807280710145, guid: 332a2cb55643a434780d881e7e833fd2,
         type: 3}
       propertyPath: m_Name
@@ -40946,6 +40950,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897454761388874257, guid: 7129d680a680157489ae072792991ffe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8848976293871709838, guid: 7129d680a680157489ae072792991ffe,
         type: 3}
@@ -41274,6 +41283,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
         type: 3}
@@ -41905,6 +41919,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Tile 3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42295,6 +42314,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5248607024463202880}
     m_Modifications:
+    - target: {fileID: 490126793419778419, guid: f70eea1641715d442b7fab3d7437bfa5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1106973224071080166, guid: f70eea1641715d442b7fab3d7437bfa5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42355,6 +42379,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Spike Hang (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2248488282917600269, guid: f70eea1641715d442b7fab3d7437bfa5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f70eea1641715d442b7fab3d7437bfa5, type: 3}
 --- !u!4 &2008357276592497295 stripped
@@ -42374,6 +42403,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
         type: 3}
@@ -42449,6 +42483,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897454761388874257, guid: 7129d680a680157489ae072792991ffe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8848976293871709838, guid: 7129d680a680157489ae072792991ffe,
         type: 3}
@@ -42805,16 +42844,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 312609387355633431, guid: 9ea8b7fc9500006479c2b0fc090600fe,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 312609387355633431, guid: 9ea8b7fc9500006479c2b0fc090600fe,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2679050628287591892, guid: 9ea8b7fc9500006479c2b0fc090600fe,
         type: 3}
       propertyPath: m_Name
@@ -43168,7 +43197,7 @@ PrefabInstance:
     - target: {fileID: 5442955830515392855, guid: 09bb76bd705bfcc408264f944a9ae411,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8621888293410175165, guid: 09bb76bd705bfcc408264f944a9ae411,
         type: 3}
@@ -43488,7 +43517,7 @@ PrefabInstance:
     - target: {fileID: 2611839009139842632, guid: f5898bf681c0f294bb3d73c28de36536,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3458465808410433318, guid: f5898bf681c0f294bb3d73c28de36536,
         type: 3}
@@ -43940,16 +43969,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8624467331155513475, guid: fe3dcecaf35b57247a9ab0a7ed16480c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8624467331155513475, guid: fe3dcecaf35b57247a9ab0a7ed16480c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe3dcecaf35b57247a9ab0a7ed16480c, type: 3}
 --- !u!4 &7638706004976796249 stripped
@@ -44209,6 +44228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897454761388874257, guid: 7129d680a680157489ae072792991ffe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8848976293871709838, guid: 7129d680a680157489ae072792991ffe,
         type: 3}
@@ -44830,6 +44854,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 977264042137698762, guid: 86c24943dc6e7ab43a0fea86fdd541be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3433318597037048048, guid: 86c24943dc6e7ab43a0fea86fdd541be,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44905,6 +44934,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Tile 2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4897454761388874257, guid: 7129d680a680157489ae072792991ffe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8848976293871709838, guid: 7129d680a680157489ae072792991ffe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44979,6 +45013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
         type: 3}
@@ -45130,6 +45169,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Spike Hang 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6903578080164752745, guid: bcb6d76a578b2ca4a90a1694bae9fc8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7270623657879334902, guid: bcb6d76a578b2ca4a90a1694bae9fc8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45184,6 +45228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516084661229588966, guid: bcb6d76a578b2ca4a90a1694bae9fc8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcb6d76a578b2ca4a90a1694bae9fc8f, type: 3}
@@ -46220,16 +46269,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 336074842815741041, guid: b8dc395588c67d245b06ee50459c63cc,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 336074842815741041, guid: b8dc395588c67d245b06ee50459c63cc,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3299393563289710197, guid: b8dc395588c67d245b06ee50459c63cc,
         type: 3}
       propertyPath: m_Name
@@ -46304,16 +46343,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 336074842815741041, guid: f148105c0d0659b4c9a36915a095b731,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 336074842815741041, guid: f148105c0d0659b4c9a36915a095b731,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3299393563289710197, guid: f148105c0d0659b4c9a36915a095b731,
         type: 3}
@@ -46635,6 +46664,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Spike Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 7263922878948597420, guid: 8627f15614c94d640bd8bd29ed8df91c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150518540848960243, guid: 8627f15614c94d640bd8bd29ed8df91c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8627f15614c94d640bd8bd29ed8df91c, type: 3}
 --- !u!4 &959025370884174976 stripped
@@ -46722,81 +46761,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3458465808410433318, guid: f5898bf681c0f294bb3d73c28de36536,
     type: 3}
   m_PrefabInstance: {fileID: 3313419605924072913}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &3326667863010563041
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8019723426111886248}
-    m_Modifications:
-    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
-        type: 3}
-      propertyPath: m_Name
-      value: Middle Tile 3 (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -76
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -19
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 28ddb449de36c4742a95d1e47883fa5c, type: 3}
---- !u!4 &5184397586445395691 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3326667863010563041}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3331472084523236823
 PrefabInstance:
@@ -46950,16 +46914,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3802306334333001175, guid: 407a3c98c896c9743a3cc8bd6be22bf0,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3802306334333001175, guid: 407a3c98c896c9743a3cc8bd6be22bf0,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 407a3c98c896c9743a3cc8bd6be22bf0, type: 3}
 --- !u!4 &1888653675762436003 stripped
@@ -47110,10 +47064,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3594053677713314856, guid: 01f0e8616e2a26043a3558f4e6a3f583,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6994524578979469389, guid: 01f0e8616e2a26043a3558f4e6a3f583,
         type: 3}
       propertyPath: m_Name
       value: Right Spike Hang (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994524578979469389, guid: 01f0e8616e2a26043a3558f4e6a3f583,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01f0e8616e2a26043a3558f4e6a3f583, type: 3}
@@ -47370,6 +47334,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Tile 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4897454761388874257, guid: 7129d680a680157489ae072792991ffe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8848976293871709838, guid: 7129d680a680157489ae072792991ffe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -47519,6 +47488,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Turn Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442955830515392855, guid: 09bb76bd705bfcc408264f944a9ae411,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8621888293410175165, guid: 09bb76bd705bfcc408264f944a9ae411,
         type: 3}
@@ -47750,6 +47724,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Spike Ground 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6561020962415345483, guid: 89c3a76e8c4d30f4993ab34295f69168,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6760807354111088203, guid: 89c3a76e8c4d30f4993ab34295f69168,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -47824,6 +47803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897454761388874257, guid: 7129d680a680157489ae072792991ffe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8848976293871709838, guid: 7129d680a680157489ae072792991ffe,
         type: 3}
@@ -48034,6 +48018,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Spike Ground 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105260267961282836, guid: 94f1cbcc039106644b4b507b24dbb208,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94f1cbcc039106644b4b507b24dbb208, type: 3}
@@ -48279,6 +48268,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914717232637592549, guid: 154438df989760e41981cc7ede951f2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8535908023720974847, guid: 154438df989760e41981cc7ede951f2c,
         type: 3}
@@ -48880,6 +48874,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Flipping Tile (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7686654170774383029, guid: 45f3da905971e8946955a4642b85bd8b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45f3da905971e8946955a4642b85bd8b, type: 3}
 --- !u!4 &2123579380402927193 stripped
@@ -49069,6 +49068,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 977264042137698762, guid: 86c24943dc6e7ab43a0fea86fdd541be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3433318597037048048, guid: 86c24943dc6e7ab43a0fea86fdd541be,
         type: 3}
@@ -49477,6 +49481,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Tile 2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4897454761388874257, guid: 7129d680a680157489ae072792991ffe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8848976293871709838, guid: 7129d680a680157489ae072792991ffe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -49632,6 +49641,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Tile 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4897454761388874257, guid: 7129d680a680157489ae072792991ffe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8848976293871709838, guid: 7129d680a680157489ae072792991ffe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -49707,6 +49721,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Spike Hang 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6903578080164752745, guid: bcb6d76a578b2ca4a90a1694bae9fc8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7270623657879334902, guid: bcb6d76a578b2ca4a90a1694bae9fc8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -49761,6 +49780,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516084661229588966, guid: bcb6d76a578b2ca4a90a1694bae9fc8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcb6d76a578b2ca4a90a1694bae9fc8f, type: 3}
@@ -49997,16 +50021,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8624467331155513475, guid: 010e5958e4cadff4e981cdde65999a17,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8624467331155513475, guid: 010e5958e4cadff4e981cdde65999a17,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 010e5958e4cadff4e981cdde65999a17, type: 3}
 --- !u!4 &5313762142581999187 stripped
@@ -50106,6 +50120,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Spike Hang 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578126456909530721, guid: dea1f1bb8a1180444805448c5758a80b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525252493507525475, guid: dea1f1bb8a1180444805448c5758a80b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8950009023237715906, guid: dea1f1bb8a1180444805448c5758a80b,
         type: 3}
@@ -50256,6 +50280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Spike Ground 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561020962415345483, guid: 89c3a76e8c4d30f4993ab34295f69168,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6760807354111088203, guid: 89c3a76e8c4d30f4993ab34295f69168,
         type: 3}
@@ -50487,6 +50516,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 977264042137698762, guid: 86c24943dc6e7ab43a0fea86fdd541be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3433318597037048048, guid: 86c24943dc6e7ab43a0fea86fdd541be,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -50711,6 +50745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
         type: 3}
@@ -51016,6 +51055,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Tile (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 977264042137698762, guid: 86c24943dc6e7ab43a0fea86fdd541be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3433318597037048048, guid: 86c24943dc6e7ab43a0fea86fdd541be,
         type: 3}
@@ -51727,6 +51771,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Tile 2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4897454761388874257, guid: 7129d680a680157489ae072792991ffe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8848976293871709838, guid: 7129d680a680157489ae072792991ffe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52407,16 +52456,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8562987326786278630, guid: 7a148b789df7d6a46b44c05102f2cd21,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8562987326786278630, guid: 7a148b789df7d6a46b44c05102f2cd21,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a148b789df7d6a46b44c05102f2cd21, type: 3}
 --- !u!4 &4608510092700343747 stripped
@@ -52757,6 +52796,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Spike Hang 2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6903578080164752745, guid: bcb6d76a578b2ca4a90a1694bae9fc8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7121520481491461571, guid: bcb6d76a578b2ca4a90a1694bae9fc8f,
         type: 3}
       propertyPath: m_SortingOrder
@@ -52816,6 +52860,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516084661229588966, guid: bcb6d76a578b2ca4a90a1694bae9fc8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcb6d76a578b2ca4a90a1694bae9fc8f, type: 3}
@@ -52915,7 +52964,7 @@ PrefabInstance:
     - target: {fileID: 7117776209395015665, guid: 8b3a30fa8544712448202ac979013946,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7117776209395015667, guid: 8b3a30fa8544712448202ac979013946,
         type: 3}
@@ -52955,7 +53004,7 @@ PrefabInstance:
     - target: {fileID: 7117776209395015667, guid: 8b3a30fa8544712448202ac979013946,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7117776209395015667, guid: 8b3a30fa8544712448202ac979013946,
         type: 3}
@@ -53071,6 +53120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897454761388874257, guid: 7129d680a680157489ae072792991ffe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8848976293871709838, guid: 7129d680a680157489ae072792991ffe,
         type: 3}
@@ -53321,6 +53375,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Flipiing Tile (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 238433836753903120, guid: 0b2fe060cd23786468b47f36636a3b24,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5108769013672559686, guid: 0b2fe060cd23786468b47f36636a3b24,
         type: 3}
@@ -54006,6 +54065,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Spike Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989520018956602109, guid: 8795a09e6e0b0a641b949a5c064f9d2f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336153626350443780, guid: 8795a09e6e0b0a641b949a5c064f9d2f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8795a09e6e0b0a641b949a5c064f9d2f, type: 3}
@@ -54800,15 +54869,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aef0eca985091014ab525f80f2c6a1de, type: 3}
---- !u!4 &842021139072011287 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6451908035802416885, guid: aef0eca985091014ab525f80f2c6a1de,
-    type: 3}
-  m_PrefabInstance: {fileID: 5919627594465807074}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &842021139072011291 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6451908035802416889, guid: aef0eca985091014ab525f80f2c6a1de,
+    type: 3}
+  m_PrefabInstance: {fileID: 5919627594465807074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &842021139072011287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6451908035802416885, guid: aef0eca985091014ab525f80f2c6a1de,
     type: 3}
   m_PrefabInstance: {fileID: 5919627594465807074}
   m_PrefabAsset: {fileID: 0}
@@ -54968,6 +55037,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Purple Arm (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679050628287591892, guid: 1bddd020ac24aa841b9289dc6b456951,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bddd020ac24aa841b9289dc6b456951, type: 3}
@@ -55389,6 +55463,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Tile (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6914717232637592549, guid: 154438df989760e41981cc7ede951f2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8535908023720974847, guid: 154438df989760e41981cc7ede951f2c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -55783,6 +55862,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Tile (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914717232637592549, guid: 154438df989760e41981cc7ede951f2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8535908023720974847, guid: 154438df989760e41981cc7ede951f2c,
         type: 3}
@@ -56337,7 +56421,7 @@ PrefabInstance:
     - target: {fileID: 5442955830515392855, guid: 09bb76bd705bfcc408264f944a9ae411,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8621888293410175165, guid: 09bb76bd705bfcc408264f944a9ae411,
         type: 3}
@@ -56657,7 +56741,7 @@ PrefabInstance:
     - target: {fileID: 2611839009139842632, guid: f5898bf681c0f294bb3d73c28de36536,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3458465808410433318, guid: f5898bf681c0f294bb3d73c28de36536,
         type: 3}
@@ -57204,6 +57288,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Spike Ground 2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561020962415345483, guid: 89c3a76e8c4d30f4993ab34295f69168,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6760807354111088203, guid: 89c3a76e8c4d30f4993ab34295f69168,
         type: 3}
@@ -57915,6 +58004,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Tile 2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4897454761388874257, guid: 7129d680a680157489ae072792991ffe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8848976293871709838, guid: 7129d680a680157489ae072792991ffe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58315,6 +58409,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Tile 3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58448,7 +58547,7 @@ PrefabInstance:
     - target: {fileID: 3766453582831960697, guid: 0a9abb78d151fa444a144a5f9fd1572e,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a9abb78d151fa444a144a5f9fd1572e, type: 3}
@@ -58850,16 +58949,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 140952631052174535, guid: 222fdeb549dbee443b9b2775be71e588,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 140952631052174535, guid: 222fdeb549dbee443b9b2775be71e588,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 264562807280710145, guid: 222fdeb549dbee443b9b2775be71e588,
         type: 3}
       propertyPath: m_Name
@@ -59180,18 +59269,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8562987326786278630, guid: 2c23eafe244bf9f4f93afb09f5e8956c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8562987326786278630, guid: 2c23eafe244bf9f4f93afb09f5e8956c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1747638217839615542, guid: 2c23eafe244bf9f4f93afb09f5e8956c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c23eafe244bf9f4f93afb09f5e8956c, type: 3}
 --- !u!4 &2137690596014706218 stripped
 Transform:
@@ -59365,6 +59443,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
         type: 3}
@@ -59967,16 +60050,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 312609387355633431, guid: 0e2501d2c2046b543a81c96950c081c7,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 312609387355633431, guid: 0e2501d2c2046b543a81c96950c081c7,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2679050628287591892, guid: 0e2501d2c2046b543a81c96950c081c7,
         type: 3}
       propertyPath: m_Name
@@ -60162,6 +60235,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Spike Hang 2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6903578080164752745, guid: bcb6d76a578b2ca4a90a1694bae9fc8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7270623657879334902, guid: bcb6d76a578b2ca4a90a1694bae9fc8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -60216,6 +60294,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516084661229588966, guid: bcb6d76a578b2ca4a90a1694bae9fc8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcb6d76a578b2ca4a90a1694bae9fc8f, type: 3}
@@ -60471,6 +60554,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 3 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
         type: 3}
@@ -61164,23 +61252,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 140952631052174535, guid: 4aa1c47245649cf458202251f5569f53,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 140952631052174535, guid: 4aa1c47245649cf458202251f5569f53,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 264562807280710145, guid: 4aa1c47245649cf458202251f5569f53,
         type: 3}
       propertyPath: m_Name
       value: Left Green Tile
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -1593447584316803746, guid: 4aa1c47245649cf458202251f5569f53, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aa1c47245649cf458202251f5569f53, type: 3}
 --- !u!4 &8503371122770012741 stripped
 Transform:
@@ -61254,16 +61331,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8562987326786278630, guid: 299d12deada4e374a8359e79465191ea,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8562987326786278630, guid: 299d12deada4e374a8359e79465191ea,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 299d12deada4e374a8359e79465191ea, type: 3}
@@ -61775,6 +61842,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Middle Tile 3 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3381578867144915253, guid: 28ddb449de36c4742a95d1e47883fa5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7626877755032581386, guid: 28ddb449de36c4742a95d1e47883fa5c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -62004,6 +62076,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Tile 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897454761388874257, guid: 7129d680a680157489ae072792991ffe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8848976293871709838, guid: 7129d680a680157489ae072792991ffe,
         type: 3}
@@ -62285,18 +62362,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3802306334333001175, guid: 31470ad51e57e344daecd26613d277f8,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3802306334333001175, guid: 31470ad51e57e344daecd26613d277f8,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -3925957183268415135, guid: 31470ad51e57e344daecd26613d277f8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31470ad51e57e344daecd26613d277f8, type: 3}
 --- !u!4 &5260278509244276817 stripped
 Transform:
@@ -62561,6 +62627,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Tile (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6914717232637592549, guid: 154438df989760e41981cc7ede951f2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8535908023720974847, guid: 154438df989760e41981cc7ede951f2c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -62635,6 +62706,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Tile (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 977264042137698762, guid: 86c24943dc6e7ab43a0fea86fdd541be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3433318597037048048, guid: 86c24943dc6e7ab43a0fea86fdd541be,
         type: 3}

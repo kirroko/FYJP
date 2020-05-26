@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] private ParticleSystem dust = null;
     [SerializeField] private LayerMask wallLayer = 0;
+    [SerializeField] private LayerMask floorLayer = 0;
 
     [Header("Movement")]
     [SerializeField] private float maxSpeed = 6f; // The max velocity
@@ -176,8 +178,9 @@ public class PlayerMovement : MonoBehaviour
     {
         bool temp = false; // THIS HAVE PROBLEMS MIGHT NEED FIXING SOMEDAY
         Vector3 xExtent = new Vector3(collider.bounds.extents.x, 0f, 0f);
-        if (Physics2D.Raycast(collider.bounds.center + xExtent, Vector2.down, collider.bounds.extents.y + 0.1f) ||
-           Physics2D.Raycast(collider.bounds.center - xExtent, Vector2.down, collider.bounds.extents.y + 0.1f))
+        RaycastHit2D hit = Physics2D.Raycast(collider.bounds.center + xExtent, Vector2.down, collider.bounds.extents.y + 0.1f,floorLayer);
+        RaycastHit2D hit2 = Physics2D.Raycast(collider.bounds.center - xExtent, Vector2.down, collider.bounds.extents.y + 0.1f,floorLayer);
+        if ((hit || hit2))
             temp = true;
 
         // VISUAL EFFECTS (DUST)

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1862686144596869154}
   - component: {fileID: 9066995785624067469}
   - component: {fileID: 1379115912213243083}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Flipping Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7686654170774383029}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []

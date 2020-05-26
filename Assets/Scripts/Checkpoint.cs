@@ -44,6 +44,9 @@ public class Checkpoint : MonoBehaviour
         StartCoroutine(TextResponse());
     }
 
+    /**
+     * This Function is called when the player hits a checkpoint
+     */
     private void CheckpointEvent(GameObject me)
     {
         if (me == gameObject) return;
@@ -78,6 +81,9 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
+    /**
+     * This function is used to show the Checkpoint Reached Text
+     */ 
     private IEnumerator TextResponse()
     {
         while(activatedText.transform.position.y <= raiseHeight)

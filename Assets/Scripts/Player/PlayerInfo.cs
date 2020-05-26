@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This Class Deals with information Related to Player such as health, invincibility
+ */
 public class PlayerInfo : MonoBehaviour
 {
     public bool IsInvincible
@@ -57,6 +60,9 @@ public class PlayerInfo : MonoBehaviour
         }
     }
 
+    /**
+     * To Deal Damage To Player Use This Function 
+     */
     public void TakeDamage(int damage, float knockbackForce)
     {
         if (isInvincible) return;

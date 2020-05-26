@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Use This Script if there are Sprites that needs to be swapped
+ */
 public class SwapSprites : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites = null;

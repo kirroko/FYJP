@@ -18,7 +18,7 @@ MonoBehaviour:
     unlocked: 1
     numStars: 0
     fastestTime: Infinity
-  colorList: {fileID: 11400000, guid: e9c8489514f77f741aac3b781d644822, type: 2}
+  colorList: {fileID: 0}
   numCollected: 0
   enemiesKilled: 0
   starTime: 150

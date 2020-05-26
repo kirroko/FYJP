@@ -110,7 +110,10 @@ public class LevelManager : MonoBehaviour
             AI[] enemies = level.layout.transform.GetComponentsInChildren<AI>();
             level.numToKill = Mathf.RoundToInt(enemies.Length * level.percentToKill);
             if (enemies.Length > 0 && level.numToKill == 0)
+            {
+                Debug.Log(level.numToKill);
                 level.numToKill = 1;
+            }
 
             //Check if the file data has be created before if not create it else load it
             LevelData levelData = SaveSystem.LoadLevel("Level " + level.levelNum);
@@ -368,7 +371,9 @@ public class LevelManager : MonoBehaviour
     {
         SaveSystem.DeleteAllSaveData();
         InitLevelData();
-        PlayerManager.instance.InitData();
+        //PlayerManager.instance.InitData();
+
+        EventManager.instance.TriggerUpdatePaintingBorderEvent();
     }
 
     /// Called in result screen scene

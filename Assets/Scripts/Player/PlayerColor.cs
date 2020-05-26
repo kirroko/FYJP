@@ -62,8 +62,6 @@ public class PlayerColor : MonoBehaviour
         UpdateColorUI();
 
         // REFERENCE CODE
-        vol = Camera.main.GetComponent<Volume>();
-        vol.profile.TryGet(out colorAdjust);
         sr = GetComponent<SpriteRenderer>();
     }
 
@@ -72,7 +70,8 @@ public class PlayerColor : MonoBehaviour
         if (vol == null)
         {
             vol = Camera.main.GetComponent<Volume>();
-            vol.profile.TryGet(out colorAdjust);
+            if(vol != null)
+                vol.profile.TryGet(out colorAdjust);
         }
 
         //Input detected
@@ -260,7 +259,8 @@ public class PlayerColor : MonoBehaviour
 
     private void ToggleVisualEffect()
     {
-        colorAdjust.colorFilter.value = colorsEffects[0];
+        if(colorAdjust != null)
+            colorAdjust.colorFilter.value = colorsEffects[0];
     }
     /**
      * This function changes the color overlay when player is selecting color

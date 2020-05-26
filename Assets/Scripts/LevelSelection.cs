@@ -22,6 +22,9 @@ public class LevelSelection : MonoBehaviour
 
     private void Start()
     {
+        EventManager.instance.updatePaintingBorderEvent -= UpdatePaintingBorderEvent;
+        EventManager.instance.updatePaintingBorderEvent += UpdatePaintingBorderEvent;
+
         GetComponent<Collider2D>().isTrigger = true;
 
         holdTime = holdDuration;
@@ -60,6 +63,11 @@ public class LevelSelection : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        EventManager.instance.updatePaintingBorderEvent -= UpdatePaintingBorderEvent;
+    }
+
     /**
      * This Delay is used so that the animation can play finish before the player enter the game
      */
@@ -71,5 +79,18 @@ public class LevelSelection : MonoBehaviour
         LevelManager.instance.StartLevel(level.levelNum - 1);
         LevelManager.instance.CurrentLevel.fullSprite = GetComponent<SpriteRenderer>().sprite;
         player.GetComponent<PlayerMovement>().ResetGravityToDefault();
+    }
+
+    /**
+     * This function is called when the player clear all save data
+     */
+    private void UpdatePaintingBorderEvent()
+    {
+        frame.GetComponent<SpriteRenderer>().sprite = frameSprites[Mathf.Clamp(level.data.numStars - 1, 0, 2)];
+
+        if (level.data.unlocked)
+            lockRef.SetActive(false);
+        else
+            frame.GetComponent<SpriteRenderer>().sprite = frameSprites[3];
     }
 }

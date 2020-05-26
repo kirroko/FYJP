@@ -40,6 +40,7 @@ public class EventManager : MonoBehaviour
     public event Action<bool> updateHUDEvent = null;
     public event Action<GameObject, COLORS> setPlatformEvent = null;
     public event Action resetPlatformsEvent = null;
+    public event Action updatePaintingBorderEvent = null;
 
     private void Awake()
     {
@@ -136,5 +137,11 @@ public class EventManager : MonoBehaviour
     {
         if (resetPlatformsEvent != null)
             resetPlatformsEvent();
+    }
+
+    public void TriggerUpdatePaintingBorderEvent()
+    {
+        if (updatePaintingBorderEvent != null)
+            updatePaintingBorderEvent();
     }
 }

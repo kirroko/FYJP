@@ -47,6 +47,13 @@ public class PlayerManager : MonoBehaviour
             ColorData colorData = SaveSystem.LoadColor(color.ToString());
             if(colorData == null)
             {
+                foreach(BaseColor playerColor in colorManager.colorList.Values)
+                {
+                    if (playerColor.GetMain == COLORS.WHITE)
+                        playerColor.IsLocked = false;
+                    else
+                        playerColor.IsLocked = true;
+                }
                 SaveSystem.SaveColor(colorManager.colorList[color]);
             }
             else

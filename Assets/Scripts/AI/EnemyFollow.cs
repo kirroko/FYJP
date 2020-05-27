@@ -1,6 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+/**
+ * This class is a sub class to AI. This class is meant to look for the player and follow the player
+ * till it reach the player ultimately killing the gameobject.
+ * 
+ * 
+ */
 
 public class EnemyFollow : AI
 {

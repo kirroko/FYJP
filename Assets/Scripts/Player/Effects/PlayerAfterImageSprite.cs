@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This class handles the afterimage creative known as mirage. It's main objective is to disperse after
+ * a given time that is determined in the inspector.
+ * 
+ * It'll take the current sprite from the gaemobject with a tag "Player" and reduce it's alpha value to create
+ * the illusion of a mirage
+ * 
+ */
 public class PlayerAfterImageSprite : MonoBehaviour
 {
     // VALUES
@@ -21,6 +29,9 @@ public class PlayerAfterImageSprite : MonoBehaviour
 
     private Color color;
 
+    /**
+     * This Function is for safety. When there is no gameobject with a tag "Player", it will not initialize
+     */
     private void OnEnable()
     {
         if (GameObject.FindGameObjectWithTag("Player") != null)

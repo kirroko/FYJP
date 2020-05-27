@@ -4,6 +4,12 @@ using System.Collections;
 using UnityEngine.Assertions.Must;
 using System.CodeDom;
 
+/**
+ * This class is a parent class to all AI sub-class
+ * 
+ * Anything related to the enemy's AI is written here
+ */
+
 public class AI : Respawnable
 {
     public bool IsStunned
@@ -160,6 +166,13 @@ public class AI : Respawnable
             Physics2D.IgnoreCollision(collision.otherCollider, collision.collider);
     }
 
+    /**
+     * This function handles enemies death, that includes and not limited to;
+     * 
+     * Animation, sound, data capturing
+     * 
+     * This function is called in player's color script
+     */
     public void Die()
     {
         //Gone();
@@ -182,6 +195,12 @@ public class AI : Respawnable
         dead = true;
     }
 
+    /**
+     * This Function is called whenever the player dies and the level needs to reset the enemy to it's
+     * default setting.
+     * 
+     * It will reset collider, gravity scale, tagging information, speed and position.
+     */
     protected override void TriggerRespawnEvent()
     {
         base.TriggerRespawnEvent();
@@ -207,6 +226,7 @@ public class AI : Respawnable
         base.TriggerRespawnAllEvent();
 
         gameObject.GetComponent<Collider2D>().enabled = true;
+        
         dead = false;
     }
 }

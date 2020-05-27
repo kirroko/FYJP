@@ -1,6 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+/**
+ * This class is a sub class to AI. It main reason is to allow the gameobject to jump up and down at
+ * a set interval deteremind in the inspector
+ */
 
 public class JumpingAI : AI
 {

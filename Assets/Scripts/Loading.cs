@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
 
+/**
+ * This class handles all loading transition
+ * 
+ * it's reliant to eventmanager class.
+ * 
+ * Anything related to loading can be written here with callback.
+ */
 public class Loading : MonoBehaviour
 {
     private void Start()

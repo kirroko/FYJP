@@ -1,6 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+/**
+ * This class is sub class to AI. It's main objective is to patrol on any given floor with a set distance
+ * determined in the inspector. It will also change dir whenever it reach a wall or non-walkable space.
+ * 
+ * This AI has a toggle that will allow it to shoot
+ * 
+ */
+
 public class PatrolAI : AI
 {
     [Header("BUllets")]
@@ -75,6 +83,9 @@ public class PatrolAI : AI
        
     }
 
+    /**
+     * This Function is to reset the movement of patrol AI shooting is triggered
+     */
     private IEnumerator DelayReset(float time)
     {
         yield return new WaitForSeconds(time);

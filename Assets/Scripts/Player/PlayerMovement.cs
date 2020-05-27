@@ -5,6 +5,11 @@ using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 
+/**
+ * This class handles the player's movement that includes, Jumping, Dashing, Wall jumping.
+ * 
+ * Anything related to the player's movement can be written here.
+ */
 public class PlayerMovement : MonoBehaviour
 {
     public float GetLastXDir { get { return lastXDir; } }
@@ -20,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public float DefaultGravity { get { return defaultGravity; } }
 
     [Header("References")]
-    [SerializeField] private ParticleSystem dust = null;
+    [SerializeField] private ParticleSystem dust = null; /// < Set for visual effects.
     [SerializeField] private LayerMask wallLayer = 0;
     [SerializeField] private LayerMask floorLayer = 0;
 
@@ -68,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
     //Jumping
     private bool isGrounded = false;
     private bool isWallRiding = false;
-    private float controlCD = 0f;
+    private float controlCD = 0f; /// < When this value is positive, all control will be stopped. Needed if you want to stop the player from controling uncessary
 
     //Dashing
     private bool isDashing = false;
@@ -81,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
     private float DashFalloff = 0f;
 
     //misc
-    private bool forceGravity = false;
+    private bool forceGravity = false; /// < Set this to true if you wish to manually set the player's gravity scale
 
     private void Start()
     {
@@ -98,6 +103,17 @@ public class PlayerMovement : MonoBehaviour
         defaultGravity = rb.gravityScale;
     }
 
+    /**
+     * A Update function.
+     * 
+     * Inside this function handles; 
+     * All "cooldown" related codes
+     * Player's gravity scale
+     * Player's animation value
+     * Input handling
+     * Button handling
+     * Wall, Wall jumping and dash
+     */
     private void Update()
     {
         // COOLDOWN CODE
@@ -174,9 +190,18 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(transform.position - new Vector3(0, collider.bounds.extents.y, 0), new Vector2(facingDirection, 0) * (collider.bounds.extents.x + distanceToWall), Color.red);
     }
 
+    /** A FixedUpdate function
+     * 
+     * Inside this functions includes;
+     * All Physic related code
+     * Ground Checker
+     * Player's movement on ground 
+     * Player's movement in air
+     * Dash
+     */
     private void FixedUpdate()
     {
-        bool temp = false; // THIS HAVE PROBLEMS MIGHT NEED FIXING SOMEDAY
+        bool temp = false;
         Vector3 xExtent = new Vector3(collider.bounds.extents.x, 0f, 0f);
         RaycastHit2D hit = Physics2D.Raycast(collider.bounds.center + xExtent, Vector2.down, collider.bounds.extents.y + 0.1f,floorLayer);
         RaycastHit2D hit2 = Physics2D.Raycast(collider.bounds.center - xExtent, Vector2.down, collider.bounds.extents.y + 0.1f,floorLayer);
@@ -204,7 +229,14 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private static bool right = true;
+    /**
+     * This Function handles player's movement on ground
+     * 
+     * It orientate the player facing direction
+     * 
+     * It will stop all movement update if controlCD is up
+     */
+    private static bool right = true; // Helper variable
     private void Move()
     {
         // UPDATE DIRECTION
@@ -234,6 +266,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /**
+     * This function handles player's movement in air
+     * 
+     * It will not update sprite direction when wall riding is true
+     * 
+     * It will stop all movement update if controlCD is up
+     */
     private void AirMove()
     {
         // DON'T UPDATE DIRECTION WHEN WALLRIDING
@@ -327,15 +366,11 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(force, ForceMode2D.Impulse);
     }
 
-    IEnumerator PerformDash(float time, Vector2 dir)
-    {
-        yield return new WaitForSeconds(time);
-        rb.velocity = Vector2.zero;
-        Vector3 force = dir * dashSpeed;
-        force = Vector3.ClampMagnitude(force, dashSpeed);
-        rb.AddForce(force, ForceMode2D.Impulse);
-    }
-
+    /**
+     * This function is a helper function for wallJumping
+     * It'll cast two rays depending on the gameobject collider bounds; One center the other at the bottom.
+     * 
+     */
     private bool CastRayInDirection(int direction)
     {
         RaycastHit2D hit = Physics2D.Raycast(collider.bounds.center, new Vector2(direction, 0), collider.bounds.extents.x + distanceToWall, wallLayer);

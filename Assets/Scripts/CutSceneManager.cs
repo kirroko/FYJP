@@ -1,10 +1,13 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
+/** 
+ * This Class will handle any cutscene that is played via 'VideoPlayer' component
+ * 
+ * Anything related to playing cutscene can be written here
+ */
 public class CutSceneManager : MonoBehaviour
 {
     // References

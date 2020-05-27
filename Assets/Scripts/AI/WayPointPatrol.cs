@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This class is a sub-class to AI. It's main objective is move between to defined location given in the inspector
+ * 
+ * It can also wait a given time whenever it reaches one point before moving to the next waypoint. It can be set
+ * in the inspector
+ */
+
 public class WayPointPatrol : AI
 {
     [SerializeField] private Transform[] moveSpots = null;

@@ -19,7 +19,6 @@ public class ResultScreen : MonoBehaviour
     private void Awake()
     {
         lvlManager = LevelManager.instance;
-        ObjectReferences.instance.settings.SetActive(false);
         ObjectReferences.instance.gameObject.SetActive(false);
     }
 

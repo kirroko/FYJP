@@ -320,7 +320,11 @@ public class LevelManager : MonoBehaviour
         if(respawnItems)
         {
             currentLevel.numCollected = 0;
+            currentLevel.enemiesKilled = 0;
+            numCollectedAtCP = 0;
+            numKilledAtCP = 0;
             EventManager.instance.TriggerRespawnAllEvent();
+            EventManager.instance.TriggerCheckpointEvent(null);
         }
 
 
